@@ -2,10 +2,10 @@ pub use crate::fragments::{
     FoodDecisionCode, DECISION_NO_ACTION, DECISION_PICK_UP, DECISION_DROP,
 };
 use crate::fragments::{
-    Movement, Behavior, Carrying, Cooldown, FoodEncounter,
+    Velocity, Behavior, Carrying, Cooldown, FoodEncounter,
 };
 #[cfg(not(feature = "unreal"))]
-use crate::fragments::{AntFoodHit, FoodMutation, Position};
+use crate::fragments::{AntFoodHit, FoodMutation, Transform};
 #[cfg(not(feature = "unreal"))]
 use bevy_ecs::message::{MessageReader, MessageWriter};
 #[cfg(not(feature = "unreal"))]
@@ -29,7 +29,7 @@ pub const PICKUP_SEPARATION_DISTANCE: f32 = 50.0;
 /// Side effects: updates position, direction, cooldown, clears/sets carried handle.
 pub fn ant_food_decision(
     ant_position: &mut DVec3,
-    movement: &mut Movement,
+    velocity: &mut Velocity,
     cooldown: &mut Cooldown,
     carrying: &mut Carrying,
     behavior: &mut Behavior,
@@ -47,19 +47,23 @@ pub fn ant_food_decision(
         Some(enc) if is_carrying => {
             // Drop: ant is carrying and encounters loose food
             *ant_position = enc.encounter_position;
-            movement.direction = consume_ant_turn_direction(behavior, movement);
+            let speed = velocity.speed();
+            let new_dir = consume_ant_turn_direction(behavior, velocity);
+            velocity.value = new_dir * speed as f64;
             carrying.food_index = -1;
             cooldown.remaining_seconds =
-                compute_pickup_cooldown(PICKUP_SEPARATION_DISTANCE, movement.movement_speed);
+                compute_pickup_cooldown(PICKUP_SEPARATION_DISTANCE, speed);
             DECISION_DROP
         }
         Some(enc) if !is_carrying => {
             // Pick up: ant is not carrying, cooldown expired, food nearby
             *ant_position = enc.encounter_position;
-            movement.direction = consume_ant_turn_direction(behavior, movement);
+            let speed = velocity.speed();
+            let new_dir = consume_ant_turn_direction(behavior, velocity);
+            velocity.value = new_dir * speed as f64;
             carrying.food_index = enc.food_index;
             cooldown.remaining_seconds =
-                compute_pickup_cooldown(PICKUP_SEPARATION_DISTANCE, movement.movement_speed);
+                compute_pickup_cooldown(PICKUP_SEPARATION_DISTANCE, speed);
             DECISION_PICK_UP
         }
         _ => DECISION_NO_ACTION,
@@ -76,7 +80,7 @@ pub fn compute_pickup_cooldown(separation_distance: f32, movement_speed: f32) ->
 
 /// Compute a turn direction (180° + jitter) given current direction and RNG state.
 /// Consumes the random seed and returns new direction.
-fn consume_ant_turn_direction(behavior: &mut Behavior, movement: &Movement) -> DVec3 {
+fn consume_ant_turn_direction(behavior: &mut Behavior, velocity: &Velocity) -> DVec3 {
     // Simple LCG matching FRandomStream behavior:
     // FRandomStream uses: seed = seed * 196314165 + 907633515
     // FRandRange(-1,1) maps to: (seed & 0x7fffff) / 8388607.0 * 2.0 - 1.0
@@ -85,7 +89,7 @@ fn consume_ant_turn_direction(behavior: &mut Behavior, movement: &Movement) -> D
     let jitter_alpha = ((seed & 0x7fffff) as f32 / 8388607.0) * 2.0 - 1.0;
     behavior.random_seed = seed as i32;
 
-    compute_ant_turn_direction(movement.direction, jitter_alpha, behavior.turn_jitter_radians)
+    compute_ant_turn_direction(velocity.direction(), jitter_alpha, behavior.turn_jitter_radians)
 }
 
 /// Compute turn direction: 180° turn + jitter (matches C++ ComputeAntTurnDirection).
@@ -126,16 +130,16 @@ fn compute_ant_retarget_direction(direction: DVec3, jitter_radians: f32) -> DVec
 pub fn food_decision_system(
     mut hits: MessageReader<AntFoodHit>,
     mut food_mutations: MessageWriter<FoodMutation>,
-    mut ants: Query<(&mut Position, &mut Movement, &mut Carrying, &mut Behavior)>,
+    mut ants: Query<(&mut Transform, &mut Velocity, &mut Carrying, &mut Behavior)>,
     mut commands: Commands,
 ) {
     for hit in hits.read() {
-        let Ok((mut pos, mut mov, mut carry, mut behavior)) = ants.get_mut(hit.hitter_entity) else {
+        let Ok((mut transform, mut vel, mut carry, mut behavior)) = ants.get_mut(hit.hitter_entity) else {
             continue;
         };
 
         let old_food_index = carry.food_index;
-        let pos_before = pos.position;
+        let pos_before = transform.translation;
         let mut cd = Cooldown { remaining_seconds: 0.0 };
         let encounter = FoodEncounter {
             food_index: hit.hittable_index,
@@ -143,7 +147,7 @@ pub fn food_decision_system(
         };
 
         let decision = ant_food_decision(
-            &mut pos.position, &mut mov, &mut cd, &mut carry, &mut behavior,
+            &mut transform.translation, &mut vel, &mut cd, &mut carry, &mut behavior,
             Some(&encounter),
         );
 
@@ -162,11 +166,8 @@ pub fn food_decision_system(
 mod tests {
     use super::*;
 
-    fn make_components(carrying_food: bool) -> (Movement, Cooldown, Carrying, Behavior) {
-        let movement = Movement {
-            direction: DVec3::X,
-            movement_speed: 100.0,
-        };
+    fn make_components(carrying_food: bool) -> (Velocity, Cooldown, Carrying, Behavior) {
+        let velocity = Velocity::new(DVec3::X, 100.0);
         let cooldown = Cooldown { remaining_seconds: 0.0 };
         let carrying = if carrying_food {
             Carrying { food_index: 0 }
@@ -177,7 +178,7 @@ mod tests {
             turn_jitter_radians: std::f32::consts::FRAC_PI_2,
             random_seed: 42,
         };
-        (movement, cooldown, carrying, behavior)
+        (velocity, cooldown, carrying, behavior)
     }
 
     fn make_encounter() -> FoodEncounter {
@@ -190,99 +191,99 @@ mod tests {
     #[test]
     fn carrying_and_encounters_food_drops() {
         let mut pos = DVec3::new(100.0, 100.0, 0.0);
-        let (mut mov, mut cd, mut carry, mut beh) = make_components(true);
+        let (mut vel, mut cd, mut carry, mut beh) = make_components(true);
         let encounter = make_encounter();
-        let result = ant_food_decision(&mut pos, &mut mov, &mut cd, &mut carry, &mut beh, Some(&encounter));
+        let result = ant_food_decision(&mut pos, &mut vel, &mut cd, &mut carry, &mut beh, Some(&encounter));
         assert_eq!(result, DECISION_DROP);
     }
 
     #[test]
     fn drop_clears_carried_handle() {
         let mut pos = DVec3::new(100.0, 100.0, 0.0);
-        let (mut mov, mut cd, mut carry, mut beh) = make_components(true);
+        let (mut vel, mut cd, mut carry, mut beh) = make_components(true);
         let encounter = make_encounter();
-        ant_food_decision(&mut pos, &mut mov, &mut cd, &mut carry, &mut beh, Some(&encounter));
+        ant_food_decision(&mut pos, &mut vel, &mut cd, &mut carry, &mut beh, Some(&encounter));
         assert_eq!(carry.food_index, -1, "carried index should be cleared");
     }
 
     #[test]
     fn drop_sets_cooldown() {
         let mut pos = DVec3::new(100.0, 100.0, 0.0);
-        let (mut mov, mut cd, mut carry, mut beh) = make_components(true);
+        let (mut vel, mut cd, mut carry, mut beh) = make_components(true);
         let encounter = make_encounter();
-        ant_food_decision(&mut pos, &mut mov, &mut cd, &mut carry, &mut beh, Some(&encounter));
+        ant_food_decision(&mut pos, &mut vel, &mut cd, &mut carry, &mut beh, Some(&encounter));
         assert!(cd.remaining_seconds > 0.0, "cooldown should be set after drop");
     }
 
     #[test]
     fn drop_snaps_position_to_encounter() {
         let mut pos = DVec3::new(100.0, 100.0, 0.0);
-        let (mut mov, mut cd, mut carry, mut beh) = make_components(true);
+        let (mut vel, mut cd, mut carry, mut beh) = make_components(true);
         let encounter = make_encounter();
-        ant_food_decision(&mut pos, &mut mov, &mut cd, &mut carry, &mut beh, Some(&encounter));
+        ant_food_decision(&mut pos, &mut vel, &mut cd, &mut carry, &mut beh, Some(&encounter));
         assert_eq!(pos, encounter.encounter_position);
     }
 
     #[test]
     fn drop_changes_direction() {
         let mut pos = DVec3::new(100.0, 100.0, 0.0);
-        let (mut mov, mut cd, mut carry, mut beh) = make_components(true);
-        let original_dir = mov.direction;
+        let (mut vel, mut cd, mut carry, mut beh) = make_components(true);
+        let original_dir = vel.direction();
         let encounter = make_encounter();
-        ant_food_decision(&mut pos, &mut mov, &mut cd, &mut carry, &mut beh, Some(&encounter));
-        assert_ne!(mov.direction, original_dir, "direction should change on drop");
+        ant_food_decision(&mut pos, &mut vel, &mut cd, &mut carry, &mut beh, Some(&encounter));
+        assert_ne!(vel.direction(), original_dir, "direction should change on drop");
     }
 
     #[test]
     fn not_carrying_no_cooldown_encounters_food_picks_up() {
         let mut pos = DVec3::new(100.0, 100.0, 0.0);
-        let (mut mov, mut cd, mut carry, mut beh) = make_components(false);
+        let (mut vel, mut cd, mut carry, mut beh) = make_components(false);
         let encounter = make_encounter();
-        let result = ant_food_decision(&mut pos, &mut mov, &mut cd, &mut carry, &mut beh, Some(&encounter));
+        let result = ant_food_decision(&mut pos, &mut vel, &mut cd, &mut carry, &mut beh, Some(&encounter));
         assert_eq!(result, DECISION_PICK_UP);
     }
 
     #[test]
     fn pickup_sets_carried_handle() {
         let mut pos = DVec3::new(100.0, 100.0, 0.0);
-        let (mut mov, mut cd, mut carry, mut beh) = make_components(false);
+        let (mut vel, mut cd, mut carry, mut beh) = make_components(false);
         let encounter = make_encounter();
-        ant_food_decision(&mut pos, &mut mov, &mut cd, &mut carry, &mut beh, Some(&encounter));
+        ant_food_decision(&mut pos, &mut vel, &mut cd, &mut carry, &mut beh, Some(&encounter));
         assert_eq!(carry.food_index, encounter.food_index);
     }
 
     #[test]
     fn pickup_snaps_position_to_encounter() {
         let mut pos = DVec3::new(100.0, 100.0, 0.0);
-        let (mut mov, mut cd, mut carry, mut beh) = make_components(false);
+        let (mut vel, mut cd, mut carry, mut beh) = make_components(false);
         let encounter = make_encounter();
-        ant_food_decision(&mut pos, &mut mov, &mut cd, &mut carry, &mut beh, Some(&encounter));
+        ant_food_decision(&mut pos, &mut vel, &mut cd, &mut carry, &mut beh, Some(&encounter));
         assert_eq!(pos, encounter.encounter_position);
     }
 
     #[test]
     fn not_carrying_with_cooldown_no_action() {
         let mut pos = DVec3::new(100.0, 100.0, 0.0);
-        let (mut mov, mut cd, mut carry, mut beh) = make_components(false);
+        let (mut vel, mut cd, mut carry, mut beh) = make_components(false);
         cd.remaining_seconds = 0.5;
         let encounter = make_encounter();
-        let result = ant_food_decision(&mut pos, &mut mov, &mut cd, &mut carry, &mut beh, Some(&encounter));
+        let result = ant_food_decision(&mut pos, &mut vel, &mut cd, &mut carry, &mut beh, Some(&encounter));
         assert_eq!(result, DECISION_NO_ACTION);
     }
 
     #[test]
     fn not_carrying_no_encounter_no_action() {
         let mut pos = DVec3::new(100.0, 100.0, 0.0);
-        let (mut mov, mut cd, mut carry, mut beh) = make_components(false);
-        let result = ant_food_decision(&mut pos, &mut mov, &mut cd, &mut carry, &mut beh, None);
+        let (mut vel, mut cd, mut carry, mut beh) = make_components(false);
+        let result = ant_food_decision(&mut pos, &mut vel, &mut cd, &mut carry, &mut beh, None);
         assert_eq!(result, DECISION_NO_ACTION);
     }
 
     #[test]
     fn carrying_no_encounter_no_action() {
         let mut pos = DVec3::new(100.0, 100.0, 0.0);
-        let (mut mov, mut cd, mut carry, mut beh) = make_components(true);
-        let result = ant_food_decision(&mut pos, &mut mov, &mut cd, &mut carry, &mut beh, None);
+        let (mut vel, mut cd, mut carry, mut beh) = make_components(true);
+        let result = ant_food_decision(&mut pos, &mut vel, &mut cd, &mut carry, &mut beh, None);
         assert_eq!(result, DECISION_NO_ACTION);
     }
 
@@ -304,12 +305,12 @@ mod tests {
     fn carrying_ant_should_not_drop_immediately() {
         // Frame 1: ant picks up food_0
         let mut pos = DVec3::new(100.0, 100.0, 0.0);
-        let (mut mov, mut cd, mut carry, mut beh) = make_components(false);
+        let (mut vel, mut cd, mut carry, mut beh) = make_components(false);
         let food_0 = FoodEncounter {
             food_index: 0,
             encounter_position: DVec3::new(105.0, 100.0, 0.0),
         };
-        let result = ant_food_decision(&mut pos, &mut mov, &mut cd, &mut carry, &mut beh, Some(&food_0));
+        let result = ant_food_decision(&mut pos, &mut vel, &mut cd, &mut carry, &mut beh, Some(&food_0));
         assert_eq!(result, DECISION_PICK_UP);
         assert!(carry.food_index >= 0, "ant should be carrying");
 
@@ -318,7 +319,7 @@ mod tests {
             food_index: 1,
             encounter_position: DVec3::new(110.0, 100.0, 0.0),
         };
-        let result = ant_food_decision(&mut pos, &mut mov, &mut cd, &mut carry, &mut beh, Some(&food_1));
+        let result = ant_food_decision(&mut pos, &mut vel, &mut cd, &mut carry, &mut beh, Some(&food_1));
         // BUG: this currently returns DECISION_DROP — ant never visibly carries food
         assert_ne!(result, DECISION_DROP, "ant should not drop on the very next encounter");
     }

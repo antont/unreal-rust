@@ -49,6 +49,8 @@ void URustMassScheduleCoordinator::Execute(FMassEntityManager& EntityManager, FM
 {
 	if (DispatchFn == nullptr || ManagedProcessors.Num() == 0)
 	{
+		UE_LOG(LogTemp, Warning, TEXT("Coordinator: DispatchFn=%p, ManagedProcessors=%d — skipping"),
+			(void*)DispatchFn, ManagedProcessors.Num());
 		return;
 	}
 
@@ -68,6 +70,8 @@ void URustMassScheduleCoordinator::Execute(FMassEntityManager& EntityManager, FM
 	TArray<MassSystemChunkBatch> Batches;
 	Batches.SetNum(ManagedProcessors.Num());
 
+	int32 TotalChunks = 0;
+	int32 TotalEntities = 0;
 	for (int32 i = 0; i < ManagedProcessors.Num(); ++i)
 	{
 		const URustMassDynamicProcessor* Proc = ManagedProcessors[i];
@@ -76,6 +80,11 @@ void URustMassScheduleCoordinator::Execute(FMassEntityManager& EntityManager, FM
 		Batches[i].system_index = Proc->GetSystemIndex();
 		Batches[i].num_primary_chunks = static_cast<uint32>(Chunks.Num());
 		Batches[i].primary_chunks = Chunks.GetData();
+		TotalChunks += Chunks.Num();
+		for (const MassChunkData& C : Chunks)
+		{
+			TotalEntities += C.num_entities;
+		}
 	}
 
 	MassFrameDispatchData Data;

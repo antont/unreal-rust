@@ -25,7 +25,7 @@
 #[allow(unused_imports)] // Some items used only by #[mass_system] macro expansion
 use bevy_mass::prelude::*;
 use crate::fragments::{
-    Position, Movement, Cooldown, Carrying, Behavior,
+    Transform, PreviousTranslation, Velocity, Cooldown, Carrying, Behavior,
     FoodFragment, BevyMassAntTag,
     FoodEncounter,
 };
@@ -44,7 +44,7 @@ pub use gatherers_sim::movement::{
 };
 
 // Re-export helpers used by tests and other systems.
-pub use gatherers_sim::movement::reflect_direction;
+pub use gatherers_sim::movement::reflect_velocity;
 
 // ---------------------------------------------------------------------------
 // System 2: Collision pre-pass — detect food encounters via UE spatial query,
@@ -53,12 +53,12 @@ pub use gatherers_sim::movement::reflect_direction;
 
 #[mass_system(order = 20)]
 fn ant_collision_prepass(
-    ants: MassQuery<(Entity, &Position), (With<BevyMassAntTag>, Without<Cooldown>)>,
+    ants: MassQuery<(Entity, &Transform, &PreviousTranslation), (With<BevyMassAntTag>, Without<Cooldown>)>,
     spatial: Res<unreal_api::mass::MassSpatialQueries>,
     mut hits: MessageWriter<AntFoodHit>,
 ) {
-    for (entity, pos) in &mut ants {
-        if let Some(result) = spatial.call("food_pickup", pos.previous_position.as_ref(), pos.position.as_ref()) {
+    for (entity, transform, prev) in &mut ants {
+        if let Some(result) = spatial.call("food_pickup", prev.value.as_ref(), transform.translation.as_ref()) {
             if result.has_encounter {
                 hits.write(AntFoodHit::new(
                     result.entity_index,
@@ -78,7 +78,7 @@ fn ant_collision_prepass(
 #[mass_system(order = 30)]
 fn ant_food_decision(
     mut ants: MassQuery<
-        (Entity, &mut Position, &mut Movement, &mut Carrying, &mut Behavior),
+        (Entity, &mut Transform, &mut Velocity, &mut Carrying, &mut Behavior),
         (With<BevyMassAntTag>, Without<Cooldown>),
     >,
     mut hits: MessageReader<AntFoodHit>,
@@ -90,13 +90,13 @@ fn ant_food_decision(
         .map(|h| (h.hitter_entity, (h.hittable_index, h.encounter_position)))
         .collect();
 
-    for (entity, mut pos, mut mov, mut carry, mut behavior) in &mut ants {
+    for (entity, mut transform, mut vel, mut carry, mut behavior) in &mut ants {
         let Some(&(hittable_index, encounter_position)) = hit_map.get(&entity) else {
             continue;
         };
 
         let old_food_index = carry.food_index;
-        let pos_before = pos.position;
+        let pos_before = transform.translation;
         let mut cd = Cooldown { remaining_seconds: 0.0 };
         let encounter = FoodEncounter {
             food_index: hittable_index,
@@ -104,7 +104,7 @@ fn ant_food_decision(
         };
 
         let decision = ant_food_decision_fn(
-            &mut pos.position, &mut mov, &mut cd, &mut carry, &mut behavior,
+            &mut transform.translation, &mut vel, &mut cd, &mut carry, &mut behavior,
             Some(&encounter),
         );
 
@@ -127,6 +127,7 @@ fn ant_food_decision(
 fn apply_food_mutations(
     mut mutations: MessageReader<FoodMutation>,
     foods: MassQueryAll<&mut FoodFragment>,
+    food_transforms: MassQueryAll<&mut Transform>,
 ) {
     let mut had_mutation = false;
     for mutation in mutations.read() {
@@ -136,7 +137,9 @@ fn apply_food_mutations(
                 had_mutation = true;
             } else if mutation.decision == DECISION_DROP {
                 food.is_loose = true;
-                food.position = mutation.drop_position;
+                if let Some(tf) = food_transforms.get_mut(mutation.food_index as usize) {
+                    tf.translation = mutation.drop_position;
+                }
                 had_mutation = true;
             }
         }
@@ -152,13 +155,13 @@ fn apply_food_mutations(
 
 #[mass_system(order = 45)]
 fn carried_food_tracking(
-    mut ants: MassQuery<(&Position, &Carrying), With<BevyMassAntTag>>,
-    foods: MassQueryAll<&mut FoodFragment>,
+    mut ants: MassQuery<(&Transform, &Carrying), With<BevyMassAntTag>>,
+    food_transforms: MassQueryAll<&mut Transform>,
 ) {
-    for (pos, carry) in &mut ants {
+    for (transform, carry) in &mut ants {
         if carry.food_index >= 0 {
-            if let Some(food) = foods.get_mut(carry.food_index as usize) {
-                food.position = pos.position + DVec3::new(0.0, 0.0, 15.0);
+            if let Some(food_tf) = food_transforms.get_mut(carry.food_index as usize) {
+                food_tf.translation = transform.translation + DVec3::new(0.0, 0.0, 15.0);
             }
         }
     }
@@ -186,7 +189,6 @@ mod tests {
     fn apply_food_mutations_pickup() {
         use gatherers_sim::food_decision::DECISION_PICK_UP;
         let mut foods = [FoodFragment {
-            position: DVec3::new(101.0, 0.0, 0.0),
             is_loose: true,
         }];
         let mut storage = MassGlobalChunkStorage::new();
@@ -216,7 +218,6 @@ mod tests {
     fn apply_food_mutations_drop() {
         use gatherers_sim::food_decision::DECISION_DROP;
         let mut foods = [FoodFragment {
-            position: DVec3::ZERO,
             is_loose: false,
         }];
         let mut storage = MassGlobalChunkStorage::new();
@@ -236,12 +237,10 @@ mod tests {
         if let Some(food) = food_q.get_mut(mutation.food_index as usize) {
             if mutation.decision == DECISION_DROP {
                 food.is_loose = true;
-                food.position = mutation.drop_position;
             }
         }
 
         assert!(foods[0].is_loose, "food should be loose after drop");
-        assert_eq!(foods[0].position, drop_pos, "food should be at drop position");
     }
 
     // -----------------------------------------------------------------------

@@ -2,7 +2,7 @@
 // In unreal mode, these have both Component and MassFragment derives.
 pub use gatherers_sim::fragments::{
     AntTag, FoodTag, BevyMassAntTag,
-    Position, Movement, Cooldown, Carrying, Behavior,
+    Transform, PreviousTranslation, Velocity, Cooldown, Carrying, Behavior,
     FoodFragment,
     SimBounds, FoodEncounter,
     AntFoodHit, FoodMutation,
@@ -16,9 +16,8 @@ mod tests {
 
     #[test]
     fn food_fragment_layout() {
-        assert_eq!(mem::size_of::<FoodFragment>(), 32);
-        assert_eq!(mem::offset_of!(FoodFragment, position), 0);
-        assert_eq!(mem::offset_of!(FoodFragment, is_loose), 24);
+        assert_eq!(mem::size_of::<FoodFragment>(), 1);
+        assert_eq!(mem::offset_of!(FoodFragment, is_loose), 0);
     }
 
     #[test]
@@ -30,17 +29,29 @@ mod tests {
     fn cpp_codegen_produces_valid_output() {
         let regs: Vec<_> = unreal_api::mass::registered_mass_fragments().into_iter().collect();
 
-        let pos_reg = regs.iter().find(|r| r.cpp_type_name == "FGatherersPosition")
-            .expect("Position should be registered");
-        assert!(!pos_reg.fields.is_empty(), "Position should have field metadata");
-        assert_eq!(pos_reg.fields[0].name, "position");
-        assert_eq!(pos_reg.fields[0].offset, 0);
+        let vel_reg = regs.iter().find(|r| r.cpp_type_name == "FMassVelocityFragment")
+            .expect("Velocity should be registered as FMassVelocityFragment");
+        assert!(vel_reg.existing, "Velocity should be marked as existing");
+        assert_eq!(vel_reg.size, 48);
 
-        let output = unreal_api::mass::generate_cpp_fragments(&[pos_reg], "Test.h");
-        assert!(output.contains("struct FGatherersPosition : public FMassFragment"));
-        assert!(output.contains("FVector Position"));
-        assert!(output.contains("offsetof(FGatherersPosition, Position) == 0"));
-        assert!(output.contains("sizeof(FGatherersPosition) == 48"));
+        let output = unreal_api::mass::generate_cpp_fragments(&[vel_reg], "Test.h");
+        assert!(!output.contains("USTRUCT"), "existing type should not generate USTRUCT");
+        assert!(output.contains("sizeof(FMassVelocityFragment) == 48"), "should verify size");
+        assert!(output.contains("#include \"MassMovementFragments.h\""), "should include header");
+    }
+
+    #[test]
+    fn transform_registered_as_existing() {
+        let regs: Vec<_> = unreal_api::mass::registered_mass_fragments().into_iter().collect();
+
+        let transform_reg = regs.iter().find(|r| r.cpp_type_name == "FTransformFragment")
+            .expect("Transform should be registered");
+        assert!(transform_reg.existing, "Transform should be marked as existing");
+        assert_eq!(transform_reg.size, 96);
+
+        let output = unreal_api::mass::generate_cpp_fragments(&[transform_reg], "Test.h");
+        assert!(!output.contains("USTRUCT"), "existing type should not generate USTRUCT");
+        assert!(output.contains("sizeof(FTransformFragment) == 96"), "should verify size");
     }
 
     #[test]

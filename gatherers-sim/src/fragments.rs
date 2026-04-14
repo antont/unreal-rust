@@ -23,29 +23,87 @@ bevy_mass::mass_tag!(cpp_type = "FGatherersBevyMassAntTag", group = "ants",
 // Fragments
 // ---------------------------------------------------------------------------
 
-bevy_mass::mass_fragment!(cpp_type = "FGatherersPosition",
-    /// World-space position and previous-frame position.
-    #[derive(Default)]
-    pub struct Position {
-        pub position: DVec3,
-        pub previous_position: DVec3,
+bevy_mass::mass_fragment!(cpp_type = "FTransformFragment", existing, include = "MassCommonFragments.h",
+    /// Transform matching UE's FTransformFragment layout (FQuat + FVector + FVector,
+    /// each padded to 32 bytes for SIMD alignment). 96 bytes, align 16.
+    #[repr(align(16))]
+    pub struct Transform {
+        pub rotation: [f64; 4],   // Quaternion XYZW (32 bytes)
+        pub translation: DVec3,    // Position XYZ (24 bytes)
+        _pad0: f64,                // SIMD padding (8 bytes)
+        pub scale: DVec3,          // Scale XYZ (24 bytes)
+        _pad1: f64,                // SIMD padding (8 bytes)
     }
 );
 
-bevy_mass::mass_fragment!(cpp_type = "FGatherersMovement",
-    /// Movement direction and speed.
-    pub struct Movement {
-        pub direction: DVec3,
-        pub movement_speed: f32,
-    }
-);
-
-impl Default for Movement {
+impl Default for Transform {
     fn default() -> Self {
         Self {
-            direction: DVec3::X,
-            movement_speed: 100.0,
+            rotation: [0.0, 0.0, 0.0, 1.0], // Identity quaternion
+            translation: DVec3::ZERO,
+            _pad0: 0.0,
+            scale: DVec3::ONE,
+            _pad1: 0.0,
         }
+    }
+}
+
+impl Transform {
+    /// Create a transform with the given translation, identity rotation, unit scale.
+    pub fn from_translation(t: DVec3) -> Self {
+        Self {
+            translation: t,
+            ..Self::default()
+        }
+    }
+}
+
+bevy_mass::mass_fragment!(cpp_type = "FGatherersPreviousTranslation",
+    /// Previous-frame translation, used for spatial sweep queries.
+    #[derive(Default)]
+    pub struct PreviousTranslation {
+        pub value: DVec3,
+    }
+);
+
+bevy_mass::mass_fragment!(cpp_type = "FMassVelocityFragment", existing, include = "MassMovementFragments.h",
+    /// UE's native velocity fragment. Single FVector Value = direction * speed.
+    /// In Development builds: 48 bytes (Value + DebugPreviousValue).
+    pub struct Velocity {
+        pub value: DVec3,          // direction * speed (24 bytes)
+        _debug_prev: DVec3,        // DebugPreviousValue padding (24 bytes, Development only)
+    }
+);
+
+impl Default for Velocity {
+    fn default() -> Self {
+        Self {
+            value: DVec3::new(100.0, 0.0, 0.0), // direction X * speed 100
+            _debug_prev: DVec3::ZERO,
+        }
+    }
+}
+
+impl Velocity {
+    /// Create a velocity from direction and speed.
+    pub fn new(direction: DVec3, speed: f32) -> Self {
+        let v = if direction.length() > 1e-8 {
+            direction.normalize() * speed as f64
+        } else {
+            DVec3::ZERO
+        };
+        Self { value: v, _debug_prev: DVec3::ZERO }
+    }
+
+    /// Get the speed (magnitude of velocity vector).
+    pub fn speed(&self) -> f32 {
+        self.value.length() as f32
+    }
+
+    /// Get the normalized direction.
+    pub fn direction(&self) -> DVec3 {
+        let len = self.value.length();
+        if len > 1e-8 { self.value / len } else { DVec3::ZERO }
     }
 }
 
@@ -88,9 +146,8 @@ impl Default for Behavior {
 }
 
 bevy_mass::mass_fragment!(cpp_type = "FGatherersMassFoodFragment",
-    /// Food entity fragment.
+    /// Food entity fragment. Position is in FTransformFragment (shared with vis system).
     pub struct FoodFragment {
-        pub position: DVec3,
         pub is_loose: bool,
     }
 );
@@ -98,7 +155,6 @@ bevy_mass::mass_fragment!(cpp_type = "FGatherersMassFoodFragment",
 impl Default for FoodFragment {
     fn default() -> Self {
         Self {
-            position: DVec3::ZERO,
             is_loose: true,
         }
     }
@@ -172,19 +228,26 @@ mod tests {
     // --- Decomposed component layout tests ---
 
     #[test]
-    fn position_layout() {
-        assert_eq!(mem::size_of::<Position>(), 48);
-        assert_eq!(mem::align_of::<Position>(), 8);
-        assert_eq!(mem::offset_of!(Position, position), 0);
-        assert_eq!(mem::offset_of!(Position, previous_position), 24);
+    fn transform_layout() {
+        assert_eq!(mem::size_of::<Transform>(), 96);
+        assert_eq!(mem::align_of::<Transform>(), 16);
+        assert_eq!(mem::offset_of!(Transform, rotation), 0);
+        assert_eq!(mem::offset_of!(Transform, translation), 32);
+        assert_eq!(mem::offset_of!(Transform, scale), 64);
     }
 
     #[test]
-    fn movement_layout() {
-        assert_eq!(mem::size_of::<Movement>(), 32);
-        assert_eq!(mem::align_of::<Movement>(), 8);
-        assert_eq!(mem::offset_of!(Movement, direction), 0);
-        assert_eq!(mem::offset_of!(Movement, movement_speed), 24);
+    fn previous_translation_layout() {
+        assert_eq!(mem::size_of::<PreviousTranslation>(), 24);
+        assert_eq!(mem::align_of::<PreviousTranslation>(), 8);
+        assert_eq!(mem::offset_of!(PreviousTranslation, value), 0);
+    }
+
+    #[test]
+    fn velocity_layout() {
+        assert_eq!(mem::size_of::<Velocity>(), 48);
+        assert_eq!(mem::align_of::<Velocity>(), 8);
+        assert_eq!(mem::offset_of!(Velocity, value), 0);
     }
 
     #[test]
@@ -211,17 +274,41 @@ mod tests {
     }
 
     #[test]
-    fn position_default() {
-        let p = Position::default();
-        assert_eq!(p.position, DVec3::ZERO);
-        assert_eq!(p.previous_position, DVec3::ZERO);
+    fn transform_default() {
+        let t = Transform::default();
+        assert_eq!(t.rotation, [0.0, 0.0, 0.0, 1.0]);
+        assert_eq!(t.translation, DVec3::ZERO);
+        assert_eq!(t.scale, DVec3::ONE);
     }
 
     #[test]
-    fn movement_default() {
-        let m = Movement::default();
-        assert_eq!(m.direction, DVec3::X);
-        assert_eq!(m.movement_speed, 100.0);
+    fn transform_from_translation() {
+        let t = Transform::from_translation(DVec3::new(1.0, 2.0, 3.0));
+        assert_eq!(t.translation, DVec3::new(1.0, 2.0, 3.0));
+        assert_eq!(t.rotation, [0.0, 0.0, 0.0, 1.0]);
+        assert_eq!(t.scale, DVec3::ONE);
+    }
+
+    #[test]
+    fn previous_translation_default() {
+        let p = PreviousTranslation::default();
+        assert_eq!(p.value, DVec3::ZERO);
+    }
+
+    #[test]
+    fn velocity_default() {
+        let v = Velocity::default();
+        assert_eq!(v.value, DVec3::new(100.0, 0.0, 0.0));
+        assert!((v.speed() - 100.0).abs() < 1e-4);
+        assert!((v.direction() - DVec3::X).length() < 1e-8);
+    }
+
+    #[test]
+    fn velocity_new() {
+        let v = Velocity::new(DVec3::new(0.0, 1.0, 0.0), 50.0);
+        assert!((v.speed() - 50.0).abs() < 1e-4);
+        assert!((v.direction() - DVec3::Y).length() < 1e-8);
+        assert!((v.value - DVec3::new(0.0, 50.0, 0.0)).length() < 1e-6);
     }
 
     #[test]
@@ -239,9 +326,8 @@ mod tests {
 
     #[test]
     fn food_fragment_layout() {
-        assert_eq!(mem::size_of::<FoodFragment>(), 32);
-        assert_eq!(mem::offset_of!(FoodFragment, position), 0);
-        assert_eq!(mem::offset_of!(FoodFragment, is_loose), 24);
+        assert_eq!(mem::size_of::<FoodFragment>(), 1);
+        assert_eq!(mem::offset_of!(FoodFragment, is_loose), 0);
     }
 
     #[test]

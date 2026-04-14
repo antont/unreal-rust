@@ -1,4 +1,4 @@
-use crate::fragments::{Cooldown, Movement, Position};
+use crate::fragments::{Cooldown, PreviousTranslation, Transform, Velocity};
 use bevy_mass::prelude::*;
 
 // ---------------------------------------------------------------------------
@@ -9,8 +9,8 @@ use bevy_mass::prelude::*;
 // ---------------------------------------------------------------------------
 
 /// Default simulation bounds — Rust owns this, no C++ round-trip needed.
-pub const SIM_BOUNDS_MIN: [f64; 3] = [-500.0, -500.0, -100.0];
-pub const SIM_BOUNDS_MAX: [f64; 3] = [500.0, 500.0, 100.0];
+pub const SIM_BOUNDS_MIN: [f64; 3] = [-5000.0, -5000.0, -100.0];
+pub const SIM_BOUNDS_MAX: [f64; 3] = [5000.0, 5000.0, 100.0];
 
 // ---------------------------------------------------------------------------
 // System 1: Movement — position += direction * speed * dt
@@ -19,8 +19,9 @@ pub const SIM_BOUNDS_MAX: [f64; 3] = [500.0, 500.0, 100.0];
 
 #[mass_system(order = 10)]
 pub fn entity_movement(
-    mut positions: Query<&mut Position>,
-    movements: Query<&Movement>,
+    mut transforms: Query<&mut Transform>,
+    mut prev_translations: Query<&mut PreviousTranslation>,
+    velocities: Query<&Velocity>,
     time: Res<Time>,
 ) {
     let dt = time.delta_secs();
@@ -28,14 +29,14 @@ pub fn entity_movement(
     let bounds_size_y = SIM_BOUNDS_MAX[1] - SIM_BOUNDS_MIN[1];
     let bounds_max_step = 0.5 * bounds_size_x.min(bounds_size_y);
 
-    for (mut pos, mov) in positions.iter_mut().zip(movements.iter()) {
-        pos.previous_position = pos.position;
+    for ((mut transform, mut prev), vel) in transforms.iter_mut().zip(prev_translations.iter_mut()).zip(velocities.iter()) {
+        prev.value = transform.translation;
 
-        if mov.direction.length() < 1e-8 { continue; }
-        let dir = mov.direction.normalize();
-        let max_dist = (mov.movement_speed.max(0.0) * dt.max(0.0)) as f64;
-        let step_dist = max_dist.min(bounds_max_step.max(0.0));
-        pos.position += dir * step_dist;
+        let speed = vel.value.length();
+        if speed < 1e-8 { continue; }
+        let dir = vel.value / speed;
+        let max_dist = (speed * dt as f64).min(bounds_max_step.max(0.0));
+        transform.translation += dir * max_dist;
     }
 }
 
@@ -67,30 +68,30 @@ pub fn entity_cooldown(
 
 #[mass_system(order = 50)]
 pub fn entity_boundary_reflect(
-    mut positions: Query<&mut Position>,
-    mut movements: Query<&mut Movement>,
+    mut transforms: Query<&mut Transform>,
+    mut velocities: Query<&mut Velocity>,
 ) {
-    for (mut pos, mut mov) in positions.iter_mut().zip(movements.iter_mut()) {
+    for (mut transform, mut vel) in transforms.iter_mut().zip(velocities.iter_mut()) {
         let mut inward_normal = DVec3::ZERO;
 
-        if pos.position.x < SIM_BOUNDS_MIN[0] {
-            pos.position.x = SIM_BOUNDS_MIN[0];
+        if transform.translation.x < SIM_BOUNDS_MIN[0] {
+            transform.translation.x = SIM_BOUNDS_MIN[0];
             inward_normal.x += 1.0;
-        } else if pos.position.x > SIM_BOUNDS_MAX[0] {
-            pos.position.x = SIM_BOUNDS_MAX[0];
+        } else if transform.translation.x > SIM_BOUNDS_MAX[0] {
+            transform.translation.x = SIM_BOUNDS_MAX[0];
             inward_normal.x -= 1.0;
         }
 
-        if pos.position.y < SIM_BOUNDS_MIN[1] {
-            pos.position.y = SIM_BOUNDS_MIN[1];
+        if transform.translation.y < SIM_BOUNDS_MIN[1] {
+            transform.translation.y = SIM_BOUNDS_MIN[1];
             inward_normal.y += 1.0;
-        } else if pos.position.y > SIM_BOUNDS_MAX[1] {
-            pos.position.y = SIM_BOUNDS_MAX[1];
+        } else if transform.translation.y > SIM_BOUNDS_MAX[1] {
+            transform.translation.y = SIM_BOUNDS_MAX[1];
             inward_normal.y -= 1.0;
         }
 
         if inward_normal.length() > 1e-8 {
-            mov.direction = reflect_direction(mov.direction, inward_normal);
+            vel.value = reflect_velocity(vel.value, inward_normal);
         }
     }
 }
@@ -99,24 +100,25 @@ pub fn entity_boundary_reflect(
 // Helpers
 // ---------------------------------------------------------------------------
 
-/// Reflect direction off a boundary normal (same as C++ ComputeBoundaryTurnBackDirection).
-pub fn reflect_direction(dir: DVec3, normal: DVec3) -> DVec3 {
-    if dir.length() < 1e-8 || normal.length() < 1e-8 {
+/// Reflect velocity off a boundary normal, preserving speed.
+pub fn reflect_velocity(vel: DVec3, normal: DVec3) -> DVec3 {
+    let speed = vel.length();
+    if speed < 1e-8 || normal.length() < 1e-8 {
         return DVec3::ZERO;
     }
-    let d = dir.normalize();
+    let d = vel / speed;
     let n = normal.normalize();
     let reflected = d - 2.0 * d.dot(n) * n;
     if reflected.length() < 1e-8 {
         return DVec3::ZERO;
     }
-    reflected.normalize()
+    reflected.normalize() * speed
 }
 
 #[cfg(all(test, not(feature = "unreal")))]
 mod tests {
     use super::*;
-    use crate::fragments::{Cooldown, Movement, Position};
+    use crate::fragments::{Cooldown, PreviousTranslation, Transform, Velocity};
     use bevy_ecs::prelude::*;
     use core::time::Duration;
 
@@ -137,44 +139,37 @@ mod tests {
         let mut world = World::new();
         insert_test_time(&mut world, 0.1);
         world.spawn((
-            Position::default(),
-            Movement {
-                direction: DVec3::X,
-                movement_speed: 100.0,
-            },
+            Transform::default(),
+            PreviousTranslation::default(),
+            Velocity::new(DVec3::X, 100.0),
         ));
 
         run_system(&mut world, entity_movement);
 
-        let mut q = world.query::<&Position>();
-        let pos = q.single(&world).unwrap();
+        let mut q = world.query::<&Transform>();
+        let t = q.single(&world).unwrap();
         assert!(
-            (pos.position.x - 10.0).abs() < 1e-6,
+            (t.translation.x - 10.0).abs() < 1e-6,
             "x: {}",
-            pos.position.x
+            t.translation.x
         );
     }
 
     #[test]
-    fn movement_stores_previous_position() {
+    fn movement_stores_previous_translation() {
         let mut world = World::new();
         insert_test_time(&mut world, 0.1);
         world.spawn((
-            Position {
-                position: DVec3::new(100.0, 200.0, 0.0),
-                previous_position: DVec3::ZERO,
-            },
-            Movement {
-                direction: DVec3::X,
-                movement_speed: 50.0,
-            },
+            Transform::from_translation(DVec3::new(100.0, 200.0, 0.0)),
+            PreviousTranslation::default(),
+            Velocity::new(DVec3::X, 50.0),
         ));
 
         run_system(&mut world, entity_movement);
 
-        let mut q = world.query::<&Position>();
-        let pos = q.single(&world).unwrap();
-        assert_eq!(pos.previous_position, DVec3::new(100.0, 200.0, 0.0));
+        let mut q = world.query::<&PreviousTranslation>();
+        let prev = q.single(&world).unwrap();
+        assert_eq!(prev.value, DVec3::new(100.0, 200.0, 0.0));
     }
 
     #[test]
@@ -206,7 +201,6 @@ mod tests {
 
         run_system(&mut world, entity_cooldown);
 
-        // Cooldown should be removed (not just zeroed)
         assert!(
             world.get::<Cooldown>(entity).is_none(),
             "Cooldown component should be removed when expired"
@@ -217,22 +211,17 @@ mod tests {
     fn boundary_clamp_and_reflect() {
         let mut world = World::new();
         world.spawn((
-            Position {
-                position: DVec3::new(600.0, 0.0, 0.0),
-                previous_position: DVec3::ZERO,
-            },
-            Movement {
-                direction: DVec3::X,
-                movement_speed: 100.0,
-            },
+            Transform::from_translation(DVec3::new(6000.0, 0.0, 0.0)),
+            Velocity::new(DVec3::X, 100.0),
         ));
 
         run_system(&mut world, entity_boundary_reflect);
 
-        let mut q = world.query::<(&Position, &Movement)>();
-        let (pos, mov) = q.single(&world).unwrap();
-        assert!(pos.position.x <= 500.0, "x: {}", pos.position.x);
-        assert!(mov.direction.x < 0.0, "dir x: {}", mov.direction.x);
+        let mut q = world.query::<(&Transform, &Velocity)>();
+        let (t, vel) = q.single(&world).unwrap();
+        assert!(t.translation.x <= 5000.0, "x: {}", t.translation.x);
+        assert!(vel.direction().x < 0.0, "dir x: {}", vel.direction().x);
+        assert!((vel.speed() - 100.0).abs() < 1e-4, "speed preserved: {}", vel.speed());
     }
 
     #[test]
@@ -240,14 +229,9 @@ mod tests {
         let mut world = World::new();
         insert_test_time(&mut world, 0.5);
         let entity = world.spawn((
-            Position {
-                position: DVec3::new(499.0, 0.0, 0.0),
-                previous_position: DVec3::ZERO,
-            },
-            Movement {
-                direction: DVec3::X,
-                movement_speed: 100.0,
-            },
+            Transform::from_translation(DVec3::new(4999.0, 0.0, 0.0)),
+            PreviousTranslation::default(),
+            Velocity::new(DVec3::X, 100.0),
             Cooldown {
                 remaining_seconds: 1.0,
             },
@@ -258,11 +242,10 @@ mod tests {
         schedule.add_systems((entity_movement, entity_boundary_reflect, entity_cooldown).chain());
         schedule.run(&mut world);
 
-        let mut q = world.query::<(&Position, &Movement)>();
-        let (pos, mov) = q.single(&world).unwrap();
-        assert!(pos.position.x <= 500.0, "clamped: {}", pos.position.x);
-        assert!(mov.direction.x < 0.0, "reflected: {}", mov.direction.x);
-        // Cooldown should still exist (1.0 - 0.5 = 0.5)
+        let mut q = world.query::<(&Transform, &Velocity)>();
+        let (t, vel) = q.single(&world).unwrap();
+        assert!(t.translation.x <= 5000.0, "clamped: {}", t.translation.x);
+        assert!(vel.direction().x < 0.0, "reflected: {}", vel.direction().x);
         let cd = world.get::<Cooldown>(entity).expect("Cooldown should still exist");
         assert!((cd.remaining_seconds - 0.5).abs() < 1e-5, "cooldown: {}", cd.remaining_seconds);
     }
@@ -272,32 +255,28 @@ mod tests {
         let mut world = World::new();
         insert_test_time(&mut world, 0.05);
         world.spawn((
-            Position::default(),
-            Movement {
-                direction: DVec3::X,
-                movement_speed: 200.0,
-            },
+            Transform::default(),
+            PreviousTranslation::default(),
+            Velocity::new(DVec3::X, 200.0),
         ));
         world.spawn((
-            Position::default(),
-            Movement {
-                direction: DVec3::Y,
-                movement_speed: 50.0,
-            },
+            Transform::default(),
+            PreviousTranslation::default(),
+            Velocity::new(DVec3::Y, 50.0),
         ));
 
         run_system(&mut world, entity_movement);
 
-        let mut q = world.query::<&Position>();
-        let positions: Vec<_> = q.iter(&world).collect();
-        assert_eq!(positions.len(), 2);
+        let mut q = world.query::<&Transform>();
+        let transforms: Vec<_> = q.iter(&world).collect();
+        assert_eq!(transforms.len(), 2);
 
-        let (pos_x, pos_y) = if positions[0].position.x > 1.0 {
-            (positions[0], positions[1])
+        let (t_x, t_y) = if transforms[0].translation.x > 1.0 {
+            (transforms[0], transforms[1])
         } else {
-            (positions[1], positions[0])
+            (transforms[1], transforms[0])
         };
-        assert!((pos_x.position.x - 10.0).abs() < 1e-6);
-        assert!((pos_y.position.y - 2.5).abs() < 1e-6);
+        assert!((t_x.translation.x - 10.0).abs() < 1e-6);
+        assert!((t_y.translation.y - 2.5).abs() < 1e-6);
     }
 }

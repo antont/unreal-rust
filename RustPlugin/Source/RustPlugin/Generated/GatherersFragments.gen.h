@@ -2,6 +2,8 @@
 
 #include "CoreMinimal.h"
 #include "MassEntityTypes.h"
+#include "MassCommonFragments.h"
+#include "MassMovementFragments.h"
 #include "GatherersFragments.gen.generated.h"
 
 // Auto-generated from #[derive(MassFragment)] Rust structs.
@@ -54,39 +56,26 @@ struct FGatherersMassFoodFragment : public FMassFragment
 {
 	GENERATED_BODY()
 
-	FVector Position = FVector::ZeroVector;
 	bool bIsLoose = true;
-	uint8 _Pad_25[7] = {};
 };
 
-static_assert(offsetof(FGatherersMassFoodFragment, Position) == 0, "Position at offset 0");
-static_assert(offsetof(FGatherersMassFoodFragment, bIsLoose) == 24, "bIsLoose at offset 24");
-static_assert(sizeof(FGatherersMassFoodFragment) == 32, "FGatherersMassFoodFragment size must be 32");
+static_assert(offsetof(FGatherersMassFoodFragment, bIsLoose) == 0, "bIsLoose at offset 0");
+static_assert(sizeof(FGatherersMassFoodFragment) == 1, "FGatherersMassFoodFragment size must be 1");
 
 USTRUCT()
-struct FGatherersMovement : public FMassFragment
+struct FGatherersPreviousTranslation : public FMassFragment
 {
 	GENERATED_BODY()
 
-	FVector Direction = FVector(1.0, 0.0, 0.0);
-	float MovementSpeed = 100.0f;
-	uint8 _Pad_28[4] = {};
+	FVector Value = FVector::ZeroVector;
 };
 
-static_assert(offsetof(FGatherersMovement, Direction) == 0, "Direction at offset 0");
-static_assert(offsetof(FGatherersMovement, MovementSpeed) == 24, "MovementSpeed at offset 24");
-static_assert(sizeof(FGatherersMovement) == 32, "FGatherersMovement size must be 32");
+static_assert(offsetof(FGatherersPreviousTranslation, Value) == 0, "Value at offset 0");
+static_assert(sizeof(FGatherersPreviousTranslation) == 24, "FGatherersPreviousTranslation size must be 24");
 
-USTRUCT()
-struct FGatherersPosition : public FMassFragment
-{
-	GENERATED_BODY()
+// FMassVelocityFragment — existing UE type, layout verified:
+static_assert(sizeof(FMassVelocityFragment) == 48, "FMassVelocityFragment size must be 48 for Rust interop");
 
-	FVector Position = FVector::ZeroVector;
-	FVector PreviousPosition = FVector::ZeroVector;
-};
-
-static_assert(offsetof(FGatherersPosition, Position) == 0, "Position at offset 0");
-static_assert(offsetof(FGatherersPosition, PreviousPosition) == 24, "PreviousPosition at offset 24");
-static_assert(sizeof(FGatherersPosition) == 48, "FGatherersPosition size must be 48");
+// FTransformFragment — existing UE type, layout verified:
+static_assert(sizeof(FTransformFragment) == 96, "FTransformFragment size must be 96 for Rust interop");
 

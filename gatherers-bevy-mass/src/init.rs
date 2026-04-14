@@ -19,44 +19,41 @@ fn spawn_entities(
         (seed >> 33) as f64 / (1u64 << 31) as f64
     };
 
-    // Spawn food
+    // Spawn food — position lives in FTransformFragment (shared with native MassRepresentation)
     let food_handles = EntityArchetype::new("food")
+        .fragment::<Transform>()
         .fragment::<FoodFragment>()
         .tag::<FoodTag>()
         .spawn(food_count as u32, |_i, writer| {
+            let pos = DVec3::new(
+                bounds_min[0] + rng() * (bounds_max[0] - bounds_min[0]),
+                bounds_min[1] + rng() * (bounds_max[1] - bounds_min[1]),
+                50.0,
+            );
+            writer.set(&Transform::from_translation(pos));
             writer.set(&FoodFragment {
-                position: DVec3::new(
-                    bounds_min[0] + rng() * (bounds_max[0] - bounds_min[0]),
-                    bounds_min[1] + rng() * (bounds_max[1] - bounds_min[1]),
-                    50.0,
-                ),
                 is_loose: true,
             });
         });
 
-    // Spawn ants
-    let center_x = (bounds_min[0] + bounds_max[0]) / 2.0;
-    let center_y = (bounds_min[1] + bounds_max[1]) / 2.0;
-    let step = 50.0;
-    let half = ant_count as f64 / 2.0;
-
+    // Spawn ants at random positions within bounds
     let ant_handles = EntityArchetype::new("ant")
-        .fragment::<Position>()
-        .fragment::<Movement>()
+        .fragment::<Transform>()
+        .fragment::<PreviousTranslation>()
+        .fragment::<Velocity>()
         .fragment::<Carrying>()
         .fragment::<Behavior>()
         .tag::<BevyMassAntTag>()
         .spawn(ant_count as u32, |i, writer| {
             let angle = rng() * std::f64::consts::TAU;
-            let spawn_pos = DVec3::new(center_x + (i as f64 - half) * step, center_y + 100.0, 50.0);
-            writer.set(&Position {
-                position: spawn_pos,
-                previous_position: spawn_pos,
-            });
-            writer.set(&Movement {
-                direction: DVec3::new(angle.cos(), angle.sin(), 0.0),
-                movement_speed: 100.0,
-            });
+            let spawn_pos = DVec3::new(
+                bounds_min[0] + rng() * (bounds_max[0] - bounds_min[0]),
+                bounds_min[1] + rng() * (bounds_max[1] - bounds_min[1]),
+                50.0,
+            );
+            writer.set(&Transform::from_translation(spawn_pos));
+            writer.set(&PreviousTranslation { value: spawn_pos });
+            writer.set(&Velocity::new(DVec3::new(angle.cos(), angle.sin(), 0.0), 100.0));
             writer.set(&Behavior {
                 turn_jitter_radians: 0.0,
                 random_seed: random_seed + i as i32,

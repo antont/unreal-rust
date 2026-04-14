@@ -183,7 +183,17 @@ void URustMassDynamicProcessor::Execute(FMassEntityManager& EntityManager, FMass
 
 	const float DeltaSeconds = Context.GetDeltaTimeSeconds();
 
-	// --- First frame: cache all chunk pointers (entities are stable, so these never change) ---
+	// --- Rebuild chunk cache every frame ---
+	// Chunk memory can be relocated when entities move between archetypes
+	// (e.g., vis pipeline LOD processor adding/removing tags). Re-caching
+	// every frame ensures pointers are always valid.
+	bChunkCacheValid = false;
+	CachedPrimarySlices.Empty();
+	CachedPrimaryChunks.Empty();
+	CachedChunkSlices.Empty();
+	CachedChunkedFrags.Empty();
+	CachedGlobalEntityCount = 0;
+
 	if (!bChunkCacheValid)
 	{
 		// Build filtered primary fragment metadata (non-tag only)

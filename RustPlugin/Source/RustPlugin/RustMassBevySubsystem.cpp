@@ -1,5 +1,6 @@
 #include "RustMassBevySubsystem.h"
 
+#include "MassCommonFragments.h"
 #include "Engine/World.h"
 #include "GameFramework/Actor.h"
 #include "MassExecutor.h"
@@ -11,8 +12,15 @@
 #include "RustMassScheduleCoordinator.h"
 #include "RustPlugin.h"
 #include "RustUtils.h"
-#include "RustMassGenericVisualizer.h"
+#include "RustMassVisualizationSetup.h"
+#include "MassSimulationSubsystem.h"
+#include "MassRepresentationProcessor.h"
+#include "MassVisualizationLODProcessor.h"
 #include "CollisionShape.h"
+#include "StructUtils/StructView.h"
+#include "Engine/StaticMesh.h"
+#include "Materials/MaterialInstanceDynamic.h"
+#include "Materials/MaterialInterface.h"
 
 // ---------------------------------------------------------------------------
 // Spatial query trampolines: bounce C function pointers to game-module delegates
@@ -61,6 +69,7 @@ void URustMassBevySubsystem::Initialize(FSubsystemCollectionBase& Collection)
 void URustMassBevySubsystem::Deinitialize()
 {
 	SimulationProcessorPipeline.Reset();
+	VisualizationPipeline.Reset();
 	bProcessorPipelinesInitialized = false;
 	Super::Deinitialize();
 }
@@ -76,12 +85,11 @@ const TArray<FMassEntityHandle>* URustMassBevySubsystem::GetGroupEntities(const 
 
 UInstancedStaticMeshComponent* URustMassBevySubsystem::GetGroupISMC(const FString& GroupName) const
 {
-	if (!Visualizer) return nullptr;
-	for (int32 i = 0; i < Visualizer->GetGroupCount(); ++i)
+	for (const FCollisionGroupEntry& Entry : CollisionGroups)
 	{
-		if (Visualizer->GetGroupName(i) == GroupName)
+		if (Entry.Name == GroupName)
 		{
-			return Visualizer->GetGroupISMC(i);
+			return Entry.ISMC;
 		}
 	}
 	return nullptr;
@@ -494,21 +502,174 @@ void URustMassBevySubsystem::RunSimulationProcessorStep(float SimulatedDeltaTime
 }
 
 // ---------------------------------------------------------------------------
-// Group → Visualizer mapping
+// Collision-only ISMCs (for spatial queries — rendering uses native MassRepresentation)
 // ---------------------------------------------------------------------------
 
-TArray<TArray<FMassEntityHandle>*> URustMassBevySubsystem::BuildGroupEntities()
+namespace
 {
-	TArray<TArray<FMassEntityHandle>*> GroupEntitiesArr;
-	if (!Visualizer) return GroupEntitiesArr;
+	constexpr TCHAR CollisionSphereMeshPath[] = TEXT("/Engine/BasicShapes/Sphere.Sphere");
 
-	for (int32 i = 0; i < Visualizer->GetGroupCount(); ++i)
+	const UScriptStruct* FindFragmentStructByName(const FString& CppTypeName)
 	{
-		FString Name = Visualizer->GetGroupName(i);
-		TArray<FMassEntityHandle>* Found = EntityGroups.Find(Name);
-		GroupEntitiesArr.Add(Found); // nullptr if not found — visualizer handles gracefully
+		FString SearchName = CppTypeName;
+		if (SearchName.Len() > 1 && (SearchName[0] == TEXT('F') || SearchName[0] == TEXT('U')))
+		{
+			SearchName.RightChopInline(1);
+		}
+		return FindFirstObject<UScriptStruct>(*SearchName, EFindFirstObjectOptions::NativeFirst);
 	}
-	return GroupEntitiesArr;
+} // anonymous namespace
+
+void URustMassBevySubsystem::InitializeCollisionISMCs(UWorld* World, const RustBindings& Bindings, FMassEntityManager& EntityManager)
+{
+	if (!World) return;
+	if (Bindings.get_visualizer_group_count.IsNone() || Bindings.get_visualizer_group_desc.IsNone())
+	{
+		return;
+	}
+
+	const uint32 GroupCount = Bindings.get_visualizer_group_count.Unwrap()();
+	if (GroupCount == 0) return;
+
+	UStaticMesh* SphereMesh = LoadObject<UStaticMesh>(nullptr, CollisionSphereMeshPath);
+	if (!SphereMesh) return;
+
+	// Spawn actor to own collision ISMCs
+	if (!CollisionActor)
+	{
+		FActorSpawnParameters SpawnParams;
+		SpawnParams.SpawnCollisionHandlingOverride = ESpawnActorCollisionHandlingMethod::AlwaysSpawn;
+		CollisionActor = World->SpawnActor<AActor>(AActor::StaticClass(), FTransform::Identity, SpawnParams);
+		if (!CollisionActor) return;
+
+		USceneComponent* Root = NewObject<USceneComponent>(CollisionActor, TEXT("CollisionRoot"));
+		CollisionActor->AddInstanceComponent(Root);
+		Root->RegisterComponent();
+		CollisionActor->SetRootComponent(Root);
+	}
+
+	USceneComponent* RootComponent = CollisionActor->GetRootComponent();
+
+	for (uint32 i = 0; i < GroupCount; ++i)
+	{
+		MassVisualizerGroupDesc Desc = {};
+		if (Bindings.get_visualizer_group_desc.Unwrap()(i, &Desc) == 0) continue;
+
+		FString GroupName = FString(Desc.name.len, UTF8_TO_TCHAR(Desc.name.ptr));
+		FString FragTypeName = FString(Desc.position_fragment_type.len, UTF8_TO_TCHAR(Desc.position_fragment_type.ptr));
+
+		const UScriptStruct* FragStruct = FindFragmentStructByName(FragTypeName);
+		if (!FragStruct)
+		{
+			UE_LOG(LogTemp, Warning, TEXT("RustMassBevySubsystem: Could not find USTRUCT '%s' for collision group '%s'"),
+				*FragTypeName, *GroupName);
+			continue;
+		}
+
+		FCollisionGroupEntry Entry;
+		Entry.Name = GroupName;
+		Entry.PositionStruct = FragStruct;
+		Entry.PositionOffset = Desc.position_offset;
+		Entry.Scale = FVector(Desc.scale);
+
+		FName ComponentName(*FString::Printf(TEXT("Collision_%s"), *GroupName));
+		Entry.ISMC = NewObject<UInstancedStaticMeshComponent>(CollisionActor, ComponentName);
+		CollisionActor->AddInstanceComponent(Entry.ISMC);
+		Entry.ISMC->SetupAttachment(RootComponent);
+		Entry.ISMC->RegisterComponent();
+		Entry.ISMC->SetStaticMesh(SphereMesh);
+		Entry.ISMC->SetMobility(EComponentMobility::Movable);
+		Entry.ISMC->SetCollisionEnabled(ECollisionEnabled::NoCollision); // enabled per-group by spatial query setup
+		Entry.ISMC->SetCastShadow(false);
+		Entry.ISMC->SetCanEverAffectNavigation(false);
+		Entry.ISMC->SetHiddenInGame(true); // invisible — rendering via native MassRepresentation
+		Entry.ISMC->SetVisibility(false);
+
+		// Populate initial instances from entity positions
+		const TArray<FMassEntityHandle>* Entities = EntityGroups.Find(GroupName);
+		if (Entities)
+		{
+			for (const FMassEntityHandle& Entity : *Entities)
+			{
+				if (!EntityManager.IsEntityValid(Entity)) continue;
+				FMassEntityView View(EntityManager, Entity);
+				FStructView FragView = View.GetFragmentDataStruct(Entry.PositionStruct);
+				const uint8* FragData = FragView.GetMemory();
+				if (!FragData) continue;
+				const double* Pos = reinterpret_cast<const double*>(FragData + Entry.PositionOffset);
+				FTransform T(FQuat::Identity, FVector(Pos[0], Pos[1], Pos[2]), Entry.Scale);
+				Entry.ISMC->AddInstance(T, true);
+			}
+		}
+
+		UE_LOG(LogTemp, Display, TEXT("RustMassBevySubsystem: Collision ISMC '%s': %d instances (frag='%s', offset=%u)"),
+			*GroupName, Entry.ISMC->GetInstanceCount(), *FragTypeName, Entry.PositionOffset);
+		CollisionGroups.Add(MoveTemp(Entry));
+	}
+}
+
+void URustMassBevySubsystem::SyncCollisionISMCs(FMassEntityManager& EntityManager)
+{
+	for (FCollisionGroupEntry& Group : CollisionGroups)
+	{
+		if (!Group.ISMC) continue;
+
+		// Only sync groups that have collision enabled (spatial queries active)
+		if (Group.ISMC->GetCollisionEnabled() == ECollisionEnabled::NoCollision) continue;
+
+		const TArray<FMassEntityHandle>* Entities = EntityGroups.Find(Group.Name);
+		if (!Entities) continue;
+
+		// Rebuild if count mismatch
+		if (Group.ISMC->GetInstanceCount() != Entities->Num())
+		{
+			Group.ISMC->ClearInstances();
+			for (const FMassEntityHandle& Entity : *Entities)
+			{
+				if (!EntityManager.IsEntityValid(Entity)) continue;
+				FMassEntityView View(EntityManager, Entity);
+				FStructView FragView = View.GetFragmentDataStruct(Group.PositionStruct);
+				const uint8* FragData = FragView.GetMemory();
+				if (!FragData) continue;
+				const double* Pos = reinterpret_cast<const double*>(FragData + Group.PositionOffset);
+				FTransform T(FQuat::Identity, FVector(Pos[0], Pos[1], Pos[2]), Group.Scale);
+				Group.ISMC->AddInstance(T, true);
+			}
+			continue;
+		}
+
+		const bool IsLast = (&Group == &CollisionGroups.Last());
+		for (int32 i = 0; i < Entities->Num(); ++i)
+		{
+			if (!EntityManager.IsEntityValid((*Entities)[i])) continue;
+			FMassEntityView View(EntityManager, (*Entities)[i]);
+			FStructView FragView = View.GetFragmentDataStruct(Group.PositionStruct);
+			const uint8* FragData = FragView.GetMemory();
+			if (!FragData) continue;
+			const double* Pos = reinterpret_cast<const double*>(FragData + Group.PositionOffset);
+			FTransform T(FQuat::Identity, FVector(Pos[0], Pos[1], Pos[2]), Group.Scale);
+			const bool bMarkDirty = (i == Entities->Num() - 1 && IsLast);
+			Group.ISMC->UpdateInstanceTransform(i, T, true, bMarkDirty, true);
+		}
+	}
+}
+
+void URustMassBevySubsystem::TeardownCollisionISMCs()
+{
+	for (auto& Group : CollisionGroups)
+	{
+		if (Group.ISMC)
+		{
+			Group.ISMC->ClearInstances();
+		}
+	}
+	CollisionGroups.Empty();
+
+	if (CollisionActor)
+	{
+		CollisionActor->Destroy();
+		CollisionActor = nullptr;
+	}
 }
 
 // ---------------------------------------------------------------------------
@@ -557,6 +718,8 @@ void URustMassBevySubsystem::Tick(float DeltaTime)
 	const float SimulatedSecondsThisFrame = FMath::Max(0.0f, DeltaTime);
 	SimulationTimeAccumulatorSeconds += SimulatedSecondsThisFrame;
 
+
+
 	const FVector BoundsSize = SimulationBounds.GetSize();
 	const float BoundsMaxStepDistance = SimulationBounds.IsValid
 		? 0.5f * FMath::Min(BoundsSize.X, BoundsSize.Y)
@@ -579,10 +742,27 @@ void URustMassBevySubsystem::Tick(float DeltaTime)
 	{
 		RunSimulationProcessorStep(SimulationTimeAccumulatorSeconds);
 		SimulationTimeAccumulatorSeconds = 0.0f;
+		++StepsExecutedThisFrame;
 	}
 
-	// Sync visualization
-	if (Visualizer)
+
+
+
+	// Run visualization pipeline (LOD + Representation) after simulation updates transforms
+	if (VisProcessor && VisLODProcessor)
+	{
+		UWorld* World = GetWorld();
+		UMassEntitySubsystem* MassEntitySubsystem = World ? World->GetSubsystem<UMassEntitySubsystem>() : nullptr;
+		if (MassEntitySubsystem)
+		{
+			FMassEntityManager& EntityManager = MassEntitySubsystem->GetMutableEntityManager();
+			FMassProcessingContext VisContext(EntityManager, DeltaTime);
+			UE::Mass::Executor::Run(VisualizationPipeline, VisContext);
+		}
+	}
+
+	// Sync collision ISMCs for spatial queries (rendering handled by native MassRepresentation)
+	if (CollisionGroups.Num() > 0)
 	{
 		UWorld* World = GetWorld();
 		if (World != nullptr)
@@ -591,14 +771,19 @@ void URustMassBevySubsystem::Tick(float DeltaTime)
 			if (MassEntitySubsystem != nullptr)
 			{
 				FMassEntityManager& EntityManager = MassEntitySubsystem->GetMutableEntityManager();
-				TArray<TArray<FMassEntityHandle>*> GroupEntitiesArr = BuildGroupEntities();
-				Visualizer->SyncInstances(EntityManager, GroupEntitiesArr);
+				SyncCollisionISMCs(EntityManager);
 
 				// Recreate physics bodies only when Rust signals a food state change
 				if (ScheduleCoordinator &&
 					(ScheduleCoordinator->GetLastDispatchFlags() & DISPATCH_FLAG_FOOD_PHYSICS_DIRTY))
 				{
-					Visualizer->RecreateCollisionPhysics();
+					for (auto& Group : CollisionGroups)
+					{
+						if (Group.ISMC && Group.ISMC->GetCollisionEnabled() != ECollisionEnabled::NoCollision)
+						{
+							Group.ISMC->RecreatePhysicsState();
+						}
+					}
 				}
 			}
 		}
@@ -692,15 +877,84 @@ void URustMassBevySubsystem::InitializeSimulation(
 		}
 	}
 
-	// Initialize generic visualizer
-	if (!Visualizer)
+	// Initialize collision-only ISMCs (for spatial queries)
+	InitializeCollisionISMCs(World, Module.Plugin.Rust, EntityManager);
+
+	// Setup native MassRepresentation visualization
 	{
-		Visualizer = NewObject<URustMassGenericVisualizer>(this);
-	}
-	Visualizer->Initialize(World, Module.Plugin.Rust);
-	{
-		TArray<TArray<FMassEntityHandle>*> GroupEntitiesArr = BuildGroupEntities();
-		Visualizer->RebuildInstances(EntityManager, GroupEntitiesArr);
+		if (!VisualizationSetup)
+		{
+			VisualizationSetup = NewObject<URustMassVisualizationSetup>(this);
+		}
+
+		UStaticMesh* SphereMesh = LoadObject<UStaticMesh>(nullptr, TEXT("/Engine/BasicShapes/Sphere.Sphere"));
+		UMaterialInterface* BaseMaterial = LoadObject<UMaterialInterface>(nullptr, TEXT("/Engine/BasicShapes/BasicShapeMaterial.BasicShapeMaterial"));
+
+		static const FLinearColor GroupColors[] = {
+			FLinearColor(0.2f, 0.8f, 0.8f, 1.0f),   // cyan (ants)
+			FLinearColor(0.75f, 0.01f, 0.01f, 1.0f),  // red (food)
+			FLinearColor(0.1f, 0.8f, 0.2f, 1.0f),     // green
+			FLinearColor(0.9f, 0.7f, 0.1f, 1.0f),     // yellow
+		};
+		static constexpr int32 NumGroupColors = UE_ARRAY_COUNT(GroupColors);
+
+		if (SphereMesh)
+		{
+			int32 GroupIdx = 0;
+			for (const auto& Pair : EntityGroups)
+			{
+				// Determine scale from collision group (if available) or default
+				FVector GroupScale = FVector(0.2f);
+				for (const FCollisionGroupEntry& CG : CollisionGroups)
+				{
+					if (CG.Name == Pair.Key)
+					{
+						GroupScale = CG.Scale;
+						break;
+					}
+				}
+
+				UMaterialInterface* GroupMaterial = nullptr;
+				if (BaseMaterial)
+				{
+					UMaterialInstanceDynamic* MatInst = UMaterialInstanceDynamic::Create(BaseMaterial, this);
+					if (MatInst)
+					{
+						MatInst->SetVectorParameterValue(TEXT("Color"), GroupColors[GroupIdx % NumGroupColors]);
+						GroupMaterial = MatInst;
+					}
+				}
+
+				float LODDistances[4] = { 0.0f, 2000.0f, 5000.0f, 15000.0f };
+				VisualizationSetup->SetupGroupVisualization(
+					World, EntityManager, Pair.Value,
+					SphereMesh, GroupMaterial, GroupScale, LODDistances);
+
+				UE_LOG(LogTemp, Display, TEXT("RustMassBevySubsystem: Native vis configured for group '%s' (%d entities)"),
+					*Pair.Key, Pair.Value.Num());
+				++GroupIdx;
+			}
+		}
+
+		// Build a visualization pipeline that we run from our own Tick.
+		// (Don't register with MassSimulationSubsystem — we control timing.)
+		if (!VisLODProcessor)
+		{
+			VisLODProcessor = NewObject<UMassVisualizationLODProcessor>(this);
+		}
+		if (!VisProcessor)
+		{
+			VisProcessor = NewObject<UMassVisualizationProcessor>(this);
+		}
+		{
+			TArray<UMassProcessor*> VisProcessors;
+			VisProcessors.Add(VisLODProcessor);
+			VisProcessors.Add(VisProcessor);
+			VisualizationPipeline.SetProcessors(VisProcessors);
+			TSharedRef<FMassEntityManager> EMRef = EntityManager.AsShared();
+			VisualizationPipeline.Initialize(*this, EMRef);
+			UE_LOG(LogTemp, Display, TEXT("RustMassBevySubsystem: Built vis pipeline (LOD + Representation)"));
+		}
 	}
 
 	int32 TotalEntities = 0;
@@ -723,9 +977,16 @@ void URustMassBevySubsystem::ResetSimulation()
 	UWorld* World = GetWorld();
 	UMassEntitySubsystem* MassEntitySubsystem = World ? World->GetSubsystem<UMassEntitySubsystem>() : nullptr;
 
-	if (Visualizer)
+	TeardownCollisionISMCs();
+
+	// Reset vis pipeline and processors before tearing down entities
+	VisualizationPipeline.Reset();
+	VisProcessor = nullptr;
+	VisLODProcessor = nullptr;
+
+	if (VisualizationSetup)
 	{
-		Visualizer->Teardown();
+		VisualizationSetup->Teardown();
 	}
 
 	if (MassEntitySubsystem != nullptr)
@@ -772,10 +1033,10 @@ void URustMassBevySubsystem::RunSimulationProcessorsForTesting(float DeltaTime)
 {
 	RunSimulationProcessorStep(FMath::Max(0.0f, DeltaTime));
 
-	// Sync ISMC transforms so spatial queries (physics sweeps) see current positions.
+	// Sync collision ISMC transforms so spatial queries (physics sweeps) see current positions.
 	// Without this, food that moved during the simulation step would have stale
 	// physics bodies, causing sweeps to miss on subsequent test steps.
-	if (Visualizer)
+	if (CollisionGroups.Num() > 0)
 	{
 		UWorld* World = GetWorld();
 		if (World)
@@ -784,14 +1045,19 @@ void URustMassBevySubsystem::RunSimulationProcessorsForTesting(float DeltaTime)
 			if (MassEntitySubsystem)
 			{
 				FMassEntityManager& EntityManager = MassEntitySubsystem->GetMutableEntityManager();
-				TArray<TArray<FMassEntityHandle>*> GroupEntitiesArr = BuildGroupEntities();
-				Visualizer->SyncInstances(EntityManager, GroupEntitiesArr);
+				SyncCollisionISMCs(EntityManager);
 
 				// Recreate physics bodies only when Rust signals a food state change
 				if (ScheduleCoordinator &&
 					(ScheduleCoordinator->GetLastDispatchFlags() & DISPATCH_FLAG_FOOD_PHYSICS_DIRTY))
 				{
-					Visualizer->RecreateCollisionPhysics();
+					for (auto& Group : CollisionGroups)
+					{
+						if (Group.ISMC && Group.ISMC->GetCollisionEnabled() != ECollisionEnabled::NoCollision)
+						{
+							Group.ISMC->RecreatePhysicsState();
+						}
+					}
 				}
 			}
 		}

@@ -359,6 +359,12 @@ pub struct MassFragmentRegistration {
     pub fields: &'static [MassFragmentFieldInfo],
     /// If true, this is a FMassTag (no fields, no UPROPERTY).
     pub is_tag: bool,
+    /// If true, this is an existing UE type (e.g. FTransformFragment).
+    /// Codegen skips USTRUCT generation but still emits sizeof static_assert.
+    pub existing: bool,
+    /// Header to `#include` for existing types (e.g. "MassCommonFragments.h").
+    /// Empty string means no extra include needed.
+    pub include_header: &'static str,
     /// Write a default instance into the provided buffer (must be `size` bytes).
     /// Used by codegen to derive C++ defaults from `impl Default`.
     /// `None` for tags or fragments without `Default`.
@@ -482,11 +488,38 @@ pub fn generate_cpp_fragments(fragments: &[&MassFragmentRegistration], output_fi
     out.push_str("#pragma once\n\n");
     out.push_str("#include \"CoreMinimal.h\"\n");
     out.push_str("#include \"MassEntityTypes.h\"\n");
+
+    // Emit extra #includes needed by existing types (deduplicated).
+    // Must appear before the .generated.h include (UHT requires it last).
+    let mut extra_includes: Vec<&str> = fragments
+        .iter()
+        .filter(|f| f.existing && !f.include_header.is_empty())
+        .map(|f| f.include_header)
+        .collect();
+    extra_includes.sort();
+    extra_includes.dedup();
+    for header in &extra_includes {
+        out.push_str(&format!("#include \"{header}\"\n"));
+    }
+
     out.push_str(&format!("#include \"{uht_include}.generated.h\"\n\n"));
     out.push_str("// Auto-generated from #[derive(MassFragment)] Rust structs.\n");
     out.push_str("// Do not edit manually.\n\n");
 
     for frag in fragments {
+        // Existing UE types: skip USTRUCT generation, emit only sizeof verification
+        if frag.existing {
+            out.push_str(&format!(
+                "// {} — existing UE type, layout verified:\n",
+                frag.cpp_type_name
+            ));
+            out.push_str(&format!(
+                "static_assert(sizeof({}) == {}, \"{} size must be {} for Rust interop\");\n\n",
+                frag.cpp_type_name, frag.size, frag.cpp_type_name, frag.size
+            ));
+            continue;
+        }
+
         let base_class = if frag.is_tag { "FMassTag" } else { "FMassFragment" };
 
         // USTRUCT definition
@@ -1873,6 +1906,9 @@ mod tests {
             align: 8,
             fields: &FIELDS,
             is_tag: false,
+            existing: false,
+            include_header: "",
+            write_default: None,
         };
 
         let output = generate_cpp_fragments(&[&reg], "Test.h");
@@ -1899,6 +1935,9 @@ mod tests {
             align: 8,
             fields: &FIELDS,
             is_tag: false,
+            existing: false,
+            include_header: "",
+            write_default: None,
         };
 
         let output = generate_cpp_fragments(&[&reg], "Test.h");
@@ -1921,6 +1960,9 @@ mod tests {
             align: 4,
             fields: &FIELDS,
             is_tag: false,
+            existing: false,
+            include_header: "",
+            write_default: None,
         };
 
         let output = generate_cpp_fragments(&[&reg], "Test.h");
@@ -1938,6 +1980,9 @@ mod tests {
             align: 1,
             fields: &[],
             is_tag: true,
+            existing: false,
+            include_header: "",
+            write_default: None,
         };
 
         let output = generate_cpp_fragments(&[&reg], "Test.h");
@@ -1945,6 +1990,28 @@ mod tests {
         assert!(output.contains("GENERATED_BODY()"), "should have GENERATED_BODY");
         assert!(!output.contains("offsetof"), "tags should have no offset asserts");
         assert!(!output.contains("sizeof"), "tags should have no size asserts");
+    }
+
+    #[test]
+    fn generate_cpp_existing_type() {
+        let reg = MassFragmentRegistration {
+            cpp_type_name: "FTransformFragment",
+            rust_type_name: "Transform",
+            size: 96,
+            align: 16,
+            fields: &[],
+            is_tag: false,
+            existing: true,
+            include_header: "MassCommonFragments.h",
+            write_default: None,
+        };
+
+        let output = generate_cpp_fragments(&[&reg], "Test.h");
+        assert!(!output.contains("USTRUCT"), "existing type should not generate USTRUCT");
+        assert!(!output.contains("GENERATED_BODY"), "existing type should not have GENERATED_BODY");
+        assert!(output.contains("sizeof(FTransformFragment) == 96"), "should have sizeof assert");
+        assert!(output.contains("#include \"MassCommonFragments.h\""), "should include header for existing type");
+        assert!(output.contains("existing UE type"), "should have existing comment");
     }
 
     // -----------------------------------------------------------------------

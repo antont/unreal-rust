@@ -27,6 +27,12 @@ public class RustPlugin : ModuleRules
 				"Core", "GraphEditor",
 				"MassEntity",
 				"MassCommon",
+				"MassMovement",
+				"MassRepresentation",
+				"MassLOD",
+				"MassSpawner",
+				"MassSimulation",
+				"MassActors",
 				"StructUtils",
 			}
 			);

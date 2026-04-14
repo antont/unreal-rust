@@ -9,7 +9,7 @@
 
 use glam::DVec3;
 use unreal_api::mass::{MassTestRegistration, TestCtx};
-use crate::fragments::{Position, Movement, FoodFragment, Carrying};
+use crate::fragments::{Transform, PreviousTranslation, Velocity, FoodFragment, Carrying};
 
 // ---------------------------------------------------------------------------
 // SpawnAndSimulate — basic lifecycle test
@@ -33,20 +33,20 @@ fn spawn_and_simulate(ctx: &TestCtx) {
     assert_eq!(ctx.entity_count("food"), 10);
 
     // Record initial ant position
-    let initial = ctx.read::<Position>("ants", 0)
-        .expect("should be able to read ant position");
+    let initial = ctx.read::<Transform>("ants", 0)
+        .expect("should be able to read ant transform");
 
     // Run 10 simulation steps (dt=0.016 each, speed=200 → ~3.2 units/step → ~32 total)
     ctx.step(0.016, 10);
 
     // Verify ants moved a meaningful distance (at least 1 unit, well under the ~32 expected)
-    let after = ctx.read::<Position>("ants", 0)
-        .expect("should be able to read ant position after stepping");
-    let dist = after.position.distance(initial.position);
+    let after = ctx.read::<Transform>("ants", 0)
+        .expect("should be able to read ant transform after stepping");
+    let dist = after.translation.distance(initial.translation);
     assert!(
         dist > 1.0,
         "ant should have moved meaningfully: distance={:.2}, before={:?}, after={:?}",
-        dist, initial.position, after.position,
+        dist, initial.translation, after.translation,
     );
 
     // Reset and verify
@@ -72,32 +72,27 @@ fn boundary_reflect(ctx: &TestCtx) {
     );
 
     // Place ant at the boundary, moving outward
-    ctx.write("ants", 0, &Position {
-        position: DVec3::new(499.0, 0.0, 50.0),
-        previous_position: DVec3::new(498.0, 0.0, 50.0),
-    });
-    ctx.write("ants", 0, &Movement {
-        direction: DVec3::X,
-        movement_speed: 200.0,
-    });
+    ctx.write("ants", 0, &Transform::from_translation(DVec3::new(499.0, 0.0, 50.0)));
+    ctx.write("ants", 0, &PreviousTranslation { value: DVec3::new(498.0, 0.0, 50.0) });
+    ctx.write("ants", 0, &Velocity::new(DVec3::X, 200.0));
 
     // Step enough for movement + boundary reflect.
     // speed=200, dt=0.016 → 3.2 units/step. Starting at x=499 moving +x,
     // first step overshoots to ~502.2, boundary clamps to 500.0 and reflects direction.
     ctx.step(0.016, 5);
 
-    let pos = ctx.read::<Position>("ants", 0).unwrap();
-    let mov = ctx.read::<Movement>("ants", 0).unwrap();
+    let t = ctx.read::<Transform>("ants", 0).unwrap();
+    let vel = ctx.read::<Velocity>("ants", 0).unwrap();
 
     // After reflection, position should be clamped to bounds exactly
-    assert!(pos.position.x <= 500.0,
-        "ant x should be clamped to bounds max (500.0): x={}", pos.position.x);
+    assert!(t.translation.x <= 500.0,
+        "ant x should be clamped to bounds max (500.0): x={}", t.translation.x);
     // Direction should have flipped to negative x
-    assert!(mov.direction.x < -0.5,
-        "ant direction should reflect strongly negative: dir_x={}", mov.direction.x);
+    assert!(vel.direction().x < -0.5,
+        "ant direction should reflect strongly negative: dir_x={}", vel.direction().x);
     // Ant should have moved away from boundary after reflecting
-    assert!(pos.position.x < 499.0,
-        "ant should have moved away from boundary after reflecting: x={}", pos.position.x);
+    assert!(t.translation.x < 499.0,
+        "ant should have moved away from boundary after reflecting: x={}", t.translation.x);
 
     ctx.reset();
 }
@@ -122,15 +117,15 @@ fn food_pickup(ctx: &TestCtx) {
     assert!(ctx.has_spatial_query("food_pickup"),
         "food_pickup spatial query should be auto-registered from Rust config");
 
-    // Read food position and move ant directly there
+    // Read food position (now in FTransformFragment) and move ant directly there
     let food = ctx.read::<FoodFragment>("food", 0)
         .expect("should read food fragment");
     assert!(food.is_loose, "food should start as loose");
+    let food_tf = ctx.read::<Transform>("food", 0)
+        .expect("should read food transform");
 
-    ctx.write("ants", 0, &Position {
-        position: food.position,
-        previous_position: food.position,
-    });
+    ctx.write("ants", 0, &Transform::from_translation(food_tf.translation));
+    ctx.write("ants", 0, &PreviousTranslation { value: food_tf.translation });
     ctx.write("ants", 0, &Carrying { food_index: -1 });
     // Note: Cooldown is now a pure-Bevy component on shadow entities.
     // Ants without Cooldown are eligible for food interaction.
@@ -169,13 +164,11 @@ fn food_drop(ctx: &TestCtx) {
     );
 
     // Set ant as carrying food[0], move to food[1] position
-    let food1 = ctx.read::<FoodFragment>("food", 1)
-        .expect("should read food[1]");
+    let food1_tf = ctx.read::<Transform>("food", 1)
+        .expect("should read food[1] transform");
 
-    ctx.write("ants", 0, &Position {
-        position: food1.position,
-        previous_position: food1.position,
-    });
+    ctx.write("ants", 0, &Transform::from_translation(food1_tf.translation));
+    ctx.write("ants", 0, &PreviousTranslation { value: food1_tf.translation });
     ctx.write("ants", 0, &Carrying { food_index: 0 });
     // Note: Cooldown is now a pure-Bevy component on shadow entities.
     // Ants without Cooldown are eligible for food interaction.
@@ -253,12 +246,13 @@ fn cooldown_recovery(ctx: &TestCtx) {
     // After enough steps, ALL should have picked up.
     ctx.step(0.016, 100); // let things settle
 
-    // Find loose food positions
+    // Find loose food positions (position now in FTransformFragment)
     let mut loose_food: Vec<(u32, DVec3)> = Vec::new();
     for i in 0..50u32 {
         let food = ctx.read::<FoodFragment>("food", i).unwrap();
         if food.is_loose {
-            loose_food.push((i, food.position));
+            let food_tf = ctx.read::<Transform>("food", i).unwrap();
+            loose_food.push((i, food_tf.translation));
         }
     }
 
@@ -266,10 +260,8 @@ fn cooldown_recovery(ctx: &TestCtx) {
     let place_count = loose_food.len().min(10);
     for ant_idx in 0..place_count {
         let (_, food_pos) = loose_food[ant_idx];
-        ctx.write("ants", ant_idx as u32, &Position {
-            position: food_pos,
-            previous_position: food_pos - DVec3::new(1.0, 0.0, 0.0),
-        });
+        ctx.write("ants", ant_idx as u32, &Transform::from_translation(food_pos));
+        ctx.write("ants", ant_idx as u32, &PreviousTranslation { value: food_pos - DVec3::new(1.0, 0.0, 0.0) });
         ctx.write("ants", ant_idx as u32, &Carrying { food_index: -1 });
     }
 
@@ -285,15 +277,15 @@ fn cooldown_recovery(ctx: &TestCtx) {
         if carry.food_index >= 0 {
             picked_up += 1;
         } else {
-            let pos = ctx.read::<Position>("ants", ant_idx as u32).unwrap();
-            let mov = ctx.read::<Movement>("ants", ant_idx as u32).unwrap();
+            let t = ctx.read::<Transform>("ants", ant_idx as u32).unwrap();
+            let vel = ctx.read::<Velocity>("ants", ant_idx as u32).unwrap();
             let (food_idx, food_pos) = loose_food[ant_idx];
-            let dist = pos.position.distance(food_pos);
+            let dist = t.translation.distance(food_pos);
             failed_ants.push(format!(
                 "ant[{ant_idx}]: pos=({:.1},{:.1},{:.1}) food[{food_idx}]=({:.1},{:.1},{:.1}) dist={dist:.1} speed={:.1} dir=({:.2},{:.2},{:.2})",
-                pos.position.x, pos.position.y, pos.position.z,
+                t.translation.x, t.translation.y, t.translation.z,
                 food_pos.x, food_pos.y, food_pos.z,
-                mov.movement_speed, mov.direction.x, mov.direction.y, mov.direction.z,
+                vel.speed(), vel.direction().x, vel.direction().y, vel.direction().z,
             ));
         }
     }
@@ -324,19 +316,14 @@ fn cooldown_cycle(ctx: &TestCtx) {
         42,
     );
 
-    // Read food[0] position
-    let food0 = ctx.read::<FoodFragment>("food", 0).unwrap();
-    let food0_pos = food0.position;
+    // Read food[0] position (from FTransformFragment)
+    let food0_tf = ctx.read::<Transform>("food", 0).unwrap();
+    let food0_pos = food0_tf.translation;
 
     // Place ant on food[0], moving toward it
-    ctx.write("ants", 0, &Position {
-        position: food0_pos,
-        previous_position: food0_pos - DVec3::new(5.0, 0.0, 0.0),
-    });
-    ctx.write("ants", 0, &Movement {
-        direction: DVec3::X,
-        movement_speed: 100.0,
-    });
+    ctx.write("ants", 0, &Transform::from_translation(food0_pos));
+    ctx.write("ants", 0, &PreviousTranslation { value: food0_pos - DVec3::new(5.0, 0.0, 0.0) });
+    ctx.write("ants", 0, &Velocity::new(DVec3::X, 100.0));
     ctx.write("ants", 0, &Carrying { food_index: -1 });
 
     // Step 1: pickup should happen within a few frames
@@ -353,10 +340,9 @@ fn cooldown_cycle(ctx: &TestCtx) {
     // Now place ant on food[1] (a different loose food)
     let food1 = ctx.read::<FoodFragment>("food", 1).unwrap();
     if food1.is_loose {
-        ctx.write("ants", 0, &Position {
-            position: food1.position,
-            previous_position: food1.position - DVec3::new(5.0, 0.0, 0.0),
-        });
+        let food1_tf = ctx.read::<Transform>("food", 1).unwrap();
+        ctx.write("ants", 0, &Transform::from_translation(food1_tf.translation));
+        ctx.write("ants", 0, &PreviousTranslation { value: food1_tf.translation - DVec3::new(5.0, 0.0, 0.0) });
 
         // Ant is carrying food[0], encounters food[1] → should DROP
         ctx.step(0.016, 10);
@@ -372,10 +358,9 @@ fn cooldown_cycle(ctx: &TestCtx) {
         // Place ant on food[2] — should pick up again (cooldown expired)
         let food2 = ctx.read::<FoodFragment>("food", 2).unwrap();
         if food2.is_loose {
-            ctx.write("ants", 0, &Position {
-                position: food2.position,
-                previous_position: food2.position - DVec3::new(5.0, 0.0, 0.0),
-            });
+            let food2_tf = ctx.read::<Transform>("food", 2).unwrap();
+            ctx.write("ants", 0, &Transform::from_translation(food2_tf.translation));
+            ctx.write("ants", 0, &PreviousTranslation { value: food2_tf.translation - DVec3::new(5.0, 0.0, 0.0) });
             ctx.write("ants", 0, &Carrying { food_index: -1 });
 
             ctx.step(0.016, 10);
@@ -415,7 +400,7 @@ fn integration(ctx: &TestCtx) {
 
     // Record initial positions
     let initial_positions: Vec<DVec3> = (0..ant_count)
-        .map(|i| ctx.read::<Position>("ants", i as u32).unwrap().position)
+        .map(|i| ctx.read::<Transform>("ants", i as u32).unwrap().translation)
         .collect();
 
     // Run 100 simulation steps (1.6 seconds of sim time)
@@ -424,8 +409,8 @@ fn integration(ctx: &TestCtx) {
     // Verify: most ants moved
     let moved_count = (0..ant_count)
         .filter(|&i| {
-            let pos = ctx.read::<Position>("ants", i as u32).unwrap();
-            pos.position != initial_positions[i]
+            let t = ctx.read::<Transform>("ants", i as u32).unwrap();
+            t.translation != initial_positions[i]
         })
         .count();
     assert!(moved_count > ant_count / 2,
@@ -434,22 +419,23 @@ fn integration(ctx: &TestCtx) {
     // Verify: no ant escaped bounds (with tolerance for boundary reflection timing)
     let out_of_bounds = (0..ant_count)
         .filter(|&i| {
-            let pos = ctx.read::<Position>("ants", i as u32).unwrap();
-            pos.position.x < -1050.0 || pos.position.x > 1050.0
-                || pos.position.y < -1050.0 || pos.position.y > 1050.0
+            let t = ctx.read::<Transform>("ants", i as u32).unwrap();
+            t.translation.x < -1050.0 || t.translation.x > 1050.0
+                || t.translation.y < -1050.0 || t.translation.y > 1050.0
         })
         .count();
     assert_eq!(out_of_bounds, 0, "no ants should be far outside bounds");
 
-    // Verify: previous_position is tracked (differs from position for moving ants)
+    // Verify: previous_translation is tracked (differs from translation for moving ants)
     let prev_tracked = (0..ant_count)
         .filter(|&i| {
-            let pos = ctx.read::<Position>("ants", i as u32).unwrap();
-            pos.position != pos.previous_position
+            let t = ctx.read::<Transform>("ants", i as u32).unwrap();
+            let prev = ctx.read::<PreviousTranslation>("ants", i as u32).unwrap();
+            t.translation != prev.value
         })
         .count();
     assert!(prev_tracked > 0,
-        "at least some ants should have previous_position != position");
+        "at least some ants should have previous_translation != translation");
 
     // Verify: all food entities still valid and readable
     for i in 0..food_count {

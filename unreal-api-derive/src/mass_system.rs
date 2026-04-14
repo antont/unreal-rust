@@ -800,6 +800,7 @@ pub fn mass_system_impl(func: &ItemFn, order: u32, entity_group: Option<&str>) -
     let bevy_wrapper_name = format_ident!("{}_bevy", func_name);
     let bevy_reg_name = format_ident!("__mass_bevy_reg_{}", func_name);
     let marker_name = format_ident!("__mass_marker_{}", func_name);
+    let global_marker_name = format_ident!("__mass_marker_{}_global", func_name);
 
     // Bevy resource params: Res<T> / ResMut<T> pass through to the Bevy wrapper
     let bevy_resource_params: Vec<TokenStream> = resource_params
@@ -816,10 +817,13 @@ pub fn mass_system_impl(func: &ItemFn, order: u32, entity_group: Option<&str>) -
         .collect();
 
     // Bevy system params: one Res/ResMut<MassSystemChunks<Marker, T>> per fragment, plus Res<Time> for dt
+    // Global-scope queries use a separate marker to avoid Res/ResMut conflicts when the
+    // same fragment type appears in both a primary and a global query within one system.
     let bevy_params: Vec<TokenStream> = query_params
         .iter()
         .flat_map(|p| {
-            p.fragment_refs().into_iter().enumerate().map(|(i, frag)| {
+            let scope_marker = if p.scope == QueryScope::Global { &global_marker_name } else { &marker_name };
+            p.fragment_refs().into_iter().enumerate().map(move |(i, frag)| {
                 let frag_type = &frag.fragment_type;
                 // For single queries: __mass_{param_name}
                 // For tuple queries: __mass_{param_name}_{i}
@@ -829,9 +833,9 @@ pub fn mass_system_impl(func: &ItemFn, order: u32, entity_group: Option<&str>) -
                     format_ident!("__mass_{}", p.param_name)
                 };
                 if frag.is_mutable {
-                    quote! { mut #param_name: ::unreal_api::ecs::prelude::ResMut<::unreal_api::mass::MassSystemChunks<#marker_name, #frag_type>> }
+                    quote! { mut #param_name: ::unreal_api::ecs::prelude::ResMut<::unreal_api::mass::MassSystemChunks<#scope_marker, #frag_type>> }
                 } else {
-                    quote! { #param_name: ::unreal_api::ecs::prelude::Res<::unreal_api::mass::MassSystemChunks<#marker_name, #frag_type>> }
+                    quote! { #param_name: ::unreal_api::ecs::prelude::Res<::unreal_api::mass::MassSystemChunks<#scope_marker, #frag_type>> }
                 }
             }).collect::<Vec<_>>()
         })
@@ -956,11 +960,12 @@ pub fn mass_system_impl(func: &ItemFn, order: u32, entity_group: Option<&str>) -
     let chunk_init_stmts: Vec<TokenStream> = query_params
         .iter()
         .flat_map(|p| {
-            p.fragment_refs().into_iter().map(|frag| {
+            let scope_marker = if p.scope == QueryScope::Global { &global_marker_name } else { &marker_name };
+            p.fragment_refs().into_iter().map(move |frag| {
                 let frag_type = &frag.fragment_type;
                 quote! {
-                    if !world.contains_resource::<::unreal_api::mass::MassSystemChunks<#marker_name, #frag_type>>() {
-                        world.insert_resource(::unreal_api::mass::MassSystemChunks::<#marker_name, #frag_type>::new());
+                    if !world.contains_resource::<::unreal_api::mass::MassSystemChunks<#scope_marker, #frag_type>>() {
+                        world.insert_resource(::unreal_api::mass::MassSystemChunks::<#scope_marker, #frag_type>::new());
                     }
                 }
             }).collect::<Vec<_>>()
@@ -983,10 +988,11 @@ pub fn mass_system_impl(func: &ItemFn, order: u32, entity_group: Option<&str>) -
     let clear_resource_stmts: Vec<TokenStream> = query_params
         .iter()
         .flat_map(|p| {
-            p.fragment_refs().into_iter().map(|frag| {
+            let scope_marker = if p.scope == QueryScope::Global { &global_marker_name } else { &marker_name };
+            p.fragment_refs().into_iter().map(move |frag| {
                 let frag_type = &frag.fragment_type;
                 quote! {
-                    world.resource_mut::<::unreal_api::mass::MassSystemChunks<#marker_name, #frag_type>>().clear();
+                    world.resource_mut::<::unreal_api::mass::MassSystemChunks<#scope_marker, #frag_type>>().clear();
                 }
             }).collect::<Vec<_>>()
         })
@@ -1016,8 +1022,8 @@ pub fn mass_system_impl(func: &ItemFn, order: u32, entity_group: Option<&str>) -
                 let frag_type = &frag.fragment_type;
                 let idx = frag.scope_index;
                 quote! {
-                    if world.resource::<::unreal_api::mass::MassSystemChunks<#marker_name, #frag_type>>().global().is_none() {
-                        world.resource_mut::<::unreal_api::mass::MassSystemChunks<#marker_name, #frag_type>>()
+                    if world.resource::<::unreal_api::mass::MassSystemChunks<#global_marker_name, #frag_type>>().global().is_none() {
+                        world.resource_mut::<::unreal_api::mass::MassSystemChunks<#global_marker_name, #frag_type>>()
                             .set_global(chunk.global_chunked_fragments.add(#idx));
                     }
                 }
@@ -1503,10 +1509,17 @@ pub fn mass_system_impl(func: &ItemFn, order: u32, entity_group: Option<&str>) -
         // C++ extern wrapper + registration (each item is individually cfg-gated)
         #cpp_wrapper
 
-        /// Zero-sized marker type for per-system chunk isolation.
+        /// Zero-sized marker type for per-system chunk isolation (primary queries).
         #[cfg(feature = "unreal")]
         #[allow(non_camel_case_types)]
         struct #marker_name;
+
+        /// Zero-sized marker type for global queries — separate from primary marker
+        /// to avoid Res/ResMut conflicts when the same fragment type appears in both
+        /// a primary and a global query within one system.
+        #[cfg(feature = "unreal")]
+        #[allow(non_camel_case_types)]
+        struct #global_marker_name;
 
         #(
             #[cfg(feature = "unreal")]

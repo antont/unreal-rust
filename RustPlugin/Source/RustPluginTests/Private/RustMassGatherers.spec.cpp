@@ -2,9 +2,19 @@
 #include "Misc/AutomationTest.h"
 #include "MassEntitySubsystem.h"
 #include "MassEntityView.h"
+#include "MassEntityTypes.h"
 #include "Tests/AutomationCommon.h"
 #include "RustMassBevySubsystem.h"
 #include "GatherersFragments.gen.h"
+#include "MassMovementFragments.h"
+#include "MassRepresentationFragments.h"
+#include "MassRepresentationTypes.h"
+#include "MassRepresentationProcessor.h"
+#include "MassVisualizationLODProcessor.h"
+#include "MassLODFragments.h"
+#include "MassActorSubsystem.h"
+#include "MassExecutor.h"
+#include "MassProcessingContext.h"
 #include "Bindings.h"
 #include "RustMassDynamicProcessor.h"
 #include "RustPlugin.h"
@@ -65,8 +75,8 @@ bool FGatherersBevyMassSpawnAndSimulateTest::RunTest(const FString& Parameters)
 		if (EntityManager.IsEntityValid(AntEntity))
 		{
 			FMassEntityView AntView(EntityManager, AntEntity);
-			const FGatherersPosition& Pos = AntView.GetFragmentData<FGatherersPosition>();
-			InitialPositions.Add(Pos.Position);
+			const FTransformFragment& T = AntView.GetFragmentData<FTransformFragment>();
+			InitialPositions.Add(T.GetTransform().GetTranslation());
 		}
 	}
 
@@ -84,8 +94,8 @@ bool FGatherersBevyMassSpawnAndSimulateTest::RunTest(const FString& Parameters)
 		if (EntityManager.IsEntityValid(AntEntity) && InitialPositions.IsValidIndex(AntIndex))
 		{
 			FMassEntityView AntView(EntityManager, AntEntity);
-			const FGatherersPosition& Pos = AntView.GetFragmentData<FGatherersPosition>();
-			if (!Pos.Position.Equals(InitialPositions[AntIndex], 0.01))
+			const FTransformFragment& T = AntView.GetFragmentData<FTransformFragment>();
+			if (!T.GetTransform().GetTranslation().Equals(InitialPositions[AntIndex], 0.01))
 			{
 				++MovedCount;
 			}
@@ -120,9 +130,9 @@ IMPLEMENT_SIMPLE_AUTOMATION_TEST(
 
 bool FGatherersBevyMassFoodFragmentLayoutTest::RunTest(const FString& Parameters)
 {
-	// Verify layout matches Rust FoodFragment expectations
-	TestEqual(TEXT("FoodFragment Position offset"), (int32)offsetof(FGatherersMassFoodFragment, Position), 0);
-	TestEqual(TEXT("FoodFragment bIsLoose offset"), (int32)offsetof(FGatherersMassFoodFragment, bIsLoose), 24);
+	// Verify layout matches Rust FoodFragment expectations (position moved to FTransformFragment)
+	TestEqual(TEXT("FoodFragment bIsLoose offset"), (int32)offsetof(FGatherersMassFoodFragment, bIsLoose), 0);
+	TestEqual(TEXT("FoodFragment size"), (int32)sizeof(FGatherersMassFoodFragment), 1);
 
 	return true;
 }
@@ -219,12 +229,13 @@ bool FGatherersBevyMassFoodPickupTest::RunTest(const FString& Parameters)
 		if (EntityManager.IsEntityValid(AntEntity) && EntityManager.IsEntityValid(FoodEntity))
 		{
 			FMassEntityView FoodView(EntityManager, FoodEntity);
-			const FVector FoodPos = FoodView.GetFragmentData<FGatherersMassFoodFragment>().Position;
+			const FVector FoodPos = FoodView.GetFragmentData<FTransformFragment>().GetTransform().GetTranslation();
 
 			FMassEntityView AntView(EntityManager, AntEntity);
-			FGatherersPosition& Pos = AntView.GetFragmentData<FGatherersPosition>();
-			Pos.Position = FoodPos;
-			Pos.PreviousPosition = FoodPos;
+			FTransformFragment& T = AntView.GetFragmentData<FTransformFragment>();
+			T.GetMutableTransform().SetTranslation(FoodPos);
+			FGatherersPreviousTranslation& Prev = AntView.GetFragmentData<FGatherersPreviousTranslation>();
+			Prev.Value = FoodPos;
 			FGatherersCarrying& Carry = AntView.GetFragmentData<FGatherersCarrying>();
 			Carry.FoodIndex = -1;
 			// Cooldown is now a pure-Bevy component (not a MassFragment).
@@ -258,15 +269,16 @@ bool FGatherersBevyMassFoodPickupTest::RunTest(const FString& Parameters)
 
 				FMassEntityView View(EntityManager, Entity);
 				const FGatherersMassFoodFragment& Food = View.GetFragmentData<FGatherersMassFoodFragment>();
+				const FVector FoodPos_i = View.GetFragmentData<FTransformFragment>().GetTransform().GetTranslation();
 
-				const double Dx = AntPos.X - Food.Position.X;
-				const double Dy = AntPos.Y - Food.Position.Y;
-				const double Dz = AntPos.Z - Food.Position.Z;
+				const double Dx = AntPos.X - FoodPos_i.X;
+				const double Dy = AntPos.Y - FoodPos_i.Y;
+				const double Dz = AntPos.Z - FoodPos_i.Z;
 				const double DistSq = Dx*Dx + Dy*Dy + Dz*Dz;
 
 				UE_LOG(LogTemp, Display, TEXT("[FoodPickup Mock] Ant=(%.1f,%.1f,%.1f) Food[%d]=(%.1f,%.1f,%.1f) dist=%.1f radius=%.1f loose=%d"),
 					AntPos.X, AntPos.Y, AntPos.Z, Idx,
-					Food.Position.X, Food.Position.Y, Food.Position.Z,
+					FoodPos_i.X, FoodPos_i.Y, FoodPos_i.Z,
 					FMath::Sqrt(DistSq), PickupRadius, Food.bIsLoose ? 1 : 0);
 
 				if (!Food.bIsLoose) continue;
@@ -276,9 +288,9 @@ bool FGatherersBevyMassFoodPickupTest::RunTest(const FString& Parameters)
 					BestDistSq = DistSq;
 					Out->has_encounter = true;
 					Out->entity_index = Idx;
-					Out->encounter_position[0] = Food.Position.X;
-					Out->encounter_position[1] = Food.Position.Y;
-					Out->encounter_position[2] = Food.Position.Z;
+					Out->encounter_position[0] = FoodPos_i.X;
+					Out->encounter_position[1] = FoodPos_i.Y;
+					Out->encounter_position[2] = FoodPos_i.Z;
 					UE_LOG(LogTemp, Display, TEXT("[FoodPickup Mock] HIT! food_index=%d"), Idx);
 				}
 			}
@@ -358,7 +370,8 @@ bool FGatherersBevyMassBoundaryReflectTest::RunTest(const FString& Parameters)
 		return false;
 	}
 
-	const FBox Bounds(FVector(-500.0, -500.0, 0.0), FVector(500.0, 500.0, 100.0));
+	// Use bounds matching Rust SIM_BOUNDS (±5000)
+	const FBox Bounds(FVector(-5000.0, -5000.0, -100.0), FVector(5000.0, 5000.0, 100.0));
 	Subsystem->InitializeSimulation({{TEXT("ants"), 1}, {TEXT("food"), 0}}, Bounds, 777);
 
 	FMassEntityManager& EntityManager = MassEntitySubsystem->GetMutableEntityManager();
@@ -371,12 +384,12 @@ bool FGatherersBevyMassBoundaryReflectTest::RunTest(const FString& Parameters)
 		if (EntityManager.IsEntityValid(AntEntity))
 		{
 			FMassEntityView AntView(EntityManager, AntEntity);
-			FGatherersPosition& Pos = AntView.GetFragmentData<FGatherersPosition>();
-			Pos.Position = FVector(490.0, 0.0, 50.0);
-			Pos.PreviousPosition = Pos.Position;
-			FGatherersMovement& Mov = AntView.GetFragmentData<FGatherersMovement>();
-			Mov.Direction = FVector(1.0, 0.0, 0.0);
-			Mov.MovementSpeed = 200.0f;
+			FTransformFragment& T = AntView.GetFragmentData<FTransformFragment>();
+			T.GetMutableTransform().SetTranslation(FVector(4990.0, 0.0, 50.0));
+			FGatherersPreviousTranslation& Prev = AntView.GetFragmentData<FGatherersPreviousTranslation>();
+			Prev.Value = T.GetTransform().GetTranslation();
+			FMassVelocityFragment& Vel = AntView.GetFragmentData<FMassVelocityFragment>();
+			Vel.Value = FVector(200.0, 0.0, 0.0); // direction * speed
 		}
 	}
 
@@ -393,13 +406,13 @@ bool FGatherersBevyMassBoundaryReflectTest::RunTest(const FString& Parameters)
 		if (EntityManager.IsEntityValid(AntEntity))
 		{
 			FMassEntityView AntView(EntityManager, AntEntity);
-			const FGatherersPosition& Pos = AntView.GetFragmentData<FGatherersPosition>();
-			const FGatherersMovement& Mov = AntView.GetFragmentData<FGatherersMovement>();
+			const FTransformFragment& T = AntView.GetFragmentData<FTransformFragment>();
+			const FMassVelocityFragment& Vel = AntView.GetFragmentData<FMassVelocityFragment>();
 
-			TestTrue(TEXT("Ant X should be within bounds (<=500)"),
-				Pos.Position.X <= 500.0 + 1.0);  // small tolerance
-			TestTrue(TEXT("Ant direction X should reflect (become negative)"),
-				Mov.Direction.X < 0.0);
+			TestTrue(TEXT("Ant X should be within bounds (<=5000)"),
+				T.GetTransform().GetTranslation().X <= 5000.0 + 1.0);  // small tolerance
+			TestTrue(TEXT("Velocity X should reflect (become negative)"),
+				Vel.Value.X < 0.0);
 		}
 	}
 
@@ -526,7 +539,8 @@ bool FGatherersBevyMassIntegrationTest::RunTest(const FString& Parameters)
 
 	const int32 AntCount = 50;
 	const int32 FoodCount = 20;
-	const FBox Bounds(FVector(-1000.0, -1000.0, 0.0), FVector(1000.0, 1000.0, 100.0));
+	// Use bounds matching Rust SIM_BOUNDS (±5000)
+	const FBox Bounds(FVector(-5000.0, -5000.0, -100.0), FVector(5000.0, 5000.0, 100.0));
 	Subsystem->InitializeSimulation({{TEXT("ants"), AntCount}, {TEXT("food"), FoodCount}}, Bounds, 12345);
 
 	TestEqual(TEXT("Should have 50 ants"), Subsystem->GetGroupEntityCount(TEXT("ants")), AntCount);
@@ -543,8 +557,8 @@ bool FGatherersBevyMassIntegrationTest::RunTest(const FString& Parameters)
 		if (EntityManager.IsEntityValid(AntEntity))
 		{
 			FMassEntityView AntView(EntityManager, AntEntity);
-			const FGatherersPosition& Pos = AntView.GetFragmentData<FGatherersPosition>();
-			InitialPositions.Add(Pos.Position);
+			const FTransformFragment& T = AntView.GetFragmentData<FTransformFragment>();
+			InitialPositions.Add(T.GetTransform().GetTranslation());
 		}
 	}
 
@@ -562,8 +576,8 @@ bool FGatherersBevyMassIntegrationTest::RunTest(const FString& Parameters)
 		if (EntityManager.IsEntityValid(AntEntity) && InitialPositions.IsValidIndex(i))
 		{
 			FMassEntityView AntView(EntityManager, AntEntity);
-			const FGatherersPosition& Pos = AntView.GetFragmentData<FGatherersPosition>();
-			if (!Pos.Position.Equals(InitialPositions[i], 0.01))
+			const FTransformFragment& T = AntView.GetFragmentData<FTransformFragment>();
+			if (!T.GetTransform().GetTranslation().Equals(InitialPositions[i], 0.01))
 			{
 				++MovedCount;
 			}
@@ -579,11 +593,11 @@ bool FGatherersBevyMassIntegrationTest::RunTest(const FString& Parameters)
 		if (EntityManager.IsEntityValid(AntEntity))
 		{
 			FMassEntityView AntView(EntityManager, AntEntity);
-			const FGatherersPosition& Pos = AntView.GetFragmentData<FGatherersPosition>();
-			if (Pos.Position.X < Bounds.Min.X - BoundsTolerance ||
-				Pos.Position.X > Bounds.Max.X + BoundsTolerance ||
-				Pos.Position.Y < Bounds.Min.Y - BoundsTolerance ||
-				Pos.Position.Y > Bounds.Max.Y + BoundsTolerance)
+			const FVector AntPos = AntView.GetFragmentData<FTransformFragment>().GetTransform().GetTranslation();
+			if (AntPos.X < Bounds.Min.X - BoundsTolerance ||
+				AntPos.X > Bounds.Max.X + BoundsTolerance ||
+				AntPos.Y < Bounds.Min.Y - BoundsTolerance ||
+				AntPos.Y > Bounds.Max.Y + BoundsTolerance)
 			{
 				++OutOfBoundsCount;
 			}
@@ -591,21 +605,22 @@ bool FGatherersBevyMassIntegrationTest::RunTest(const FString& Parameters)
 	}
 	TestEqual(TEXT("No ants should be far outside bounds"), OutOfBoundsCount, 0);
 
-	// Verify: PreviousPosition is tracked (should differ from Position for moving ants)
+	// Verify: PreviousTranslation is tracked (should differ from Translation for moving ants)
 	int32 PreviousTrackedCount = 0;
 	for (const FMassEntityHandle AntEntity : *AntEntities)
 	{
 		if (EntityManager.IsEntityValid(AntEntity))
 		{
 			FMassEntityView AntView(EntityManager, AntEntity);
-			const FGatherersPosition& Pos = AntView.GetFragmentData<FGatherersPosition>();
-			if (!Pos.Position.Equals(Pos.PreviousPosition, 0.001))
+			const FVector CurPos = AntView.GetFragmentData<FTransformFragment>().GetTransform().GetTranslation();
+			const FVector PrevPos = AntView.GetFragmentData<FGatherersPreviousTranslation>().Value;
+			if (!CurPos.Equals(PrevPos, 0.001))
 			{
 				++PreviousTrackedCount;
 			}
 		}
 	}
-	TestTrue(TEXT("PreviousPosition should differ from Position for moving ants"),
+	TestTrue(TEXT("PreviousTranslation should differ from Translation for moving ants"),
 		PreviousTrackedCount > 0);
 
 	// Verify: all food entities valid and accessible
@@ -761,12 +776,12 @@ bool FGatherersBevyMassRustSimDefaultsFFITest::RunTest(const FString& Parameters
 		if (Name == TEXT("ants"))
 		{
 			FoundAnts = true;
-			TestEqual(TEXT("Ants default count"), Defaults.groups[i].count, 100);
+			TestEqual(TEXT("Ants default count"), Defaults.groups[i].count, 500);
 		}
 		else if (Name == TEXT("food"))
 		{
 			FoundFood = true;
-			TestEqual(TEXT("Food default count"), Defaults.groups[i].count, 500);
+			TestEqual(TEXT("Food default count"), Defaults.groups[i].count, 200);
 		}
 	}
 	TestTrue(TEXT("Should have 'ants' group in defaults"), FoundAnts);
@@ -812,7 +827,7 @@ bool FGatherersBevyMassRustSpatialQueryConfigFFITest::RunTest(const FString& Par
 	TestEqual(TEXT("Radius should be 15.0"), Config.radius, 15.0f);
 	TestEqual(TEXT("query_type should be 1 (PhysicsSweep)"), Config.query_type, (uint8)1);
 	TestEqual(TEXT("collision_channel_index should be 0"), Config.collision_channel_index, (uint8)0);
-	TestEqual(TEXT("Bool offset should be 24"), Config.filter_bool_offset, (uint32)24);
+	TestEqual(TEXT("Bool offset should be 0"), Config.filter_bool_offset, (uint32)0);
 	TestTrue(TEXT("filter_bool_must_be should be true"), Config.filter_bool_must_be);
 
 	FString FilterType(Config.filter_fragment_type.len,
@@ -865,7 +880,7 @@ bool FGatherersBevyMassReloadCycleTest::RunTest(const FString& Parameters)
 		if (EntityManager.IsEntityValid(AntEntity))
 		{
 			FMassEntityView AntView(EntityManager, AntEntity);
-			InitialPositions.Add(AntView.GetFragmentData<FGatherersPosition>().Position);
+			InitialPositions.Add(AntView.GetFragmentData<FTransformFragment>().GetTransform().GetTranslation());
 		}
 	}
 
@@ -881,7 +896,7 @@ bool FGatherersBevyMassReloadCycleTest::RunTest(const FString& Parameters)
 		if (EntityManager.IsEntityValid((*AntEntities)[i]))
 		{
 			FMassEntityView AntView(EntityManager, (*AntEntities)[i]);
-			if (!AntView.GetFragmentData<FGatherersPosition>().Position.Equals(InitialPositions[i], 0.01))
+			if (!AntView.GetFragmentData<FTransformFragment>().GetTransform().GetTranslation().Equals(InitialPositions[i], 0.01))
 			{
 				++MovedCount;
 			}
@@ -906,7 +921,7 @@ bool FGatherersBevyMassReloadCycleTest::RunTest(const FString& Parameters)
 		if (EntityManager.IsEntityValid((*NewAnts)[i]))
 		{
 			FMassEntityView AntView(EntityManager, (*NewAnts)[i]);
-			Phase3Positions.Add(AntView.GetFragmentData<FGatherersPosition>().Position);
+			Phase3Positions.Add(AntView.GetFragmentData<FTransformFragment>().GetTransform().GetTranslation());
 		}
 	}
 
@@ -921,7 +936,7 @@ bool FGatherersBevyMassReloadCycleTest::RunTest(const FString& Parameters)
 		if (EntityManager.IsEntityValid((*NewAnts)[i]))
 		{
 			FMassEntityView AntView(EntityManager, (*NewAnts)[i]);
-			if (!AntView.GetFragmentData<FGatherersPosition>().Position.Equals(Phase3Positions[i], 0.01))
+			if (!AntView.GetFragmentData<FTransformFragment>().GetTransform().GetTranslation().Equals(Phase3Positions[i], 0.01))
 			{
 				++Phase3Moved;
 			}
@@ -1028,6 +1043,607 @@ bool FGatherersBevyMassOnRustReloadedResetsStateTest::RunTest(const FString& Par
 		Subsystem->GetGroupEntityCount(TEXT("ants")), 20);
 	TestEqual(TEXT("Food count should be 10 after reload (re-inited)"),
 		Subsystem->GetGroupEntityCount(TEXT("food")), 10);
+
+	Subsystem->ResetSimulation();
+	return true;
+}
+
+// ---------------------------------------------------------------------------
+// Native MassRepresentation visualization tests
+// ---------------------------------------------------------------------------
+
+IMPLEMENT_SIMPLE_AUTOMATION_TEST(
+	FGatherersBevyMassVisualizationFragmentsTest,
+	"supplemental.RustPlugin.Gatherers.BevyMassVisualizationFragments",
+	EAutomationTestFlags::EditorContext | EAutomationTestFlags::EngineFilter)
+
+bool FGatherersBevyMassVisualizationFragmentsTest::RunTest(const FString& Parameters)
+{
+	UWorld* World = GEditor->GetEditorWorldContext().World();
+	if (!TestNotNull(TEXT("World must exist"), World))
+	{
+		return false;
+	}
+
+	UMassEntitySubsystem* MassEntitySubsystem = World->GetSubsystem<UMassEntitySubsystem>();
+	if (!TestNotNull(TEXT("MassEntitySubsystem must exist"), MassEntitySubsystem))
+	{
+		return false;
+	}
+
+	URustMassBevySubsystem* Subsystem = World->GetSubsystem<URustMassBevySubsystem>();
+	if (!TestNotNull(TEXT("RustMassBevySubsystem must exist"), Subsystem))
+	{
+		return false;
+	}
+
+	// Initialize with small group
+	const FBox Bounds(FVector(-500.0, -500.0, 0.0), FVector(500.0, 500.0, 100.0));
+	Subsystem->InitializeSimulation({{TEXT("ants"), 10}, {TEXT("food"), 5}}, Bounds, 42);
+
+	FMassEntityManager& EntityManager = MassEntitySubsystem->GetMutableEntityManager();
+	const TArray<FMassEntityHandle>* AntEntities = Subsystem->GetGroupEntities(TEXT("ants"));
+	if (!TestNotNull(TEXT("Ant entities should exist"), AntEntities))
+	{
+		Subsystem->ResetSimulation();
+		return false;
+	}
+
+	// Verify ant entities have visualization per-entity fragments
+	int32 ValidCount = 0;
+	for (const FMassEntityHandle& Entity : *AntEntities)
+	{
+		if (!EntityManager.IsEntityValid(Entity))
+		{
+			continue;
+		}
+
+		FMassEntityView View(EntityManager, Entity);
+
+		// Per-entity vis fragments
+		const FMassRepresentationFragment* RepFrag = View.GetFragmentDataPtr<FMassRepresentationFragment>();
+		TestNotNull(TEXT("Ant should have FMassRepresentationFragment"), RepFrag);
+
+		const FMassRepresentationLODFragment* LODFrag = View.GetFragmentDataPtr<FMassRepresentationLODFragment>();
+		TestNotNull(TEXT("Ant should have FMassRepresentationLODFragment"), LODFrag);
+
+		const FMassActorFragment* ActorFrag = View.GetFragmentDataPtr<FMassActorFragment>();
+		TestNotNull(TEXT("Ant should have FMassActorFragment"), ActorFrag);
+
+		if (RepFrag)
+		{
+			TestTrue(TEXT("Ant ISM desc handle should be valid"),
+				RepFrag->StaticMeshDescHandle.IsValid());
+		}
+
+		// Verify LOD fragment initialized to High (not default Max which maps to Off→None)
+		if (LODFrag)
+		{
+			TestEqual(TEXT("LOD should be initialized to High"), (int32)LODFrag->LOD, (int32)EMassLOD::High);
+			TestEqual(TEXT("Visibility should be CanBeSeen"), (int32)LODFrag->Visibility, (int32)EMassVisibility::CanBeSeen);
+		}
+
+		++ValidCount;
+	}
+	TestTrue(TEXT("All ant entities should be valid"), ValidCount == AntEntities->Num());
+
+	// Verify archetype has visualization tags by checking the archetype composition
+	if (AntEntities->Num() > 0 && EntityManager.IsEntityValid((*AntEntities)[0]))
+	{
+		const FMassArchetypeHandle Archetype = EntityManager.GetArchetypeForEntity((*AntEntities)[0]);
+		const FMassArchetypeCompositionDescriptor& Composition = EntityManager.GetArchetypeComposition(Archetype);
+
+		TestTrue(TEXT("Archetype should have FMassVisualizationProcessorTag"),
+			Composition.GetTags().Contains(*FMassVisualizationProcessorTag::StaticStruct()));
+		TestTrue(TEXT("Archetype should have FMassVisualizationLODProcessorTag"),
+			Composition.GetTags().Contains(*FMassVisualizationLODProcessorTag::StaticStruct()));
+		TestFalse(TEXT("Archetype should NOT have FMassVisibilityCulledByDistanceTag (causes cull-stuck)"),
+			Composition.GetTags().Contains(*FMassVisibilityCulledByDistanceTag::StaticStruct()));
+
+		// Verify chunk fragment
+		TestTrue(TEXT("Archetype should have FMassVisualizationChunkFragment"),
+			Composition.GetChunkFragments().Contains(*FMassVisualizationChunkFragment::StaticStruct()));
+
+		// Verify shared fragment types
+		TestTrue(TEXT("Archetype should have FMassRepresentationParameters (const shared)"),
+			Composition.GetConstSharedFragments().Contains(*FMassRepresentationParameters::StaticStruct()));
+		TestTrue(TEXT("Archetype should have FMassVisualizationLODParameters (const shared)"),
+			Composition.GetConstSharedFragments().Contains(*FMassVisualizationLODParameters::StaticStruct()));
+		TestTrue(TEXT("Archetype should have FMassRepresentationSubsystemSharedFragment (shared)"),
+			Composition.GetSharedFragments().Contains(*FMassRepresentationSubsystemSharedFragment::StaticStruct()));
+		TestTrue(TEXT("Archetype should have FMassVisualizationLODSharedFragment (shared)"),
+			Composition.GetSharedFragments().Contains(*FMassVisualizationLODSharedFragment::StaticStruct()));
+
+		// Verify original sim fragments are preserved after archetype move
+		TestTrue(TEXT("Ant archetype should still have FTransformFragment"),
+			Composition.GetFragments().Contains(*FTransformFragment::StaticStruct()));
+		TestTrue(TEXT("Ant archetype should still have FMassVelocityFragment"),
+			Composition.GetFragments().Contains(*FMassVelocityFragment::StaticStruct()));
+	}
+
+	Subsystem->ResetSimulation();
+	return true;
+}
+
+// ---------------------------------------------------------------------------
+// Verify vis + sim coexistence: simulation still works after vis setup
+// ---------------------------------------------------------------------------
+
+IMPLEMENT_SIMPLE_AUTOMATION_TEST(
+	FGatherersBevyMassVisSimCoexistenceTest,
+	"supplemental.RustPlugin.Gatherers.BevyMassVisSimCoexistence",
+	EAutomationTestFlags::EditorContext | EAutomationTestFlags::EngineFilter)
+
+bool FGatherersBevyMassVisSimCoexistenceTest::RunTest(const FString& Parameters)
+{
+	UWorld* World = GEditor->GetEditorWorldContext().World();
+	if (!TestNotNull(TEXT("World must exist"), World))
+	{
+		return false;
+	}
+
+	UMassEntitySubsystem* MassEntitySubsystem = World->GetSubsystem<UMassEntitySubsystem>();
+	if (!TestNotNull(TEXT("MassEntitySubsystem must exist"), MassEntitySubsystem))
+	{
+		return false;
+	}
+
+	URustMassBevySubsystem* Subsystem = World->GetSubsystem<URustMassBevySubsystem>();
+	if (!TestNotNull(TEXT("RustMassBevySubsystem must exist"), Subsystem))
+	{
+		return false;
+	}
+
+	const FBox Bounds(FVector(-5000.0, -5000.0, -100.0), FVector(5000.0, 5000.0, 100.0));
+	Subsystem->InitializeSimulation({{TEXT("ants"), 20}, {TEXT("food"), 10}}, Bounds, 42);
+
+	FMassEntityManager& EntityManager = MassEntitySubsystem->GetMutableEntityManager();
+	const TArray<FMassEntityHandle>* AntEntities = Subsystem->GetGroupEntities(TEXT("ants"));
+
+	// Record initial positions
+	TArray<FVector> InitialPositions;
+	for (const FMassEntityHandle& Entity : *AntEntities)
+	{
+		if (EntityManager.IsEntityValid(Entity))
+		{
+			FMassEntityView View(EntityManager, Entity);
+			InitialPositions.Add(View.GetFragmentData<FTransformFragment>().GetTransform().GetTranslation());
+		}
+	}
+
+	// Run simulation — Rust processors must work on entities that now also have vis fragments
+	for (int32 Step = 0; Step < 10; ++Step)
+	{
+		Subsystem->RunSimulationProcessorsForTesting(0.016f);
+	}
+
+	// Verify ants moved (Rust movement processor still works after vis setup)
+	int32 MovedCount = 0;
+	for (int32 i = 0; i < AntEntities->Num() && i < InitialPositions.Num(); ++i)
+	{
+		if (EntityManager.IsEntityValid((*AntEntities)[i]))
+		{
+			FMassEntityView View(EntityManager, (*AntEntities)[i]);
+			if (!View.GetFragmentData<FTransformFragment>().GetTransform().GetTranslation().Equals(InitialPositions[i], 0.01))
+			{
+				++MovedCount;
+			}
+		}
+	}
+	TestTrue(TEXT("Ants should move after sim steps (vis fragments don't break Rust processors)"),
+		MovedCount > 0);
+
+	// Verify vis fragments still present after simulation
+	if (AntEntities->Num() > 0 && EntityManager.IsEntityValid((*AntEntities)[0]))
+	{
+		FMassEntityView View(EntityManager, (*AntEntities)[0]);
+		TestNotNull(TEXT("RepresentationFragment should persist after sim"),
+			View.GetFragmentDataPtr<FMassRepresentationFragment>());
+		TestNotNull(TEXT("RepresentationLODFragment should persist after sim"),
+			View.GetFragmentDataPtr<FMassRepresentationLODFragment>());
+	}
+
+	Subsystem->ResetSimulation();
+	return true;
+}
+
+// ---------------------------------------------------------------------------
+// Verify vis processors are registered with MassSimulationSubsystem
+// ---------------------------------------------------------------------------
+
+IMPLEMENT_SIMPLE_AUTOMATION_TEST(
+	FGatherersBevyMassVisProcessorRegistrationTest,
+	"supplemental.RustPlugin.Gatherers.BevyMassVisProcessorRegistration",
+	EAutomationTestFlags::EditorContext | EAutomationTestFlags::EngineFilter)
+
+bool FGatherersBevyMassVisProcessorRegistrationTest::RunTest(const FString& Parameters)
+{
+	UWorld* World = GEditor->GetEditorWorldContext().World();
+	if (!TestNotNull(TEXT("World must exist"), World))
+	{
+		return false;
+	}
+
+	URustMassBevySubsystem* Subsystem = World->GetSubsystem<URustMassBevySubsystem>();
+	if (!TestNotNull(TEXT("RustMassBevySubsystem must exist"), Subsystem))
+	{
+		return false;
+	}
+
+	// Before init, no vis processors should be registered
+	Subsystem->ResetSimulation();
+	TestFalse(TEXT("No vis processors before init"),
+		Subsystem->HasVisProcessorsRegistered());
+
+	// After init, vis processors should be registered
+	const FBox Bounds(FVector(-500.0, -500.0, 0.0), FVector(500.0, 500.0, 100.0));
+	Subsystem->InitializeSimulation({{TEXT("ants"), 10}, {TEXT("food"), 5}}, Bounds, 42);
+
+	TestTrue(TEXT("Vis processors should be registered after init"),
+		Subsystem->HasVisProcessorsRegistered());
+
+	// After reset, vis processors should be unregistered
+	Subsystem->ResetSimulation();
+	TestFalse(TEXT("Vis processors should be unregistered after reset"),
+		Subsystem->HasVisProcessorsRegistered());
+
+	// After re-init (hot-reload scenario), vis processors should be re-registered
+	Subsystem->InitializeSimulation({{TEXT("ants"), 10}, {TEXT("food"), 5}}, Bounds, 42);
+	TestTrue(TEXT("Vis processors re-registered after re-init"),
+		Subsystem->HasVisProcessorsRegistered());
+
+	Subsystem->ResetSimulation();
+	return true;
+}
+
+// ---------------------------------------------------------------------------
+// End-to-end: vis setup doesn't break simulation, entities move, rep state valid
+// ---------------------------------------------------------------------------
+
+IMPLEMENT_SIMPLE_AUTOMATION_TEST(
+	FGatherersBevyMassVisMovementTest,
+	"supplemental.RustPlugin.Gatherers.BevyMassVisMovement",
+	EAutomationTestFlags::EditorContext | EAutomationTestFlags::EngineFilter)
+
+bool FGatherersBevyMassVisMovementTest::RunTest(const FString& Parameters)
+{
+	UWorld* World = GEditor->GetEditorWorldContext().World();
+	if (!TestNotNull(TEXT("World must exist"), World))
+	{
+		return false;
+	}
+
+	UMassEntitySubsystem* MassEntitySubsystem = World->GetSubsystem<UMassEntitySubsystem>();
+	if (!TestNotNull(TEXT("MassEntitySubsystem must exist"), MassEntitySubsystem))
+	{
+		return false;
+	}
+
+	URustMassBevySubsystem* Subsystem = World->GetSubsystem<URustMassBevySubsystem>();
+	if (!TestNotNull(TEXT("RustMassBevySubsystem must exist"), Subsystem))
+	{
+		return false;
+	}
+
+	// Use bounds matching Rust SIM_BOUNDS
+	const FBox Bounds(FVector(-5000.0, -5000.0, -100.0), FVector(5000.0, 5000.0, 100.0));
+	Subsystem->InitializeSimulation({{TEXT("ants"), 20}, {TEXT("food"), 10}}, Bounds, 42);
+
+	FMassEntityManager& EntityManager = MassEntitySubsystem->GetMutableEntityManager();
+	const TArray<FMassEntityHandle>* AntEntities = Subsystem->GetGroupEntities(TEXT("ants"));
+	if (!TestNotNull(TEXT("Ant entities must exist"), AntEntities))
+	{
+		Subsystem->ResetSimulation();
+		return false;
+	}
+
+	// Record initial positions and verify vis fragments exist
+	TArray<FVector> InitialPositions;
+	for (const FMassEntityHandle& Entity : *AntEntities)
+	{
+		if (EntityManager.IsEntityValid(Entity))
+		{
+			FMassEntityView View(EntityManager, Entity);
+			InitialPositions.Add(View.GetFragmentData<FTransformFragment>().GetTransform().GetTranslation());
+
+			// Verify vis fragments present before sim
+			const FMassRepresentationFragment* RepFrag = View.GetFragmentDataPtr<FMassRepresentationFragment>();
+			TestNotNull(TEXT("RepFragment should exist before sim"), RepFrag);
+			if (RepFrag)
+			{
+				TestTrue(TEXT("ISM handle should be valid"), RepFrag->StaticMeshDescHandle.IsValid());
+			}
+
+			// Verify FMassViewerInfoFragment was added
+			const FMassViewerInfoFragment* ViewerInfo = View.GetFragmentDataPtr<FMassViewerInfoFragment>();
+			TestNotNull(TEXT("ViewerInfoFragment should exist"), ViewerInfo);
+		}
+	}
+
+	// Run simulation via RunSimulationProcessorsForTesting (same as Tick internals)
+	for (int32 Step = 0; Step < 10; ++Step)
+	{
+		Subsystem->RunSimulationProcessorsForTesting(0.016f);
+	}
+
+	// Verify entities MOVED (Rust processors still work after vis archetype move)
+	int32 MovedCount = 0;
+	for (int32 i = 0; i < AntEntities->Num() && i < InitialPositions.Num(); ++i)
+	{
+		if (EntityManager.IsEntityValid((*AntEntities)[i]))
+		{
+			FMassEntityView View(EntityManager, (*AntEntities)[i]);
+			const FVector NewPos = View.GetFragmentData<FTransformFragment>().GetTransform().GetTranslation();
+			if (!NewPos.Equals(InitialPositions[i], 0.01))
+			{
+				++MovedCount;
+			}
+
+			// Log first ant's state for diagnostics
+			if (i == 0)
+			{
+				const FMassRepresentationFragment& RepFrag = View.GetFragmentData<FMassRepresentationFragment>();
+				AddInfo(FString::Printf(TEXT("Ant[0] pos=(%f,%f,%f) moved=%s CurrentRep=%d PrevRep=%d ISMValid=%d"),
+					NewPos.X, NewPos.Y, NewPos.Z,
+					NewPos.Equals(InitialPositions[0], 0.01) ? TEXT("NO") : TEXT("YES"),
+					(int)RepFrag.CurrentRepresentation, (int)RepFrag.PrevRepresentation,
+					RepFrag.StaticMeshDescHandle.IsValid() ? 1 : 0));
+			}
+		}
+	}
+	TestTrue(TEXT("Ants must move after sim steps (vis fragments don't break Rust processors)"),
+		MovedCount > 0);
+
+	// Log how many moved for diagnostics
+	AddInfo(FString::Printf(TEXT("%d/%d ants moved after 10 sim steps"), MovedCount, AntEntities->Num()));
+
+	Subsystem->ResetSimulation();
+	return true;
+}
+
+// ---------------------------------------------------------------------------
+// Test: Vis processor execution — verify that running the vis processor
+// transitions CurrentRepresentation from None to StaticMeshInstance
+// ---------------------------------------------------------------------------
+
+IMPLEMENT_SIMPLE_AUTOMATION_TEST(
+	FGatherersBevyMassVisProcessorExecutionTest,
+	"supplemental.RustPlugin.Gatherers.BevyMassVisProcessorExecution",
+	EAutomationTestFlags::EditorContext | EAutomationTestFlags::EngineFilter)
+
+bool FGatherersBevyMassVisProcessorExecutionTest::RunTest(const FString& Parameters)
+{
+	UWorld* World = GEditor->GetEditorWorldContext().World();
+	if (!TestNotNull(TEXT("World must exist"), World))
+	{
+		return false;
+	}
+
+	UMassEntitySubsystem* MassEntitySubsystem = World->GetSubsystem<UMassEntitySubsystem>();
+	if (!TestNotNull(TEXT("MassEntitySubsystem must exist"), MassEntitySubsystem))
+	{
+		return false;
+	}
+
+	URustMassBevySubsystem* Subsystem = World->GetSubsystem<URustMassBevySubsystem>();
+	if (!TestNotNull(TEXT("RustMassBevySubsystem must exist"), Subsystem))
+	{
+		return false;
+	}
+
+	const FBox Bounds(FVector(-5000.0, -5000.0, -100.0), FVector(5000.0, 5000.0, 100.0));
+	Subsystem->InitializeSimulation({{TEXT("ants"), 5}, {TEXT("food"), 2}}, Bounds, 42);
+
+	FMassEntityManager& EntityManager = MassEntitySubsystem->GetMutableEntityManager();
+	const TArray<FMassEntityHandle>* AntEntities = Subsystem->GetGroupEntities(TEXT("ants"));
+	if (!TestNotNull(TEXT("Ant entities must exist"), AntEntities) || AntEntities->Num() == 0)
+	{
+		Subsystem->ResetSimulation();
+		return false;
+	}
+
+	// Before vis processor: CurrentRepresentation should be None (just initialized)
+	{
+		FMassEntityView View(EntityManager, (*AntEntities)[0]);
+		const FMassRepresentationFragment& RepFrag = View.GetFragmentData<FMassRepresentationFragment>();
+		AddInfo(FString::Printf(TEXT("Before vis proc: CurrentRep=%d PrevRep=%d LOD=%d Vis=%d"),
+			(int)RepFrag.CurrentRepresentation, (int)RepFrag.PrevRepresentation,
+			(int)View.GetFragmentData<FMassRepresentationLODFragment>().LOD,
+			(int)View.GetFragmentData<FMassRepresentationLODFragment>().Visibility));
+		TestEqual(TEXT("CurrentRep should be None before vis proc"),
+			(int)RepFrag.CurrentRepresentation, (int)EMassRepresentationType::None);
+	}
+
+	// Verify the vis processor pipeline would work by running it through the executor
+	// Build a processor pipeline with just the vis processor and run it
+	{
+		UMassVisualizationProcessor* TestVisProc = NewObject<UMassVisualizationProcessor>(Subsystem);
+		TArray<UMassProcessor*> Processors;
+		Processors.Add(TestVisProc);
+
+		FMassRuntimePipeline TestPipeline;
+		TestPipeline.SetProcessors(Processors);
+		TSharedRef<FMassEntityManager> EntityManagerRef = EntityManager.AsShared();
+		TestPipeline.Initialize(*Subsystem, EntityManagerRef);
+
+		FMassProcessingContext ProcContext(EntityManager, 0.016f);
+		UE::Mass::Executor::Run(TestPipeline, ProcContext);
+	}
+
+	// After vis processor: CurrentRepresentation should now be StaticMeshInstance
+	{
+		FMassEntityView View(EntityManager, (*AntEntities)[0]);
+		const FMassRepresentationFragment& RepFrag = View.GetFragmentData<FMassRepresentationFragment>();
+		const FMassRepresentationLODFragment& LODFrag = View.GetFragmentData<FMassRepresentationLODFragment>();
+		AddInfo(FString::Printf(TEXT("After vis proc: CurrentRep=%d PrevRep=%d LOD=%d Vis=%d PrevTransform=(%f,%f,%f)"),
+			(int)RepFrag.CurrentRepresentation, (int)RepFrag.PrevRepresentation,
+			(int)LODFrag.LOD, (int)LODFrag.Visibility,
+			RepFrag.PrevTransform.GetLocation().X,
+			RepFrag.PrevTransform.GetLocation().Y,
+			RepFrag.PrevTransform.GetLocation().Z));
+		TestEqual(TEXT("CurrentRep should be StaticMeshInstance after vis proc"),
+			(int)RepFrag.CurrentRepresentation, (int)EMassRepresentationType::StaticMeshInstance);
+	}
+
+	// Run sim step then check position vs PrevTransform
+	Subsystem->RunSimulationProcessorsForTesting(0.016f);
+
+	{
+		FMassEntityView View(EntityManager, (*AntEntities)[0]);
+		const FTransformFragment& TF = View.GetFragmentData<FTransformFragment>();
+		const FMassRepresentationFragment& RepFrag = View.GetFragmentData<FMassRepresentationFragment>();
+		AddInfo(FString::Printf(TEXT("After sim: pos=(%f,%f,%f) PrevTransform=(%f,%f,%f) CurrentRep=%d"),
+			TF.GetTransform().GetLocation().X,
+			TF.GetTransform().GetLocation().Y,
+			TF.GetTransform().GetLocation().Z,
+			RepFrag.PrevTransform.GetLocation().X,
+			RepFrag.PrevTransform.GetLocation().Y,
+			RepFrag.PrevTransform.GetLocation().Z,
+			(int)RepFrag.CurrentRepresentation));
+	}
+
+	Subsystem->ResetSimulation();
+	return true;
+}
+
+// ---------------------------------------------------------------------------
+// Test: Tick-path movement — verify that calling Tick() (the PIE path)
+// actually moves entities, not just RunSimulationProcessorsForTesting
+// ---------------------------------------------------------------------------
+
+IMPLEMENT_SIMPLE_AUTOMATION_TEST(
+	FGatherersBevyMassTickPathMovementTest,
+	"supplemental.RustPlugin.Gatherers.BevyMassTickPathMovement",
+	EAutomationTestFlags::EditorContext | EAutomationTestFlags::EngineFilter)
+
+bool FGatherersBevyMassTickPathMovementTest::RunTest(const FString& Parameters)
+{
+	UWorld* World = GEditor->GetEditorWorldContext().World();
+	if (!TestNotNull(TEXT("World must exist"), World)) return false;
+
+	UMassEntitySubsystem* MassEntitySubsystem = World->GetSubsystem<UMassEntitySubsystem>();
+	if (!TestNotNull(TEXT("MassEntitySubsystem must exist"), MassEntitySubsystem)) return false;
+
+	URustMassBevySubsystem* Subsystem = World->GetSubsystem<URustMassBevySubsystem>();
+	if (!TestNotNull(TEXT("RustMassBevySubsystem must exist"), Subsystem)) return false;
+
+	const FBox Bounds(FVector(-500.0, -500.0, 0.0), FVector(500.0, 500.0, 100.0));
+	Subsystem->InitializeSimulation({{TEXT("ants"), 10}, {TEXT("food"), 5}}, Bounds, 789);
+
+	FMassEntityManager& EntityManager = MassEntitySubsystem->GetMutableEntityManager();
+	const TArray<FMassEntityHandle>* AntEntities = Subsystem->GetGroupEntities(TEXT("ants"));
+	if (!TestNotNull(TEXT("Ant entities must exist"), AntEntities)) { Subsystem->ResetSimulation(); return false; }
+
+	// Record initial positions
+	TArray<FVector> InitialPositions;
+	for (const FMassEntityHandle& Entity : *AntEntities)
+	{
+		if (EntityManager.IsEntityValid(Entity))
+		{
+			FMassEntityView View(EntityManager, Entity);
+			InitialPositions.Add(View.GetFragmentData<FTransformFragment>().GetTransform().GetTranslation());
+		}
+	}
+
+	// Log timing parameters (same calc as Tick)
+	{
+		const FVector BoundsSize = Bounds.GetSize();
+		const float BoundsMaxStepDist = 0.5f * FMath::Min(BoundsSize.X, BoundsSize.Y);
+		const float MaxStep = BoundsMaxStepDist / 100.0f;
+		AddInfo(FString::Printf(TEXT("Tick timing: BoundsSize=(%0.0f,%0.0f,%0.0f) MaxStepSeconds=%.4f dt=0.016"),
+			BoundsSize.X, BoundsSize.Y, BoundsSize.Z, MaxStep));
+	}
+
+	// Log initial velocity and transform values + check archetypes
+	{
+		const FMassEntityHandle& E0 = (*AntEntities)[0];
+		FMassEntityView View(EntityManager, E0);
+		const FMassVelocityFragment& Vel = View.GetFragmentData<FMassVelocityFragment>();
+		const FTransformFragment& TF = View.GetFragmentData<FTransformFragment>();
+		AddInfo(FString::Printf(TEXT("Pre-tick ant[0] vel=(%0.2f,%0.2f,%0.2f) speed=%.2f pos=(%0.1f,%0.1f,%0.1f)"),
+			Vel.Value.X, Vel.Value.Y, Vel.Value.Z, Vel.Value.Size(),
+			TF.GetTransform().GetTranslation().X, TF.GetTransform().GetTranslation().Y, TF.GetTransform().GetTranslation().Z));
+		// Log fragment memory address
+		AddInfo(FString::Printf(TEXT("  Transform ptr=%p, Velocity ptr=%p"),
+			(void*)&View.GetFragmentData<FTransformFragment>(), (void*)&View.GetFragmentData<FMassVelocityFragment>()));
+	}
+	for (int32 i = 1; i < FMath::Min(3, AntEntities->Num()); ++i)
+	{
+		if (EntityManager.IsEntityValid((*AntEntities)[i]))
+		{
+			FMassEntityView View(EntityManager, (*AntEntities)[i]);
+			const FMassVelocityFragment& Vel = View.GetFragmentData<FMassVelocityFragment>();
+			AddInfo(FString::Printf(TEXT("Pre-tick ant[%d] vel=(%0.2f,%0.2f,%0.2f) speed=%.2f"),
+				i, Vel.Value.X, Vel.Value.Y, Vel.Value.Z, Vel.Value.Size()));
+		}
+	}
+
+	// Use Tick() — the exact PIE code path
+	for (int32 i = 0; i < 10; ++i)
+	{
+		Subsystem->Tick(0.016f);
+		// Log after first Tick to see if anything changed
+		if (i == 0)
+		{
+			FMassEntityView View0(EntityManager, (*AntEntities)[0]);
+			const FTransformFragment& T0 = View0.GetFragmentData<FTransformFragment>();
+			const FMassVelocityFragment& V0 = View0.GetFragmentData<FMassVelocityFragment>();
+			AddInfo(FString::Printf(TEXT("After Tick[0]: ant0 pos=(%0.2f,%0.2f,%0.2f) vel=(%0.2f,%0.2f,%0.2f)"),
+				T0.GetTransform().GetTranslation().X, T0.GetTransform().GetTranslation().Y, T0.GetTransform().GetTranslation().Z,
+				V0.Value.X, V0.Value.Y, V0.Value.Z));
+		}
+	}
+
+	// Check positions changed
+	int32 MovedCount = 0;
+	for (int32 i = 0; i < AntEntities->Num() && i < InitialPositions.Num(); ++i)
+	{
+		if (EntityManager.IsEntityValid((*AntEntities)[i]))
+		{
+			FMassEntityView View(EntityManager, (*AntEntities)[i]);
+			const FVector NewPos = View.GetFragmentData<FTransformFragment>().GetTransform().GetTranslation();
+			if (!NewPos.Equals(InitialPositions[i], 0.01))
+			{
+				++MovedCount;
+			}
+			if (i == 0)
+			{
+				AddInfo(FString::Printf(TEXT("Tick path: ant0 before=(%0.1f,%0.1f,%0.1f) after=(%0.1f,%0.1f,%0.1f) moved=%s"),
+					InitialPositions[0].X, InitialPositions[0].Y, InitialPositions[0].Z,
+					NewPos.X, NewPos.Y, NewPos.Z,
+					NewPos.Equals(InitialPositions[0], 0.01) ? TEXT("NO") : TEXT("YES")));
+			}
+		}
+	}
+
+	AddInfo(FString::Printf(TEXT("Tick path: %d/%d ants moved"), MovedCount, AntEntities->Num()));
+	TestTrue(TEXT("Ants should move via Tick() path"), MovedCount > 0);
+
+	// Check vis state after Tick — does the vis pipeline update representation?
+	for (int32 i = 0; i < FMath::Min(3, AntEntities->Num()); ++i)
+	{
+		if (EntityManager.IsEntityValid((*AntEntities)[i]))
+		{
+			FMassEntityView View(EntityManager, (*AntEntities)[i]);
+			const FTransformFragment& TF = View.GetFragmentData<FTransformFragment>();
+			const FMassRepresentationFragment& RepFrag = View.GetFragmentData<FMassRepresentationFragment>();
+			const FMassRepresentationLODFragment& LODFrag = View.GetFragmentData<FMassRepresentationLODFragment>();
+			const FVector Pos = TF.GetTransform().GetTranslation();
+			const FVector PrevPos = RepFrag.PrevTransform.GetTranslation();
+			AddInfo(FString::Printf(TEXT("Ant[%d] pos=(%0.1f,%0.1f,%0.1f) prevT=(%0.1f,%0.1f,%0.1f) rep=%d lod=%d vis=%d"),
+				i, Pos.X, Pos.Y, Pos.Z,
+				PrevPos.X, PrevPos.Y, PrevPos.Z,
+				(int)RepFrag.CurrentRepresentation, (int)LODFrag.LOD, (int)LODFrag.Visibility));
+		}
+	}
+
+	// Check: is CurrentRepresentation actually StaticMeshInstance after Tick?
+	{
+		FMassEntityView View(EntityManager, (*AntEntities)[0]);
+		const FMassRepresentationFragment& RepFrag = View.GetFragmentData<FMassRepresentationFragment>();
+		TestEqual(TEXT("After Tick: CurrentRep should be StaticMeshInstance"),
+			(int)RepFrag.CurrentRepresentation, (int)EMassRepresentationType::StaticMeshInstance);
+	}
 
 	Subsystem->ResetSimulation();
 	return true;

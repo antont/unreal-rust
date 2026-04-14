@@ -10,7 +10,8 @@
 #include "RustMassBevySubsystem.generated.h"
 
 class UMassEntitySubsystem;
-class URustMassGenericVisualizer;
+class UMassProcessor;
+class URustMassVisualizationSetup;
 class URustMassScheduleCoordinator;
 
 /**
@@ -84,6 +85,9 @@ public:
 	/** For testing: run one simulation step directly. */
 	void RunSimulationProcessorsForTesting(float DeltaTime);
 
+	/** Whether native vis processors are registered with MassSimulationSubsystem. */
+	bool HasVisProcessorsRegistered() const { return VisProcessor != nullptr && VisLODProcessor != nullptr; }
+
 	/** Read raw fragment data for an entity by group name, index, and C++ fragment type name.
 	 *  Returns true if successful, false if entity/fragment not found or size mismatch. */
 	bool ReadFragmentData(const FString& GroupName, int32 EntityIndex,
@@ -102,17 +106,52 @@ public:
 private:
 	bool EnsureProcessorPipelines(UMassEntitySubsystem& MassEntitySubsystem);
 	void RunSimulationProcessorStep(float SimulatedDeltaTime);
-	TArray<TArray<FMassEntityHandle>*> BuildGroupEntities();
+
+	/** Create collision-only ISMCs for spatial query groups (from Rust visualizer group descs). */
+	void InitializeCollisionISMCs(UWorld* World, const RustBindings& Bindings, FMassEntityManager& EntityManager);
+
+	/** Sync collision ISMC instance positions from entity fragment data. */
+	void SyncCollisionISMCs(FMassEntityManager& EntityManager);
+
+	/** Tear down collision ISMCs and their owning actor. */
+	void TeardownCollisionISMCs();
+
+	/** Per-group collision ISMC metadata. */
+	struct FCollisionGroupEntry
+	{
+		FString Name;
+		const UScriptStruct* PositionStruct = nullptr;
+		uint32 PositionOffset = 0;
+		FVector Scale = FVector::OneVector;
+		UInstancedStaticMeshComponent* ISMC = nullptr;
+	};
 
 private:
 	UPROPERTY(Transient)
 	FMassRuntimePipeline SimulationProcessorPipeline;
 
+	/** Vis pipeline: LOD + Representation processors, run after simulation each tick. */
+	UPROPERTY(Transient)
+	FMassRuntimePipeline VisualizationPipeline;
+
 	bool bProcessorPipelinesInitialized = false;
 	float SimulationTimeAccumulatorSeconds = 0.0f;
 
 	UPROPERTY(Transient)
-	TObjectPtr<URustMassGenericVisualizer> Visualizer = nullptr;
+	TObjectPtr<URustMassVisualizationSetup> VisualizationSetup = nullptr;
+
+	/** Native vis processors registered with MassSimulationSubsystem. */
+	UPROPERTY(Transient)
+	TObjectPtr<UMassProcessor> VisProcessor = nullptr;
+
+	UPROPERTY(Transient)
+	TObjectPtr<UMassProcessor> VisLODProcessor = nullptr;
+
+	/** Collision-only ISMCs for spatial queries (not rendering). */
+	TArray<FCollisionGroupEntry> CollisionGroups;
+
+	UPROPERTY(Transient)
+	TObjectPtr<AActor> CollisionActor = nullptr;
 
 	UPROPERTY(Transient)
 	TObjectPtr<URustMassScheduleCoordinator> ScheduleCoordinator = nullptr;

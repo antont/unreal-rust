@@ -86,6 +86,22 @@ pub use query::BevyQuery;
 /// ```
 #[macro_export]
 macro_rules! mass_fragment {
+    (cpp_type = $cpp_type:literal, existing, include = $include:literal, $(#[$meta:meta])* $vis:vis struct $name:ident { $($body:tt)* }) => {
+        #[cfg_attr(feature = "unreal", derive(unreal_api::MassFragment))]
+        #[derive($crate::prelude::Component, Clone, Copy, Debug)]
+        #[repr(C)]
+        #[cfg_attr(feature = "unreal", mass(cpp_type = $cpp_type, existing, include = $include))]
+        $(#[$meta])*
+        $vis struct $name { $($body)* }
+    };
+    (cpp_type = $cpp_type:literal, existing, $(#[$meta:meta])* $vis:vis struct $name:ident { $($body:tt)* }) => {
+        #[cfg_attr(feature = "unreal", derive(unreal_api::MassFragment))]
+        #[derive($crate::prelude::Component, Clone, Copy, Debug)]
+        #[repr(C)]
+        #[cfg_attr(feature = "unreal", mass(cpp_type = $cpp_type, existing))]
+        $(#[$meta])*
+        $vis struct $name { $($body)* }
+    };
     (cpp_type = $cpp_type:literal, $(#[$meta:meta])* $vis:vis struct $name:ident { $($body:tt)* }) => {
         #[cfg_attr(feature = "unreal", derive(unreal_api::MassFragment))]
         #[derive($crate::prelude::Component, Clone, Copy, Debug)]

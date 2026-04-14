@@ -25,3 +25,12 @@ The standalone and Unreal versions of the food decision system are nearly identi
 ## 6. ~~System ordering documentation~~ ✅ DONE
 
 Added convention comment in `gatherers-sim/src/movement.rs`: order = 10, 20, 30, ... with gaps for insertion; Unreal uses order for C++ processor execution; standalone uses `.chain()`.
+
+## 7. ~~Standard Transform/Velocity fragments~~ ✅ DONE
+
+Replaced custom `Position` (48 bytes) and `Movement` (32 bytes) with:
+- `Transform` — matches UE's `FTransformFragment` layout exactly (96 bytes, align 16: FQuat rotation + padded FVector translation + padded FVector scale). Uses `existing` codegen flag — no USTRUCT generated, only `sizeof` verification.
+- `Velocity` — renamed from `Movement` (`direction: DVec3, speed: f32`).
+- `PreviousTranslation` — split out from Position for spatial sweep queries.
+
+Added `mass_fragment!(existing)` support: codegen skips USTRUCT generation for types that already exist in UE, emits only `static_assert(sizeof(...))` for layout verification.

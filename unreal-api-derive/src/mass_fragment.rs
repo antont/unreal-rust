@@ -29,6 +29,38 @@ fn extract_cpp_type(ast: &DeriveInput) -> syn::Result<String> {
 
 /// Checks if the struct has `#[mass(tag)]` attribute.
 fn is_tag(ast: &DeriveInput) -> bool {
+    has_mass_flag(ast, "tag")
+}
+
+/// Checks if the struct has `#[mass(existing)]` attribute.
+fn is_existing(ast: &DeriveInput) -> bool {
+    has_mass_flag(ast, "existing")
+}
+
+/// Extracts the `include` value from `#[mass(include = "...")]` attribute.
+/// Returns empty string if not present.
+fn extract_include_header(ast: &DeriveInput) -> String {
+    for attr in &ast.attrs {
+        if !attr.path.is_ident("mass") {
+            continue;
+        }
+        if let Ok(Meta::List(list)) = attr.parse_meta() {
+            for nested in &list.nested {
+                if let NestedMeta::Meta(Meta::NameValue(nv)) = nested {
+                    if nv.path.is_ident("include") {
+                        if let Lit::Str(lit_str) = &nv.lit {
+                            return lit_str.value();
+                        }
+                    }
+                }
+            }
+        }
+    }
+    String::new()
+}
+
+/// Checks if the struct has a `#[mass(FLAG)]` path attribute.
+fn has_mass_flag(ast: &DeriveInput, flag: &str) -> bool {
     for attr in &ast.attrs {
         if !attr.path.is_ident("mass") {
             continue;
@@ -36,7 +68,7 @@ fn is_tag(ast: &DeriveInput) -> bool {
         if let Ok(Meta::List(list)) = attr.parse_meta() {
             for nested in &list.nested {
                 if let NestedMeta::Meta(Meta::Path(path)) = nested {
-                    if path.is_ident("tag") {
+                    if path.is_ident(flag) {
                         return true;
                     }
                 }
@@ -73,6 +105,8 @@ pub fn mass_fragment_derive(ast: &DeriveInput) -> syn::Result<TokenStream> {
     let cpp_type = extract_cpp_type(ast)?;
     let rust_type_name = name.to_string();
     let tag = is_tag(ast);
+    let existing = is_existing(ast);
+    let include_header = extract_include_header(ast);
 
     // Extract field info for C++ codegen
     let fields = match &ast.data {
@@ -150,6 +184,8 @@ pub fn mass_fragment_derive(ast: &DeriveInput) -> syn::Result<TokenStream> {
                     align: ::std::mem::align_of::<#name>(),
                     fields: &#fields_const_name,
                     is_tag: #tag,
+                    existing: #existing,
+                    include_header: #include_header,
                     write_default: #write_default_expr,
                 }
             }
@@ -207,5 +243,34 @@ mod tests {
         assert!(output.contains("MassFragment"), "should impl MassFragment");
         assert!(output.contains("FTestFrag"), "should reference C++ type name");
         assert!(output.contains("inventory"), "should submit to inventory");
+    }
+
+    #[test]
+    fn existing_flag_parsed() {
+        let input: DeriveInput = syn::parse2(quote! {
+            #[mass(cpp_type = "FTransformFragment", existing)]
+            #[repr(C)]
+            struct Transform {
+                rotation: [f64; 4],
+            }
+        })
+        .unwrap();
+
+        assert!(is_existing(&input));
+        assert!(!is_tag(&input));
+    }
+
+    #[test]
+    fn non_existing_flag() {
+        let input: DeriveInput = syn::parse2(quote! {
+            #[mass(cpp_type = "FMyFrag")]
+            #[repr(C)]
+            struct MyFrag {
+                x: f64,
+            }
+        })
+        .unwrap();
+
+        assert!(!is_existing(&input));
     }
 }

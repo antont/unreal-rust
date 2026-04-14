@@ -21,6 +21,11 @@ public class RustPluginTests : ModuleRules
 			"UnrealEd",
 			"RustPlugin",
 			"MassEntity",
+			"MassCommon",
+			"MassMovement",
+			"MassRepresentation",
+			"MassLOD",
+			"MassActors",
 		});
 	}
 }
