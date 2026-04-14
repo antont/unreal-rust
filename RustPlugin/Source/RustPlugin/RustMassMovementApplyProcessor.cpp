@@ -3,6 +3,7 @@
 #include "MassCommonFragments.h"
 #include "MassExecutionContext.h"
 #include "MassMovementFragments.h"
+#include "MassRepresentationFragments.h"
 #include "Generated/GatherersFragments.gen.h"
 
 URustMassMovementApplyProcessor::URustMassMovementApplyProcessor()
@@ -18,6 +19,7 @@ void URustMassMovementApplyProcessor::ConfigureQueries(const TSharedRef<FMassEnt
 	EntityQuery.AddRequirement<FTransformFragment>(EMassFragmentAccess::ReadWrite);
 	EntityQuery.AddRequirement<FMassVelocityFragment>(EMassFragmentAccess::ReadWrite);
 	EntityQuery.AddRequirement<FGatherersPreviousTranslation>(EMassFragmentAccess::ReadWrite);
+	EntityQuery.AddRequirement<FMassRepresentationFragment>(EMassFragmentAccess::ReadWrite, EMassFragmentPresence::Optional);
 }
 
 void URustMassMovementApplyProcessor::Execute(
@@ -40,6 +42,8 @@ void URustMassMovementApplyProcessor::Execute(
 		TArrayView<FTransformFragment> Transforms = ChunkContext.GetMutableFragmentView<FTransformFragment>();
 		TArrayView<FMassVelocityFragment> Velocities = ChunkContext.GetMutableFragmentView<FMassVelocityFragment>();
 		TArrayView<FGatherersPreviousTranslation> PrevTranslations = ChunkContext.GetMutableFragmentView<FGatherersPreviousTranslation>();
+		TArrayView<FMassRepresentationFragment> RepFragments = ChunkContext.GetMutableFragmentView<FMassRepresentationFragment>();
+		const bool bHasRepFragments = RepFragments.Num() > 0;
 
 		for (FMassExecutionContext::FEntityIterator It = ChunkContext.CreateEntityIterator(); It; ++It)
 		{
@@ -52,6 +56,12 @@ void URustMassMovementApplyProcessor::Execute(
 
 			// Store previous position for spatial sweep queries
 			Prev.Value = Position;
+
+			// Update vis PrevTransform for correct motion blur / TAA
+			if (bHasRepFragments)
+			{
+				RepFragments[It].PrevTransform = Transform;
+			}
 
 			// Apply velocity
 			Position += Vel.Value * static_cast<double>(DeltaTime);

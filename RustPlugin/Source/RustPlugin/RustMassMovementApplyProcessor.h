@@ -4,6 +4,7 @@
 #include "MassEntityManager.h"
 #include "MassProcessor.h"
 #include "MassEntityQuery.h"
+#include "MassRepresentationFragments.h"
 #include "RustMassMovementApplyProcessor.generated.h"
 
 /**
