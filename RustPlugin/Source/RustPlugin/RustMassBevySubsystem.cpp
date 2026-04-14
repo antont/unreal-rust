@@ -755,8 +755,8 @@ void URustMassBevySubsystem::Tick(float DeltaTime)
 
 
 
-	// Run visualization pipeline (LOD + Representation) after simulation updates transforms
-	if (VisProcessor && VisLODProcessor)
+	// Run visualization pipeline (Representation only) after simulation updates transforms
+	if (VisProcessor)
 	{
 		UWorld* World = GetWorld();
 		UMassEntitySubsystem* MassEntitySubsystem = World ? World->GetSubsystem<UMassEntitySubsystem>() : nullptr;
@@ -945,22 +945,22 @@ void URustMassBevySubsystem::InitializeSimulation(
 
 		// Build a visualization pipeline that we run from our own Tick.
 		// (Don't register with MassSimulationSubsystem — we control timing.)
-		if (!VisLODProcessor)
-		{
-			VisLODProcessor = NewObject<UMassVisualizationLODProcessor>(this);
-		}
+		// NOTE: LOD processor omitted — our custom pipeline doesn't run the
+		// LODCollector that populates FMassViewerInfoFragment, so the LOD
+		// processor defaults all entities to LOD=Off / CulledByDistance.
+		// Without LOD evaluation, entities stay at High LOD (set at init)
+		// and the vis processor updates ISM transforms every frame.
 		if (!VisProcessor)
 		{
 			VisProcessor = NewObject<UMassVisualizationProcessor>(this);
 		}
 		{
 			TArray<UMassProcessor*> VisProcessors;
-			VisProcessors.Add(VisLODProcessor);
 			VisProcessors.Add(VisProcessor);
 			VisualizationPipeline.SetProcessors(VisProcessors);
 			TSharedRef<FMassEntityManager> EMRef = EntityManager.AsShared();
 			VisualizationPipeline.Initialize(*this, EMRef);
-			UE_LOG(LogTemp, Display, TEXT("RustMassBevySubsystem: Built vis pipeline (LOD + Representation)"));
+			UE_LOG(LogTemp, Display, TEXT("RustMassBevySubsystem: Built vis pipeline (Representation only, no LOD)"));
 		}
 	}
 

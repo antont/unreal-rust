@@ -87,7 +87,7 @@ public:
 	void RunSimulationProcessorsForTesting(float DeltaTime);
 
 	/** Whether native vis processors are registered with MassSimulationSubsystem. */
-	bool HasVisProcessorsRegistered() const { return VisProcessor != nullptr && VisLODProcessor != nullptr; }
+	bool HasVisProcessorsRegistered() const { return VisProcessor != nullptr; }
 
 	/** Read raw fragment data for an entity by group name, index, and C++ fragment type name.
 	 *  Returns true if successful, false if entity/fragment not found or size mismatch. */
