@@ -12,6 +12,7 @@
 #include "RustMassScheduleCoordinator.h"
 #include "RustPlugin.h"
 #include "RustUtils.h"
+#include "RustMassMovementApplyProcessor.h"
 #include "RustMassVisualizationSetup.h"
 #include "MassSimulationSubsystem.h"
 #include "MassRepresentationProcessor.h"
@@ -446,6 +447,12 @@ bool URustMassBevySubsystem::EnsureProcessorPipelines(UMassEntitySubsystem& Mass
 		}
 		SimProcessors.Add(ScheduleCoordinator);
 	}
+
+	// C++ movement processor: applies velocity to transform AFTER Rust sets velocity.
+	// This keeps all transform writes in the native UE pipeline (vis-friendly).
+	MovementApplyProcessor = NewObject<URustMassMovementApplyProcessor>(this);
+	MovementApplyProcessor->SetSimulationBounds(SimulationBounds);
+	SimProcessors.Add(MovementApplyProcessor);
 
 	if (SimProcessors.Num() > 0)
 	{
@@ -1010,6 +1017,7 @@ void URustMassBevySubsystem::ResetSimulation()
 	SimulationProcessorPipeline.Reset();
 	bProcessorPipelinesInitialized = false;
 	ScheduleCoordinator = nullptr;
+	MovementApplyProcessor = nullptr;
 	SpatialQueries.Empty();
 	bAutoInitAttempted = false;
 }

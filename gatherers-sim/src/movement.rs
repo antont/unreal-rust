@@ -17,6 +17,11 @@ pub const SIM_BOUNDS_MAX: [f64; 3] = [5000.0, 5000.0, 100.0];
 // Generic: works for any entity with Position + Movement.
 // ---------------------------------------------------------------------------
 
+/// In Unreal mode, movement (pos += vel * dt) is handled by a native C++
+/// processor (URustMassMovementApplyProcessor) that runs after the Rust
+/// coordinator. This avoids writing transforms through chunk pointers,
+/// which conflicts with the UE visualization pipeline.
+/// In standalone Bevy mode, this is registered as a mass_system normally.
 #[mass_system(order = 10)]
 pub fn entity_movement(
     mut transforms: Query<&mut Transform>,
@@ -24,19 +29,27 @@ pub fn entity_movement(
     velocities: Query<&Velocity>,
     time: Res<Time>,
 ) {
-    let dt = time.delta_secs();
-    let bounds_size_x = SIM_BOUNDS_MAX[0] - SIM_BOUNDS_MIN[0];
-    let bounds_size_y = SIM_BOUNDS_MAX[1] - SIM_BOUNDS_MIN[1];
-    let bounds_max_step = 0.5 * bounds_size_x.min(bounds_size_y);
+    // In Unreal mode, C++ handles movement — this is a no-op.
+    #[cfg(feature = "unreal")]
+    {
+        let _ = (&transforms, &prev_translations, &velocities, &time);
+    }
+    #[cfg(not(feature = "unreal"))]
+    {
+        let dt = time.delta_secs();
+        let bounds_size_x = SIM_BOUNDS_MAX[0] - SIM_BOUNDS_MIN[0];
+        let bounds_size_y = SIM_BOUNDS_MAX[1] - SIM_BOUNDS_MIN[1];
+        let bounds_max_step = 0.5 * bounds_size_x.min(bounds_size_y);
 
-    for ((mut transform, mut prev), vel) in transforms.iter_mut().zip(prev_translations.iter_mut()).zip(velocities.iter()) {
-        prev.value = transform.translation;
+        for ((mut transform, mut prev), vel) in transforms.iter_mut().zip(prev_translations.iter_mut()).zip(velocities.iter()) {
+            prev.value = transform.translation;
 
-        let speed = vel.value.length();
-        if speed < 1e-8 { continue; }
-        let dir = vel.value / speed;
-        let max_dist = (speed * dt as f64).min(bounds_max_step.max(0.0));
-        transform.translation += dir * max_dist;
+            let speed = vel.value.length();
+            if speed < 1e-8 { continue; }
+            let dir = vel.value / speed;
+            let max_dist = (speed * dt as f64).min(bounds_max_step.max(0.0));
+            transform.translation += dir * max_dist;
+        }
     }
 }
 
@@ -66,32 +79,43 @@ pub fn entity_cooldown(
 // Generic: works for any entity with Position + Movement.
 // ---------------------------------------------------------------------------
 
+/// In Unreal mode, boundary clamping + velocity reflection is handled by the
+/// native C++ movement processor (URustMassMovementApplyProcessor).
+/// In standalone Bevy mode, this is registered as a mass_system normally.
 #[mass_system(order = 50)]
 pub fn entity_boundary_reflect(
     mut transforms: Query<&mut Transform>,
     mut velocities: Query<&mut Velocity>,
 ) {
-    for (mut transform, mut vel) in transforms.iter_mut().zip(velocities.iter_mut()) {
-        let mut inward_normal = DVec3::ZERO;
+    // In Unreal mode, C++ handles boundary clamping + reflection.
+    #[cfg(feature = "unreal")]
+    {
+        let _ = (&transforms, &velocities);
+    }
+    #[cfg(not(feature = "unreal"))]
+    {
+        for (mut transform, mut vel) in transforms.iter_mut().zip(velocities.iter_mut()) {
+            let mut inward_normal = DVec3::ZERO;
 
-        if transform.translation.x < SIM_BOUNDS_MIN[0] {
-            transform.translation.x = SIM_BOUNDS_MIN[0];
-            inward_normal.x += 1.0;
-        } else if transform.translation.x > SIM_BOUNDS_MAX[0] {
-            transform.translation.x = SIM_BOUNDS_MAX[0];
-            inward_normal.x -= 1.0;
-        }
+            if transform.translation.x < SIM_BOUNDS_MIN[0] {
+                transform.translation.x = SIM_BOUNDS_MIN[0];
+                inward_normal.x += 1.0;
+            } else if transform.translation.x > SIM_BOUNDS_MAX[0] {
+                transform.translation.x = SIM_BOUNDS_MAX[0];
+                inward_normal.x -= 1.0;
+            }
 
-        if transform.translation.y < SIM_BOUNDS_MIN[1] {
-            transform.translation.y = SIM_BOUNDS_MIN[1];
-            inward_normal.y += 1.0;
-        } else if transform.translation.y > SIM_BOUNDS_MAX[1] {
-            transform.translation.y = SIM_BOUNDS_MAX[1];
-            inward_normal.y -= 1.0;
-        }
+            if transform.translation.y < SIM_BOUNDS_MIN[1] {
+                transform.translation.y = SIM_BOUNDS_MIN[1];
+                inward_normal.y += 1.0;
+            } else if transform.translation.y > SIM_BOUNDS_MAX[1] {
+                transform.translation.y = SIM_BOUNDS_MAX[1];
+                inward_normal.y -= 1.0;
+            }
 
-        if inward_normal.length() > 1e-8 {
-            vel.value = reflect_velocity(vel.value, inward_normal);
+            if inward_normal.length() > 1e-8 {
+                vel.value = reflect_velocity(vel.value, inward_normal);
+            }
         }
     }
 }
