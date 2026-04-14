@@ -80,7 +80,7 @@ fn ant_collision_prepass(
 #[mass_system(order = 30)]
 fn ant_food_decision(
     mut ants: MassQuery<
-        (Entity, &mut Transform, &mut Velocity, &mut Carrying, &mut Behavior),
+        (Entity, &Transform, &mut Velocity, &mut Carrying, &mut Behavior),
         (With<BevyMassAntTag>, Without<Cooldown>),
     >,
     mut hits: MessageReader<AntFoodHit>,
@@ -92,13 +92,16 @@ fn ant_food_decision(
         .map(|h| (h.hitter_entity, (h.hittable_index, h.encounter_position)))
         .collect();
 
-    for (entity, mut transform, mut vel, mut carry, mut behavior) in &mut ants {
+    for (entity, transform, mut vel, mut carry, mut behavior) in &mut ants {
         let Some(&(hittable_index, encounter_position)) = hit_map.get(&entity) else {
             continue;
         };
 
         let old_food_index = carry.food_index;
         let pos_before = transform.translation;
+        // Use a local copy — Rust does not write transforms in Unreal mode;
+        // C++ handles all position updates.
+        let mut pos_scratch = transform.translation;
         let mut cd = Cooldown { remaining_seconds: 0.0 };
         let encounter = FoodEncounter {
             food_index: hittable_index,
@@ -106,7 +109,7 @@ fn ant_food_decision(
         };
 
         let decision = ant_food_decision_fn(
-            &mut transform.translation, &mut vel, &mut cd, &mut carry, &mut behavior,
+            &mut pos_scratch, &mut vel, &mut cd, &mut carry, &mut behavior,
             Some(&encounter),
         );
 
@@ -129,7 +132,6 @@ fn ant_food_decision(
 fn apply_food_mutations(
     mut mutations: MessageReader<FoodMutation>,
     foods: MassQueryAll<&mut FoodFragment>,
-    food_transforms: MassQueryAll<&mut Transform>,
 ) {
     let mut had_mutation = false;
     for mutation in mutations.read() {
@@ -139,9 +141,7 @@ fn apply_food_mutations(
                 had_mutation = true;
             } else if mutation.decision == DECISION_DROP {
                 food.is_loose = true;
-                if let Some(tf) = food_transforms.get_mut(mutation.food_index as usize) {
-                    tf.translation = mutation.drop_position;
-                }
+                // Food drop position is handled by C++ — Rust does not write transforms.
                 had_mutation = true;
             }
         }
@@ -157,16 +157,11 @@ fn apply_food_mutations(
 
 #[mass_system(order = 45)]
 fn carried_food_tracking(
-    mut ants: MassQuery<(&Transform, &Carrying), With<BevyMassAntTag>>,
-    food_transforms: MassQueryAll<&mut Transform>,
+    ants: MassQuery<(&Transform, &Carrying), With<BevyMassAntTag>>,
 ) {
-    for (transform, carry) in &mut ants {
-        if carry.food_index >= 0 {
-            if let Some(food_tf) = food_transforms.get_mut(carry.food_index as usize) {
-                food_tf.translation = transform.translation + DVec3::new(0.0, 0.0, 15.0);
-            }
-        }
-    }
+    // In Unreal mode, carried food position tracking is handled by C++ —
+    // Rust does not write any transforms through chunk memory.
+    let _ = &ants;
 }
 
 #[cfg(test)]
