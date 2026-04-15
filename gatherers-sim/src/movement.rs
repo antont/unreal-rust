@@ -1,4 +1,4 @@
-use crate::fragments::{Cooldown, DesiredMovement, PreviousTranslation, Transform};
+use crate::fragments::{Cooldown, DesiredMovement, Transform};
 use bevy_mass::prelude::*;
 
 // ---------------------------------------------------------------------------
@@ -13,43 +13,11 @@ pub const SIM_BOUNDS_MIN: [f64; 3] = [-500.0, -500.0, -100.0];
 pub const SIM_BOUNDS_MAX: [f64; 3] = [500.0, 500.0, 100.0];
 
 // ---------------------------------------------------------------------------
-// System 1: Movement — position += direction * speed * dt
-// Generic: works for any entity with Position + Movement.
+// Movement application (pos += vel * dt) is framework infrastructure,
+// provided by bevy_mass::MovementPlugin in standalone mode and by
+// UE's UMassApplyMovementProcessor in Unreal mode.
+// Game code only sets desired_movement.velocity — it never applies position.
 // ---------------------------------------------------------------------------
-
-/// In Unreal mode, movement (pos += vel * dt) is handled by UE's native
-/// UMassApplyMovementProcessor. In standalone Bevy mode, this system
-/// applies DesiredMovement to position directly.
-#[mass_system(order = 10)]
-pub fn entity_movement(
-    mut transforms: Query<&mut Transform>,
-    mut prev_translations: Query<&mut PreviousTranslation>,
-    movements: Query<&DesiredMovement>,
-    time: Res<Time>,
-) {
-    // In Unreal mode, UE's UMassApplyMovementProcessor handles movement.
-    #[cfg(feature = "unreal")]
-    {
-        let _ = (&transforms, &prev_translations, &movements, &time);
-    }
-    #[cfg(not(feature = "unreal"))]
-    {
-        let dt = time.delta_secs();
-        let bounds_size_x = SIM_BOUNDS_MAX[0] - SIM_BOUNDS_MIN[0];
-        let bounds_size_y = SIM_BOUNDS_MAX[1] - SIM_BOUNDS_MIN[1];
-        let bounds_max_step = 0.5 * bounds_size_x.min(bounds_size_y);
-
-        for ((mut transform, mut prev), movement) in transforms.iter_mut().zip(prev_translations.iter_mut()).zip(movements.iter()) {
-            prev.value = transform.translation;
-
-            let speed = movement.velocity.length();
-            if speed < 1e-8 { continue; }
-            let dir = movement.velocity / speed;
-            let max_dist = (speed * dt as f64).min(bounds_max_step.max(0.0));
-            transform.translation += dir * max_dist;
-        }
-    }
-}
 
 // ---------------------------------------------------------------------------
 // System 4: Cooldown — decrement pickup cooldown timers
@@ -77,35 +45,16 @@ pub fn entity_cooldown(
 // Generic: works for any entity with Position + Movement.
 // ---------------------------------------------------------------------------
 
-/// Reflect desired movement at simulation boundaries. In both modes, reads
-/// position to detect boundary contact and reflects the desired velocity.
-/// Position clamping differs:
-/// - Unreal mode: C++ URustMassPostMovementProcessor clamps after applying velocity
-/// - Standalone mode: this system also clamps position directly
+/// Reflect desired movement at simulation boundaries. Reads position to detect
+/// boundary contact and reflects the desired velocity. No position writes —
+/// movement application is handled by framework infrastructure.
 #[mass_system(order = 50)]
 pub fn entity_boundary_reflect(
-    mut transforms: Query<&mut Transform>,
+    transforms: Query<&Transform>,
     mut movements: Query<&mut DesiredMovement>,
 ) {
-    for (mut transform, mut movement) in transforms.iter_mut().zip(movements.iter_mut()) {
+    for (transform, mut movement) in transforms.iter().zip(movements.iter_mut()) {
         let inward_normal = compute_boundary_normal(transform.translation);
-
-        // In standalone mode, clamp position here.
-        // In Unreal mode, C++ clamps after applying velocity.
-        #[cfg(not(feature = "unreal"))]
-        {
-            if transform.translation.x < SIM_BOUNDS_MIN[0] {
-                transform.translation.x = SIM_BOUNDS_MIN[0];
-            } else if transform.translation.x > SIM_BOUNDS_MAX[0] {
-                transform.translation.x = SIM_BOUNDS_MAX[0];
-            }
-            if transform.translation.y < SIM_BOUNDS_MIN[1] {
-                transform.translation.y = SIM_BOUNDS_MIN[1];
-            } else if transform.translation.y > SIM_BOUNDS_MAX[1] {
-                transform.translation.y = SIM_BOUNDS_MAX[1];
-            }
-        }
-
         if inward_normal.length() > 1e-8 {
             movement.velocity = reflect_velocity(movement.velocity, inward_normal);
         }
@@ -152,6 +101,7 @@ mod tests {
     use super::*;
     use crate::fragments::{Cooldown, DesiredMovement, PreviousTranslation, Transform};
     use bevy_ecs::prelude::*;
+    use bevy_mass::movement::apply_movement;
     use core::time::Duration;
 
     fn insert_test_time(world: &mut World, dt_secs: f32) {
@@ -164,44 +114,6 @@ mod tests {
         let mut schedule = bevy_ecs::schedule::Schedule::default();
         schedule.add_systems(system);
         schedule.run(world);
-    }
-
-    #[test]
-    fn movement_moves_forward() {
-        let mut world = World::new();
-        insert_test_time(&mut world, 0.1);
-        world.spawn((
-            Transform::default(),
-            PreviousTranslation::default(),
-            DesiredMovement::new(DVec3::X, 100.0),
-        ));
-
-        run_system(&mut world, entity_movement);
-
-        let mut q = world.query::<&Transform>();
-        let t = q.single(&world).unwrap();
-        assert!(
-            (t.translation.x - 10.0).abs() < 1e-6,
-            "x: {}",
-            t.translation.x
-        );
-    }
-
-    #[test]
-    fn movement_stores_previous_translation() {
-        let mut world = World::new();
-        insert_test_time(&mut world, 0.1);
-        world.spawn((
-            Transform::from_translation(DVec3::new(100.0, 200.0, 0.0)),
-            PreviousTranslation::default(),
-            DesiredMovement::new(DVec3::X, 50.0),
-        ));
-
-        run_system(&mut world, entity_movement);
-
-        let mut q = world.query::<&PreviousTranslation>();
-        let prev = q.single(&world).unwrap();
-        assert_eq!(prev.value, DVec3::new(100.0, 200.0, 0.0));
     }
 
     #[test]
@@ -240,7 +152,7 @@ mod tests {
     }
 
     #[test]
-    fn boundary_clamp_and_reflect() {
+    fn boundary_reflect_reverses_velocity() {
         let mut world = World::new();
         world.spawn((
             Transform::from_translation(DVec3::new(6000.0, 0.0, 0.0)),
@@ -251,9 +163,25 @@ mod tests {
 
         let mut q = world.query::<(&Transform, &DesiredMovement)>();
         let (t, dm) = q.single(&world).unwrap();
-        assert!(t.translation.x <= 5000.0, "x: {}", t.translation.x);
-        assert!(dm.direction().x < 0.0, "dir x: {}", dm.direction().x);
+        // Position unchanged — boundary_reflect only affects velocity
+        assert!((t.translation.x - 6000.0).abs() < 1e-6, "position unchanged: {}", t.translation.x);
+        assert!(dm.direction().x < 0.0, "velocity reflected: {}", dm.direction().x);
         assert!((dm.speed() - 100.0).abs() < 1e-4, "speed preserved: {}", dm.speed());
+    }
+
+    #[test]
+    fn boundary_reflect_no_effect_inside_bounds() {
+        let mut world = World::new();
+        world.spawn((
+            Transform::from_translation(DVec3::new(100.0, 200.0, 0.0)),
+            DesiredMovement::new(DVec3::X, 100.0),
+        ));
+
+        run_system(&mut world, entity_boundary_reflect);
+
+        let mut q = world.query::<&DesiredMovement>();
+        let dm = q.single(&world).unwrap();
+        assert!(dm.direction().x > 0.0, "velocity unchanged inside bounds");
     }
 
     #[test]
@@ -271,44 +199,17 @@ mod tests {
 
         let mut schedule = bevy_ecs::schedule::Schedule::default();
         use bevy_ecs::schedule::IntoScheduleConfigs;
-        schedule.add_systems((entity_movement, entity_boundary_reflect, entity_cooldown).chain());
+        schedule.add_systems((
+            apply_movement::<Transform, PreviousTranslation, DesiredMovement>,
+            entity_boundary_reflect,
+            entity_cooldown,
+        ).chain());
         schedule.run(&mut world);
 
-        let mut q = world.query::<(&Transform, &DesiredMovement)>();
-        let (t, dm) = q.single(&world).unwrap();
-        assert!(t.translation.x <= 5000.0, "clamped: {}", t.translation.x);
+        let mut q = world.query::<&DesiredMovement>();
+        let dm = q.single(&world).unwrap();
         assert!(dm.direction().x < 0.0, "reflected: {}", dm.direction().x);
         let cd = world.get::<Cooldown>(entity).expect("Cooldown should still exist");
         assert!((cd.remaining_seconds - 0.5).abs() < 1e-5, "cooldown: {}", cd.remaining_seconds);
-    }
-
-    #[test]
-    fn multiple_entities_move_independently() {
-        let mut world = World::new();
-        insert_test_time(&mut world, 0.05);
-        world.spawn((
-            Transform::default(),
-            PreviousTranslation::default(),
-            DesiredMovement::new(DVec3::X, 200.0),
-        ));
-        world.spawn((
-            Transform::default(),
-            PreviousTranslation::default(),
-            DesiredMovement::new(DVec3::Y, 50.0),
-        ));
-
-        run_system(&mut world, entity_movement);
-
-        let mut q = world.query::<&Transform>();
-        let transforms: Vec<_> = q.iter(&world).collect();
-        assert_eq!(transforms.len(), 2);
-
-        let (t_x, t_y) = if transforms[0].translation.x > 1.0 {
-            (transforms[0], transforms[1])
-        } else {
-            (transforms[1], transforms[0])
-        };
-        assert!((t_x.translation.x - 10.0).abs() < 1e-6);
-        assert!((t_y.translation.y - 2.5).abs() < 1e-6);
     }
 }

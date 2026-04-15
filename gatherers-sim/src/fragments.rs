@@ -1,4 +1,5 @@
 use bevy_mass::prelude::{Component, Entity};
+use bevy_mass::movement::{TransformLike, PrevTranslationLike, DesiredMovementLike};
 use bevy_ecs::message::Message;
 use glam::DVec3;
 use std::marker::PhantomData;
@@ -58,6 +59,11 @@ impl Transform {
     }
 }
 
+impl TransformLike for Transform {
+    fn translation(&self) -> DVec3 { self.translation }
+    fn set_translation(&mut self, v: DVec3) { self.translation = v; }
+}
+
 bevy_mass::mass_fragment!(cpp_type = "FGatherersPreviousTranslation",
     /// Previous-frame translation, used for spatial sweep queries.
     #[derive(Default)]
@@ -65,6 +71,11 @@ bevy_mass::mass_fragment!(cpp_type = "FGatherersPreviousTranslation",
         pub value: DVec3,
     }
 );
+
+impl PrevTranslationLike for PreviousTranslation {
+    fn prev(&self) -> DVec3 { self.value }
+    fn set_prev(&mut self, v: DVec3) { self.value = v; }
+}
 
 bevy_mass::mass_fragment!(cpp_type = "FMassVelocityFragment", existing, include = "MassMovementFragments.h",
     /// UE's native velocity fragment (internal — written by UE's movement processor).
@@ -133,6 +144,10 @@ impl DesiredMovement {
         let len = self.velocity.length();
         if len > 1e-8 { self.velocity / len } else { DVec3::ZERO }
     }
+}
+
+impl DesiredMovementLike for DesiredMovement {
+    fn velocity(&self) -> DVec3 { self.velocity }
 }
 
 bevy_mass::mass_tag!(cpp_type = "FMassCodeDrivenMovementTag", existing, include = "MassMovementFragments.h",

@@ -10,6 +10,7 @@ bevy-backend = []
 unreal = ["dep:unreal-api"]
 
 [dependencies]
+bevy_app = "0.18"
 bevy_ecs = "0.18"
 bevy_time = "0.18"
 glam = "0.29"

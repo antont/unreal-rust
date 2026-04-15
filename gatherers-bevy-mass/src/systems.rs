@@ -38,10 +38,10 @@ use gatherers_sim::food_decision::{
 use std::collections::HashMap;
 
 // Re-export facade systems from gatherers-sim (the single source of truth).
-// entity_movement and entity_boundary_reflect are no-ops in Unreal mode
-// (C++ URustMassMovementApplyProcessor handles movement + boundary reflection).
+// Movement application (pos += vel * dt) is handled by C++ UMassApplyMovementProcessor
+// in UE mode — no Rust system needed. entity_boundary_reflect only reflects velocity.
 pub use gatherers_sim::movement::{
-    entity_movement, entity_cooldown, entity_boundary_reflect,
+    entity_cooldown, entity_boundary_reflect,
     SIM_BOUNDS_MIN, SIM_BOUNDS_MAX,
 };
 

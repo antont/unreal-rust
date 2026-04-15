@@ -7,10 +7,9 @@
 #include "RustMassPostMovementProcessor.generated.h"
 
 /**
- * Minimal post-movement processor that runs AFTER UE's UMassApplyMovementProcessor.
- * Two responsibilities:
- * 1. Store PreviousTranslation (for spatial sweep queries next frame)
- * 2. Clamp position to simulation bounds
+ * Pre-movement processor: saves PreviousTranslation for spatial sweep queries.
+ * Runs BEFORE UE's UMassApplyMovementProcessor so PreviousTranslation captures
+ * the position before this frame's movement.
  */
 UCLASS()
 class URustMassPostMovementProcessor : public UMassProcessor
@@ -20,13 +19,10 @@ class URustMassPostMovementProcessor : public UMassProcessor
 public:
 	URustMassPostMovementProcessor();
 
-	void SetSimulationBounds(const FBox& InBounds) { SimBounds = InBounds; }
-
 protected:
 	virtual void ConfigureQueries(const TSharedRef<FMassEntityManager>& EntityManager) override;
 	virtual void Execute(FMassEntityManager& EntityManager, FMassExecutionContext& Context) override;
 
 private:
 	FMassEntityQuery EntityQuery;
-	FBox SimBounds = FBox(EForceInit::ForceInit);
 };

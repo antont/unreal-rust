@@ -1,4 +1,5 @@
 use bevy::prelude::*;
+use bevy_mass::MovementPlugin;
 use gatherers_sim::fragments::{
     Transform as SimTransform, PreviousTranslation, DesiredMovement,
     Cooldown, Carrying, Behavior, FoodFragment,
@@ -6,7 +7,7 @@ use gatherers_sim::fragments::{
 };
 use gatherers_sim::food_decision::{food_decision_system, DECISION_PICK_UP, DECISION_DROP};
 use gatherers_sim::movement::{
-    entity_boundary_reflect, entity_cooldown, entity_movement, SIM_BOUNDS_MAX, SIM_BOUNDS_MIN,
+    entity_boundary_reflect, entity_cooldown, SIM_BOUNDS_MAX, SIM_BOUNDS_MIN,
 };
 use glam::DVec3;
 
@@ -264,13 +265,13 @@ fn main() {
             }),
             ..default()
         }))
+        .add_plugins(MovementPlugin::<SimTransform, PreviousTranslation, DesiredMovement>::default())
         .add_message::<AntFoodHit>()
         .add_message::<FoodMutation>()
         .add_systems(Startup, (setup_camera, spawn_entities))
         .add_systems(
             Update,
             (
-                entity_movement,
                 entity_boundary_reflect,
                 collision_prepass,
                 food_decision_system,

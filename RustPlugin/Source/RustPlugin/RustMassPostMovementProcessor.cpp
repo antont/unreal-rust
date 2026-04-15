@@ -14,7 +14,7 @@ URustMassPostMovementProcessor::URustMassPostMovementProcessor()
 
 void URustMassPostMovementProcessor::ConfigureQueries(const TSharedRef<FMassEntityManager>& /*EntityManager*/)
 {
-	EntityQuery.AddRequirement<FTransformFragment>(EMassFragmentAccess::ReadWrite);
+	EntityQuery.AddRequirement<FTransformFragment>(EMassFragmentAccess::ReadOnly);
 	EntityQuery.AddRequirement<FGatherersPreviousTranslation>(EMassFragmentAccess::ReadWrite);
 }
 
@@ -22,31 +22,15 @@ void URustMassPostMovementProcessor::Execute(
 	FMassEntityManager& EntityManager,
 	FMassExecutionContext& Context)
 {
-	const bool bHasBounds = SimBounds.IsValid;
-	const FVector BoundsMin = SimBounds.Min;
-	const FVector BoundsMax = SimBounds.Max;
-
 	EntityQuery.ForEachEntityChunk(Context,
-		[bHasBounds, BoundsMin, BoundsMax](FMassExecutionContext& ChunkContext)
+		[](FMassExecutionContext& ChunkContext)
 	{
-		TArrayView<FTransformFragment> Transforms = ChunkContext.GetMutableFragmentView<FTransformFragment>();
+		TConstArrayView<FTransformFragment> Transforms = ChunkContext.GetFragmentView<FTransformFragment>();
 		TArrayView<FGatherersPreviousTranslation> PrevTranslations = ChunkContext.GetMutableFragmentView<FGatherersPreviousTranslation>();
 
 		for (FMassExecutionContext::FEntityIterator It = ChunkContext.CreateEntityIterator(); It; ++It)
 		{
-			FTransform& Transform = Transforms[It].GetMutableTransform();
-			FVector Position = Transform.GetTranslation();
-
-			// Store current position for spatial sweep queries next frame
-			PrevTranslations[It].Value = Position;
-
-			// Boundary position clamp (velocity reflection is handled by Rust)
-			if (bHasBounds)
-			{
-				Position.X = FMath::Clamp(Position.X, BoundsMin.X, BoundsMax.X);
-				Position.Y = FMath::Clamp(Position.Y, BoundsMin.Y, BoundsMax.Y);
-				Transform.SetTranslation(Position);
-			}
+			PrevTranslations[It].Value = Transforms[It].GetTransform().GetTranslation();
 		}
 	});
 }

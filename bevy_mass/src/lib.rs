@@ -32,6 +32,7 @@ compile_error!("Either feature `bevy-backend` or `unreal` must be enabled.");
 
 mod time;
 mod query;
+pub mod movement;
 
 pub mod prelude {
     pub use crate::time::Time;
@@ -47,6 +48,9 @@ pub mod prelude {
     // Re-export glam types used in nearly every system
     pub use glam::DVec3;
 
+    // Movement infrastructure
+    pub use crate::movement::{TransformLike, PrevTranslationLike, DesiredMovementLike, MovementPlugin};
+
     // mass_system attribute macro — available unconditionally.
     // In Bevy mode it's a no-op (passes through the original function).
     // In Unreal mode it generates chunk-based dispatch + C++ wrappers.
@@ -61,6 +65,7 @@ pub mod prelude {
 pub use time::Time;
 pub use query::Query;
 pub use query::BevyQuery;
+pub use movement::{TransformLike, PrevTranslationLike, DesiredMovementLike, MovementPlugin};
 
 /// Define a MassFragment struct with correct attributes for both Bevy and Unreal modes.
 ///

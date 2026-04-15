@@ -453,7 +453,6 @@ bool URustMassBevySubsystem::EnsureProcessorPipelines(UMassEntitySubsystem& Mass
 	// Pre-movement: save PreviousTranslation (for spatial sweeps) + clamp to bounds.
 	// Runs BEFORE native movement so PreviousTranslation captures position before this frame's move.
 	PostMovementProcessor = NewObject<URustMassPostMovementProcessor>(this);
-	PostMovementProcessor->SetSimulationBounds(SimulationBounds);
 	SimProcessors.Add(PostMovementProcessor);
 
 	// UE's native movement processor: reads DesiredMovement, writes Velocity + Transform.
