@@ -18,9 +18,13 @@ Replaced custom `DeltaTime` with standard `bevy_time::Time`. Systems now use `ti
 
 Added module-level docs to `bevy_mass::query` explaining when to use `Query`, `BevyQuery`, and `MassQuery`/`MassQueryAll`.
 
-## 5. Investigate unifying `food_decision_system` wrappers (exploratory)
+## 5. ~~Unify food_decision_system wrappers~~ IN PROGRESS
 
-The standalone and Unreal versions of the food decision system are nearly identical — both read hit messages, call the shared pure function, emit mutations. The only difference is data access (`Query` vs `MassQuery`). If the macro supported `MessageReader`/`MessageWriter` as facade types in shared systems, this wrapper could potentially be written once.
+Converting `ant_food_decision` and other systems from `MassQuery` → facade `Query`. Adding `QueryAll` facade type for index-based access. After this, 5/6 systems are portable.
+
+## 8. Entity references instead of numeric indices (future)
+
+Currently game code uses `Carrying.food_index: i32` (numeric index into "all food entities") because UE Mass Entity's chunk architecture uses index-based access. In pure Bevy this would be `Option<Entity>`. Consider changing game logic to use `Entity` references with the UE backend resolving them to chunk indices — more Bevy-idiomatic, but requires reworking how C++ spatial query results are consumed and how cross-archetype references work.
 
 ## 6. ~~System ordering documentation~~ ✅ DONE
 

@@ -174,7 +174,7 @@ fn extract_query_params(func: &ItemFn) -> syn::Result<Vec<QueryParam>> {
             if let Some(seg) = last_seg {
                 let scope = if seg.ident == "MassQuery" || seg.ident == "Query" {
                     Some(QueryScope::Primary)
-                } else if seg.ident == "MassQueryAll" {
+                } else if seg.ident == "MassQueryAll" || seg.ident == "QueryAll" {
                     Some(QueryScope::Global)
                 } else {
                     None
@@ -1497,13 +1497,127 @@ pub fn mass_system_impl(func: &ItemFn, order: u32, entity_group: Option<&str>) -
     let func_attrs = &func.attrs;
     let original_params = &func.sig.inputs;
 
+    // Check if there are any global (QueryAll) params that need Bevy-mode rewriting
+    let global_query_params: Vec<&QueryParam> = query_params
+        .iter()
+        .filter(|p| p.scope == QueryScope::Global)
+        .collect();
+
+    // Generate Bevy-mode output: either passthrough or wrapper with QueryAll rewriting
+    let bevy_mode_output = if global_query_params.is_empty() {
+        // No QueryAll params — simple passthrough
+        quote! {
+            #[cfg(not(feature = "unreal"))]
+            #(#func_attrs)*
+            #func_vis fn #func_name(#original_params) #func_ret
+                #func_body
+        }
+    } else {
+        // Has QueryAll params — generate wrapper that expands QueryAll to
+        // Res<EntityIndex<Tag>> + Query<D, F> and constructs QueryAllWrapper.
+
+        // Build the rewritten parameter list for Bevy mode:
+        // - Non-QueryAll params pass through unchanged
+        // - Each QueryAll<D, F> becomes two params: Res<EntityIndex<Tag>> + Query<D, F>
+        let mut bevy_mode_params: Vec<TokenStream> = Vec::new();
+        let mut query_all_setup_stmts: Vec<TokenStream> = Vec::new();
+
+        for arg in &func.sig.inputs {
+            let FnArg::Typed(pat_type) = arg else { continue };
+            let param_name = match &*pat_type.pat {
+                Pat::Ident(pat_ident) => &pat_ident.ident,
+                _ => {
+                    // Pass through non-ident patterns
+                    bevy_mode_params.push(quote! { #arg });
+                    continue;
+                }
+            };
+
+            // Check if this is a QueryAll param
+            let is_query_all = global_query_params.iter().any(|p| p.param_name == *param_name);
+
+            if is_query_all {
+                let qp = global_query_params.iter().find(|p| p.param_name == *param_name).unwrap();
+
+                // Extract fragment types and build Query<D, F> type
+                let frag_refs = qp.fragment_refs();
+                let (frag_type, is_mutable) = match &qp.data {
+                    QueryData::Single(frag) => (&frag.fragment_type, frag.is_mutable),
+                    QueryData::Tuple { .. } => {
+                        // For now, only support single-fragment QueryAll
+                        // (which is what all current usage requires)
+                        let first = &frag_refs[0];
+                        (&first.fragment_type, first.is_mutable)
+                    }
+                };
+
+                // Determine the tag type for EntityIndex
+                // Use the first With<Tag> filter if present, otherwise use the fragment type
+                let tag_type: &syn::Type = if !qp.filter_tags.is_empty() {
+                    &qp.filter_tags[0]
+                } else {
+                    frag_type
+                };
+
+                // Build the data type for the Query: &T or &mut T
+                let data_type = if is_mutable {
+                    quote! { &mut #frag_type }
+                } else {
+                    quote! { &#frag_type }
+                };
+
+                // Build the filter type for the Query
+                let filter_type = if !qp.filter_tags.is_empty() {
+                    let tags = &qp.filter_tags;
+                    if tags.len() == 1 {
+                        quote! { With<#(#tags)*> }
+                    } else {
+                        quote! { (#(With<#tags>),*) }
+                    }
+                } else {
+                    quote! { () }
+                };
+
+                let idx_name = format_ident!("__qa_{}_idx", param_name);
+                let query_name = format_ident!("__qa_{}_q", param_name);
+
+                bevy_mode_params.push(quote! {
+                    #idx_name: bevy_ecs::prelude::Res<bevy_mass::query_all::EntityIndex<#tag_type>>
+                });
+                bevy_mode_params.push(quote! {
+                    mut #query_name: bevy_ecs::system::Query<#data_type, #filter_type>
+                });
+
+                // Generate the setup statement that constructs QueryAllWrapper
+                let mutability = if is_mutable {
+                    quote! { mut }
+                } else {
+                    quote! {}
+                };
+                query_all_setup_stmts.push(quote! {
+                    let #mutability #param_name = bevy_mass::query_all::QueryAllWrapper::new(
+                        &#idx_name.entities,
+                        &mut #query_name,
+                    );
+                });
+            } else {
+                bevy_mode_params.push(quote! { #arg });
+            }
+        }
+
+        quote! {
+            #[cfg(not(feature = "unreal"))]
+            #(#func_attrs)*
+            #[allow(unused_mut)]
+            #func_vis fn #func_name(#(#bevy_mode_params),*) #func_ret {
+                #(#query_all_setup_stmts)*
+                #func_body
+            }
+        }
+    };
+
     Ok(quote! {
-        // Bevy mode: pass through the original function unchanged.
-        // This allows #[mass_system] to be used unconditionally — no cfg_attr needed.
-        #[cfg(not(feature = "unreal"))]
-        #(#func_attrs)*
-        #func_vis fn #func_name(#original_params) #func_ret
-            #func_body
+        #bevy_mode_output
 
         // Unreal mode: rewritten function with chunk-based data access.
         #[cfg(feature = "unreal")]
@@ -2331,5 +2445,39 @@ mod tests {
 
         let result = mass_system_impl(&func, 0, None);
         assert!(result.is_err(), "should error when entity_group is missing and no With<Tag>");
+    }
+
+    // -----------------------------------------------------------------------
+    // QueryAll facade tests
+    // -----------------------------------------------------------------------
+
+    #[test]
+    fn query_all_recognized_as_global_scope() {
+        let func: ItemFn = syn::parse2(quote! {
+            fn my_system(foods: QueryAll<&mut FoodFragment, With<FoodTag>>) {}
+        })
+        .unwrap();
+
+        let params = extract_query_params(&func).unwrap();
+        assert_eq!(params.len(), 1);
+        assert_eq!(params[0].scope, QueryScope::Global);
+        assert_eq!(params[0].param_name, "foods");
+        assert_eq!(params[0].filter_tags.len(), 1);
+    }
+
+    #[test]
+    fn query_all_bevy_mode_generates_entity_index() {
+        let func: ItemFn = syn::parse2(quote! {
+            fn apply_mutations(foods: QueryAll<&mut FoodFragment, With<FoodTag>>) {}
+        })
+        .unwrap();
+
+        let output = mass_system_impl(&func, 35, None).unwrap().to_string();
+
+        // Bevy mode should expand QueryAll to EntityIndex + Query + QueryAllWrapper
+        assert!(output.contains("EntityIndex"),
+            "Bevy mode should reference EntityIndex, got: {}", output);
+        assert!(output.contains("QueryAllWrapper"),
+            "Bevy mode should construct QueryAllWrapper, got: {}", output);
     }
 }

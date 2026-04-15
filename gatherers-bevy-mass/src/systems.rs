@@ -8,12 +8,15 @@
 //   The #[mass_system] macro rewrites these to chunk access in Unreal mode.
 //   Examples: entity_movement, entity_cooldown, entity_boundary_reflect.
 //
-// **MassQuery / MassQueryAll** (`unreal_api::mass::{MassQuery, MassQueryAll}`):
-//   Use for Unreal-only systems that need access unavailable in standalone mode:
-//   - MassSpatialQueries (C++ collision pre-pass results)
-//   - MassQueryAll (cross-archetype index-based access, e.g. food by index)
-//   These do NOT compile without the `unreal` feature.
-//   Examples: ant_collision_prepass, ant_food_decision, carried_food_tracking.
+// **QueryAll** (`bevy_mass::prelude::QueryAll`):
+//   Facade for global index-based access (get by spawn-order index).
+//   In Bevy mode: backed by EntityIndex<Tag> + Query (macro-rewritten).
+//   In Unreal mode: backed by MassQueryAllMut (zero-copy chunk access).
+//   Examples: apply_food_mutations, carried_food_tracking.
+//
+// **MassSpatialQueries** (`unreal_api::mass::MassSpatialQueries`):
+//   Unreal-only resource for C++ physics sweep results.
+//   Examples: ant_collision_prepass.
 //
 // **BevyQuery** (`bevy_ecs::system::Query`):
 //   Use for pure-Bevy components that live on shadow entities (not in chunk
@@ -55,7 +58,7 @@ pub use gatherers_sim::movement::reflect_velocity;
 
 #[mass_system(order = 20)]
 fn ant_collision_prepass(
-    ants: MassQuery<(Entity, &Transform, &PreviousTranslation), (With<BevyMassAntTag>, Without<Cooldown>)>,
+    ants: Query<(Entity, &Transform, &PreviousTranslation), (With<BevyMassAntTag>, Without<Cooldown>)>,
     spatial: Res<unreal_api::mass::MassSpatialQueries>,
     mut hits: MessageWriter<AntFoodHit>,
 ) {
@@ -79,7 +82,7 @@ fn ant_collision_prepass(
 
 #[mass_system(order = 30)]
 fn ant_food_decision(
-    mut ants: MassQuery<
+    mut ants: Query<
         (Entity, &Transform, &mut DesiredMovement, &mut Carrying, &mut Behavior),
         (With<BevyMassAntTag>, Without<Cooldown>),
     >,
@@ -131,7 +134,7 @@ fn ant_food_decision(
 #[mass_system(order = 35)]
 fn apply_food_mutations(
     mut mutations: MessageReader<FoodMutation>,
-    foods: MassQueryAll<&mut FoodFragment>,
+    foods: QueryAll<&mut FoodFragment, With<FoodTag>>,
 ) {
     let mut had_mutation = false;
     for mutation in mutations.read() {
@@ -147,6 +150,7 @@ fn apply_food_mutations(
         }
     }
     if had_mutation {
+        #[cfg(feature = "unreal")]
         unreal_api::mass::set_dispatch_flag(unreal_api::ffi::DISPATCH_FLAG_FOOD_PHYSICS_DIRTY);
     }
 }
@@ -157,8 +161,8 @@ fn apply_food_mutations(
 
 #[mass_system(order = 45)]
 fn carried_food_tracking(
-    ants: MassQuery<(&Transform, &Carrying), With<BevyMassAntTag>>,
-    food_transforms: MassQueryAll<&mut Transform, With<FoodTag>>,
+    ants: Query<(&Transform, &Carrying), With<BevyMassAntTag>>,
+    food_transforms: QueryAll<&mut Transform, With<FoodTag>>,
 ) {
     for (transform, carry) in &mut ants {
         if carry.food_index >= 0 {
