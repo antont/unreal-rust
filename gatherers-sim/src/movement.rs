@@ -9,8 +9,8 @@ use bevy_mass::prelude::*;
 // ---------------------------------------------------------------------------
 
 /// Default simulation bounds — Rust owns this, no C++ round-trip needed.
-pub const SIM_BOUNDS_MIN: [f64; 3] = [-5000.0, -5000.0, -100.0];
-pub const SIM_BOUNDS_MAX: [f64; 3] = [5000.0, 5000.0, 100.0];
+pub const SIM_BOUNDS_MIN: [f64; 3] = [-500.0, -500.0, -100.0];
+pub const SIM_BOUNDS_MAX: [f64; 3] = [500.0, 500.0, 100.0];
 
 // ---------------------------------------------------------------------------
 // System 1: Movement — position += direction * speed * dt
@@ -79,45 +79,54 @@ pub fn entity_cooldown(
 // Generic: works for any entity with Position + Movement.
 // ---------------------------------------------------------------------------
 
-/// In Unreal mode, boundary clamping + velocity reflection is handled by the
-/// native C++ movement processor (URustMassMovementApplyProcessor).
-/// In standalone Bevy mode, this is registered as a mass_system normally.
+/// Reflect velocity at simulation boundaries. In both modes, reads position to
+/// detect boundary contact and reflects velocity. Position clamping differs:
+/// - Unreal mode: C++ URustMassMovementApplyProcessor clamps after applying velocity
+/// - Standalone mode: this system also clamps position directly
 #[mass_system(order = 50)]
 pub fn entity_boundary_reflect(
     mut transforms: Query<&mut Transform>,
     mut velocities: Query<&mut Velocity>,
 ) {
-    // In Unreal mode, C++ handles boundary clamping + reflection.
-    #[cfg(feature = "unreal")]
-    {
-        let _ = (&transforms, &velocities);
-    }
-    #[cfg(not(feature = "unreal"))]
-    {
-        for (mut transform, mut vel) in transforms.iter_mut().zip(velocities.iter_mut()) {
-            let mut inward_normal = DVec3::ZERO;
+    for (mut transform, mut vel) in transforms.iter_mut().zip(velocities.iter_mut()) {
+        let inward_normal = compute_boundary_normal(transform.translation);
 
+        // In standalone mode, clamp position here.
+        // In Unreal mode, C++ clamps after applying velocity.
+        #[cfg(not(feature = "unreal"))]
+        {
             if transform.translation.x < SIM_BOUNDS_MIN[0] {
                 transform.translation.x = SIM_BOUNDS_MIN[0];
-                inward_normal.x += 1.0;
             } else if transform.translation.x > SIM_BOUNDS_MAX[0] {
                 transform.translation.x = SIM_BOUNDS_MAX[0];
-                inward_normal.x -= 1.0;
             }
-
             if transform.translation.y < SIM_BOUNDS_MIN[1] {
                 transform.translation.y = SIM_BOUNDS_MIN[1];
-                inward_normal.y += 1.0;
             } else if transform.translation.y > SIM_BOUNDS_MAX[1] {
                 transform.translation.y = SIM_BOUNDS_MAX[1];
-                inward_normal.y -= 1.0;
-            }
-
-            if inward_normal.length() > 1e-8 {
-                vel.value = reflect_velocity(vel.value, inward_normal);
             }
         }
+
+        if inward_normal.length() > 1e-8 {
+            vel.value = reflect_velocity(vel.value, inward_normal);
+        }
     }
+}
+
+/// Compute inward normal for boundary contact. Returns zero vector if not at boundary.
+fn compute_boundary_normal(position: DVec3) -> DVec3 {
+    let mut inward_normal = DVec3::ZERO;
+    if position.x <= SIM_BOUNDS_MIN[0] {
+        inward_normal.x += 1.0;
+    } else if position.x >= SIM_BOUNDS_MAX[0] {
+        inward_normal.x -= 1.0;
+    }
+    if position.y <= SIM_BOUNDS_MIN[1] {
+        inward_normal.y += 1.0;
+    } else if position.y >= SIM_BOUNDS_MAX[1] {
+        inward_normal.y -= 1.0;
+    }
+    inward_normal
 }
 
 // ---------------------------------------------------------------------------

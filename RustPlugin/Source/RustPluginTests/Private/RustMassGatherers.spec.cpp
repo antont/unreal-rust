@@ -342,6 +342,102 @@ bool FGatherersBevyMassFoodPickupTest::RunTest(const FString& Parameters)
 // UE automation tests (CooldownCycle, CooldownRecovery).
 
 // ---------------------------------------------------------------------------
+// Carried food tracking — food transform follows carrying ant
+// ---------------------------------------------------------------------------
+
+IMPLEMENT_SIMPLE_AUTOMATION_TEST(
+	FGatherersBevyMassCarriedFoodTrackingTest,
+	"supplemental.RustPlugin.Gatherers.BevyMassCarriedFoodTracking",
+	EAutomationTestFlags::EditorContext | EAutomationTestFlags::EngineFilter)
+
+bool FGatherersBevyMassCarriedFoodTrackingTest::RunTest(const FString& Parameters)
+{
+	UWorld* World = GEditor->GetEditorWorldContext().World();
+	if (!TestNotNull(TEXT("World must exist"), World))
+	{
+		return false;
+	}
+
+	UMassEntitySubsystem* MassEntitySubsystem = World->GetSubsystem<UMassEntitySubsystem>();
+	if (!TestNotNull(TEXT("MassEntitySubsystem must exist"), MassEntitySubsystem))
+	{
+		return false;
+	}
+
+	URustMassBevySubsystem* Subsystem = World->GetSubsystem<URustMassBevySubsystem>();
+	if (!TestNotNull(TEXT("RustMassBevySubsystem must exist"), Subsystem))
+	{
+		return false;
+	}
+
+	const FBox Bounds(FVector(-500.0, -500.0, 0.0), FVector(500.0, 500.0, 100.0));
+	Subsystem->InitializeSimulation({{TEXT("ants"), 1}, {TEXT("food"), 1}}, Bounds, 42);
+
+	FMassEntityManager& EntityManager = MassEntitySubsystem->GetMutableEntityManager();
+	const TArray<FMassEntityHandle>* AntEntities = Subsystem->GetGroupEntities(TEXT("ants"));
+	const TArray<FMassEntityHandle>* FoodEntities = Subsystem->GetGroupEntities(TEXT("food"));
+
+	if (!TestTrue(TEXT("Ant and food entities must exist"),
+		AntEntities && AntEntities->Num() > 0 && FoodEntities && FoodEntities->Num() > 0))
+	{
+		Subsystem->ResetSimulation();
+		return false;
+	}
+
+	const FMassEntityHandle AntEntity = (*AntEntities)[0];
+	const FMassEntityHandle FoodEntity = (*FoodEntities)[0];
+
+	// Set up: ant is carrying food index 0, at a known position
+	const FVector AntPos(100.0, 200.0, 50.0);
+	{
+		FMassEntityView AntView(EntityManager, AntEntity);
+		AntView.GetFragmentData<FTransformFragment>().GetMutableTransform().SetTranslation(AntPos);
+		AntView.GetFragmentData<FGatherersCarrying>().FoodIndex = 0;
+
+		// Set velocity so C++ movement processor runs (ant will move slightly)
+		AntView.GetFragmentData<FMassVelocityFragment>().Value = FVector(10.0, 0.0, 0.0);
+	}
+
+	// Place food far away — it should snap to ant after sim step
+	{
+		FMassEntityView FoodView(EntityManager, FoodEntity);
+		FoodView.GetFragmentData<FTransformFragment>().GetMutableTransform().SetTranslation(FVector(-999.0, -999.0, 0.0));
+		FoodView.GetFragmentData<FGatherersMassFoodFragment>().bIsLoose = false;
+	}
+
+	// Run one simulation step — carried_food_tracking should move food to ant
+	Subsystem->RunSimulationProcessorsForTesting(0.016f);
+
+	// Read positions after sim
+	FMassEntityView AntView(EntityManager, AntEntity);
+	const FVector AntPosAfter = AntView.GetFragmentData<FTransformFragment>().GetTransform().GetTranslation();
+
+	FMassEntityView FoodView(EntityManager, FoodEntity);
+	const FVector FoodPosAfter = FoodView.GetFragmentData<FTransformFragment>().GetTransform().GetTranslation();
+
+	UE_LOG(LogTemp, Display, TEXT("[CarriedFoodTracking] Ant=(%.1f,%.1f,%.1f) Food=(%.1f,%.1f,%.1f)"),
+		AntPosAfter.X, AntPosAfter.Y, AntPosAfter.Z,
+		FoodPosAfter.X, FoodPosAfter.Y, FoodPosAfter.Z);
+
+	// Food X/Y should be near ant X/Y (within tolerance for one frame of movement)
+	const double DeltaXY = FMath::Sqrt(
+		FMath::Square(FoodPosAfter.X - AntPosAfter.X) +
+		FMath::Square(FoodPosAfter.Y - AntPosAfter.Y));
+	TestTrue(TEXT("Carried food XY should be near ant (< 5 units)"), DeltaXY < 5.0);
+
+	// Food Z should be above ant (the carried_food_tracking system adds +15 Z offset)
+	TestTrue(TEXT("Carried food Z should be above ant"),
+		FoodPosAfter.Z > AntPosAfter.Z);
+
+	// Food should NOT be at its original position
+	TestTrue(TEXT("Food should have moved from original position"),
+		FMath::Abs(FoodPosAfter.X - (-999.0)) > 100.0);
+
+	Subsystem->ResetSimulation();
+	return true;
+}
+
+// ---------------------------------------------------------------------------
 // Boundary reflection test — ant outside bounds gets clamped and reflected
 // ---------------------------------------------------------------------------
 
@@ -776,12 +872,12 @@ bool FGatherersBevyMassRustSimDefaultsFFITest::RunTest(const FString& Parameters
 		if (Name == TEXT("ants"))
 		{
 			FoundAnts = true;
-			TestEqual(TEXT("Ants default count"), Defaults.groups[i].count, 500);
+			TestEqual(TEXT("Ants default count"), Defaults.groups[i].count, 100);
 		}
 		else if (Name == TEXT("food"))
 		{
 			FoundFood = true;
-			TestEqual(TEXT("Food default count"), Defaults.groups[i].count, 200);
+			TestEqual(TEXT("Food default count"), Defaults.groups[i].count, 500);
 		}
 	}
 	TestTrue(TEXT("Should have 'ants' group in defaults"), FoundAnts);

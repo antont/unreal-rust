@@ -26,7 +26,7 @@
 use bevy_mass::prelude::*;
 use crate::fragments::{
     Transform, PreviousTranslation, Velocity, Cooldown, Carrying, Behavior,
-    FoodFragment, BevyMassAntTag,
+    FoodFragment, FoodTag, BevyMassAntTag,
     FoodEncounter,
 };
 use gatherers_sim::fragments::{AntFoodHit, FoodMutation};
@@ -158,10 +158,15 @@ fn apply_food_mutations(
 #[mass_system(order = 45)]
 fn carried_food_tracking(
     ants: MassQuery<(&Transform, &Carrying), With<BevyMassAntTag>>,
+    food_transforms: MassQueryAll<&mut Transform, With<FoodTag>>,
 ) {
-    // In Unreal mode, carried food position tracking is handled by C++ —
-    // Rust does not write any transforms through chunk memory.
-    let _ = &ants;
+    for (transform, carry) in &mut ants {
+        if carry.food_index >= 0 {
+            if let Some(food_tf) = food_transforms.get_mut(carry.food_index as usize) {
+                food_tf.translation = transform.translation + DVec3::new(0.0, 0.0, 15.0);
+            }
+        }
+    }
 }
 
 #[cfg(test)]

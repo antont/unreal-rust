@@ -50,8 +50,15 @@ void URustMassDynamicProcessor::InitFromDescriptor(const MassSystemDescriptor& D
 		if (Req.query_scope == 1)
 		{
 			// Global query requirement
-			GlobalFragmentStructs.Add(FoundStruct);
-			GlobalFragmentAccessModes.Add(Req.access_mode);
+			if (Req.is_tag)
+			{
+				GlobalTagStructs.Add(FoundStruct);
+			}
+			else
+			{
+				GlobalFragmentStructs.Add(FoundStruct);
+				GlobalFragmentAccessModes.Add(Req.access_mode);
+			}
 			bHasGlobalQueries = true;
 		}
 		else
@@ -65,8 +72,8 @@ void URustMassDynamicProcessor::InitFromDescriptor(const MassSystemDescriptor& D
 
 	bInitialized = true;
 	UE_LOG(LogTemp, Log,
-		TEXT("RustMassDynamicProcessor [%s]: Initialized with %d primary + %d global requirements"),
-		*SystemName, FragmentStructs.Num(), GlobalFragmentStructs.Num());
+		TEXT("RustMassDynamicProcessor [%s]: Initialized with %d primary + %d global requirements (%d global tags)"),
+		*SystemName, FragmentStructs.Num(), GlobalFragmentStructs.Num(), GlobalTagStructs.Num());
 }
 
 TArray<URustMassDynamicProcessor*> URustMassDynamicProcessor::CreateAllRustProcessors(
@@ -170,6 +177,10 @@ void URustMassDynamicProcessor::ConfigureQueries(const TSharedRef<FMassEntityMan
 				? EMassFragmentAccess::ReadWrite
 				: EMassFragmentAccess::ReadOnly;
 			GlobalEntityQuery.AddRequirement(FragStruct, Access);
+		}
+		for (const UScriptStruct* TagStruct : GlobalTagStructs)
+		{
+			GlobalEntityQuery.AddTagRequirement(TagStruct, EMassFragmentPresence::All);
 		}
 	}
 }

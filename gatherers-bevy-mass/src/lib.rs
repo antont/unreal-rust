@@ -40,9 +40,9 @@ inventory::submit!(unreal_api::mass::MassSpatialQueryConfigRegistration {
 // Default simulation parameters (overridable by actor UPROPERTY in editor)
 inventory::submit!(unreal_api::mass::MassSimDefaultsRegistration {
     name: "gatherers",
-    groups: &[("ants", 500), ("food", 200)],
-    bounds_min: [-5000.0, -5000.0, 0.0],
-    bounds_max: [5000.0, 5000.0, 100.0],
+    groups: &[("ants", 100), ("food", 500)],
+    bounds_min: [-500.0, -500.0, 0.0],
+    bounds_max: [500.0, 500.0, 100.0],
     random_seed: 42,
 });
 
@@ -54,10 +54,10 @@ mod tests {
         let d = defaults.iter().find(|d| d.name == "gatherers")
             .expect("MassSimDefaultsRegistration 'gatherers' must be registered");
         assert_eq!(d.groups.len(), 2);
-        assert_eq!(d.groups[0], ("ants", 500));
-        assert_eq!(d.groups[1], ("food", 200));
-        assert_eq!(d.bounds_min, [-5000.0, -5000.0, 0.0]);
-        assert_eq!(d.bounds_max, [5000.0, 5000.0, 100.0]);
+        assert_eq!(d.groups[0], ("ants", 100));
+        assert_eq!(d.groups[1], ("food", 500));
+        assert_eq!(d.bounds_min, [-500.0, -500.0, 0.0]);
+        assert_eq!(d.bounds_max, [500.0, 500.0, 100.0]);
         assert_eq!(d.random_seed, 42);
     }
 

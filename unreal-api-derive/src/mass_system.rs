@@ -684,16 +684,21 @@ pub fn mass_system_impl(func: &ItemFn, order: u32, entity_group: Option<&str>) -
         .collect();
 
     // Collect unique filter tags across all query params and emit as additional requirements.
-    // Deduplicate by type token string.
+    // Tags inherit their parent query param's scope: Primary → scope 0, Global → scope 1.
+    // Deduplicate by (type, scope) — same tag can appear in both primary and global queries.
     let mut seen_tags = std::collections::HashSet::new();
     let tag_requirement_entries: Vec<TokenStream> = query_params
         .iter()
-        .flat_map(|p| p.filter_tags.iter())
-        .filter(|tag_type| {
-            let key = quote!(#tag_type).to_string();
+        .flat_map(|p| p.filter_tags.iter().map(move |t| (t, p.scope)))
+        .filter(|(tag_type, scope)| {
+            let key = (quote!(#tag_type).to_string(), *scope as u8);
             seen_tags.insert(key)
         })
-        .map(|tag_type| {
+        .map(|(tag_type, scope)| {
+            let scope_val = match scope {
+                QueryScope::Primary => 0u8,
+                QueryScope::Global => 1u8,
+            };
             quote! {
                 ::unreal_api::mass::MassSystemRequirement {
                     cpp_type_name: <#tag_type as ::unreal_api::mass::MassFragment>::CPP_TYPE_NAME,
@@ -701,7 +706,7 @@ pub fn mass_system_impl(func: &ItemFn, order: u32, entity_group: Option<&str>) -
                     align: 1,
                     access_mode: 0,
                     is_tag: 1,
-                    query_scope: 0,
+                    query_scope: #scope_val,
                 }
             }
         })

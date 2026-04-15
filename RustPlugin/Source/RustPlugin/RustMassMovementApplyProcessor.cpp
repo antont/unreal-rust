@@ -17,7 +17,7 @@ URustMassMovementApplyProcessor::URustMassMovementApplyProcessor()
 void URustMassMovementApplyProcessor::ConfigureQueries(const TSharedRef<FMassEntityManager>& /*EntityManager*/)
 {
 	EntityQuery.AddRequirement<FTransformFragment>(EMassFragmentAccess::ReadWrite);
-	EntityQuery.AddRequirement<FMassVelocityFragment>(EMassFragmentAccess::ReadWrite);
+	EntityQuery.AddRequirement<FMassVelocityFragment>(EMassFragmentAccess::ReadOnly);
 	EntityQuery.AddRequirement<FGatherersPreviousTranslation>(EMassFragmentAccess::ReadWrite);
 	EntityQuery.AddRequirement<FMassRepresentationFragment>(EMassFragmentAccess::ReadWrite, EMassFragmentPresence::Optional);
 }
@@ -40,7 +40,7 @@ void URustMassMovementApplyProcessor::Execute(
 		[DeltaTime, bHasBounds, BoundsMin, BoundsMax](FMassExecutionContext& ChunkContext)
 	{
 		TArrayView<FTransformFragment> Transforms = ChunkContext.GetMutableFragmentView<FTransformFragment>();
-		TArrayView<FMassVelocityFragment> Velocities = ChunkContext.GetMutableFragmentView<FMassVelocityFragment>();
+		TConstArrayView<FMassVelocityFragment> Velocities = ChunkContext.GetFragmentView<FMassVelocityFragment>();
 		TArrayView<FGatherersPreviousTranslation> PrevTranslations = ChunkContext.GetMutableFragmentView<FGatherersPreviousTranslation>();
 		TArrayView<FMassRepresentationFragment> RepFragments = ChunkContext.GetMutableFragmentView<FMassRepresentationFragment>();
 		const bool bHasRepFragments = RepFragments.Num() > 0;
@@ -48,7 +48,7 @@ void URustMassMovementApplyProcessor::Execute(
 		for (FMassExecutionContext::FEntityIterator It = ChunkContext.CreateEntityIterator(); It; ++It)
 		{
 			FTransformFragment& TransformFrag = Transforms[It];
-			FMassVelocityFragment& Vel = Velocities[It];
+			const FMassVelocityFragment& Vel = Velocities[It];
 			FGatherersPreviousTranslation& Prev = PrevTranslations[It];
 
 			FTransform& Transform = TransformFrag.GetMutableTransform();
@@ -66,48 +66,11 @@ void URustMassMovementApplyProcessor::Execute(
 			// Apply velocity
 			Position += Vel.Value * static_cast<double>(DeltaTime);
 
-			// Boundary clamp + velocity reflection
+			// Boundary position clamp (velocity reflection is handled by Rust)
 			if (bHasBounds)
 			{
-				FVector InwardNormal = FVector::ZeroVector;
-
-				if (Position.X < BoundsMin.X)
-				{
-					Position.X = BoundsMin.X;
-					InwardNormal.X += 1.0;
-				}
-				else if (Position.X > BoundsMax.X)
-				{
-					Position.X = BoundsMax.X;
-					InwardNormal.X -= 1.0;
-				}
-
-				if (Position.Y < BoundsMin.Y)
-				{
-					Position.Y = BoundsMin.Y;
-					InwardNormal.Y += 1.0;
-				}
-				else if (Position.Y > BoundsMax.Y)
-				{
-					Position.Y = BoundsMax.Y;
-					InwardNormal.Y -= 1.0;
-				}
-
-				// Reflect velocity at boundary
-				if (!InwardNormal.IsNearlyZero())
-				{
-					const double Speed = Vel.Value.Size();
-					if (Speed > 1e-8)
-					{
-						const FVector Dir = Vel.Value / Speed;
-						const FVector Normal = InwardNormal.GetSafeNormal();
-						const FVector Reflected = Dir - 2.0 * FVector::DotProduct(Dir, Normal) * Normal;
-						if (!Reflected.IsNearlyZero())
-						{
-							Vel.Value = Reflected.GetSafeNormal() * Speed;
-						}
-					}
-				}
+				Position.X = FMath::Clamp(Position.X, BoundsMin.X, BoundsMax.X);
+				Position.Y = FMath::Clamp(Position.Y, BoundsMin.Y, BoundsMax.Y);
 			}
 
 			Transform.SetTranslation(Position);

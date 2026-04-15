@@ -53,6 +53,7 @@ private:
 	// --- Global requirements (query_scope == 1) ---
 	TArray<const UScriptStruct*> GlobalFragmentStructs;
 	TArray<uint8> GlobalFragmentAccessModes;
+	TArray<const UScriptStruct*> GlobalTagStructs;
 
 	/// Whether this system has any global queries.
 	bool bHasGlobalQueries = false;
