@@ -124,6 +124,20 @@ macro_rules! mass_fragment {
 /// ```
 #[macro_export]
 macro_rules! mass_tag {
+    (cpp_type = $cpp_type:literal, existing, include = $include:literal, $(#[$meta:meta])* $vis:vis struct $name:ident;) => {
+        #[cfg_attr(feature = "unreal", derive(unreal_api::MassFragment))]
+        #[cfg_attr(feature = "unreal", mass(cpp_type = $cpp_type, tag, existing, include = $include))]
+        #[derive($crate::prelude::Component, Clone, Copy, Debug)]
+        $(#[$meta])*
+        $vis struct $name;
+    };
+    (cpp_type = $cpp_type:literal, existing, $(#[$meta:meta])* $vis:vis struct $name:ident;) => {
+        #[cfg_attr(feature = "unreal", derive(unreal_api::MassFragment))]
+        #[cfg_attr(feature = "unreal", mass(cpp_type = $cpp_type, tag, existing))]
+        #[derive($crate::prelude::Component, Clone, Copy, Debug)]
+        $(#[$meta])*
+        $vis struct $name;
+    };
     (cpp_type = $cpp_type:literal, group = $group:literal, $(#[$meta:meta])* $vis:vis struct $name:ident;) => {
         #[cfg_attr(feature = "unreal", derive(unreal_api::MassFragment))]
         #[cfg_attr(feature = "unreal", mass(cpp_type = $cpp_type, tag))]

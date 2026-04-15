@@ -513,10 +513,15 @@ pub fn generate_cpp_fragments(fragments: &[&MassFragmentRegistration], output_fi
                 "// {} — existing UE type, layout verified:\n",
                 frag.cpp_type_name
             ));
-            out.push_str(&format!(
-                "static_assert(sizeof({}) == {}, \"{} size must be {} for Rust interop\");\n\n",
-                frag.cpp_type_name, frag.size, frag.cpp_type_name, frag.size
-            ));
+            // Tags are zero-sized in Rust but may have non-zero size in C++ (GENERATED_BODY).
+            // Skip sizeof check for existing tags — their identity is all that matters.
+            if !frag.is_tag {
+                out.push_str(&format!(
+                    "static_assert(sizeof({}) == {}, \"{} size must be {} for Rust interop\");\n",
+                    frag.cpp_type_name, frag.size, frag.cpp_type_name, frag.size
+                ));
+            }
+            out.push('\n');
             continue;
         }
 

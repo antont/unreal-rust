@@ -1,6 +1,6 @@
 use bevy::prelude::*;
 use gatherers_sim::fragments::{
-    Transform as SimTransform, PreviousTranslation, Velocity,
+    Transform as SimTransform, PreviousTranslation, DesiredMovement,
     Cooldown, Carrying, Behavior, FoodFragment,
     AntFoodHit, FoodMutation,
 };
@@ -114,7 +114,7 @@ fn spawn_entities(mut commands: Commands) {
             AntMarker,
             SimTransform::from_translation(spawn_pos),
             PreviousTranslation { value: spawn_pos },
-            Velocity::new(DVec3::new(angle.cos(), angle.sin(), 0.0), 100.0),
+            DesiredMovement::new(DVec3::new(angle.cos(), angle.sin(), 0.0), 100.0),
             Carrying::default(),
             Behavior {
                 turn_jitter_radians: std::f32::consts::FRAC_PI_2,

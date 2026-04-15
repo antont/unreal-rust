@@ -394,8 +394,8 @@ bool FGatherersBevyMassCarriedFoodTrackingTest::RunTest(const FString& Parameter
 		AntView.GetFragmentData<FTransformFragment>().GetMutableTransform().SetTranslation(AntPos);
 		AntView.GetFragmentData<FGatherersCarrying>().FoodIndex = 0;
 
-		// Set velocity so C++ movement processor runs (ant will move slightly)
-		AntView.GetFragmentData<FMassVelocityFragment>().Value = FVector(10.0, 0.0, 0.0);
+		// Set desired movement so UE's movement processor runs (ant will move slightly)
+		AntView.GetFragmentData<FMassDesiredMovementFragment>().DesiredVelocity = FVector(10.0, 0.0, 0.0);
 	}
 
 	// Place food far away — it should snap to ant after sim step
@@ -484,8 +484,8 @@ bool FGatherersBevyMassBoundaryReflectTest::RunTest(const FString& Parameters)
 			T.GetMutableTransform().SetTranslation(FVector(4990.0, 0.0, 50.0));
 			FGatherersPreviousTranslation& Prev = AntView.GetFragmentData<FGatherersPreviousTranslation>();
 			Prev.Value = T.GetTransform().GetTranslation();
-			FMassVelocityFragment& Vel = AntView.GetFragmentData<FMassVelocityFragment>();
-			Vel.Value = FVector(200.0, 0.0, 0.0); // direction * speed
+			FMassDesiredMovementFragment& DM = AntView.GetFragmentData<FMassDesiredMovementFragment>();
+			DM.DesiredVelocity = FVector(200.0, 0.0, 0.0); // direction * speed
 		}
 	}
 
@@ -503,12 +503,12 @@ bool FGatherersBevyMassBoundaryReflectTest::RunTest(const FString& Parameters)
 		{
 			FMassEntityView AntView(EntityManager, AntEntity);
 			const FTransformFragment& T = AntView.GetFragmentData<FTransformFragment>();
-			const FMassVelocityFragment& Vel = AntView.GetFragmentData<FMassVelocityFragment>();
+			const FMassDesiredMovementFragment& DM = AntView.GetFragmentData<FMassDesiredMovementFragment>();
 
 			TestTrue(TEXT("Ant X should be within bounds (<=5000)"),
 				T.GetTransform().GetTranslation().X <= 5000.0 + 1.0);  // small tolerance
-			TestTrue(TEXT("Velocity X should reflect (become negative)"),
-				Vel.Value.X < 0.0);
+			TestTrue(TEXT("DesiredVelocity X should reflect (become negative)"),
+				DM.DesiredVelocity.X < 0.0);
 		}
 	}
 
@@ -1255,6 +1255,8 @@ bool FGatherersBevyMassVisualizationFragmentsTest::RunTest(const FString& Parame
 			Composition.GetFragments().Contains(*FTransformFragment::StaticStruct()));
 		TestTrue(TEXT("Ant archetype should still have FMassVelocityFragment"),
 			Composition.GetFragments().Contains(*FMassVelocityFragment::StaticStruct()));
+		TestTrue(TEXT("Ant archetype should still have FMassDesiredMovementFragment"),
+			Composition.GetFragments().Contains(*FMassDesiredMovementFragment::StaticStruct()));
 	}
 
 	Subsystem->ResetSimulation();
@@ -1650,27 +1652,27 @@ bool FGatherersBevyMassTickPathMovementTest::RunTest(const FString& Parameters)
 			BoundsSize.X, BoundsSize.Y, BoundsSize.Z, MaxStep));
 	}
 
-	// Log initial velocity and transform values + check archetypes
+	// Log initial desired movement and transform values + check archetypes
 	{
 		const FMassEntityHandle& E0 = (*AntEntities)[0];
 		FMassEntityView View(EntityManager, E0);
-		const FMassVelocityFragment& Vel = View.GetFragmentData<FMassVelocityFragment>();
+		const FMassDesiredMovementFragment& DM = View.GetFragmentData<FMassDesiredMovementFragment>();
 		const FTransformFragment& TF = View.GetFragmentData<FTransformFragment>();
-		AddInfo(FString::Printf(TEXT("Pre-tick ant[0] vel=(%0.2f,%0.2f,%0.2f) speed=%.2f pos=(%0.1f,%0.1f,%0.1f)"),
-			Vel.Value.X, Vel.Value.Y, Vel.Value.Z, Vel.Value.Size(),
+		AddInfo(FString::Printf(TEXT("Pre-tick ant[0] desired_vel=(%0.2f,%0.2f,%0.2f) speed=%.2f pos=(%0.1f,%0.1f,%0.1f)"),
+			DM.DesiredVelocity.X, DM.DesiredVelocity.Y, DM.DesiredVelocity.Z, DM.DesiredVelocity.Size(),
 			TF.GetTransform().GetTranslation().X, TF.GetTransform().GetTranslation().Y, TF.GetTransform().GetTranslation().Z));
 		// Log fragment memory address
-		AddInfo(FString::Printf(TEXT("  Transform ptr=%p, Velocity ptr=%p"),
-			(void*)&View.GetFragmentData<FTransformFragment>(), (void*)&View.GetFragmentData<FMassVelocityFragment>()));
+		AddInfo(FString::Printf(TEXT("  Transform ptr=%p, DesiredMovement ptr=%p"),
+			(void*)&View.GetFragmentData<FTransformFragment>(), (void*)&View.GetFragmentData<FMassDesiredMovementFragment>()));
 	}
 	for (int32 i = 1; i < FMath::Min(3, AntEntities->Num()); ++i)
 	{
 		if (EntityManager.IsEntityValid((*AntEntities)[i]))
 		{
 			FMassEntityView View(EntityManager, (*AntEntities)[i]);
-			const FMassVelocityFragment& Vel = View.GetFragmentData<FMassVelocityFragment>();
-			AddInfo(FString::Printf(TEXT("Pre-tick ant[%d] vel=(%0.2f,%0.2f,%0.2f) speed=%.2f"),
-				i, Vel.Value.X, Vel.Value.Y, Vel.Value.Z, Vel.Value.Size()));
+			const FMassDesiredMovementFragment& DM = View.GetFragmentData<FMassDesiredMovementFragment>();
+			AddInfo(FString::Printf(TEXT("Pre-tick ant[%d] desired_vel=(%0.2f,%0.2f,%0.2f) speed=%.2f"),
+				i, DM.DesiredVelocity.X, DM.DesiredVelocity.Y, DM.DesiredVelocity.Z, DM.DesiredVelocity.Size()));
 		}
 	}
 
@@ -1683,10 +1685,10 @@ bool FGatherersBevyMassTickPathMovementTest::RunTest(const FString& Parameters)
 		{
 			FMassEntityView View0(EntityManager, (*AntEntities)[0]);
 			const FTransformFragment& T0 = View0.GetFragmentData<FTransformFragment>();
-			const FMassVelocityFragment& V0 = View0.GetFragmentData<FMassVelocityFragment>();
-			AddInfo(FString::Printf(TEXT("After Tick[0]: ant0 pos=(%0.2f,%0.2f,%0.2f) vel=(%0.2f,%0.2f,%0.2f)"),
+			const FMassDesiredMovementFragment& DM0 = View0.GetFragmentData<FMassDesiredMovementFragment>();
+			AddInfo(FString::Printf(TEXT("After Tick[0]: ant0 pos=(%0.2f,%0.2f,%0.2f) desired_vel=(%0.2f,%0.2f,%0.2f)"),
 				T0.GetTransform().GetTranslation().X, T0.GetTransform().GetTranslation().Y, T0.GetTransform().GetTranslation().Z,
-				V0.Value.X, V0.Value.Y, V0.Value.Z));
+				DM0.DesiredVelocity.X, DM0.DesiredVelocity.Y, DM0.DesiredVelocity.Z));
 		}
 	}
 

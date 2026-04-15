@@ -2,7 +2,7 @@ pub use crate::fragments::{
     FoodDecisionCode, DECISION_NO_ACTION, DECISION_PICK_UP, DECISION_DROP,
 };
 use crate::fragments::{
-    Velocity, Behavior, Carrying, Cooldown, FoodEncounter,
+    DesiredMovement, Behavior, Carrying, Cooldown, FoodEncounter,
 };
 #[cfg(not(feature = "unreal"))]
 use crate::fragments::{AntFoodHit, FoodMutation, Transform};
@@ -29,7 +29,7 @@ pub const PICKUP_SEPARATION_DISTANCE: f32 = 50.0;
 /// Side effects: updates position, direction, cooldown, clears/sets carried handle.
 pub fn ant_food_decision(
     ant_position: &mut DVec3,
-    velocity: &mut Velocity,
+    movement: &mut DesiredMovement,
     cooldown: &mut Cooldown,
     carrying: &mut Carrying,
     behavior: &mut Behavior,
@@ -47,9 +47,9 @@ pub fn ant_food_decision(
         Some(enc) if is_carrying => {
             // Drop: ant is carrying and encounters loose food
             *ant_position = enc.encounter_position;
-            let speed = velocity.speed();
-            let new_dir = consume_ant_turn_direction(behavior, velocity);
-            velocity.value = new_dir * speed as f64;
+            let speed = movement.speed();
+            let new_dir = consume_ant_turn_direction(behavior, movement);
+            movement.velocity = new_dir * speed as f64;
             carrying.food_index = -1;
             cooldown.remaining_seconds =
                 compute_pickup_cooldown(PICKUP_SEPARATION_DISTANCE, speed);
@@ -58,9 +58,9 @@ pub fn ant_food_decision(
         Some(enc) if !is_carrying => {
             // Pick up: ant is not carrying, cooldown expired, food nearby
             *ant_position = enc.encounter_position;
-            let speed = velocity.speed();
-            let new_dir = consume_ant_turn_direction(behavior, velocity);
-            velocity.value = new_dir * speed as f64;
+            let speed = movement.speed();
+            let new_dir = consume_ant_turn_direction(behavior, movement);
+            movement.velocity = new_dir * speed as f64;
             carrying.food_index = enc.food_index;
             cooldown.remaining_seconds =
                 compute_pickup_cooldown(PICKUP_SEPARATION_DISTANCE, speed);
@@ -80,7 +80,7 @@ pub fn compute_pickup_cooldown(separation_distance: f32, movement_speed: f32) ->
 
 /// Compute a turn direction (180° + jitter) given current direction and RNG state.
 /// Consumes the random seed and returns new direction.
-fn consume_ant_turn_direction(behavior: &mut Behavior, velocity: &Velocity) -> DVec3 {
+fn consume_ant_turn_direction(behavior: &mut Behavior, movement: &DesiredMovement) -> DVec3 {
     // Simple LCG matching FRandomStream behavior:
     // FRandomStream uses: seed = seed * 196314165 + 907633515
     // FRandRange(-1,1) maps to: (seed & 0x7fffff) / 8388607.0 * 2.0 - 1.0
@@ -89,7 +89,7 @@ fn consume_ant_turn_direction(behavior: &mut Behavior, velocity: &Velocity) -> D
     let jitter_alpha = ((seed & 0x7fffff) as f32 / 8388607.0) * 2.0 - 1.0;
     behavior.random_seed = seed as i32;
 
-    compute_ant_turn_direction(velocity.direction(), jitter_alpha, behavior.turn_jitter_radians)
+    compute_ant_turn_direction(movement.direction(), jitter_alpha, behavior.turn_jitter_radians)
 }
 
 /// Compute turn direction: 180° turn + jitter (matches C++ ComputeAntTurnDirection).
@@ -130,11 +130,11 @@ fn compute_ant_retarget_direction(direction: DVec3, jitter_radians: f32) -> DVec
 pub fn food_decision_system(
     mut hits: MessageReader<AntFoodHit>,
     mut food_mutations: MessageWriter<FoodMutation>,
-    mut ants: Query<(&mut Transform, &mut Velocity, &mut Carrying, &mut Behavior)>,
+    mut ants: Query<(&mut Transform, &mut DesiredMovement, &mut Carrying, &mut Behavior)>,
     mut commands: Commands,
 ) {
     for hit in hits.read() {
-        let Ok((mut transform, mut vel, mut carry, mut behavior)) = ants.get_mut(hit.hitter_entity) else {
+        let Ok((mut transform, mut movement, mut carry, mut behavior)) = ants.get_mut(hit.hitter_entity) else {
             continue;
         };
 
@@ -147,7 +147,7 @@ pub fn food_decision_system(
         };
 
         let decision = ant_food_decision(
-            &mut transform.translation, &mut vel, &mut cd, &mut carry, &mut behavior,
+            &mut transform.translation, &mut movement, &mut cd, &mut carry, &mut behavior,
             Some(&encounter),
         );
 
@@ -166,8 +166,8 @@ pub fn food_decision_system(
 mod tests {
     use super::*;
 
-    fn make_components(carrying_food: bool) -> (Velocity, Cooldown, Carrying, Behavior) {
-        let velocity = Velocity::new(DVec3::X, 100.0);
+    fn make_components(carrying_food: bool) -> (DesiredMovement, Cooldown, Carrying, Behavior) {
+        let velocity = DesiredMovement::new(DVec3::X, 100.0);
         let cooldown = Cooldown { remaining_seconds: 0.0 };
         let carrying = if carrying_food {
             Carrying { food_index: 0 }

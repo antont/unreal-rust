@@ -12,7 +12,8 @@
 class UMassEntitySubsystem;
 class UMassProcessor;
 class URustMassVisualizationSetup;
-class URustMassMovementApplyProcessor;
+class UMassApplyMovementProcessor;
+class URustMassPostMovementProcessor;
 class URustMassScheduleCoordinator;
 
 /**
@@ -158,7 +159,10 @@ private:
 	TObjectPtr<URustMassScheduleCoordinator> ScheduleCoordinator = nullptr;
 
 	UPROPERTY(Transient)
-	TObjectPtr<URustMassMovementApplyProcessor> MovementApplyProcessor = nullptr;
+	TObjectPtr<UMassApplyMovementProcessor> NativeMovementProcessor = nullptr;
+
+	UPROPERTY(Transient)
+	TObjectPtr<URustMassPostMovementProcessor> PostMovementProcessor = nullptr;
 
 	/** Named spatial queries: key = query name, value = callback + radius. */
 	TMap<FString, FSpatialQueryEntry> SpatialQueries;

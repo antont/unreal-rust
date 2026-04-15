@@ -67,7 +67,8 @@ bevy_mass::mass_fragment!(cpp_type = "FGatherersPreviousTranslation",
 );
 
 bevy_mass::mass_fragment!(cpp_type = "FMassVelocityFragment", existing, include = "MassMovementFragments.h",
-    /// UE's native velocity fragment. Single FVector Value = direction * speed.
+    /// UE's native velocity fragment (internal — written by UE's movement processor).
+    /// Game code should use DesiredMovement instead.
     /// In Development builds: 48 bytes (Value + DebugPreviousValue).
     pub struct Velocity {
         pub value: DVec3,          // direction * speed (24 bytes)
@@ -78,34 +79,66 @@ bevy_mass::mass_fragment!(cpp_type = "FMassVelocityFragment", existing, include 
 impl Default for Velocity {
     fn default() -> Self {
         Self {
-            value: DVec3::new(100.0, 0.0, 0.0), // direction X * speed 100
+            value: DVec3::ZERO,
             _debug_prev: DVec3::ZERO,
         }
     }
 }
 
-impl Velocity {
-    /// Create a velocity from direction and speed.
+bevy_mass::mass_fragment!(cpp_type = "FMassDesiredMovementFragment", existing, include = "MassMovementFragments.h",
+    /// Desired movement output. Game systems write velocity here;
+    /// the engine applies it to position each frame.
+    /// Maps to UE's FMassDesiredMovementFragment (80 bytes, align 16).
+    /// Layout: FVector(24) + pad(8) + FQuat(32) + f32(4) + pad(12)
+    #[repr(align(16))]
+    pub struct DesiredMovement {
+        pub velocity: DVec3,                    // FVector DesiredVelocity (24 bytes)
+        _pad0: f64,                             // alignment padding to 16 for FQuat (8 bytes)
+        pub facing: [f64; 4],                   // FQuat DesiredFacing XYZW (32 bytes)
+        pub max_speed_override: f32,            // DesiredMaxSpeedOverride (4 bytes)
+        _pad1: [u8; 12],                        // struct tail padding to 80 (12 bytes)
+    }
+);
+
+impl Default for DesiredMovement {
+    fn default() -> Self {
+        Self {
+            velocity: DVec3::new(100.0, 0.0, 0.0), // direction X * speed 100
+            _pad0: 0.0,
+            facing: [0.0, 0.0, 0.0, 1.0],           // identity quaternion
+            max_speed_override: f32::MAX,
+            _pad1: [0; 12],
+        }
+    }
+}
+
+impl DesiredMovement {
+    /// Create a desired movement from direction and speed.
     pub fn new(direction: DVec3, speed: f32) -> Self {
         let v = if direction.length() > 1e-8 {
             direction.normalize() * speed as f64
         } else {
             DVec3::ZERO
         };
-        Self { value: v, _debug_prev: DVec3::ZERO }
+        Self { velocity: v, ..Self::default() }
     }
 
     /// Get the speed (magnitude of velocity vector).
     pub fn speed(&self) -> f32 {
-        self.value.length() as f32
+        self.velocity.length() as f32
     }
 
     /// Get the normalized direction.
     pub fn direction(&self) -> DVec3 {
-        let len = self.value.length();
-        if len > 1e-8 { self.value / len } else { DVec3::ZERO }
+        let len = self.velocity.length();
+        if len > 1e-8 { self.velocity / len } else { DVec3::ZERO }
     }
 }
+
+bevy_mass::mass_tag!(cpp_type = "FMassCodeDrivenMovementTag", existing, include = "MassMovementFragments.h",
+    /// Tag indicating entity uses code-driven movement (required by UE's UMassApplyMovementProcessor).
+    pub struct CodeDrivenMovementTag;
+);
 
 /// Pickup cooldown timer.
 /// Pure-Bevy component — added/removed dynamically, not a MassFragment.
@@ -251,6 +284,15 @@ mod tests {
     }
 
     #[test]
+    fn desired_movement_layout() {
+        assert_eq!(mem::size_of::<DesiredMovement>(), 80);
+        assert_eq!(mem::align_of::<DesiredMovement>(), 16);
+        assert_eq!(mem::offset_of!(DesiredMovement, velocity), 0);
+        assert_eq!(mem::offset_of!(DesiredMovement, facing), 32);
+        assert_eq!(mem::offset_of!(DesiredMovement, max_speed_override), 64);
+    }
+
+    #[test]
     fn cooldown_layout() {
         // Pure-Bevy component — no longer needs C++ layout compatibility
         assert_eq!(mem::size_of::<Cooldown>(), 4);
@@ -298,17 +340,25 @@ mod tests {
     #[test]
     fn velocity_default() {
         let v = Velocity::default();
-        assert_eq!(v.value, DVec3::new(100.0, 0.0, 0.0));
-        assert!((v.speed() - 100.0).abs() < 1e-4);
-        assert!((v.direction() - DVec3::X).length() < 1e-8);
+        assert_eq!(v.value, DVec3::ZERO);
     }
 
     #[test]
-    fn velocity_new() {
-        let v = Velocity::new(DVec3::new(0.0, 1.0, 0.0), 50.0);
-        assert!((v.speed() - 50.0).abs() < 1e-4);
-        assert!((v.direction() - DVec3::Y).length() < 1e-8);
-        assert!((v.value - DVec3::new(0.0, 50.0, 0.0)).length() < 1e-6);
+    fn desired_movement_default() {
+        let dm = DesiredMovement::default();
+        assert_eq!(dm.velocity, DVec3::new(100.0, 0.0, 0.0));
+        assert!((dm.speed() - 100.0).abs() < 1e-4);
+        assert!((dm.direction() - DVec3::X).length() < 1e-8);
+        assert_eq!(dm.facing, [0.0, 0.0, 0.0, 1.0]);
+        assert_eq!(dm.max_speed_override, f32::MAX);
+    }
+
+    #[test]
+    fn desired_movement_new() {
+        let dm = DesiredMovement::new(DVec3::new(0.0, 1.0, 0.0), 50.0);
+        assert!((dm.speed() - 50.0).abs() < 1e-4);
+        assert!((dm.direction() - DVec3::Y).length() < 1e-8);
+        assert!((dm.velocity - DVec3::new(0.0, 50.0, 0.0)).length() < 1e-6);
     }
 
     #[test]

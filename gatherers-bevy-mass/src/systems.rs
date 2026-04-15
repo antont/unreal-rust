@@ -25,7 +25,7 @@
 #[allow(unused_imports)] // Some items used only by #[mass_system] macro expansion
 use bevy_mass::prelude::*;
 use crate::fragments::{
-    Transform, PreviousTranslation, Velocity, Cooldown, Carrying, Behavior,
+    Transform, PreviousTranslation, DesiredMovement, Cooldown, Carrying, Behavior,
     FoodFragment, FoodTag, BevyMassAntTag,
     FoodEncounter,
 };
@@ -80,7 +80,7 @@ fn ant_collision_prepass(
 #[mass_system(order = 30)]
 fn ant_food_decision(
     mut ants: MassQuery<
-        (Entity, &Transform, &mut Velocity, &mut Carrying, &mut Behavior),
+        (Entity, &Transform, &mut DesiredMovement, &mut Carrying, &mut Behavior),
         (With<BevyMassAntTag>, Without<Cooldown>),
     >,
     mut hits: MessageReader<AntFoodHit>,
@@ -92,7 +92,7 @@ fn ant_food_decision(
         .map(|h| (h.hitter_entity, (h.hittable_index, h.encounter_position)))
         .collect();
 
-    for (entity, transform, mut vel, mut carry, mut behavior) in &mut ants {
+    for (entity, transform, mut movement, mut carry, mut behavior) in &mut ants {
         let Some(&(hittable_index, encounter_position)) = hit_map.get(&entity) else {
             continue;
         };
@@ -109,7 +109,7 @@ fn ant_food_decision(
         };
 
         let decision = ant_food_decision_fn(
-            &mut pos_scratch, &mut vel, &mut cd, &mut carry, &mut behavior,
+            &mut pos_scratch, &mut movement, &mut cd, &mut carry, &mut behavior,
             Some(&encounter),
         );
 

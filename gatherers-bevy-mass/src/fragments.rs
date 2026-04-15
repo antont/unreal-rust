@@ -1,8 +1,8 @@
 // Re-export fragment types from gatherers-sim (the single source of truth).
 // In unreal mode, these have both Component and MassFragment derives.
 pub use gatherers_sim::fragments::{
-    AntTag, FoodTag, BevyMassAntTag,
-    Transform, PreviousTranslation, Velocity, Cooldown, Carrying, Behavior,
+    AntTag, FoodTag, BevyMassAntTag, CodeDrivenMovementTag,
+    Transform, PreviousTranslation, Velocity, DesiredMovement, Cooldown, Carrying, Behavior,
     FoodFragment,
     SimBounds, FoodEncounter,
     AntFoodHit, FoodMutation,

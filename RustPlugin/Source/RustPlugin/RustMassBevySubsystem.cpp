@@ -12,11 +12,13 @@
 #include "RustMassScheduleCoordinator.h"
 #include "RustPlugin.h"
 #include "RustUtils.h"
-#include "RustMassMovementApplyProcessor.h"
+#include "RustMassPostMovementProcessor.h"
+#include "Movement/MassMovementProcessors.h"
 #include "RustMassVisualizationSetup.h"
 #include "MassSimulationSubsystem.h"
 #include "MassRepresentationProcessor.h"
 #include "MassVisualizationLODProcessor.h"
+#include "MassUpdateISMProcessor.h"
 #include "CollisionShape.h"
 #include "StructUtils/StructView.h"
 #include "Engine/StaticMesh.h"
@@ -448,11 +450,16 @@ bool URustMassBevySubsystem::EnsureProcessorPipelines(UMassEntitySubsystem& Mass
 		SimProcessors.Add(ScheduleCoordinator);
 	}
 
-	// C++ movement processor: applies velocity to transform AFTER Rust sets velocity.
-	// This keeps all transform writes in the native UE pipeline (vis-friendly).
-	MovementApplyProcessor = NewObject<URustMassMovementApplyProcessor>(this);
-	MovementApplyProcessor->SetSimulationBounds(SimulationBounds);
-	SimProcessors.Add(MovementApplyProcessor);
+	// Pre-movement: save PreviousTranslation (for spatial sweeps) + clamp to bounds.
+	// Runs BEFORE native movement so PreviousTranslation captures position before this frame's move.
+	PostMovementProcessor = NewObject<URustMassPostMovementProcessor>(this);
+	PostMovementProcessor->SetSimulationBounds(SimulationBounds);
+	SimProcessors.Add(PostMovementProcessor);
+
+	// UE's native movement processor: reads DesiredMovement, writes Velocity + Transform.
+	// Requires FMassDesiredMovementFragment + FMassCodeDrivenMovementTag on entities.
+	NativeMovementProcessor = NewObject<UMassApplyMovementProcessor>(this);
+	SimProcessors.Add(NativeMovementProcessor);
 
 	if (SimProcessors.Num() > 0)
 	{
@@ -957,10 +964,13 @@ void URustMassBevySubsystem::InitializeSimulation(
 		{
 			TArray<UMassProcessor*> VisProcessors;
 			VisProcessors.Add(VisProcessor);
+			// UMassUpdateISMProcessor: feeds current + prev transforms to ISM batching,
+			// then saves PrevTransform = current for next frame (motion blur / TAA).
+			VisProcessors.Add(NewObject<UMassUpdateISMProcessor>(this));
 			VisualizationPipeline.SetProcessors(VisProcessors);
 			TSharedRef<FMassEntityManager> EMRef = EntityManager.AsShared();
 			VisualizationPipeline.Initialize(*this, EMRef);
-			UE_LOG(LogTemp, Display, TEXT("RustMassBevySubsystem: Built vis pipeline (Representation only, no LOD)"));
+			UE_LOG(LogTemp, Display, TEXT("RustMassBevySubsystem: Built vis pipeline (Representation + UpdateISM, no LOD)"));
 		}
 	}
 
@@ -1017,7 +1027,8 @@ void URustMassBevySubsystem::ResetSimulation()
 	SimulationProcessorPipeline.Reset();
 	bProcessorPipelinesInitialized = false;
 	ScheduleCoordinator = nullptr;
-	MovementApplyProcessor = nullptr;
+	NativeMovementProcessor = nullptr;
+	PostMovementProcessor = nullptr;
 	SpatialQueries.Empty();
 	bAutoInitAttempted = false;
 }
