@@ -32,15 +32,23 @@ Game systems currently use three query types beyond standard `Query`:
 
 - **`QueryAll<&mut T, With<Tag>>`** — index-based global access (`get_mut(i)`). Needed because UE chunk architecture uses indices for cross-archetype references. In vanilla Bevy this would be a normal `Query` with entity lookup. Closely related to item 9 (entity references) — if entity references replace indices, `QueryAll` may become unnecessary.
 
-- **`BevyQuery<D, F>`** — ~~escapes `#[mass_system]` chunk rewriting for pure-Bevy shadow components~~ **DONE (Step A)**: Replaced with `#[bevy]` parameter attribute. Game code now uses `#[bevy] Query<...>` instead of `BevyQuery<...>`. `BevyQuery` is deprecated.
-
-  **Step B (future)**: Use `specialization` + `ChunkBacked` marker trait for fully automatic detection — no annotation needed at all. Infrastructure is in place (`ChunkBacked` trait, `QueryBackend` specialization with const dispatch), but the `#[mass_system]` macro can't do trait resolution at compile time. Needs codegen that emits both paths with a const-if branch.
+- **`BevyQuery<D, F>`** — ~~escapes `#[mass_system]` chunk rewriting for pure-Bevy shadow components~~ **DONE (Step A)**: Replaced with `#[bevy]` parameter attribute. **DONE (Step B)**: Fully automatic via `QueryBackend::IS_CHUNK` const-if dispatch. The macro emits both chunk and Bevy paths; the compiler eliminates the dead branch. No annotation needed — `#[bevy]` attribute is deprecated. Works for both single queries (`Query<&T>`) and tuple queries (`Query<(Entity, &mut T)>`).
 
 Possible improvements:
 
-- **For `BevyQuery`**: ~~If `#[mass_system]` could distinguish chunk-memory components automatically...~~ Step A done. Step B would make it fully automatic.
+- **For `BevyQuery`**: **DONE** — fully automatic detection via `ChunkBacked` marker trait + `MaybeFragment` specialization. Non-MassFragment types auto-dispatch to Bevy storage.
 
 - **For `QueryAll`**: Depends on item 9. If entity references replace indices, systems would use normal `Query::get(entity)` instead of `QueryAll::get_mut(index)`. Until then, `QueryAll` is a necessary facade.
+
+### Implementation details (Step B)
+
+The dual-mode dispatch works via:
+- **`ChunkBacked` marker trait** — implemented by `#[derive(MassFragment)]` types, sets `QueryBackend::IS_CHUNK = true`
+- **`MaybeFragment` specialization trait** — compile-time detection of whether a type has C++ MassFragment representation (`IS_FRAGMENT`, `CPP_TYPE_NAME_OR_EMPTY`)
+- **Const-if in generated code** — `if <T as QueryBackend>::IS_CHUNK { chunk_path } else { bevy_path }`, compiler eliminates dead branch
+- **IS_CHUNK consistency guard** — compile-time assert prevents mixing chunk-backed and Bevy-only fragments in one system's primary queries
+- **`is_valid` on requirements** — non-MassFragment types get `is_valid: false`, filtered before C++ registration
+- **Relaxed bounds** — `MassChunks`, `MassSystemChunks`, `MassQueryRef/Mut` accept `Copy + 'static` (not just `MassFragment`), allowing empty chunk resources for Bevy-only types
 
 ## 17. Bevy-style entity spawning
 

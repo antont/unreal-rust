@@ -101,7 +101,6 @@ fn carried_food_tracking(
 | `Query<&mut T>` | `bevy_ecs::Query` | Chunk `&mut [T]` slice | Read-write per-entity iteration |
 | `Query<(Entity, &mut T, &U), (With<Tag>, Without<V>)>` | `bevy_ecs::Query` | Tuple facade struct + entity map | Multi-component with filters |
 | `QueryAll<&mut T, With<Tag>>` | `EntityIndex<Tag>` + `Query` via `QueryAllWrapper` | `MassQueryAllMut` (zero-copy chunks) | Index-based global access (`get_mut(i)`) |
-| `#[bevy] Query<D, F>` | `bevy_ecs::Query` (always) | `bevy_ecs::Query` (always) | Pure-Bevy components (shadow entities) |
 
 ### UE-only types (use only in UE-specific code)
 
@@ -109,7 +108,7 @@ fn carried_food_tracking(
 |---|---|---|
 | `SpatialQuery` | Wraps `MassSpatialQueries` (C++ physics sweep results) | Collision detection via `Res<SpatialQuery>` — returns `SpatialHit` with `DVec3` |
 
-Facade `Query` supports tuples with `Entity`, `With<Tag>`/`Without<T>` filters, and multiple mutable fragments. The `#[mass_system]` macro handles all backend-specific rewrites.
+Facade `Query` supports tuples with `Entity`, `With<Tag>`/`Without<T>` filters, and multiple mutable fragments. The `#[mass_system]` macro handles all backend-specific rewrites. Components that don't implement `MassFragment` (pure-Bevy components on shadow entities) are auto-detected via `QueryBackend::IS_CHUNK` and dispatched to Bevy entity storage — no annotation needed.
 
 `QueryAll` provides `get(index)` and `get_mut(index)` for O(1) indexed access across all entities of a type. The `#[mass_system]` macro rewrites it to `EntityIndex` + `QueryAllWrapper` in Bevy mode and `MassQueryAllMut` in UE mode.
 
