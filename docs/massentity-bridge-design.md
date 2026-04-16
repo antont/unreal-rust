@@ -6,10 +6,10 @@ unreal-rust bridges Rust simulation code to UE's MassEntity ECS. Game developers
 
 ## Dual-mode architecture
 
-Systems are written using standard Bevy syntax (`Query<&mut T>`, `Res<DeltaTime>`). A `bevy_mass` facade crate and the `#[mass_system]` proc macro handle the compile-time switch:
+Systems are written using standard Bevy syntax (`Query<&mut T>`, `Res<Time>`, `QueryAll<&mut T, With<Tag>>`). A `bevy_mass` facade crate and the `#[mass_system]` proc macro handle the compile-time switch:
 
-- **Bevy mode** (default): systems run in a real Bevy `World` with `bevy_ecs`. Used for unit tests and standalone Bevy apps.
-- **Unreal mode** (`--features unreal`): the `#[mass_system]` macro rewrites parameter types to `MassQuery<&mut T>` and generates an `extern "C"` wrapper + Bevy resource-based dispatch.
+- **Bevy mode** (default): systems run in a real Bevy `World` with `bevy_ecs`. `Query` is a real Bevy query; `QueryAll` is rewritten by the macro to `EntityIndex<Tag>` + `Query` with a `QueryAllWrapper`. Used for unit tests and standalone Bevy apps.
+- **Unreal mode** (`--features unreal`): the `#[mass_system]` macro rewrites `Query` to chunk iteration, `QueryAll` to `MassQueryAllMut`, and generates an `extern "C"` wrapper + Bevy resource-based dispatch.
 
 See `docs/bevy-mass-architecture-options.md` for the design rationale.
 
@@ -53,51 +53,86 @@ User's Rust system functions (standard Bevy syntax)
 ### Example system (dual-mode)
 
 ```rust
-#[cfg_attr(feature = "unreal", mass_system(order = 10))]
-pub fn entity_movement(
-    mut positions: Query<&mut Position>,
-    movements: Query<&Movement>,
-    time: Res<DeltaTime>,
+#[mass_system(order = 50)]
+pub fn entity_boundary_reflect(
+    transforms: Query<&Transform>,
+    mut movements: Query<&mut DesiredMovement>,
 ) {
-    let dt = time.0;
-    for (mut pos, mov) in positions.iter_mut().zip(movements.iter()) {
-        pos.previous_position = pos.position;
-        let dir = mov.direction.normalize();
-        pos.position += dir * (mov.movement_speed as f64 * dt as f64);
+    for (transform, mut movement) in transforms.iter().zip(movements.iter_mut()) {
+        let pos = transform.translation;
+        // Reflect velocity at simulation boundaries
+        let inward_normal = compute_boundary_normal(pos);
+        if inward_normal.length() > 1e-8 {
+            movement.velocity = reflect_velocity(movement.velocity, inward_normal);
+        }
     }
 }
 ```
 
-In Bevy mode this compiles as a standard Bevy system. In Unreal mode the macro rewrites it to use `MassQuery` types backed by C++ chunk memory.
+`#[mass_system]` works unconditionally — in Bevy mode it passes through the original function; in Unreal mode it rewrites to chunk-based iteration. No `#[cfg_attr]` needed.
 
-## Query types
-
-| Rust type | Backing | Use case |
-|---|---|---|
-| `MassQuery<&T>` | `&[T]` slice into one primary chunk | Read-only per-chunk |
-| `MassQuery<&mut T>` | `&mut [T]` slice into one primary chunk | Read-write per-chunk |
-| `MassQueryAll<&T>` | Chunked descriptors across all matching chunks | Read-only cross-archetype |
-| `MassQueryAll<&mut T>` | Chunked descriptors across all matching chunks | Read-write cross-archetype |
-
-Primary queries (`MassQuery`) iterate entities within a single archetype chunk. The system is called once per chunk.
-
-Global queries (`MassQueryAll`) span all chunks of a given fragment type. They support `iter()`, `iter_mut()`, and `get_mut(index)` for O(1) indexed access across chunk boundaries.
-
-## Fragment definition
-
-Fragments are `#[repr(C)]` structs with `#[derive(MassFragment)]`. The derive macro generates C++ USTRUCT headers automatically — no hand-written C++ needed:
+### Example with QueryAll (index-based global access)
 
 ```rust
-#[derive(MassFragment, Clone, Copy, Debug, Default)]
-#[repr(C)]
-#[mass(cpp_type = "FGatherersMassPosition")]
-pub struct Position {
-    pub position: DVec3,
-    pub previous_position: DVec3,
+#[mass_system(order = 45)]
+fn carried_food_tracking(
+    ants: Query<(&Transform, &Carrying), With<BevyMassAntTag>>,
+    food_transforms: QueryAll<&mut Transform, With<FoodTag>>,
+) {
+    for (transform, carry) in &mut ants {
+        if carry.food_index >= 0 {
+            if let Some(food_tf) = food_transforms.get_mut(carry.food_index as usize) {
+                food_tf.translation = transform.translation + DVec3::new(0.0, 0.0, 15.0);
+            }
+        }
+    }
 }
 ```
 
-`DVec3` (glam) maps to `FVector` in the generated C++ header. Layout is verified at compile time with `static_assert` on the C++ side and `offset_of!` tests on the Rust side.
+`QueryAll` provides `get_mut(index)` across all entities of a type. In UE mode: zero-copy chunk access. In Bevy mode: `EntityIndex<Tag>` + Query lookup (macro-rewritten).
+
+## Query types
+
+### Facade types (portable — use these in game code)
+
+| Type | Bevy backing | UE backing | Use case |
+|---|---|---|---|
+| `Query<&T>` | `bevy_ecs::Query` | Chunk `&[T]` slice | Read-only per-entity iteration |
+| `Query<&mut T>` | `bevy_ecs::Query` | Chunk `&mut [T]` slice | Read-write per-entity iteration |
+| `Query<(Entity, &mut T, &U), (With<Tag>, Without<V>)>` | `bevy_ecs::Query` | Tuple facade struct + entity map | Multi-component with filters |
+| `QueryAll<&mut T, With<Tag>>` | `EntityIndex<Tag>` + `Query` via `QueryAllWrapper` | `MassQueryAllMut` (zero-copy chunks) | Index-based global access (`get_mut(i)`) |
+| `BevyQuery<D, F>` | `bevy_ecs::Query` (always) | `bevy_ecs::Query` (always) | Pure-Bevy components (shadow entities) |
+
+### UE-only types (use only in UE-specific code)
+
+| Type | Backing | Use case |
+|---|---|---|
+| `MassSpatialQueries` | C++ physics sweep results | Collision detection via `Res<MassSpatialQueries>` |
+
+Facade `Query` supports tuples with `Entity`, `With<Tag>`/`Without<T>` filters, and multiple mutable fragments. The `#[mass_system]` macro handles all backend-specific rewrites.
+
+`QueryAll` provides `get(index)` and `get_mut(index)` for O(1) indexed access across all entities of a type. The `#[mass_system]` macro rewrites it to `EntityIndex` + `QueryAllWrapper` in Bevy mode and `MassQueryAllMut` in UE mode.
+
+## Fragment definition
+
+Fragments use the `mass_fragment!` macro which handles `#[repr(C)]`, `#[derive(Component)]`, and conditional `#[derive(MassFragment)]` + `#[mass(...)]` metadata:
+
+```rust
+mass_fragment!(cpp_type = "FGatherersMassFoodFragment",
+    pub struct FoodFragment {
+        pub is_loose: bool,
+    }
+);
+```
+
+For fragments that already exist as C++ USTRUCTs (e.g., `FTransformFragment`), use `existing`:
+```rust
+mass_fragment!(cpp_type = "FTransformFragment", existing, include = "MassCommonFragments.h",
+    pub struct Transform { /* matching layout */ }
+);
+```
+
+`DVec3` (glam) maps to `FVector` in generated C++ headers. Layout is verified at compile time with `static_assert` on the C++ side and `offset_of!` tests on the Rust side.
 
 ## Zero-copy design
 
@@ -131,10 +166,11 @@ Game developers write only Rust. The infrastructure handles:
 | `unreal-api/src/mass.rs` | Rust query types, TestCtx, schedule, system registration |
 | `unreal-api-derive/src/mass_system.rs` | `#[mass_system]` proc macro: generates wrapper + Bevy system + registration |
 | `unreal-api-derive/src/mass_fragment.rs` | `#[derive(MassFragment)]` proc macro + C++ header codegen |
-| `bevy_mass/src/` | Facade crate: `DeltaTime`, `Query` backend switching |
+| `bevy_mass/src/` | Facade crate: `Query`, `QueryAll`, `MovementPlugin`, `EntityIndex`, `Time` |
 | `unreal-module/src/mass_system_registry.rs` | System discovery FFI, Bevy schedule management |
 | `gatherers-sim/src/` | Game simulation logic (movement, food decisions, fragments) |
-| `gatherers-bevy-mass/src/` | Unreal-specific systems (spatial queries, food tracking) + UE tests |
+| `gatherers-bevy-mass/src/` | Game systems (mostly portable) + spatial query integration + UE tests |
+| `gatherers-standalone/src/` | Standalone Bevy app running the same simulation without Unreal |
 | `RustPlugin/Source/RustPlugin/RustMassDynamicProcessor.cpp` | C++ processor: caching, dispatch |
 | `RustPlugin/Source/RustPlugin/RustMassBevySubsystem.cpp` | C++ subsystem: entity management, fragment read/write |
 | `RustPlugin/Source/RustPlugin/Bindings.h` | C++ FFI struct definitions |

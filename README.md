@@ -13,8 +13,8 @@ This is a fork of [MaikKlein/unreal-rust](https://github.com/MaikKlein/unreal-ru
 ### What this fork adds
 
 - **Mass Entity bridge** — Rust systems operate directly on Unreal's MassEntity chunk memory with zero-copy access. Fragment layouts are validated at compile time across the FFI boundary.
-- **Bevy-compatible systems** — A `bevy_mass` facade crate lets you write standard Bevy-style systems (`Query<&mut Position>`, `Res<DeltaTime>`) that compile against either pure Bevy for testing or Unreal MassEntity for production.
-- **`#[mass_system]` macro** — Annotate a Rust function and it becomes a MassEntity processor. No C++ registration boilerplate.
+- **Bevy-compatible systems** — A `bevy_mass` facade crate lets you write standard Bevy-style systems (`Query<&mut T>`, `Res<Time>`) that compile against either pure Bevy for testing/standalone or Unreal MassEntity for production. Includes `MovementPlugin` (framework-provided movement application) and `QueryAll` (index-based global entity access) — both switch implementation at compile time.
+- **`#[mass_system]` macro** — Annotate a Rust function and it becomes a MassEntity processor. Supports tuple queries with `Entity`, `With`/`Without` filters, `Res`/`ResMut`, `Commands`, `MessageReader`/`MessageWriter`, and `QueryAll`. No C++ registration boilerplate.
 - **`#[derive(MassFragment)]` macro** — Define fragment structs in Rust with auto-generated C++ headers and compile-time layout verification.
 - **Auto-init from Rust** — Entity group counts, simulation bounds, spatial queries, and visualizer config are all registered from Rust via `inventory::submit!`. The C++ subsystem discovers and wires them up automatically.
 - **Rust-authored UE automation tests** — Write integration tests in Rust using `assert!` macros. Tests run inside the UE editor with full Mass Entity and physics support, appearing in the UE test browser alongside C++ tests.
@@ -23,7 +23,7 @@ This is a fork of [MaikKlein/unreal-rust](https://github.com/MaikKlein/unreal-ru
 
 ### Example: Gatherers simulation
 
-The included example is an ant colony simulation (~5000 entities) with movement, boundary reflection, food encounter detection via physics sweeps, and pickup/drop behavior. All game logic is in Rust across two crates: `gatherers-sim` (pure logic) and `gatherers-bevy-mass` (UE integration and fragment definitions).
+The included example is an ant colony simulation (~5000 entities) with movement, boundary reflection, food encounter detection via physics sweeps, and pickup/drop behavior. All game logic is in Rust across two crates: `gatherers-sim` (pure logic) and `gatherers-bevy-mass` (UE integration and fragment definitions). A standalone Bevy app (`gatherers-standalone`) runs the same simulation without Unreal — 5 of 6 game systems are portable across both backends with zero `#[cfg]` gates.
 
 ## ☣️ Warning
 
@@ -46,8 +46,9 @@ I am releasing `unreal-rust` on github to develop it in the open.
 
 * 🐧 Linux
 * 🪟 Windows
+* 🍎 macOS (this fork)
 
-Potential future platforms: iOS, macOS, Android, html5/browser(possibly)
+Potential future platforms: iOS, Android, html5/browser(possibly)
 
 Consoles are unsupported. I simply can not offer console support as it is a closed off ecosystem. Nor do I have access to any developer kits myself.
 
@@ -119,13 +120,10 @@ Now you can run the example with `ue4 run`
 
 ## 🚀 Supported versions
 
-- `5.0`
+- `5.7` (this fork)
+- `5.0` (upstream)
 
 This project will always try to support the latest version.
-
-- Latest version of Unreal
-- Latest version of Rust
-- Latest version of all dependencies
 
 ## 🤝 Alternatives
 

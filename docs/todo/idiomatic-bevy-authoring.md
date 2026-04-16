@@ -18,11 +18,15 @@ Replaced custom `DeltaTime` with standard `bevy_time::Time`. Systems now use `ti
 
 Added module-level docs to `bevy_mass::query` explaining when to use `Query`, `BevyQuery`, and `MassQuery`/`MassQueryAll`.
 
-## 5. ~~Unify food_decision_system wrappers~~ IN PROGRESS
+## 5. ~~Unify system wrappers via facade Query + QueryAll~~ ✅ DONE
 
-Converting `ant_food_decision` and other systems from `MassQuery` → facade `Query`. Adding `QueryAll` facade type for index-based access. After this, 5/6 systems are portable.
+Converted `ant_food_decision`, `apply_food_mutations`, `carried_food_tracking` from `MassQuery`/`MassQueryAll` to facade `Query`/`QueryAll`. Added `QueryAll<D, F>` to bevy_mass with `EntityIndex<Tag>` + `QueryAllWrapper` backing in Bevy mode. Extended `#[mass_system]` macro to rewrite `QueryAll` params in Bevy mode. 5/6 systems are now portable with zero `#[cfg]` gates. Only `ant_collision_prepass` remains UE-only (needs spatial query facade).
 
-## 8. Entity references instead of numeric indices (future)
+## 8. ~~Framework-provided movement infrastructure~~ ✅ DONE
+
+Added `bevy_mass::MovementPlugin<T, P, D>` with `TransformLike`, `PrevTranslationLike`, `DesiredMovementLike` traits. In Bevy mode: `apply_movement` system (pos += vel * dt, save PreviousTranslation). In UE mode: no-op (C++ `UMassApplyMovementProcessor` and `URustMassPostMovementProcessor` handle it). Deleted `entity_movement` system. Made `entity_boundary_reflect` read-only Transform (pure velocity reflection, no position clamping). Removed position clamping from C++ PostMovementProcessor.
+
+## 9. Entity references instead of numeric indices (future)
 
 Currently game code uses `Carrying.food_index: i32` (numeric index into "all food entities") because UE Mass Entity's chunk architecture uses index-based access. In pure Bevy this would be `Option<Entity>`. Consider changing game logic to use `Entity` references with the UE backend resolving them to chunk indices — more Bevy-idiomatic, but requires reworking how C++ spatial query results are consumed and how cross-archetype references work.
 

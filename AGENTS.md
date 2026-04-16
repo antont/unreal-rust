@@ -10,9 +10,11 @@ Example: ant colony simulation (gatherers) with ~5000 entities across two crates
 
 **C++ infrastructure** (game-agnostic, rarely changed) + **Rust game code** (per-game).
 
-Key Rust crates: `gatherers-sim`, `gatherers-bevy-mass` (game), `unreal-api` (safe API), `unreal-ffi` (FFI types, source of truth), `unreal-module` (FFI impls), `bevy_mass` (Bevy/UE facade).
+Key Rust crates: `gatherers-sim`, `gatherers-bevy-mass` (game), `gatherers-standalone` (standalone Bevy app), `unreal-api` (safe API), `unreal-ffi` (FFI types, source of truth), `unreal-module` (FFI impls), `bevy_mass` (Bevy/UE facade), `unreal-api-derive` (proc macros).
 
-Key patterns: `inventory::submit!` for registration, `#[mass_system]` macro, `#[derive(MassFragment)]` with auto-generated C++ headers, compile-time `static_assert` / layout tests for FFI safety.
+Key patterns: `inventory::submit!` for registration, `#[mass_system]` macro (handles `Query`, `QueryAll`, `Res`, `With`/`Without`, `Commands`, messages), `#[derive(MassFragment)]` with auto-generated C++ headers, compile-time `static_assert` / layout tests for FFI safety.
+
+`bevy_mass` facade provides: `Query` (iteration), `QueryAll` (index-based global access), `MovementPlugin` (pos += vel * dt in Bevy, no-op in UE), `EntityIndex<Tag>` (spawn-order entity lookup), `mass_fragment!`/`mass_tag!` macros. 5/6 game systems are portable across both backends with zero cfg gates.
 
 ## TDD workflow
 
