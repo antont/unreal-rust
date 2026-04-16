@@ -24,4 +24,11 @@ pub struct Query<D, F = ()> {
 /// In Unreal mode, `BevyQuery` is a real `bevy_ecs::Query` operating on Bevy entity
 /// storage. Use this for pure-Bevy components that don't cross the FFI boundary.
 /// The `#[mass_system]` macro passes `BevyQuery` params through unchanged.
+///
+/// **Deprecated**: Use `#[bevy]` parameter attribute instead:
+/// ```ignore
+/// #[mass_system(order = 40)]
+/// fn my_system(#[bevy] cooldowns: Query<(Entity, &mut Cooldown)>) { ... }
+/// ```
+#[deprecated(note = "Use #[bevy] parameter attribute on Query instead of BevyQuery")]
 pub use bevy_ecs::system::Query as BevyQuery;

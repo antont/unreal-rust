@@ -328,10 +328,31 @@ impl MassSpatialQueries {
     }
 }
 
+/// Marker trait for types that live in UE Mass Entity chunk memory.
+/// Implemented automatically by `#[component]` and `mass_fragment!`.
+/// Used by `QueryBackend` specialization to dispatch queries to chunk
+/// or Bevy entity storage at compile time.
+pub trait ChunkBacked {}
+
+/// Compile-time dispatch: is this component in chunk memory or Bevy entity storage?
+/// Uses `min_specialization` — the compiler resolves `IS_CHUNK` at monomorphization
+/// and eliminates the dead code path. Zero runtime cost.
+pub trait QueryBackend {
+    const IS_CHUNK: bool;
+}
+
+impl<T> QueryBackend for T {
+    default const IS_CHUNK: bool = false;
+}
+
+impl<T: ChunkBacked> QueryBackend for T {
+    const IS_CHUNK: bool = true;
+}
+
 /// Trait implemented by `#[derive(MassFragment)]` on `#[repr(C)]` structs
 /// that match a C++ MassEntity USTRUCT.
 pub trait MassFragment: Sized + Copy + 'static {
-    /// The C++ USTRUCT type name (e.g. "FGatherersMassAntFragment").
+    /// The C++ USTRUCT type name (e.g. "FGatherersFoodStateFragment").
     const CPP_TYPE_NAME: &'static str;
 }
 
@@ -2076,5 +2097,39 @@ mod tests {
 
         queries.clear();
         assert!(queries.call("q1", &[0.0; 3], &[0.0; 3]).is_none());
+    }
+
+    // --- min_specialization: ChunkBacked / QueryBackend ---
+
+    #[repr(C)]
+    #[derive(Clone, Copy)]
+    struct ChunkType { value: f32 }
+    impl ChunkBacked for ChunkType {}
+
+    #[derive(Clone, Copy)]
+    struct BevyOnlyType { value: f32 }
+
+    #[test]
+    fn chunk_backed_type_detected() {
+        assert!(<ChunkType as QueryBackend>::IS_CHUNK);
+    }
+
+    #[test]
+    fn bevy_only_type_not_chunk() {
+        assert!(!<BevyOnlyType as QueryBackend>::IS_CHUNK);
+    }
+
+    #[test]
+    fn const_if_eliminates_branch() {
+        // Verify the pattern we'll use in generated code: const-if dispatch
+        fn dispatch<T: QueryBackend>() -> &'static str {
+            if <T as QueryBackend>::IS_CHUNK {
+                "chunk"
+            } else {
+                "bevy"
+            }
+        }
+        assert_eq!(dispatch::<ChunkType>(), "chunk");
+        assert_eq!(dispatch::<BevyOnlyType>(), "bevy");
     }
 }

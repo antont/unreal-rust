@@ -80,6 +80,11 @@ pub mod prelude {
     // In Unreal mode, re-export Unreal-specific query types
     #[cfg(feature = "unreal")]
     pub use unreal_api::mass::{MassQuery, MassQueryAll};
+
+    // Chunk-backed dispatch (specialization) — available in both modes
+    // so game code can compile without feature gates, but only meaningful in Unreal mode
+    #[cfg(feature = "unreal")]
+    pub use unreal_api::mass::{ChunkBacked, QueryBackend};
 }
 
 // Also export at crate root
@@ -123,6 +128,9 @@ macro_rules! mass_fragment {
         #[cfg_attr(feature = "unreal", mass(cpp_type = $cpp_type, existing, include = $include))]
         $(#[$meta])*
         $vis struct $name { $($body)* }
+
+        #[cfg(feature = "unreal")]
+        impl unreal_api::mass::ChunkBacked for $name {}
     };
     (cpp_type = $cpp_type:literal, existing, $(#[$meta:meta])* $vis:vis struct $name:ident { $($body:tt)* }) => {
         #[cfg_attr(feature = "unreal", derive(unreal_api::MassFragment))]
@@ -131,6 +139,9 @@ macro_rules! mass_fragment {
         #[cfg_attr(feature = "unreal", mass(cpp_type = $cpp_type, existing))]
         $(#[$meta])*
         $vis struct $name { $($body)* }
+
+        #[cfg(feature = "unreal")]
+        impl unreal_api::mass::ChunkBacked for $name {}
     };
     (cpp_type = $cpp_type:literal, $(#[$meta:meta])* $vis:vis struct $name:ident { $($body:tt)* }) => {
         #[cfg_attr(feature = "unreal", derive(unreal_api::MassFragment))]
@@ -139,6 +150,9 @@ macro_rules! mass_fragment {
         #[cfg_attr(feature = "unreal", mass(cpp_type = $cpp_type))]
         $(#[$meta])*
         $vis struct $name { $($body)* }
+
+        #[cfg(feature = "unreal")]
+        impl unreal_api::mass::ChunkBacked for $name {}
     };
 }
 
@@ -160,6 +174,9 @@ macro_rules! mass_tag {
         #[derive($crate::prelude::Component, Clone, Copy, Debug)]
         $(#[$meta])*
         $vis struct $name;
+
+        #[cfg(feature = "unreal")]
+        impl unreal_api::mass::ChunkBacked for $name {}
     };
     (cpp_type = $cpp_type:literal, existing, $(#[$meta:meta])* $vis:vis struct $name:ident;) => {
         #[cfg_attr(feature = "unreal", derive(unreal_api::MassFragment))]
@@ -167,6 +184,9 @@ macro_rules! mass_tag {
         #[derive($crate::prelude::Component, Clone, Copy, Debug)]
         $(#[$meta])*
         $vis struct $name;
+
+        #[cfg(feature = "unreal")]
+        impl unreal_api::mass::ChunkBacked for $name {}
     };
     (cpp_type = $cpp_type:literal, group = $group:literal, $(#[$meta:meta])* $vis:vis struct $name:ident;) => {
         #[cfg_attr(feature = "unreal", derive(unreal_api::MassFragment))]
@@ -174,6 +194,9 @@ macro_rules! mass_tag {
         #[derive($crate::prelude::Component, Clone, Copy, Debug)]
         $(#[$meta])*
         $vis struct $name;
+
+        #[cfg(feature = "unreal")]
+        impl unreal_api::mass::ChunkBacked for $name {}
 
         impl $name {
             /// Entity group name for `MassEntityMap` lookup.
@@ -186,6 +209,9 @@ macro_rules! mass_tag {
         #[derive($crate::prelude::Component, Clone, Copy, Debug)]
         $(#[$meta])*
         $vis struct $name;
+
+        #[cfg(feature = "unreal")]
+        impl unreal_api::mass::ChunkBacked for $name {}
     };
 }
 

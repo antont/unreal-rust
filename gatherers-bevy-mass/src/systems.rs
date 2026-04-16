@@ -20,11 +20,12 @@
 //   In standalone mode, collision uses direct Bevy queries instead.
 //   Examples: ant_collision_prepass (UE-specific).
 //
-// **BevyQuery** (`bevy_ecs::system::Query`):
+// **#[bevy] Query** (parameter attribute):
 //   Use for pure-Bevy components that live on shadow entities (not in chunk
-//   memory). Always resolves to real bevy_ecs::Query in both modes.
-//   The #[mass_system] macro passes these through unchanged.
-//   Example: entity_cooldown's BevyQuery<(Entity, &mut Cooldown)>.
+//   memory). The #[bevy] attribute tells #[mass_system] to pass this Query
+//   through as a real bevy_ecs::Query instead of rewriting it to chunk access.
+//   Example: entity_cooldown's #[bevy] Query<(Entity, &mut Cooldown)>.
+//   (Replaces the deprecated BevyQuery type alias.)
 // ---------------------------------------------------------------------------
 
 #[allow(unused_imports)] // Some items used only by #[mass_system] macro expansion

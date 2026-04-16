@@ -1,4 +1,6 @@
 #![allow(clippy::missing_safety_doc)]
+#![feature(specialization)]
+#![allow(incomplete_features)]
 extern crate self as unreal_api;
 
 pub mod bindings;

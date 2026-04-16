@@ -169,6 +169,13 @@ fn extract_query_params(func: &ItemFn) -> syn::Result<Vec<QueryParam>> {
             continue;
         };
 
+        // #[bevy] attribute opts out of chunk rewriting — param passes through
+        // as a real Bevy query (like BevyQuery, but using plain Query type).
+        let has_bevy_attr = pat_type.attrs.iter().any(|a| a.path.is_ident("bevy"));
+        if has_bevy_attr {
+            continue;
+        }
+
         if let Type::Path(type_path) = &*pat_type.ty {
             let last_seg = type_path.path.segments.last();
             if let Some(seg) = last_seg {
@@ -542,6 +549,36 @@ pub fn mass_system_impl(func: &ItemFn, order: u32, entity_group: Option<&str>) -
     let system_name_str = func_name.to_string();
 
     let query_params = extract_query_params(func)?;
+
+    // Create a cleaned copy of the function with #[bevy] attrs stripped from params.
+    // extract_query_params above needed the original attrs; everything below uses the cleaned version.
+    // Create a cleaned copy of the function with #[bevy] attrs stripped from params.
+    // For #[bevy] params with type `Query<...>`, rewrite to `bevy_ecs::system::Query<...>`
+    // so the generated code uses real Bevy queries (not the facade marker type).
+    let func = &{
+        let mut cleaned = func.clone();
+        for arg in &mut cleaned.sig.inputs {
+            if let FnArg::Typed(pat_type) = arg {
+                let had_bevy = pat_type.attrs.iter().any(|a| a.path.is_ident("bevy"));
+                pat_type.attrs.retain(|a| !a.path.is_ident("bevy"));
+                if had_bevy {
+                    // Rewrite Query<D, F> → bevy_ecs::system::Query<D, F>
+                    if let Type::Path(type_path) = &*pat_type.ty {
+                        if let Some(seg) = type_path.path.segments.last() {
+                            if seg.ident == "Query" {
+                                let args = &seg.arguments;
+                                pat_type.ty = Box::new(syn::parse2(
+                                    quote! { bevy_ecs::system::Query #args }
+                                ).unwrap());
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        cleaned
+    };
+
     let resource_params = extract_resource_params(func)?;
     let passthrough_params = extract_passthrough_params(func, &query_params, &resource_params);
     let message_types = extract_message_types(func);
@@ -2479,5 +2516,68 @@ mod tests {
             "Bevy mode should reference EntityIndex, got: {}", output);
         assert!(output.contains("QueryAllWrapper"),
             "Bevy mode should construct QueryAllWrapper, got: {}", output);
+    }
+
+    // -----------------------------------------------------------------------
+    // #[bevy] attribute tests
+    // -----------------------------------------------------------------------
+
+    #[test]
+    fn bevy_attr_skips_query_extraction() {
+        let func: ItemFn = syn::parse2(quote! {
+            fn my_system(
+                ants: Query<&mut AntFragment>,
+                #[bevy] cooldowns: Query<(Entity, &mut Cooldown)>,
+                dt: f32,
+            ) {}
+        })
+        .unwrap();
+
+        let query_params = extract_query_params(&func).unwrap();
+        // Only the non-#[bevy] Query should be extracted
+        assert_eq!(query_params.len(), 1);
+        assert_eq!(query_params[0].param_name, "ants");
+    }
+
+    #[test]
+    fn bevy_attr_becomes_passthrough() {
+        let func: ItemFn = syn::parse2(quote! {
+            fn my_system(
+                ants: Query<&mut AntFragment>,
+                #[bevy] cooldowns: Query<(Entity, &mut Cooldown)>,
+                dt: f32,
+            ) {}
+        })
+        .unwrap();
+
+        let query_params = extract_query_params(&func).unwrap();
+        let resource_params = extract_resource_params(&func).unwrap();
+        let passthrough = extract_passthrough_params(&func, &query_params, &resource_params);
+
+        assert_eq!(passthrough.len(), 1);
+        let pt_str = passthrough[0].to_string();
+        assert!(pt_str.contains("cooldowns"), "should contain param name, got: {}", pt_str);
+        assert!(pt_str.contains("Query"), "should preserve Query type, got: {}", pt_str);
+        // Note: #[bevy] stripping happens in mass_system_impl, not in extract_passthrough_params
+    }
+
+    #[test]
+    fn bevy_attr_stripped_from_rewritten_params() {
+        let func: ItemFn = syn::parse2(quote! {
+            fn my_system(
+                ants: Query<&mut AntFragment>,
+                #[bevy] cooldowns: Query<(Entity, &mut Cooldown)>,
+            ) {}
+        })
+        .unwrap();
+
+        let output = mass_system_impl(&func, 10, None).unwrap().to_string();
+        // The output should NOT contain #[bevy] as an attribute
+        // (it would cause "unknown attribute" errors)
+        assert!(!output.contains("# [bevy]") && !output.contains("#[bevy]"),
+            "output should not contain #[bevy] attribute, got: {}", output);
+        // But should contain the cooldowns param
+        assert!(output.contains("cooldowns"),
+            "output should contain cooldowns param, got: {}", output);
     }
 }

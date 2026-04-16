@@ -101,7 +101,7 @@ fn carried_food_tracking(
 | `Query<&mut T>` | `bevy_ecs::Query` | Chunk `&mut [T]` slice | Read-write per-entity iteration |
 | `Query<(Entity, &mut T, &U), (With<Tag>, Without<V>)>` | `bevy_ecs::Query` | Tuple facade struct + entity map | Multi-component with filters |
 | `QueryAll<&mut T, With<Tag>>` | `EntityIndex<Tag>` + `Query` via `QueryAllWrapper` | `MassQueryAllMut` (zero-copy chunks) | Index-based global access (`get_mut(i)`) |
-| `BevyQuery<D, F>` | `bevy_ecs::Query` (always) | `bevy_ecs::Query` (always) | Pure-Bevy components (shadow entities) |
+| `#[bevy] Query<D, F>` | `bevy_ecs::Query` (always) | `bevy_ecs::Query` (always) | Pure-Bevy components (shadow entities) |
 
 ### UE-only types (use only in UE-specific code)
 

@@ -8,9 +8,13 @@
 //! - **`Query`** — for data that exists in both Bevy and Unreal modes (MassFragments).
 //!   The `#[mass_system]` macro rewrites these to chunk access in Unreal mode.
 //!
-//! - **`BevyQuery`** — for pure-Bevy components that only exist on Bevy entities
-//!   (e.g., dynamically added/removed `Cooldown`). Always resolves to real
-//!   `bevy_ecs::system::Query` in both modes. Passed through unchanged by the macro.
+//! - **`#[bevy] Query`** — for pure-Bevy components that only exist on Bevy entities
+//!   (e.g., dynamically added/removed `Cooldown`). The `#[bevy]` parameter attribute
+//!   tells `#[mass_system]` to pass this Query through as a real `bevy_ecs::Query`
+//!   instead of rewriting it to chunk access.
+//!
+//! - **`BevyQuery`** (deprecated) — old type alias for the same purpose. Use
+//!   `#[bevy] Query` instead.
 //!
 //! - **`MassQuery` / `MassQueryAll`** (Unreal-only) — for Unreal-specific access
 //!   patterns unavailable in standalone mode: spatial queries, cross-archetype

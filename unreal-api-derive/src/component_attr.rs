@@ -162,6 +162,9 @@ pub fn component_impl(
         #[cfg_attr(feature = "unreal", #mass_attr)]
         #input
 
+        #[cfg(feature = "unreal")]
+        impl unreal_api::mass::ChunkBacked for #name {}
+
         #group_impl
     })
 }

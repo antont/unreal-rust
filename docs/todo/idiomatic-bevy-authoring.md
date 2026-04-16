@@ -32,11 +32,13 @@ Game systems currently use three query types beyond standard `Query`:
 
 - **`QueryAll<&mut T, With<Tag>>`** — index-based global access (`get_mut(i)`). Needed because UE chunk architecture uses indices for cross-archetype references. In vanilla Bevy this would be a normal `Query` with entity lookup. Closely related to item 9 (entity references) — if entity references replace indices, `QueryAll` may become unnecessary.
 
-- **`BevyQuery<D, F>`** — escapes `#[mass_system]` chunk rewriting for pure-Bevy shadow components (e.g., `Cooldown`). Exists because `#[mass_system]` rewrites all `Query` params to chunk access, but some components live on Bevy shadow entities, not in UE chunks.
+- **`BevyQuery<D, F>`** — ~~escapes `#[mass_system]` chunk rewriting for pure-Bevy shadow components~~ **DONE (Step A)**: Replaced with `#[bevy]` parameter attribute. Game code now uses `#[bevy] Query<...>` instead of `BevyQuery<...>`. `BevyQuery` is deprecated.
+
+  **Step B (future)**: Use `specialization` + `ChunkBacked` marker trait for fully automatic detection — no annotation needed at all. Infrastructure is in place (`ChunkBacked` trait, `QueryBackend` specialization with const dispatch), but the `#[mass_system]` macro can't do trait resolution at compile time. Needs codegen that emits both paths with a const-if branch.
 
 Possible improvements:
 
-- **For `BevyQuery`**: If `#[mass_system]` could distinguish chunk-memory components (`#[repr(C)]` + MassFragment) from pure-Bevy components automatically, all queries could be plain `Query` and the macro would only rewrite the chunk-memory ones. This eliminates `BevyQuery` as a user-visible type.
+- **For `BevyQuery`**: ~~If `#[mass_system]` could distinguish chunk-memory components automatically...~~ Step A done. Step B would make it fully automatic.
 
 - **For `QueryAll`**: Depends on item 9. If entity references replace indices, systems would use normal `Query::get(entity)` instead of `QueryAll::get_mut(index)`. Until then, `QueryAll` is a necessary facade.
 
