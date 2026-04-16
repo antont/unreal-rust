@@ -18,10 +18,19 @@ Key patterns: `inventory::submit!` for registration, `#[mass_system]` macro (han
 
 ## TDD workflow
 
-**Always run tests after code changes.** See `docs/testing.md` for exact commands and flags.
+**Always run tests after code changes.** See `docs/testing.md` for full details and flags.
 
 - **Rust tests**: `cargo test` (or `-p <crate>`). Fast, no UE needed.
-- **UE automation tests**: Rebuild dylib (`cargo build --release -p unreal-rust-host`), then run via CLI. See `docs/testing.md`.
+- **UE automation tests**: Run after ANY change that affects Unreal-mode codegen or runtime behavior (proc macros, `#[cfg(feature = "unreal")]` code, FFI types). Rust-only tests cannot catch UE dispatch issues.
+  ```bash
+  cargo build --release -p unreal-rust-host
+  "/Users/Shared/Epic Games/UE_5.7/Engine/Binaries/Mac/UnrealEditor" \
+    "/Users/tonialatalo/src/unreal-rust/example/RustExample/RustExample.uproject" \
+    -ExecCmds="Automation RunTests supplemental.RustPlugin.Gatherers;Quit" \
+    -stdout -FullStdOutLogOutput
+  # Check results (shell exit code is unreliable):
+  grep "TEST COMPLETE. EXIT CODE" "/Users/tonialatalo/Library/Logs/Unreal Engine/RustExampleEditor/RustExample.log"
+  ```
 - **C++ build**: Only when C++ files change. See `docs/testing.md`.
 
 Prefer **Rust-authored UE tests** for game logic — write in `gatherers-bevy-mass/src/ue_tests.rs` using `inventory::submit!(MassTestRegistration { ... })`. No C++ needed. See existing tests for the pattern.

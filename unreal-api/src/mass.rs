@@ -750,6 +750,10 @@ impl<'a, T: MassFragment> MassQueryRef<'a, T> {
     pub fn as_slice(&self) -> &[T] {
         self.data
     }
+
+    pub fn into_slice(self) -> &'a [T] {
+        self.data
+    }
 }
 
 impl<'b, 'a, T: MassFragment> IntoIterator for &'b MassQueryRef<'a, T> {
@@ -797,6 +801,10 @@ impl<'a, T: MassFragment> MassQueryMut<'a, T> {
     pub fn as_mut_slice(&mut self) -> &mut [T] {
         self.data
     }
+
+    pub fn into_slice(self) -> &'a mut [T] {
+        self.data
+    }
 }
 
 impl<'b, 'a, T: MassFragment> IntoIterator for &'b MassQueryMut<'a, T> {
@@ -812,6 +820,222 @@ impl<'b, 'a, T: MassFragment> IntoIterator for &'b mut MassQueryMut<'a, T> {
     type IntoIter = std::slice::IterMut<'b, T>;
     fn into_iter(self) -> Self::IntoIter {
         self.data.iter_mut()
+    }
+}
+
+// ---------------------------------------------------------------------------
+// Dual-mode query types (chunk OR Bevy entity storage, selected at compile time)
+// ---------------------------------------------------------------------------
+
+/// Read-only dual-mode query: backed by either chunk memory or collected Bevy query results.
+/// Used by `#[mass_system]` codegen for auto-detected query dispatch.
+pub enum DualQueryRef<'a, T: 'static> {
+    Chunk(&'a [T]),
+    Bevy(Vec<*const T>, std::marker::PhantomData<&'a T>),
+    Empty,
+}
+
+impl<'a, T: 'static> DualQueryRef<'a, T> {
+    pub fn from_chunk(data: &'a [T]) -> Self {
+        DualQueryRef::Chunk(data)
+    }
+
+    pub fn from_chunk_query(q: MassQueryRef<'a, T>) -> Self
+    where T: MassFragment {
+        DualQueryRef::Chunk(q.into_slice())
+    }
+
+    pub fn iter(&self) -> DualIterRef<'_, T> {
+        self.into_iter()
+    }
+
+    pub fn len(&self) -> usize {
+        match self {
+            DualQueryRef::Chunk(s) => s.len(),
+            DualQueryRef::Bevy(v, _) => v.len(),
+            DualQueryRef::Empty => 0,
+        }
+    }
+
+    pub fn is_empty(&self) -> bool {
+        self.len() == 0
+    }
+
+    pub fn reborrow(&self) -> DualQueryRef<'_, T> {
+        match self {
+            DualQueryRef::Chunk(s) => DualQueryRef::Chunk(s),
+            DualQueryRef::Bevy(v, _) => DualQueryRef::Bevy(v.clone(), std::marker::PhantomData),
+            DualQueryRef::Empty => DualQueryRef::Empty,
+        }
+    }
+}
+
+/// Iterator for `DualQueryRef` — yields `&T` from either chunk or Bevy storage.
+pub enum DualIterRef<'a, T: 'static> {
+    Chunk(std::slice::Iter<'a, T>),
+    Bevy(std::slice::Iter<'a, *const T>, std::marker::PhantomData<&'a T>),
+    Empty,
+}
+
+impl<'a, T: 'static> Iterator for DualIterRef<'a, T> {
+    type Item = &'a T;
+    fn next(&mut self) -> Option<Self::Item> {
+        match self {
+            DualIterRef::Chunk(iter) => iter.next(),
+            DualIterRef::Bevy(iter, _) => iter.next().map(|ptr| unsafe { &**ptr }),
+            DualIterRef::Empty => None,
+        }
+    }
+
+    fn size_hint(&self) -> (usize, Option<usize>) {
+        match self {
+            DualIterRef::Chunk(iter) => iter.size_hint(),
+            DualIterRef::Bevy(iter, _) => iter.size_hint(),
+            DualIterRef::Empty => (0, Some(0)),
+        }
+    }
+}
+
+impl<'a, T: 'static> ExactSizeIterator for DualIterRef<'a, T> {}
+
+impl<'b, 'a, T: 'static> IntoIterator for &'b DualQueryRef<'a, T> {
+    type Item = &'b T;
+    type IntoIter = DualIterRef<'b, T>;
+    fn into_iter(self) -> Self::IntoIter {
+        match self {
+            DualQueryRef::Chunk(s) => DualIterRef::Chunk(s.iter()),
+            DualQueryRef::Bevy(v, _) => DualIterRef::Bevy(v.iter(), std::marker::PhantomData),
+            DualQueryRef::Empty => DualIterRef::Empty,
+        }
+    }
+}
+
+/// Read-write dual-mode query: backed by either chunk memory or collected Bevy query results.
+/// Used by `#[mass_system]` codegen for auto-detected query dispatch.
+pub enum DualQueryMut<'a, T: 'static> {
+    Chunk(&'a mut [T]),
+    Bevy(Vec<*mut T>, std::marker::PhantomData<&'a mut T>),
+    Empty,
+}
+
+impl<'a, T: 'static> DualQueryMut<'a, T> {
+    pub fn from_chunk(data: &'a mut [T]) -> Self {
+        DualQueryMut::Chunk(data)
+    }
+
+    pub fn from_chunk_query(q: MassQueryMut<'a, T>) -> Self
+    where T: MassFragment {
+        DualQueryMut::Chunk(q.into_slice())
+    }
+
+    pub fn iter(&self) -> DualIterRef2<'_, T> {
+        self.into_iter()
+    }
+
+    pub fn iter_mut(&mut self) -> DualIterMut<'_, T> {
+        self.into_iter()
+    }
+
+    pub fn len(&self) -> usize {
+        match self {
+            DualQueryMut::Chunk(s) => s.len(),
+            DualQueryMut::Bevy(v, _) => v.len(),
+            DualQueryMut::Empty => 0,
+        }
+    }
+
+    pub fn is_empty(&self) -> bool {
+        self.len() == 0
+    }
+
+    /// Reborrow for passing into multiple chunk iterations.
+    /// Chunk variant reborrows the slice; Bevy variant clones the pointer vec.
+    pub fn reborrow(&mut self) -> DualQueryMut<'_, T> {
+        match self {
+            DualQueryMut::Chunk(s) => DualQueryMut::Chunk(s),
+            DualQueryMut::Bevy(v, _) => DualQueryMut::Bevy(v.clone(), std::marker::PhantomData),
+            DualQueryMut::Empty => DualQueryMut::Empty,
+        }
+    }
+}
+
+/// Iterator for `DualQueryMut` — yields `&T` from either chunk or Bevy storage.
+pub enum DualIterRef2<'a, T: 'static> {
+    Chunk(std::slice::Iter<'a, T>),
+    Bevy(std::slice::Iter<'a, *mut T>, std::marker::PhantomData<&'a T>),
+    Empty,
+}
+
+impl<'a, T: 'static> Iterator for DualIterRef2<'a, T> {
+    type Item = &'a T;
+    fn next(&mut self) -> Option<Self::Item> {
+        match self {
+            DualIterRef2::Chunk(iter) => iter.next(),
+            DualIterRef2::Bevy(iter, _) => iter.next().map(|ptr| unsafe { &**ptr }),
+            DualIterRef2::Empty => None,
+        }
+    }
+
+    fn size_hint(&self) -> (usize, Option<usize>) {
+        match self {
+            DualIterRef2::Chunk(iter) => iter.size_hint(),
+            DualIterRef2::Bevy(iter, _) => iter.size_hint(),
+            DualIterRef2::Empty => (0, Some(0)),
+        }
+    }
+}
+
+impl<'a, T: 'static> ExactSizeIterator for DualIterRef2<'a, T> {}
+
+/// Mutable iterator for `DualQueryMut` — yields `&mut T`.
+pub enum DualIterMut<'a, T: 'static> {
+    Chunk(std::slice::IterMut<'a, T>),
+    Bevy(std::slice::Iter<'a, *mut T>, std::marker::PhantomData<&'a mut T>),
+    Empty,
+}
+
+impl<'a, T: 'static> Iterator for DualIterMut<'a, T> {
+    type Item = &'a mut T;
+    fn next(&mut self) -> Option<Self::Item> {
+        match self {
+            DualIterMut::Chunk(iter) => iter.next(),
+            DualIterMut::Bevy(iter, _) => iter.next().map(|ptr| unsafe { &mut **ptr }),
+            DualIterMut::Empty => None,
+        }
+    }
+
+    fn size_hint(&self) -> (usize, Option<usize>) {
+        match self {
+            DualIterMut::Chunk(iter) => iter.size_hint(),
+            DualIterMut::Bevy(iter, _) => iter.size_hint(),
+            DualIterMut::Empty => (0, Some(0)),
+        }
+    }
+}
+
+impl<'a, T: 'static> ExactSizeIterator for DualIterMut<'a, T> {}
+
+impl<'b, 'a, T: 'static> IntoIterator for &'b DualQueryMut<'a, T> {
+    type Item = &'b T;
+    type IntoIter = DualIterRef2<'b, T>;
+    fn into_iter(self) -> Self::IntoIter {
+        match self {
+            DualQueryMut::Chunk(s) => DualIterRef2::Chunk(s.iter()),
+            DualQueryMut::Bevy(v, _) => DualIterRef2::Bevy(v.iter(), std::marker::PhantomData),
+            DualQueryMut::Empty => DualIterRef2::Empty,
+        }
+    }
+}
+
+impl<'b, 'a, T: 'static> IntoIterator for &'b mut DualQueryMut<'a, T> {
+    type Item = &'b mut T;
+    type IntoIter = DualIterMut<'b, T>;
+    fn into_iter(self) -> Self::IntoIter {
+        match self {
+            DualQueryMut::Chunk(s) => DualIterMut::Chunk(s.iter_mut()),
+            DualQueryMut::Bevy(v, _) => DualIterMut::Bevy(v.iter(), std::marker::PhantomData),
+            DualQueryMut::Empty => DualIterMut::Empty,
+        }
     }
 }
 
@@ -2131,5 +2355,83 @@ mod tests {
         }
         assert_eq!(dispatch::<ChunkType>(), "chunk");
         assert_eq!(dispatch::<BevyOnlyType>(), "bevy");
+    }
+
+    #[test]
+    fn dual_query_mut_chunk_iteration() {
+        let mut data = [1.0f32, 2.0, 3.0];
+        let mut q = DualQueryMut::Chunk(&mut data);
+        let vals: Vec<f32> = (&mut q).into_iter().map(|v| *v).collect();
+        assert_eq!(vals, vec![1.0, 2.0, 3.0]);
+    }
+
+    #[test]
+    fn dual_query_mut_chunk_mutation() {
+        let mut data = [1.0f32, 2.0, 3.0];
+        {
+            let mut q = DualQueryMut::Chunk(&mut data);
+            for v in &mut q {
+                *v += 10.0;
+            }
+        }
+        assert_eq!(data, [11.0, 12.0, 13.0]);
+    }
+
+    #[test]
+    fn dual_query_mut_bevy_iteration() {
+        let mut a = 10i32;
+        let mut b = 20i32;
+        let mut c = 30i32;
+        let ptrs: Vec<*mut i32> = vec![&mut a as *mut _, &mut b as *mut _, &mut c as *mut _];
+        let mut q = DualQueryMut::Bevy(ptrs, std::marker::PhantomData);
+        let vals: Vec<i32> = (&mut q).into_iter().map(|v| *v).collect();
+        assert_eq!(vals, vec![10, 20, 30]);
+    }
+
+    #[test]
+    fn dual_query_mut_bevy_mutation() {
+        let mut a = 1i32;
+        let mut b = 2i32;
+        let ptrs: Vec<*mut i32> = vec![&mut a as *mut _, &mut b as *mut _];
+        {
+            let mut q = DualQueryMut::Bevy(ptrs, std::marker::PhantomData);
+            for v in &mut q {
+                *v *= 100;
+            }
+        }
+        assert_eq!(a, 100);
+        assert_eq!(b, 200);
+    }
+
+    #[test]
+    fn dual_query_ref_chunk_iteration() {
+        let data = [4.0f32, 5.0, 6.0];
+        let q = DualQueryRef::Chunk(&data);
+        let vals: Vec<f32> = (&q).into_iter().copied().collect();
+        assert_eq!(vals, vec![4.0, 5.0, 6.0]);
+    }
+
+    #[test]
+    fn dual_query_empty_yields_nothing() {
+        let mut q: DualQueryMut<'_, f32> = DualQueryMut::Empty;
+        assert_eq!(q.len(), 0);
+        assert!(q.is_empty());
+        let vals: Vec<&mut f32> = (&mut q).into_iter().collect();
+        assert!(vals.is_empty());
+    }
+
+    #[test]
+    fn dual_query_mut_reborrow() {
+        let mut data = [1i32, 2, 3];
+        let mut q = DualQueryMut::Chunk(&mut data);
+        {
+            let mut rb = q.reborrow();
+            for v in &mut rb {
+                *v += 10;
+            }
+        }
+        // Original data should be mutated via reborrow
+        let vals: Vec<i32> = (&mut q).into_iter().map(|v| *v).collect();
+        assert_eq!(vals, vec![11, 12, 13]);
     }
 }

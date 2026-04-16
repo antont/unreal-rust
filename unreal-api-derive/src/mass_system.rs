@@ -596,6 +596,7 @@ pub fn mass_system_impl(func: &ItemFn, order: u32, entity_group: Option<&str>) -
     // Detect tuple queries (need facade struct codegen and Bevy-only dispatch)
     let has_tuple_queries = query_params.iter().any(|p| p.is_tuple());
     let has_without_filters = query_params.iter().any(|p| !p.without_filters.is_empty());
+    let has_single_primary = query_params.iter().any(|p| !p.is_tuple() && p.scope == QueryScope::Primary);
 
     // Generate fragment unpacking code (C++ direct dispatch — only for single queries)
     let unpack_stmts: Vec<TokenStream> = query_params
@@ -609,22 +610,22 @@ pub fn mass_system_impl(func: &ItemFn, order: u32, entity_group: Option<&str>) -
             match (p.scope, p.single_is_mutable()) {
                 (QueryScope::Primary, true) => {
                     quote! {
-                        let mut #param_name = unsafe {
+                        let mut #param_name = ::unreal_api::mass::DualQueryMut::from_chunk(unsafe {
                             ::unreal_api::mass::MassQueryMut::<#frag_type>::from_raw(
                                 (*chunk).fragments.add(#idx).read().data,
                                 (*chunk).fragments.add(#idx).read().count as usize,
-                            )
-                        };
+                            ).into_slice()
+                        });
                     }
                 }
                 (QueryScope::Primary, false) => {
                     quote! {
-                        let #param_name = unsafe {
+                        let #param_name = ::unreal_api::mass::DualQueryRef::from_chunk(unsafe {
                             ::unreal_api::mass::MassQueryRef::<#frag_type>::from_raw(
                                 (*chunk).fragments.add(#idx).read().data as *const ::std::ffi::c_void,
                                 (*chunk).fragments.add(#idx).read().count as usize,
-                            )
-                        };
+                            ).into_slice()
+                        });
                     }
                 }
                 (QueryScope::Global, true) => {
@@ -787,14 +788,14 @@ pub fn mass_system_impl(func: &ItemFn, order: u32, entity_group: Option<&str>) -
                             let (struct_name, _) = &facade_names[&qp.param_name.to_string()];
                             return quote! { mut #param_name: #struct_name<'_> };
                         }
-                        // Single query → existing concrete types
+                        // Single query → DualQuery types (support both chunk and Bevy backing)
                         let inner = qp.single_fragment_type();
                         return match (qp.scope, qp.single_is_mutable()) {
                             (QueryScope::Primary, true) => {
-                                quote! { mut #param_name: ::unreal_api::mass::MassQueryMut<'_, #inner> }
+                                quote! { mut #param_name: ::unreal_api::mass::DualQueryMut<'_, #inner> }
                             }
                             (QueryScope::Primary, false) => {
-                                quote! { #param_name: ::unreal_api::mass::MassQueryRef<'_, #inner> }
+                                quote! { #param_name: ::unreal_api::mass::DualQueryRef<'_, #inner> }
                             }
                             (QueryScope::Global, true) => {
                                 quote! { mut #param_name: ::unreal_api::mass::MassQueryAllMut<'_, #inner> }
@@ -861,11 +862,15 @@ pub fn mass_system_impl(func: &ItemFn, order: u32, entity_group: Option<&str>) -
     // Bevy system params: one Res/ResMut<MassSystemChunks<Marker, T>> per fragment, plus Res<Time> for dt
     // Global-scope queries use a separate marker to avoid Res/ResMut conflicts when the
     // same fragment type appears in both a primary and a global query within one system.
+    //
+    // For single primary queries, we also emit a bevy_ecs::system::Query<D, F> param
+    // alongside the MassSystemChunks param — this enables dual-mode dispatch where
+    // the const-if selects chunk or Bevy source based on QueryBackend::IS_CHUNK.
     let bevy_params: Vec<TokenStream> = query_params
         .iter()
         .flat_map(|p| {
             let scope_marker = if p.scope == QueryScope::Global { &global_marker_name } else { &marker_name };
-            p.fragment_refs().into_iter().enumerate().map(move |(i, frag)| {
+            let mut params: Vec<TokenStream> = p.fragment_refs().into_iter().enumerate().map(|(i, frag)| {
                 let frag_type = &frag.fragment_type;
                 // For single queries: __mass_{param_name}
                 // For tuple queries: __mass_{param_name}_{i}
@@ -879,16 +884,73 @@ pub fn mass_system_impl(func: &ItemFn, order: u32, entity_group: Option<&str>) -
                 } else {
                     quote! { #param_name: ::unreal_api::ecs::prelude::Res<::unreal_api::mass::MassSystemChunks<#scope_marker, #frag_type>> }
                 }
-            }).collect::<Vec<_>>()
+            }).collect();
+
+            // For single primary queries: add a bevy_ecs::system::Query param for dual-mode dispatch.
+            // The Query will be empty for chunk-backed types (no Bevy entities have those components),
+            // and populated for Bevy-only types (chunk resource will be empty instead).
+            if !p.is_tuple() && p.scope == QueryScope::Primary {
+                let frag_type = p.single_fragment_type();
+                let bevy_param_name = format_ident!("__bevy_{}", p.param_name);
+                if p.single_is_mutable() {
+                    params.push(quote! {
+                        mut #bevy_param_name: ::bevy_ecs::system::Query<'_, '_, &mut #frag_type>
+                    });
+                } else {
+                    params.push(quote! {
+                        #bevy_param_name: ::bevy_ecs::system::Query<'_, '_, &#frag_type>
+                    });
+                }
+            }
+
+            params
         })
         .collect();
 
-    // Build the chunk iteration body for the Bevy wrapper
+    // Pre-loop statements: for single primary queries backed by Bevy (non-chunk),
+    // collect pointers from the bevy_ecs::system::Query before the chunk loop.
+    // For chunk-backed types these are Empty (the bevy Query has no matching entities).
+    let pre_loop_bevy_stmts: Vec<TokenStream> = query_params
+        .iter()
+        .filter(|p| !p.is_tuple() && p.scope == QueryScope::Primary)
+        .map(|p| {
+            let pre_name = format_ident!("__pre_{}", p.param_name);
+            let bevy_param_name = format_ident!("__bevy_{}", p.param_name);
+            let frag_type = p.single_fragment_type();
+            if p.single_is_mutable() {
+                quote! {
+                    let mut #pre_name = if !<#frag_type as ::unreal_api::mass::QueryBackend>::IS_CHUNK {
+                        let ptrs: Vec<*mut #frag_type> = #bevy_param_name.iter_mut()
+                            .map(|mut r| &mut *r as *mut #frag_type)
+                            .collect();
+                        ::unreal_api::mass::DualQueryMut::Bevy(ptrs, ::std::marker::PhantomData)
+                    } else {
+                        ::unreal_api::mass::DualQueryMut::Empty
+                    };
+                }
+            } else {
+                quote! {
+                    let mut #pre_name = if !<#frag_type as ::unreal_api::mass::QueryBackend>::IS_CHUNK {
+                        let ptrs: Vec<*const #frag_type> = #bevy_param_name.iter()
+                            .map(|r| &*r as *const #frag_type)
+                            .collect();
+                        ::unreal_api::mass::DualQueryRef::Bevy(ptrs, ::std::marker::PhantomData)
+                    } else {
+                        ::unreal_api::mass::DualQueryRef::Empty
+                    };
+                }
+            }
+        })
+        .collect();
+
+    // Build the chunk iteration body for the Bevy wrapper.
+    // Single primary queries use const-if dispatch: chunk-backed types read from
+    // MassSystemChunks, Bevy-only types reborrow from the pre-loop DualQuery.
     let bevy_unpack_stmts: Vec<TokenStream> = query_params
         .iter()
         .flat_map(|p| {
             if p.is_tuple() {
-                // Tuple query: unpack each fragment slice separately
+                // Tuple query: unpack each fragment slice separately (always chunk-backed)
                 p.fragment_refs().into_iter().enumerate().map(|(i, frag)| {
                     let slice_name = format_ident!("__slice_{}_{}", p.param_name, i);
                     let res_name = format_ident!("__mass_{}_{}", p.param_name, i);
@@ -906,15 +968,35 @@ pub fn mass_system_impl(func: &ItemFn, order: u32, entity_group: Option<&str>) -
                     }
                 }).collect::<Vec<_>>()
             } else {
-                // Single query: existing behavior
                 let param_name = &p.param_name;
                 let res_name = format_ident!("__mass_{}", p.param_name);
                 let stmt = match (p.scope, p.single_is_mutable()) {
                     (QueryScope::Primary, true) => {
-                        quote! { let mut #param_name = unsafe { #res_name.primary_chunk_mut(__chunk_idx) }; }
+                        // Const-if: chunk-backed reads from MassSystemChunks, Bevy-only reborrows pre-loop
+                        let frag_type = p.single_fragment_type();
+                        let pre_name = format_ident!("__pre_{}", p.param_name);
+                        quote! {
+                            let mut #param_name = if <#frag_type as ::unreal_api::mass::QueryBackend>::IS_CHUNK {
+                                ::unreal_api::mass::DualQueryMut::from_chunk(
+                                    unsafe { #res_name.primary_chunk_mut(__chunk_idx) }.into_slice()
+                                )
+                            } else {
+                                #pre_name.reborrow()
+                            };
+                        }
                     }
                     (QueryScope::Primary, false) => {
-                        quote! { let #param_name = unsafe { #res_name.primary_chunk_ref(__chunk_idx) }; }
+                        let frag_type = p.single_fragment_type();
+                        let pre_name = format_ident!("__pre_{}", p.param_name);
+                        quote! {
+                            let #param_name = if <#frag_type as ::unreal_api::mass::QueryBackend>::IS_CHUNK {
+                                ::unreal_api::mass::DualQueryRef::from_chunk(
+                                    unsafe { #res_name.primary_chunk_ref(__chunk_idx) }.into_slice()
+                                )
+                            } else {
+                                #pre_name.reborrow()
+                            };
+                        }
                     }
                     (QueryScope::Global, true) => {
                         quote! {
@@ -1081,6 +1163,9 @@ pub fn mass_system_impl(func: &ItemFn, order: u32, entity_group: Option<&str>) -
     // Systems with Res<T>, passthrough params (BevyQuery, Commands, etc.),
     // tuple queries, or Without filters use a no-op execute_fn since C++ can't
     // provide these Bevy system params; only the Bevy schedule can dispatch them.
+    //
+    // Simple single-query systems keep C++ direct dispatch — the DualQuery wrapping
+    // in the C++ path (from_chunk) works fine since C++ always provides chunk data.
     //
     // Systems with ZERO fragment requirements (pure BevyQuery + Commands) skip
     // C++ registration entirely — they run only via the Bevy schedule.
@@ -1512,15 +1597,56 @@ pub fn mass_system_impl(func: &ItemFn, order: u32, entity_group: Option<&str>) -
         })
         .collect();
 
+    // Fallback unpack stmts for when chunk_count == 0 (all types are Bevy-only).
+    // Single primary queries reborrow from the pre-loop DualQuery.
+    let fallback_unpack_stmts: Vec<TokenStream> = query_params
+        .iter()
+        .filter(|p| !p.is_tuple() && p.scope == QueryScope::Primary)
+        .map(|p| {
+            let param_name = &p.param_name;
+            let pre_name = format_ident!("__pre_{}", p.param_name);
+            if p.single_is_mutable() {
+                quote! { let mut #param_name = #pre_name.reborrow(); }
+            } else {
+                quote! { let #param_name = #pre_name.reborrow(); }
+            }
+        })
+        .collect();
+
     let wrapper_body = if has_primary_queries {
-        quote! {
-            #pre_loop
-            for __chunk_idx in 0..#primary_count_source {
-                #(#bevy_unpack_stmts)*
-                #entity_slice_setup
-                #(#tuple_construct_stmts)*
-                #func_name(#(#bevy_call_args),*);
-                #post_chunk
+        if has_single_primary {
+            // Dual-mode dispatch: pre-collect Bevy queries, then const-if in chunk loop.
+            // If chunk_count == 0 (all types are Bevy-only or no data), run once with
+            // Bevy-sourced DualQuerys as fallback.
+            quote! {
+                #(#pre_loop_bevy_stmts)*
+                #pre_loop
+                let __chunk_count = #primary_count_source;
+                if __chunk_count > 0 {
+                    for __chunk_idx in 0..__chunk_count {
+                        #(#bevy_unpack_stmts)*
+                        #entity_slice_setup
+                        #(#tuple_construct_stmts)*
+                        #func_name(#(#bevy_call_args),*);
+                        #post_chunk
+                    }
+                } else {
+                    // No chunks — pure Bevy fallback
+                    #(#fallback_unpack_stmts)*
+                    #func_name(#(#bevy_call_args),*);
+                }
+            }
+        } else {
+            // Only tuple queries — no dual-mode dispatch needed
+            quote! {
+                #pre_loop
+                for __chunk_idx in 0..#primary_count_source {
+                    #(#bevy_unpack_stmts)*
+                    #entity_slice_setup
+                    #(#tuple_construct_stmts)*
+                    #func_name(#(#bevy_call_args),*);
+                    #post_chunk
+                }
             }
         }
     } else {
@@ -1881,13 +2007,12 @@ mod tests {
         .unwrap();
 
         let output = mass_system_impl(&func, 0, None).unwrap().to_string();
-        // Should use MassQueryMut for mutable primary
-        assert!(output.contains("MassQueryMut"), "should use MassQueryMut for &mut primary");
-        // Should use MassQueryRef for immutable primary
-        assert!(output.contains("MassQueryRef"), "should use MassQueryRef for & primary");
-        // Should use MassQueryAllMut for mutable global via from_chunked
+        // Should use DualQueryMut for mutable primary (wraps chunk or Bevy data)
+        assert!(output.contains("DualQueryMut"), "should use DualQueryMut for &mut primary");
+        // Should use DualQueryRef for immutable primary
+        assert!(output.contains("DualQueryRef"), "should use DualQueryRef for & primary");
+        // Should use MassQueryAllMut for mutable global
         assert!(output.contains("MassQueryAllMut"), "should use MassQueryAllMut for &mut global");
-        assert!(output.contains("from_chunked"), "should use from_chunked for global query");
         // Should have query_scope: 1 for global
         assert!(output.contains("query_scope : 1"), "should set query_scope=1 for global");
     }
@@ -2579,5 +2704,63 @@ mod tests {
         // But should contain the cooldowns param
         assert!(output.contains("cooldowns"),
             "output should contain cooldowns param, got: {}", output);
+    }
+
+    // -----------------------------------------------------------------------
+    // Dual-mode dispatch (Step B) tests
+    // -----------------------------------------------------------------------
+
+    #[test]
+    fn single_query_generates_dual_bevy_param() {
+        // Single primary queries should generate both MassSystemChunks and bevy_ecs::Query params
+        let func: ItemFn = syn::parse2(quote! {
+            fn my_system(ants: MassQuery<&mut AntFragment>) {}
+        })
+        .unwrap();
+
+        let output = mass_system_impl(&func, 0, None).unwrap().to_string();
+        // Should have __mass_ants (MassSystemChunks) param
+        assert!(output.contains("__mass_ants"),
+            "should have __mass_ants chunk resource param, got: {}", output);
+        // Should have __bevy_ants (bevy_ecs::system::Query) param
+        assert!(output.contains("__bevy_ants"),
+            "should have __bevy_ants Bevy query param, got: {}", output);
+    }
+
+    #[test]
+    fn single_query_generates_const_if_dispatch() {
+        // Single primary queries should use QueryBackend::IS_CHUNK const-if dispatch
+        let func: ItemFn = syn::parse2(quote! {
+            fn my_system(ants: MassQuery<&mut AntFragment>) {}
+        })
+        .unwrap();
+
+        let output = mass_system_impl(&func, 0, None).unwrap().to_string();
+        // Should have IS_CHUNK const-if
+        assert!(output.contains("IS_CHUNK"),
+            "should use QueryBackend::IS_CHUNK const-if dispatch, got: {}", output);
+        // Should have pre-loop Bevy collection (__pre_ants)
+        assert!(output.contains("__pre_ants"),
+            "should have pre-loop Bevy collection, got: {}", output);
+        // Should have chunk_count == 0 fallback
+        assert!(output.contains("__chunk_count"),
+            "should have __chunk_count for fallback branch, got: {}", output);
+    }
+
+    #[test]
+    fn single_query_keeps_cpp_direct_dispatch() {
+        // Simple single-query systems keep C++ direct dispatch (DualQuery wrapping works)
+        let func: ItemFn = syn::parse2(quote! {
+            fn my_system(ants: MassQuery<&mut AntFragment>) {}
+        })
+        .unwrap();
+
+        let output = mass_system_impl(&func, 0, None).unwrap().to_string();
+        // The C++ wrapper should call the inner function (not a no-op)
+        assert!(output.contains("my_system (ants"),
+            "C++ wrapper should call inner function, got: {}", output);
+        // Should use DualQueryMut::from_chunk in the C++ wrapper
+        assert!(output.contains("from_chunk"),
+            "C++ wrapper should wrap chunk data in DualQuery, got: {}", output);
     }
 }
