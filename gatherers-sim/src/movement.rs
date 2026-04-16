@@ -1,4 +1,4 @@
-use crate::fragments::{Cooldown, DesiredMovement, Transform};
+use crate::components::{Cooldown, DesiredMovement, Transform};
 use bevy_mass::prelude::*;
 
 // ---------------------------------------------------------------------------
@@ -99,7 +99,7 @@ pub fn reflect_velocity(vel: DVec3, normal: DVec3) -> DVec3 {
 #[cfg(all(test, not(feature = "unreal")))]
 mod tests {
     use super::*;
-    use crate::fragments::{Cooldown, DesiredMovement, PreviousTranslation, Transform};
+    use crate::components::{Cooldown, DesiredMovement, PreviousTranslation, Transform};
     use bevy_ecs::prelude::*;
     use bevy_mass::movement::apply_movement;
     use core::time::Duration;

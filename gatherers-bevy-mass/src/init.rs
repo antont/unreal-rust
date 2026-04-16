@@ -1,5 +1,5 @@
 use glam::DVec3;
-use gatherers_sim::fragments::*;
+use gatherers_sim::components::*;
 use unreal_api::mass::EntityArchetype;
 use unreal_ffi::{MassEntityHandle, MassInitSimulationParams};
 
@@ -22,8 +22,8 @@ fn spawn_entities(
     // Spawn food — position lives in FTransformFragment (shared with native MassRepresentation)
     let food_handles = EntityArchetype::new("food")
         .fragment::<Transform>()
-        .fragment::<FoodFragment>()
-        .tag::<FoodTag>()
+        .fragment::<FoodState>()
+        .tag::<Food>()
         .spawn(food_count as u32, |_i, writer| {
             let pos = DVec3::new(
                 bounds_min[0] + rng() * (bounds_max[0] - bounds_min[0]),
@@ -31,7 +31,7 @@ fn spawn_entities(
                 50.0,
             );
             writer.set(&Transform::from_translation(pos));
-            writer.set(&FoodFragment {
+            writer.set(&FoodState {
                 is_loose: true,
             });
         });
@@ -44,7 +44,7 @@ fn spawn_entities(
         .fragment::<Velocity>()          // Internal — UE's UMassApplyMovementProcessor needs it
         .fragment::<Carrying>()
         .fragment::<Behavior>()
-        .tag::<BevyMassAntTag>()
+        .tag::<Ant>()
         .tag::<CodeDrivenMovementTag>()  // Required by UE's UMassApplyMovementProcessor
         .spawn(ant_count as u32, |i, writer| {
             let angle = rng() * std::f64::consts::TAU;
@@ -98,7 +98,7 @@ pub fn init_simulation(params: &MassInitSimulationParams) -> Vec<(String, Vec<Ma
     );
 
     vec![
-        (BevyMassAntTag::ENTITY_GROUP.to_string(), ant_handles),
+        (Ant::ENTITY_GROUP.to_string(), ant_handles),
         ("food".to_string(), food_handles),
     ]
 }

@@ -13,7 +13,7 @@
 //!
 //! #[mass_system(order = 35)]
 //! fn apply_food_mutations(
-//!     foods: QueryAll<&mut FoodFragment, With<FoodTag>>,
+//!     foods: QueryAll<&mut FoodState, With<Food>>,
 //! ) {
 //!     if let Some(food) = foods.get_mut(index) {
 //!         food.is_loose = false;

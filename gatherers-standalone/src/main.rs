@@ -1,8 +1,8 @@
 use bevy::prelude::*;
 use bevy_mass::{MovementPlugin, EntityIndex};
-use gatherers_sim::fragments::{
+use gatherers_sim::components::{
     Transform as SimTransform, PreviousTranslation, DesiredMovement,
-    Cooldown, Carrying, Behavior, FoodFragment, FoodTag,
+    Cooldown, Carrying, Behavior, FoodState, Food,
     AntFoodHit, FoodMutation,
 };
 use gatherers_sim::food_decision::{food_decision_system, DECISION_PICK_UP, DECISION_DROP};
@@ -75,9 +75,9 @@ fn spawn_entities(mut commands: Commands) {
         let entity = commands
             .spawn((
                 FoodMarker,
-                FoodTag,
+                Food,
                 SimTransform::from_translation(pos),
-                FoodFragment {
+                FoodState {
                     is_loose: true,
                 },
                 Sprite {
@@ -94,7 +94,7 @@ fn spawn_entities(mut commands: Commands) {
             .id();
         food_entities.push(entity);
     }
-    commands.insert_resource(EntityIndex::<FoodTag>::new(food_entities));
+    commands.insert_resource(EntityIndex::<Food>::new(food_entities));
 
     // Spawn ants at random positions within bounds
     for i in 0..ANT_COUNT {
@@ -138,8 +138,8 @@ fn spawn_entities(mut commands: Commands) {
 /// Collision prepass: brute-force proximity search, emits HitEvent messages.
 fn collision_prepass(
     ants: Query<(Entity, &SimTransform), (With<AntMarker>, Without<Cooldown>)>,
-    foods: Query<(&FoodFragment, &SimTransform), With<FoodMarker>>,
-    food_entities: Res<EntityIndex<FoodTag>>,
+    foods: Query<(&FoodState, &SimTransform), With<FoodMarker>>,
+    food_entities: Res<EntityIndex<Food>>,
     mut hits: MessageWriter<AntFoodHit>,
 ) {
     // Snapshot loose food positions for proximity search
@@ -174,11 +174,11 @@ fn collision_prepass(
     }
 }
 
-/// Apply food mutations: reads FoodMutation messages, updates FoodFragment state.
+/// Apply food mutations: reads FoodMutation messages, updates FoodState state.
 fn apply_food_mutations(
     mut mutations: MessageReader<FoodMutation>,
-    mut foods: Query<(&mut FoodFragment, &mut SimTransform), With<FoodMarker>>,
-    food_entities: Res<EntityIndex<FoodTag>>,
+    mut foods: Query<(&mut FoodState, &mut SimTransform), With<FoodMarker>>,
+    food_entities: Res<EntityIndex<Food>>,
 ) {
     for mutation in mutations.read() {
         let idx = mutation.food_index as usize;
@@ -209,7 +209,7 @@ fn sync_ant_transforms(mut ants: Query<(&SimTransform, &mut Transform), With<Ant
 fn sync_food_transforms(
     ants: Query<(&SimTransform, &Carrying), With<AntMarker>>,
     mut foods: Query<(&SimTransform, &mut Transform), With<FoodMarker>>,
-    food_entities: Res<EntityIndex<FoodTag>>,
+    food_entities: Res<EntityIndex<Food>>,
 ) {
     // Build a map: food_index → ant position (for carried food)
     let mut carried_positions: Vec<Option<DVec3>> = vec![None; food_entities.entities.len()];
@@ -236,7 +236,7 @@ fn sync_food_transforms(
     }
 }
 
-fn sync_food_colors(mut foods: Query<(&FoodFragment, &mut Sprite), With<FoodMarker>>) {
+fn sync_food_colors(mut foods: Query<(&FoodState, &mut Sprite), With<FoodMarker>>) {
     for (food, mut sprite) in &mut foods {
         sprite.color = if food.is_loose {
             COLOR_FOOD_LOOSE

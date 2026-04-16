@@ -111,7 +111,7 @@ bool FGatherersBevyMassSpawnAndSimulateTest::RunTest(const FString& Parameters)
 		if (EntityManager.IsEntityValid(FoodEntity))
 		{
 			FMassEntityView FoodView(EntityManager, FoodEntity);
-			const FGatherersMassFoodFragment& Food = FoodView.GetFragmentData<FGatherersMassFoodFragment>();
+			const FGatherersFoodStateFragment& Food = FoodView.GetFragmentData<FGatherersFoodStateFragment>();
 			TestTrue(TEXT("Food should start loose"), Food.bIsLoose);
 		}
 	}
@@ -131,8 +131,8 @@ IMPLEMENT_SIMPLE_AUTOMATION_TEST(
 bool FGatherersBevyMassFoodFragmentLayoutTest::RunTest(const FString& Parameters)
 {
 	// Verify layout matches Rust FoodFragment expectations (position moved to FTransformFragment)
-	TestEqual(TEXT("FoodFragment bIsLoose offset"), (int32)offsetof(FGatherersMassFoodFragment, bIsLoose), 0);
-	TestEqual(TEXT("FoodFragment size"), (int32)sizeof(FGatherersMassFoodFragment), 1);
+	TestEqual(TEXT("FoodFragment bIsLoose offset"), (int32)offsetof(FGatherersFoodStateFragment, bIsLoose), 0);
+	TestEqual(TEXT("FoodFragment size"), (int32)sizeof(FGatherersFoodStateFragment), 1);
 
 	return true;
 }
@@ -234,9 +234,9 @@ bool FGatherersBevyMassFoodPickupTest::RunTest(const FString& Parameters)
 			FMassEntityView AntView(EntityManager, AntEntity);
 			FTransformFragment& T = AntView.GetFragmentData<FTransformFragment>();
 			T.GetMutableTransform().SetTranslation(FoodPos);
-			FGatherersPreviousTranslation& Prev = AntView.GetFragmentData<FGatherersPreviousTranslation>();
+			FGatherersPreviousTranslationFragment& Prev = AntView.GetFragmentData<FGatherersPreviousTranslationFragment>();
 			Prev.Value = FoodPos;
-			FGatherersCarrying& Carry = AntView.GetFragmentData<FGatherersCarrying>();
+			FGatherersCarryingFragment& Carry = AntView.GetFragmentData<FGatherersCarryingFragment>();
 			Carry.FoodIndex = -1;
 			// Cooldown is now a pure-Bevy component (not a MassFragment).
 			// Ants spawn without Cooldown, so no setup needed here.
@@ -268,7 +268,7 @@ bool FGatherersBevyMassFoodPickupTest::RunTest(const FString& Parameters)
 				if (!EntityManager.IsEntityValid(Entity)) continue;
 
 				FMassEntityView View(EntityManager, Entity);
-				const FGatherersMassFoodFragment& Food = View.GetFragmentData<FGatherersMassFoodFragment>();
+				const FGatherersFoodStateFragment& Food = View.GetFragmentData<FGatherersFoodStateFragment>();
 				const FVector FoodPos_i = View.GetFragmentData<FTransformFragment>().GetTransform().GetTranslation();
 
 				const double Dx = AntPos.X - FoodPos_i.X;
@@ -317,10 +317,10 @@ bool FGatherersBevyMassFoodPickupTest::RunTest(const FString& Parameters)
 		if (EntityManager.IsEntityValid(AntEntity) && EntityManager.IsEntityValid(FoodEntity))
 		{
 			FMassEntityView AntView(EntityManager, AntEntity);
-			const FGatherersCarrying& Carry = AntView.GetFragmentData<FGatherersCarrying>();
+			const FGatherersCarryingFragment& Carry = AntView.GetFragmentData<FGatherersCarryingFragment>();
 
 			FMassEntityView FoodView(EntityManager, FoodEntity);
-			const FGatherersMassFoodFragment& Food = FoodView.GetFragmentData<FGatherersMassFoodFragment>();
+			const FGatherersFoodStateFragment& Food = FoodView.GetFragmentData<FGatherersFoodStateFragment>();
 
 			TestTrue(TEXT("Ant should have picked up food"), Carry.FoodIndex >= 0);
 			if (Carry.FoodIndex >= 0)
@@ -392,7 +392,7 @@ bool FGatherersBevyMassCarriedFoodTrackingTest::RunTest(const FString& Parameter
 	{
 		FMassEntityView AntView(EntityManager, AntEntity);
 		AntView.GetFragmentData<FTransformFragment>().GetMutableTransform().SetTranslation(AntPos);
-		AntView.GetFragmentData<FGatherersCarrying>().FoodIndex = 0;
+		AntView.GetFragmentData<FGatherersCarryingFragment>().FoodIndex = 0;
 
 		// Set desired movement so UE's movement processor runs (ant will move slightly)
 		AntView.GetFragmentData<FMassDesiredMovementFragment>().DesiredVelocity = FVector(10.0, 0.0, 0.0);
@@ -402,7 +402,7 @@ bool FGatherersBevyMassCarriedFoodTrackingTest::RunTest(const FString& Parameter
 	{
 		FMassEntityView FoodView(EntityManager, FoodEntity);
 		FoodView.GetFragmentData<FTransformFragment>().GetMutableTransform().SetTranslation(FVector(-999.0, -999.0, 0.0));
-		FoodView.GetFragmentData<FGatherersMassFoodFragment>().bIsLoose = false;
+		FoodView.GetFragmentData<FGatherersFoodStateFragment>().bIsLoose = false;
 	}
 
 	// Run one simulation step — carried_food_tracking should move food to ant
@@ -482,7 +482,7 @@ bool FGatherersBevyMassBoundaryReflectTest::RunTest(const FString& Parameters)
 			FMassEntityView AntView(EntityManager, AntEntity);
 			FTransformFragment& T = AntView.GetFragmentData<FTransformFragment>();
 			T.GetMutableTransform().SetTranslation(FVector(4990.0, 0.0, 50.0));
-			FGatherersPreviousTranslation& Prev = AntView.GetFragmentData<FGatherersPreviousTranslation>();
+			FGatherersPreviousTranslationFragment& Prev = AntView.GetFragmentData<FGatherersPreviousTranslationFragment>();
 			Prev.Value = T.GetTransform().GetTranslation();
 			FMassDesiredMovementFragment& DM = AntView.GetFragmentData<FMassDesiredMovementFragment>();
 			DM.DesiredVelocity = FVector(200.0, 0.0, 0.0); // direction * speed
@@ -711,7 +711,7 @@ bool FGatherersBevyMassIntegrationTest::RunTest(const FString& Parameters)
 		{
 			FMassEntityView AntView(EntityManager, AntEntity);
 			const FVector CurPos = AntView.GetFragmentData<FTransformFragment>().GetTransform().GetTranslation();
-			const FVector PrevPos = AntView.GetFragmentData<FGatherersPreviousTranslation>().Value;
+			const FVector PrevPos = AntView.GetFragmentData<FGatherersPreviousTranslationFragment>().Value;
 			if (!CurPos.Equals(PrevPos, 0.001))
 			{
 				++PreviousTrackedCount;
@@ -728,8 +728,8 @@ bool FGatherersBevyMassIntegrationTest::RunTest(const FString& Parameters)
 		if (EntityManager.IsEntityValid(FoodEntity))
 		{
 			FMassEntityView FoodView(EntityManager, FoodEntity);
-			const FGatherersMassFoodFragment& Food =
-				FoodView.GetFragmentData<FGatherersMassFoodFragment>();
+			const FGatherersFoodStateFragment& Food =
+				FoodView.GetFragmentData<FGatherersFoodStateFragment>();
 			(void)Food;
 			++ValidFoodCount;
 		}
@@ -930,7 +930,7 @@ bool FGatherersBevyMassRustSpatialQueryConfigFFITest::RunTest(const FString& Par
 
 	FString FilterType(Config.filter_fragment_type.len,
 		UTF8_TO_TCHAR(Config.filter_fragment_type.ptr));
-	TestEqual(TEXT("Filter fragment type"), FilterType, TEXT("FGatherersMassFoodFragment"));
+	TestEqual(TEXT("Filter fragment type"), FilterType, TEXT("FGatherersFoodStateFragment"));
 
 	return true;
 }

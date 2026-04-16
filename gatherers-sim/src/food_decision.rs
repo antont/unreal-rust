@@ -1,11 +1,11 @@
-pub use crate::fragments::{
+pub use crate::components::{
     FoodDecisionCode, DECISION_NO_ACTION, DECISION_PICK_UP, DECISION_DROP,
 };
-use crate::fragments::{
+use crate::components::{
     DesiredMovement, Behavior, Carrying, Cooldown, FoodEncounter,
 };
 #[cfg(not(feature = "unreal"))]
-use crate::fragments::{AntFoodHit, FoodMutation, Transform};
+use crate::components::{AntFoodHit, FoodMutation, Transform};
 #[cfg(not(feature = "unreal"))]
 use bevy_ecs::message::{MessageReader, MessageWriter};
 #[cfg(not(feature = "unreal"))]

@@ -9,7 +9,7 @@
 
 use glam::DVec3;
 use unreal_api::mass::{MassTestRegistration, TestCtx};
-use crate::fragments::{Transform, PreviousTranslation, DesiredMovement, FoodFragment, Carrying};
+use crate::components::{Transform, PreviousTranslation, DesiredMovement, FoodState, Carrying};
 
 // ---------------------------------------------------------------------------
 // SpawnAndSimulate — basic lifecycle test
@@ -118,7 +118,7 @@ fn food_pickup(ctx: &TestCtx) {
         "food_pickup spatial query should be auto-registered from Rust config");
 
     // Read food position (now in FTransformFragment) and move ant directly there
-    let food = ctx.read::<FoodFragment>("food", 0)
+    let food = ctx.read::<FoodState>("food", 0)
         .expect("should read food fragment");
     assert!(food.is_loose, "food should start as loose");
     let food_tf = ctx.read::<Transform>("food", 0)
@@ -139,7 +139,7 @@ fn food_pickup(ctx: &TestCtx) {
     assert_eq!(carry.food_index, 0,
         "carried food index should be 0");
 
-    let food_after = ctx.read::<FoodFragment>("food", 0).unwrap();
+    let food_after = ctx.read::<FoodState>("food", 0).unwrap();
     assert!(!food_after.is_loose,
         "picked-up food should no longer be loose");
 
@@ -174,7 +174,7 @@ fn food_drop(ctx: &TestCtx) {
     // Ants without Cooldown are eligible for food interaction.
 
     // Mark food[0] as not loose (it's being carried)
-    let mut food0 = ctx.read::<FoodFragment>("food", 0).unwrap();
+    let mut food0 = ctx.read::<FoodState>("food", 0).unwrap();
     food0.is_loose = false;
     ctx.write("food", 0, &food0);
 
@@ -232,7 +232,7 @@ fn cooldown_recovery(ctx: &TestCtx) {
     // After 6.4 total seconds, verify food movement happened
     let mut food_not_loose = 0;
     for i in 0..50u32 {
-        let food = ctx.read::<FoodFragment>("food", i).unwrap();
+        let food = ctx.read::<FoodState>("food", i).unwrap();
         if !food.is_loose {
             food_not_loose += 1;
         }
@@ -249,7 +249,7 @@ fn cooldown_recovery(ctx: &TestCtx) {
     // Find loose food positions (position now in FTransformFragment)
     let mut loose_food: Vec<(u32, DVec3)> = Vec::new();
     for i in 0..50u32 {
-        let food = ctx.read::<FoodFragment>("food", i).unwrap();
+        let food = ctx.read::<FoodState>("food", i).unwrap();
         if food.is_loose {
             let food_tf = ctx.read::<Transform>("food", i).unwrap();
             loose_food.push((i, food_tf.translation));
@@ -338,7 +338,7 @@ fn cooldown_cycle(ctx: &TestCtx) {
     ctx.step(0.016, 50);
 
     // Now place ant on food[1] (a different loose food)
-    let food1 = ctx.read::<FoodFragment>("food", 1).unwrap();
+    let food1 = ctx.read::<FoodState>("food", 1).unwrap();
     if food1.is_loose {
         let food1_tf = ctx.read::<Transform>("food", 1).unwrap();
         ctx.write("ants", 0, &Transform::from_translation(food1_tf.translation));
@@ -356,7 +356,7 @@ fn cooldown_cycle(ctx: &TestCtx) {
         ctx.step(0.016, 50);
 
         // Place ant on food[2] — should pick up again (cooldown expired)
-        let food2 = ctx.read::<FoodFragment>("food", 2).unwrap();
+        let food2 = ctx.read::<FoodState>("food", 2).unwrap();
         if food2.is_loose {
             let food2_tf = ctx.read::<Transform>("food", 2).unwrap();
             ctx.write("ants", 0, &Transform::from_translation(food2_tf.translation));
@@ -439,7 +439,7 @@ fn integration(ctx: &TestCtx) {
 
     // Verify: all food entities still valid and readable
     for i in 0..food_count {
-        assert!(ctx.read::<FoodFragment>("food", i as u32).is_some(),
+        assert!(ctx.read::<FoodState>("food", i as u32).is_some(),
             "food[{}] should be readable", i);
     }
 

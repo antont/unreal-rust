@@ -1,4 +1,4 @@
-pub mod fragments;
+pub mod components;
 pub mod init;
 pub mod systems;
 pub mod ue_tests;
@@ -13,14 +13,14 @@ inventory::submit!(unreal_api::mass::MassSimInitRegistration {
 inventory::submit!(unreal_api::mass::MassVisualizerGroupRegistration {
     name: "ants",
     position_fragment_type: "FTransformFragment",
-    position_offset: std::mem::offset_of!(gatherers_sim::fragments::Transform, translation),
+    position_offset: std::mem::offset_of!(gatherers_sim::components::Transform, translation),
     scale: 0.2,
 });
 
 inventory::submit!(unreal_api::mass::MassVisualizerGroupRegistration {
     name: "food",
     position_fragment_type: "FTransformFragment",
-    position_offset: std::mem::offset_of!(gatherers_sim::fragments::Transform, translation),
+    position_offset: std::mem::offset_of!(gatherers_sim::components::Transform, translation),
     scale: 0.1,
 });
 
@@ -32,8 +32,8 @@ inventory::submit!(unreal_api::mass::MassSpatialQueryConfigRegistration {
     radius: 15.0,
     query_type: unreal_api::mass::MassSpatialQueryType::PhysicsSweep,
     collision_channel_index: 0, // ECC_GameTraceChannel1 = "FoodQuery"
-    filter_fragment_type: "FGatherersMassFoodFragment",
-    filter_bool_offset: 0, // is_loose is now the first (only) field in FoodFragment
+    filter_fragment_type: "FGatherersFoodStateFragment",
+    filter_bool_offset: 0, // is_loose is the first (only) field in FoodState
     filter_bool_must_be: true,
 });
 
@@ -70,8 +70,8 @@ mod tests {
         assert_eq!(c.radius, 15.0);
         assert_eq!(c.query_type, unreal_api::mass::MassSpatialQueryType::PhysicsSweep);
         assert_eq!(c.collision_channel_index, 0);
-        assert_eq!(c.filter_fragment_type, "FGatherersMassFoodFragment");
-        assert_eq!(c.filter_bool_offset, 0); // is_loose is the only field in FoodFragment
+        assert_eq!(c.filter_fragment_type, "FGatherersFoodStateFragment");
+        assert_eq!(c.filter_bool_offset, 0); // is_loose is the only field in FoodState
         assert!(c.filter_bool_must_be);
     }
 

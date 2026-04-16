@@ -297,7 +297,7 @@ pub struct SpawnFragmentData {
 /// Describes one tag type to apply to spawned entities.
 #[repr(C)]
 pub struct SpawnTagData {
-    /// C++ USTRUCT type name (e.g. "FGatherersBevyMassAntTag").
+    /// C++ USTRUCT type name (e.g. "FGatherersAntTag").
     pub cpp_type_name: Utf8Str,
 }
 

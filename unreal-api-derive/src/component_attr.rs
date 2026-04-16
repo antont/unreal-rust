@@ -89,13 +89,14 @@ fn has_repr_c(input: &syn::ItemStruct) -> bool {
 
 /// Resolve the C++ type name: explicit `cpp_type` or auto-derived from
 /// `BEVY_MASS_CPP_PREFIX` env var + struct name.
-fn resolve_cpp_type(args: &ComponentArgs, struct_name: &str) -> syn::Result<String> {
+fn resolve_cpp_type(args: &ComponentArgs, struct_name: &str, is_tag: bool) -> syn::Result<String> {
     if let Some(ref explicit) = args.cpp_type {
         return Ok(explicit.clone());
     }
 
+    let suffix = if is_tag { "Tag" } else { "Fragment" };
     match std::env::var("BEVY_MASS_CPP_PREFIX") {
-        Ok(prefix) => Ok(format!("F{}{}", prefix, struct_name)),
+        Ok(prefix) => Ok(format!("F{}{}{}", prefix, struct_name, suffix)),
         Err(_) => Err(syn::Error::new(
             proc_macro2::Span::call_site(),
             "No cpp_type specified and BEVY_MASS_CPP_PREFIX env var not set. \
@@ -115,7 +116,7 @@ pub fn component_impl(
     let name = &input.ident;
     let is_tag = is_tag_struct(&input);
 
-    let cpp_type = resolve_cpp_type(&args, &name.to_string())?;
+    let cpp_type = resolve_cpp_type(&args, &name.to_string(), is_tag)?;
 
     // Add #[repr(C)] for fragments (not tags) if not already present
     if !is_tag && !has_repr_c(&input) {
@@ -245,14 +246,13 @@ mod tests {
             existing: false,
             include: None,
         };
-        let result = resolve_cpp_type(&args, "Whatever").unwrap();
+        let result = resolve_cpp_type(&args, "Whatever", false).unwrap();
         assert_eq!(result, "FExplicit");
     }
 
     #[test]
-    fn component_resolve_cpp_type_format() {
-        // Test the naming convention: F + prefix + struct name
-        // We test resolve_cpp_type directly with a set env var
+    fn component_resolve_cpp_type_fragment_suffix() {
+        // Test the naming convention: F + prefix + struct name + Fragment
         unsafe { std::env::set_var("BEVY_MASS_CPP_PREFIX", "Test") };
         let args = ComponentArgs {
             cpp_type: None,
@@ -260,11 +260,25 @@ mod tests {
             existing: false,
             include: None,
         };
-        let result = resolve_cpp_type(&args, "FoodFragment");
-        // May or may not succeed depending on test ordering, but if it does,
-        // verify the format
+        let result = resolve_cpp_type(&args, "Food", false);
         if let Ok(name) = result {
             assert_eq!(name, "FTestFoodFragment");
+        }
+    }
+
+    #[test]
+    fn component_resolve_cpp_type_tag_suffix() {
+        // Test the naming convention: F + prefix + struct name + Tag
+        unsafe { std::env::set_var("BEVY_MASS_CPP_PREFIX", "Test") };
+        let args = ComponentArgs {
+            cpp_type: None,
+            group: None,
+            existing: false,
+            include: None,
+        };
+        let result = resolve_cpp_type(&args, "Ant", true);
+        if let Ok(name) = result {
+            assert_eq!(name, "FTestAntTag");
         }
     }
 

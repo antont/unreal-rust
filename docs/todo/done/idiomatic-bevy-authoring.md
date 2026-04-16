@@ -42,3 +42,15 @@ Added `bevy_mass::MovementPlugin<T, P, D>` with `TransformLike`, `PrevTranslatio
 ## 10. SpatialQuery facade
 
 Added `SpatialQuery` resource to `bevy_mass` that wraps UE's `MassSpatialQueries` with a cleaner Rust API (`call()` returns `Option<SpatialHit>` with `DVec3` instead of raw FFI arrays). UE-mode `ant_collision_prepass` uses `Res<SpatialQuery>`. Standalone keeps direct Bevy queries for collision — this is intentional: collision detection and movement application are engine-specific infrastructure (UE uses native physics sweeps, standalone uses Bevy queries). Both produce identical `HitEvent` messages consumed by shared game logic.
+
+## 11. `#[component]` attribute macro for game types
+
+Added `#[component]` attribute macro to `unreal-api-derive`, re-exported from `bevy_mass::prelude`. Replaces `mass_fragment!`/`mass_tag!` for game-authored types. Auto-detects tags (unit structs) vs fragments (structs with fields), adds `#[repr(C)]`, `#[derive(Component, Clone, Copy, Debug)]`, and conditionally `#[derive(MassFragment)]` + `#[mass(cpp_type = "...")]` in UE mode. C++ type names are auto-derived from `BEVY_MASS_CPP_PREFIX` env var with UE-conventional suffixes: `F{Prefix}{StructName}Fragment` for data structs, `F{Prefix}{StructName}Tag` for unit structs. Explicit `cpp_type` override still available but no game component uses it. Engine types (Transform, DesiredMovement, etc.) live in `bevy_mass::components` and keep using `mass_fragment!` with `existing`/`include`.
+
+## 13. Engine types moved to framework
+
+Moved Transform, Velocity, DesiredMovement, and CodeDrivenMovementTag from `gatherers-sim` to `bevy_mass::components`. Game code re-exports them for backward compatibility. This separates engine-level types (framework) from game-authored types (game crate).
+
+## 14. Dead code cleanup: AntMassTag deleted
+
+`AntMassTag` was never used in any system, query, or entity archetype. Deleted from `gatherers-sim` and all re-exports.

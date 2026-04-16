@@ -60,10 +60,11 @@ The filter in `RunTests` is a prefix match:
 -ExecCmds="Automation RunTests supplemental.RustPlugin.Gatherers.BevyMassFoodPickup;Quit"
 ```
 
-### Current C++ tests (18)
+### Current C++ tests (23)
 
 - BevyMassAutoInitFromRustDefaults
 - BevyMassBoundaryReflect
+- BevyMassCarriedFoodTracking
 - BevyMassDescriptorLayout
 - BevyMassFoodFragmentLayout
 - BevyMassFoodPickup
@@ -78,6 +79,10 @@ The filter in `RunTests` is a prefix match:
 - BevyMassSpawnAndSimulate
 - BevyMassSubsystemRegistered
 - BevyMassSystemOrdering
+- BevyMassTickPathMovement
+- BevyMassVisMovement
+- BevyMassVisProcessorExecution
+- BevyMassVisProcessorRegistration
 - BevyMassVisualizationFragments
 - BevyMassVisSimCoexistence
 

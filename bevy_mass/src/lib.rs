@@ -32,6 +32,7 @@ compile_error!("Either feature `bevy-backend` or `unreal` must be enabled.");
 
 mod time;
 mod query;
+pub mod components;
 pub mod movement;
 pub mod query_all;
 pub mod spatial_query;
@@ -49,6 +50,9 @@ pub mod prelude {
 
     // Re-export glam types used in nearly every system
     pub use glam::DVec3;
+
+    // Engine-provided component types (like bevy::prelude::Transform)
+    pub use crate::components::{Transform, Velocity, DesiredMovement, CodeDrivenMovementTag};
 
     // Movement infrastructure
     pub use crate::movement::{TransformLike, PrevTranslationLike, DesiredMovementLike, MovementPlugin};
@@ -82,6 +86,7 @@ pub mod prelude {
 pub use time::Time;
 pub use query::Query;
 pub use query::BevyQuery;
+pub use components::{Transform, Velocity, DesiredMovement, CodeDrivenMovementTag};
 pub use movement::{TransformLike, PrevTranslationLike, DesiredMovementLike, MovementPlugin};
 pub use query_all::EntityIndex;
 pub use spatial_query::{SpatialQuery, SpatialHit};

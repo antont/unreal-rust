@@ -15,7 +15,7 @@ URustMassPostMovementProcessor::URustMassPostMovementProcessor()
 void URustMassPostMovementProcessor::ConfigureQueries(const TSharedRef<FMassEntityManager>& /*EntityManager*/)
 {
 	EntityQuery.AddRequirement<FTransformFragment>(EMassFragmentAccess::ReadOnly);
-	EntityQuery.AddRequirement<FGatherersPreviousTranslation>(EMassFragmentAccess::ReadWrite);
+	EntityQuery.AddRequirement<FGatherersPreviousTranslationFragment>(EMassFragmentAccess::ReadWrite);
 }
 
 void URustMassPostMovementProcessor::Execute(
@@ -26,7 +26,7 @@ void URustMassPostMovementProcessor::Execute(
 		[](FMassExecutionContext& ChunkContext)
 	{
 		TConstArrayView<FTransformFragment> Transforms = ChunkContext.GetFragmentView<FTransformFragment>();
-		TArrayView<FGatherersPreviousTranslation> PrevTranslations = ChunkContext.GetMutableFragmentView<FGatherersPreviousTranslation>();
+		TArrayView<FGatherersPreviousTranslationFragment> PrevTranslations = ChunkContext.GetMutableFragmentView<FGatherersPreviousTranslationFragment>();
 
 		for (FMassExecutionContext::FEntityIterator It = ChunkContext.CreateEntityIterator(); It; ++It)
 		{

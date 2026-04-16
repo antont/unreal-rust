@@ -1,9 +1,9 @@
-// Re-export fragment types from gatherers-sim (the single source of truth).
+// Re-export component types from gatherers-sim (the single source of truth).
 // In unreal mode, these have both Component and MassFragment derives.
-pub use gatherers_sim::fragments::{
-    AntTag, FoodTag, BevyMassAntTag, CodeDrivenMovementTag,
+pub use gatherers_sim::components::{
+    Food, Ant, CodeDrivenMovementTag,
     Transform, PreviousTranslation, Velocity, DesiredMovement, Cooldown, Carrying, Behavior,
-    FoodFragment,
+    FoodState,
     SimBounds, FoodEncounter,
     AntFoodHit, FoodMutation,
 };
@@ -16,13 +16,13 @@ mod tests {
 
     #[test]
     fn food_fragment_layout() {
-        assert_eq!(mem::size_of::<FoodFragment>(), 1);
-        assert_eq!(mem::offset_of!(FoodFragment, is_loose), 0);
+        assert_eq!(mem::size_of::<FoodState>(), 1);
+        assert_eq!(mem::offset_of!(FoodState, is_loose), 0);
     }
 
     #[test]
     fn food_fragment_cpp_type_name() {
-        assert_eq!(FoodFragment::CPP_TYPE_NAME, "FGatherersMassFoodFragment");
+        assert_eq!(FoodState::CPP_TYPE_NAME, "FGatherersFoodStateFragment");
     }
 
     #[test]

@@ -76,8 +76,8 @@ pub fn entity_boundary_reflect(
 ```rust
 #[mass_system(order = 45)]
 fn carried_food_tracking(
-    ants: Query<(&Transform, &Carrying), With<BevyMassAntTag>>,
-    food_transforms: QueryAll<&mut Transform, With<FoodTag>>,
+    ants: Query<(&Transform, &Carrying), With<Ant>>,
+    food_transforms: QueryAll<&mut Transform, With<Food>>,
 ) {
     for (transform, carry) in &mut ants {
         if carry.food_index >= 0 {
@@ -115,22 +115,39 @@ Facade `Query` supports tuples with `Entity`, `With<Tag>`/`Without<T>` filters, 
 
 ## Fragment definition
 
-Fragments use the `mass_fragment!` macro which handles `#[repr(C)]`, `#[derive(Component)]`, and conditional `#[derive(MassFragment)]` + `#[mass(...)]` metadata:
+### Game components — `#[component]` attribute
+
+Game-authored types use the `#[component]` attribute macro, which adds `#[repr(C)]`, `#[derive(Component, Clone, Copy, Debug)]`, and conditionally `#[derive(MassFragment)]` in UE mode. C++ USTRUCT names are auto-derived from `BEVY_MASS_CPP_PREFIX` (set in the game crate's `build.rs`) + struct name + UE-conventional suffix (`Fragment` for data, `Tag` for unit structs):
 
 ```rust
-mass_fragment!(cpp_type = "FGatherersMassFoodFragment",
-    pub struct FoodFragment {
-        pub is_loose: bool,
-    }
-);
+#[component]
+pub struct FoodState {
+    pub is_loose: bool,
+}
+// → C++ name: FGatherersFoodStateFragment (auto-derived)
+
+#[component]
+pub struct Food;
+// → C++ name: FGatherersFoodTag (auto-derived)
+
+#[component(group = "ants")]
+pub struct Ant;
+// → C++ name: FGatherersAntTag (auto-derived, "group" sets entity archetype)
 ```
 
-For fragments that already exist as C++ USTRUCTs (e.g., `FTransformFragment`), use `existing`:
+No `cpp_type`, no UE jargon — game code looks like standard Bevy.
+
+### Engine types — `mass_fragment!` macro
+
+Types that map to existing C++ USTRUCTs (e.g., `FTransformFragment`) use `mass_fragment!` with the `existing` flag. These live in the `bevy_mass` framework crate, not in game code:
+
 ```rust
 mass_fragment!(cpp_type = "FTransformFragment", existing, include = "MassCommonFragments.h",
     pub struct Transform { /* matching layout */ }
 );
 ```
+
+Codegen skips USTRUCT generation for `existing` types and emits only `static_assert(sizeof(...))` for layout verification.
 
 `DVec3` (glam) maps to `FVector` in generated C++ headers. Layout is verified at compile time with `static_assert` on the C++ side and `offset_of!` tests on the Rust side.
 
@@ -149,8 +166,8 @@ If entities were dynamic (added/removed at runtime), the cache would need invali
 
 Game developers write only Rust. The infrastructure handles:
 
-- **Fragment definition**: `#[derive(MassFragment)]` generates C++ USTRUCT headers
-- **Entity spawning**: `EntityArchetype::new("food").fragment::<FoodFragment>().spawn(count, |i, writer| { ... })`
+- **Fragment definition**: `#[component]` generates C++ USTRUCT headers with auto-derived names
+- **Entity spawning**: `EntityArchetype::new("food").fragment::<FoodState>().spawn(count, |i, writer| { ... })`
 - **System registration**: `#[mass_system]` registers with both C++ and Bevy
 - **Sim defaults**: `inventory::submit!(MassSimDefaults { ... })` configures entity counts, bounds, etc.
 - **Spatial queries**: `inventory::submit!(MassSpatialQueryConfig { ... })` registers collision queries
@@ -166,9 +183,10 @@ Game developers write only Rust. The infrastructure handles:
 | `unreal-api/src/mass.rs` | Rust query types, TestCtx, schedule, system registration |
 | `unreal-api-derive/src/mass_system.rs` | `#[mass_system]` proc macro: generates wrapper + Bevy system + registration |
 | `unreal-api-derive/src/mass_fragment.rs` | `#[derive(MassFragment)]` proc macro + C++ header codegen |
-| `bevy_mass/src/` | Facade crate: `Query`, `QueryAll`, `MovementPlugin`, `SpatialQuery`, `EntityIndex`, `Time` |
+| `unreal-api-derive/src/component_attr.rs` | `#[component]` attribute macro: auto-derives C++ names with Fragment/Tag suffixes |
+| `bevy_mass/src/` | Facade crate: `Query`, `QueryAll`, `MovementPlugin`, `SpatialQuery`, `EntityIndex`, `Time`, engine types (Transform, Velocity, DesiredMovement) |
 | `unreal-module/src/mass_system_registry.rs` | System discovery FFI, Bevy schedule management |
-| `gatherers-sim/src/` | Game simulation logic (movement, food decisions, fragments) |
+| `gatherers-sim/src/` | Game simulation logic (movement, food decisions, component definitions) |
 | `gatherers-bevy-mass/src/` | Game systems (mostly portable) + spatial query integration + UE tests |
 | `gatherers-standalone/src/` | Standalone Bevy app running the same simulation without Unreal |
 | `RustPlugin/Source/RustPlugin/RustMassDynamicProcessor.cpp` | C++ processor: caching, dispatch |

@@ -10,19 +10,13 @@
 // Do not edit manually.
 
 USTRUCT()
-struct FGatherersBevyMassAntTag : public FMassTag
+struct FGatherersAntTag : public FMassTag
 {
 	GENERATED_BODY()
 };
 
 USTRUCT()
-struct FGatherersMassAntTag : public FMassTag
-{
-	GENERATED_BODY()
-};
-
-USTRUCT()
-struct FGatherersMassFoodTag : public FMassTag
+struct FGatherersFoodTag : public FMassTag
 {
 	GENERATED_BODY()
 };
@@ -30,7 +24,7 @@ struct FGatherersMassFoodTag : public FMassTag
 // FMassCodeDrivenMovementTag — existing UE type, layout verified:
 
 USTRUCT()
-struct FGatherersBehavior : public FMassFragment
+struct FGatherersBehaviorFragment : public FMassFragment
 {
 	GENERATED_BODY()
 
@@ -38,42 +32,42 @@ struct FGatherersBehavior : public FMassFragment
 	int32 RandomSeed = 0;
 };
 
-static_assert(offsetof(FGatherersBehavior, TurnJitterRadians) == 0, "TurnJitterRadians at offset 0");
-static_assert(offsetof(FGatherersBehavior, RandomSeed) == 4, "RandomSeed at offset 4");
-static_assert(sizeof(FGatherersBehavior) == 8, "FGatherersBehavior size must be 8");
+static_assert(offsetof(FGatherersBehaviorFragment, TurnJitterRadians) == 0, "TurnJitterRadians at offset 0");
+static_assert(offsetof(FGatherersBehaviorFragment, RandomSeed) == 4, "RandomSeed at offset 4");
+static_assert(sizeof(FGatherersBehaviorFragment) == 8, "FGatherersBehaviorFragment size must be 8");
 
 USTRUCT()
-struct FGatherersCarrying : public FMassFragment
+struct FGatherersCarryingFragment : public FMassFragment
 {
 	GENERATED_BODY()
 
 	int32 FoodIndex = -1;
 };
 
-static_assert(offsetof(FGatherersCarrying, FoodIndex) == 0, "FoodIndex at offset 0");
-static_assert(sizeof(FGatherersCarrying) == 4, "FGatherersCarrying size must be 4");
+static_assert(offsetof(FGatherersCarryingFragment, FoodIndex) == 0, "FoodIndex at offset 0");
+static_assert(sizeof(FGatherersCarryingFragment) == 4, "FGatherersCarryingFragment size must be 4");
 
 USTRUCT()
-struct FGatherersMassFoodFragment : public FMassFragment
+struct FGatherersFoodStateFragment : public FMassFragment
 {
 	GENERATED_BODY()
 
 	bool bIsLoose = true;
 };
 
-static_assert(offsetof(FGatherersMassFoodFragment, bIsLoose) == 0, "bIsLoose at offset 0");
-static_assert(sizeof(FGatherersMassFoodFragment) == 1, "FGatherersMassFoodFragment size must be 1");
+static_assert(offsetof(FGatherersFoodStateFragment, bIsLoose) == 0, "bIsLoose at offset 0");
+static_assert(sizeof(FGatherersFoodStateFragment) == 1, "FGatherersFoodStateFragment size must be 1");
 
 USTRUCT()
-struct FGatherersPreviousTranslation : public FMassFragment
+struct FGatherersPreviousTranslationFragment : public FMassFragment
 {
 	GENERATED_BODY()
 
 	FVector Value = FVector::ZeroVector;
 };
 
-static_assert(offsetof(FGatherersPreviousTranslation, Value) == 0, "Value at offset 0");
-static_assert(sizeof(FGatherersPreviousTranslation) == 24, "FGatherersPreviousTranslation size must be 24");
+static_assert(offsetof(FGatherersPreviousTranslationFragment, Value) == 0, "Value at offset 0");
+static_assert(sizeof(FGatherersPreviousTranslationFragment) == 24, "FGatherersPreviousTranslationFragment size must be 24");
 
 // FMassDesiredMovementFragment — existing UE type, layout verified:
 static_assert(sizeof(FMassDesiredMovementFragment) == 80, "FMassDesiredMovementFragment size must be 80 for Rust interop");

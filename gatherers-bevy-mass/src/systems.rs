@@ -29,12 +29,12 @@
 
 #[allow(unused_imports)] // Some items used only by #[mass_system] macro expansion
 use bevy_mass::prelude::*;
-use crate::fragments::{
+use crate::components::{
     Transform, PreviousTranslation, DesiredMovement, Cooldown, Carrying, Behavior,
-    FoodFragment, FoodTag, BevyMassAntTag,
+    FoodState, Food, Ant,
     FoodEncounter,
 };
-use gatherers_sim::fragments::{AntFoodHit, FoodMutation};
+use gatherers_sim::components::{AntFoodHit, FoodMutation};
 use bevy_ecs::message::{MessageReader, MessageWriter};
 use gatherers_sim::food_decision::{
     ant_food_decision as ant_food_decision_fn,
@@ -60,7 +60,7 @@ pub use gatherers_sim::movement::reflect_velocity;
 
 #[mass_system(order = 20)]
 fn ant_collision_prepass(
-    ants: Query<(Entity, &Transform, &PreviousTranslation), (With<BevyMassAntTag>, Without<Cooldown>)>,
+    ants: Query<(Entity, &Transform, &PreviousTranslation), (With<Ant>, Without<Cooldown>)>,
     spatial: Res<SpatialQuery>,
     mut hits: MessageWriter<AntFoodHit>,
 ) {
@@ -84,7 +84,7 @@ fn ant_collision_prepass(
 fn ant_food_decision(
     mut ants: Query<
         (Entity, &Transform, &mut DesiredMovement, &mut Carrying, &mut Behavior),
-        (With<BevyMassAntTag>, Without<Cooldown>),
+        (With<Ant>, Without<Cooldown>),
     >,
     mut hits: MessageReader<AntFoodHit>,
     mut food_mutations: MessageWriter<FoodMutation>,
@@ -134,7 +134,7 @@ fn ant_food_decision(
 #[mass_system(order = 35)]
 fn apply_food_mutations(
     mut mutations: MessageReader<FoodMutation>,
-    foods: QueryAll<&mut FoodFragment, With<FoodTag>>,
+    foods: QueryAll<&mut FoodState, With<Food>>,
 ) {
     let mut had_mutation = false;
     for mutation in mutations.read() {
@@ -161,8 +161,8 @@ fn apply_food_mutations(
 
 #[mass_system(order = 45)]
 fn carried_food_tracking(
-    ants: Query<(&Transform, &Carrying), With<BevyMassAntTag>>,
-    food_transforms: QueryAll<&mut Transform, With<FoodTag>>,
+    ants: Query<(&Transform, &Carrying), With<Ant>>,
+    food_transforms: QueryAll<&mut Transform, With<Food>>,
 ) {
     for (transform, carry) in &mut ants {
         if carry.food_index >= 0 {
@@ -194,12 +194,12 @@ mod tests {
     #[test]
     fn apply_food_mutations_pickup() {
         use gatherers_sim::food_decision::DECISION_PICK_UP;
-        let mut foods = [FoodFragment {
+        let mut foods = [FoodState {
             is_loose: true,
         }];
         let mut storage = MassGlobalChunkStorage::new();
         let mut food_q = unsafe {
-            unreal_api::mass::MassQueryAllMut::<FoodFragment>::from_raw_single_chunk(
+            unreal_api::mass::MassQueryAllMut::<FoodState>::from_raw_single_chunk(
                 foods.as_mut_ptr() as *mut _, foods.len(), &mut storage,
             )
         };
@@ -223,12 +223,12 @@ mod tests {
     #[test]
     fn apply_food_mutations_drop() {
         use gatherers_sim::food_decision::DECISION_DROP;
-        let mut foods = [FoodFragment {
+        let mut foods = [FoodState {
             is_loose: false,
         }];
         let mut storage = MassGlobalChunkStorage::new();
         let mut food_q = unsafe {
-            unreal_api::mass::MassQueryAllMut::<FoodFragment>::from_raw_single_chunk(
+            unreal_api::mass::MassQueryAllMut::<FoodState>::from_raw_single_chunk(
                 foods.as_mut_ptr() as *mut _, foods.len(), &mut storage,
             )
         };
