@@ -107,7 +107,7 @@ fn carried_food_tracking(
 
 | Type | Backing | Use case |
 |---|---|---|
-| `MassSpatialQueries` | C++ physics sweep results | Collision detection via `Res<MassSpatialQueries>` |
+| `SpatialQuery` | Wraps `MassSpatialQueries` (C++ physics sweep results) | Collision detection via `Res<SpatialQuery>` — returns `SpatialHit` with `DVec3` |
 
 Facade `Query` supports tuples with `Entity`, `With<Tag>`/`Without<T>` filters, and multiple mutable fragments. The `#[mass_system]` macro handles all backend-specific rewrites.
 
@@ -166,7 +166,7 @@ Game developers write only Rust. The infrastructure handles:
 | `unreal-api/src/mass.rs` | Rust query types, TestCtx, schedule, system registration |
 | `unreal-api-derive/src/mass_system.rs` | `#[mass_system]` proc macro: generates wrapper + Bevy system + registration |
 | `unreal-api-derive/src/mass_fragment.rs` | `#[derive(MassFragment)]` proc macro + C++ header codegen |
-| `bevy_mass/src/` | Facade crate: `Query`, `QueryAll`, `MovementPlugin`, `EntityIndex`, `Time` |
+| `bevy_mass/src/` | Facade crate: `Query`, `QueryAll`, `MovementPlugin`, `SpatialQuery`, `EntityIndex`, `Time` |
 | `unreal-module/src/mass_system_registry.rs` | System discovery FFI, Bevy schedule management |
 | `gatherers-sim/src/` | Game simulation logic (movement, food decisions, fragments) |
 | `gatherers-bevy-mass/src/` | Game systems (mostly portable) + spatial query integration + UE tests |

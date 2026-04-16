@@ -14,7 +14,7 @@ Key Rust crates: `gatherers-sim`, `gatherers-bevy-mass` (game), `gatherers-stand
 
 Key patterns: `inventory::submit!` for registration, `#[mass_system]` macro (handles `Query`, `QueryAll`, `Res`, `With`/`Without`, `Commands`, messages), `#[derive(MassFragment)]` with auto-generated C++ headers, compile-time `static_assert` / layout tests for FFI safety.
 
-`bevy_mass` facade provides: `Query` (iteration), `QueryAll` (index-based global access), `MovementPlugin` (pos += vel * dt in Bevy, no-op in UE), `EntityIndex<Tag>` (spawn-order entity lookup), `mass_fragment!`/`mass_tag!` macros. 5/6 game systems are portable across both backends with zero cfg gates.
+`bevy_mass` facade provides: `Query` (iteration), `QueryAll` (index-based global access), `MovementPlugin` (pos += vel * dt in Bevy, no-op in UE), `SpatialQuery` (wraps UE's `MassSpatialQueries` with cleaner Rust API), `EntityIndex<Tag>` (spawn-order entity lookup), `mass_fragment!`/`mass_tag!` macros. 5/6 game systems are portable across both backends with zero cfg gates. The remaining system (collision detection) is intentionally engine-specific: UE uses C++ physics sweeps via `SpatialQuery`, standalone uses direct Bevy queries. Both produce identical `HitEvent` messages — game logic only reads messages, never touches collision infrastructure.
 
 ## TDD workflow
 

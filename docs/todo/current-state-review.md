@@ -28,22 +28,23 @@
 - Visualization pipeline
 - Spatial query physics sweeps
 
-## Remaining asymmetries
+## Intentionally engine-specific infrastructure
 
 | Concern | Standalone | UE | Notes |
 |---------|-----------|-----|-------|
-| Movement (`pos += vel * dt`) | `MovementPlugin` Rust system | C++ processor | Transparent — game code identical |
-| Collision detection | Brute-force distance check | UE spatial query (C++) | Different infrastructure, same message output |
-| `ant_collision_prepass` | Standalone-specific impl | UE-specific impl (facade Query + `Res<MassSpatialQueries>`) | Only system that differs |
+| Movement (`pos += vel * dt`) | `MovementPlugin` Rust system | C++ `UMassApplyMovementProcessor` | Game code writes `DesiredMovement`, engine applies it |
+| Collision detection | Direct Bevy queries (brute-force distance) | C++ physics sweeps via `SpatialQuery` | Game code reads `HitEvent` messages, engine detects collisions |
+
+These are intentionally engine-specific. UE has powerful native implementations for movement application and spatial queries — the framework uses them in UE mode rather than reimplementing in Rust. The game author's interface is identical: write `DesiredMovement` for movement, read `HitEvent` messages for collisions.
+
+`SpatialQuery` (in `bevy_mass`) wraps UE's `MassSpatialQueries` with a cleaner Rust API (`SpatialHit` with `DVec3` instead of raw FFI types). It's also available as a general-purpose resource for custom spatial query needs in UE mode.
 
 ## Future improvements
 
-1. **Spatial query facade** (Phase 3) — Add a `SpatialQuery` trait to `bevy_mass` with Bevy-mode brute-force search and UE-mode physics sweep. Would make `ant_collision_prepass` portable (6/6).
-
-2. **Entity references instead of numeric indices** — Change `Carrying.food_index: i32` to `Option<Entity>`. More Bevy-idiomatic; UE backend would resolve Entity -> chunk index. Requires reworking spatial query result delivery.
+1. **Entity references instead of numeric indices** — Change `Carrying.food_index: i32` to `Option<Entity>`. More Bevy-idiomatic; UE backend would resolve Entity -> chunk index. Requires reworking spatial query result delivery.
 
 ## Verdict
 
-The **authoring experience is nearly identical** across backends. A game developer writing systems uses the same `Query`, `QueryAll`, `Res<Time>`, `Commands`, and `MessageWriter`/`MessageReader` types in both modes. The `#[mass_system]` macro handles all backend-specific rewrites.
+The **authoring experience is identical** across backends for game logic. A game developer writing systems uses the same `Query`, `QueryAll`, `Res<Time>`, `Commands`, `MessageWriter`/`MessageReader`, and `DesiredMovement`/`HitEvent` types in both modes. The `#[mass_system]` macro handles all backend-specific rewrites.
 
-The single remaining asymmetry (spatial queries) is inherent to the architecture — Bevy collision detection and UE physics sweeps are fundamentally different APIs. A facade trait would bridge this but hasn't been prioritized.
+Engine infrastructure (movement application, collision detection) is intentionally backend-specific — different implementations, same interface, same output. This mirrors UE's own architecture where game code writes desired intent and the engine handles execution.

@@ -136,7 +136,6 @@ fn spawn_entities(mut commands: Commands) {
 // ---------------------------------------------------------------------------
 
 /// Collision prepass: brute-force proximity search, emits HitEvent messages.
-/// Matches the original gatherers CollisionPlugin pattern.
 fn collision_prepass(
     ants: Query<(Entity, &SimTransform), (With<AntMarker>, Without<Cooldown>)>,
     foods: Query<(&FoodFragment, &SimTransform), With<FoodMarker>>,

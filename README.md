@@ -13,7 +13,7 @@ This is a fork of [MaikKlein/unreal-rust](https://github.com/MaikKlein/unreal-ru
 ### What this fork adds
 
 - **Mass Entity bridge** — Rust systems operate directly on Unreal's MassEntity chunk memory with zero-copy access. Fragment layouts are validated at compile time across the FFI boundary.
-- **Bevy-compatible systems** — A `bevy_mass` facade crate lets you write standard Bevy-style systems (`Query<&mut T>`, `Res<Time>`) that compile against either pure Bevy for testing/standalone or Unreal MassEntity for production. Includes `MovementPlugin` (framework-provided movement application) and `QueryAll` (index-based global entity access) — both switch implementation at compile time.
+- **Bevy-compatible systems** — A `bevy_mass` facade crate lets you write standard Bevy-style systems (`Query<&mut T>`, `Res<Time>`) that compile against either pure Bevy for testing/standalone or Unreal MassEntity for production. Includes `MovementPlugin` (framework-provided movement application), `QueryAll` (index-based global entity access), and `SpatialQuery` (wraps UE's physics sweeps with a clean Rust API) — all switch implementation at compile time.
 - **`#[mass_system]` macro** — Annotate a Rust function and it becomes a MassEntity processor. Supports tuple queries with `Entity`, `With`/`Without` filters, `Res`/`ResMut`, `Commands`, `MessageReader`/`MessageWriter`, and `QueryAll`. No C++ registration boilerplate.
 - **`#[derive(MassFragment)]` macro** — Define fragment structs in Rust with auto-generated C++ headers and compile-time layout verification.
 - **Auto-init from Rust** — Entity group counts, simulation bounds, spatial queries, and visualizer config are all registered from Rust via `inventory::submit!`. The C++ subsystem discovers and wires them up automatically.
@@ -23,7 +23,7 @@ This is a fork of [MaikKlein/unreal-rust](https://github.com/MaikKlein/unreal-ru
 
 ### Example: Gatherers simulation
 
-The included example is an ant colony simulation (~5000 entities) with movement, boundary reflection, food encounter detection via physics sweeps, and pickup/drop behavior. All game logic is in Rust across two crates: `gatherers-sim` (pure logic) and `gatherers-bevy-mass` (UE integration and fragment definitions). A standalone Bevy app (`gatherers-standalone`) runs the same simulation without Unreal — 5 of 6 game systems are portable across both backends with zero `#[cfg]` gates.
+The included example is an ant colony simulation (~5000 entities) with movement, boundary reflection, food encounter detection via physics sweeps, and pickup/drop behavior. All game logic is in Rust across two crates: `gatherers-sim` (pure logic) and `gatherers-bevy-mass` (UE integration and fragment definitions). A standalone Bevy app (`gatherers-standalone`) runs the same simulation without Unreal — 5 of 6 game systems are portable across both backends with zero `#[cfg]` gates. The remaining system (collision detection) is intentionally engine-specific: UE uses native physics sweeps, standalone uses direct Bevy queries. Both produce identical hit-event messages that the shared game logic consumes.
 
 ## ☣️ Warning
 

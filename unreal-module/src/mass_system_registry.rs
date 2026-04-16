@@ -3,11 +3,11 @@ use std::sync::Mutex;
 use unreal_api::ffi::{MassFragmentRequirement, MassSystemDescriptor, Utf8Str};
 use unreal_api::mass::{
     MassBevySystemRegistration, MassEntityMap, MassSchedule,
-    MassSpatialQueries,
     MassSystemRegistration, MassSystemStage,
     registered_bevy_mass_systems, registered_mass_systems, registered_sim_inits,
     registered_visualizer_groups, registered_spatial_query_configs, registered_sim_defaults,
 };
+use bevy_mass::SpatialQuery;
 
 /// Returns the number of dynamically registered mass systems.
 pub unsafe extern "C" fn get_mass_system_count() -> u32 {
@@ -114,7 +114,7 @@ pub fn build_bevy_schedule() -> MassSchedule {
     }
 
     // Resource for named spatial query callbacks (populated per-frame)
-    sched.world_mut().insert_resource(MassSpatialQueries::default());
+    sched.world_mut().insert_resource(SpatialQuery::default());
 
     // message_update_system is already added by App::default() in First schedule.
     // No manual wiring needed.
@@ -163,7 +163,7 @@ pub unsafe extern "C" fn mass_frame_dispatch(
 
     // Update spatial queries from dispatch data
     {
-        let mut queries = sched.world_mut().resource_mut::<MassSpatialQueries>();
+        let mut queries = sched.world_mut().resource_mut::<SpatialQuery>();
         queries.clear();
         if data.num_spatial_queries > 0 && !data.spatial_queries.is_null() {
             let slots = unsafe {

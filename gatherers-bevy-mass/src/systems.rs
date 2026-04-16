@@ -14,9 +14,11 @@
 //   In Unreal mode: backed by MassQueryAllMut (zero-copy chunk access).
 //   Examples: apply_food_mutations, carried_food_tracking.
 //
-// **MassSpatialQueries** (`unreal_api::mass::MassSpatialQueries`):
-//   Unreal-only resource for C++ physics sweep results.
-//   Examples: ant_collision_prepass.
+// **SpatialQuery** (`bevy_mass::prelude::SpatialQuery`):
+//   UE-mode wrapper around MassSpatialQueries with cleaner Rust API.
+//   Returns SpatialHit with DVec3 instead of raw FFI types.
+//   In standalone mode, collision uses direct Bevy queries instead.
+//   Examples: ant_collision_prepass (UE-specific).
 //
 // **BevyQuery** (`bevy_ecs::system::Query`):
 //   Use for pure-Bevy components that live on shadow entities (not in chunk
@@ -59,18 +61,16 @@ pub use gatherers_sim::movement::reflect_velocity;
 #[mass_system(order = 20)]
 fn ant_collision_prepass(
     ants: Query<(Entity, &Transform, &PreviousTranslation), (With<BevyMassAntTag>, Without<Cooldown>)>,
-    spatial: Res<unreal_api::mass::MassSpatialQueries>,
+    spatial: Res<SpatialQuery>,
     mut hits: MessageWriter<AntFoodHit>,
 ) {
     for (entity, transform, prev) in &mut ants {
-        if let Some(result) = spatial.call("food_pickup", prev.value.as_ref(), transform.translation.as_ref()) {
-            if result.has_encounter {
-                hits.write(AntFoodHit::new(
-                    result.entity_index,
-                    entity,
-                    DVec3::from(result.encounter_position),
-                ));
-            }
+        if let Some(hit) = spatial.call("food_pickup", &prev.value, &transform.translation) {
+            hits.write(AntFoodHit::new(
+                hit.entity_index,
+                entity,
+                hit.position,
+            ));
         }
     }
 }

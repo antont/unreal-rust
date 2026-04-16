@@ -26,6 +26,10 @@ Converted `ant_food_decision`, `apply_food_mutations`, `carried_food_tracking` f
 
 Added `bevy_mass::MovementPlugin<T, P, D>` with `TransformLike`, `PrevTranslationLike`, `DesiredMovementLike` traits. In Bevy mode: `apply_movement` system (pos += vel * dt, save PreviousTranslation). In UE mode: no-op (C++ `UMassApplyMovementProcessor` and `URustMassPostMovementProcessor` handle it). Deleted `entity_movement` system. Made `entity_boundary_reflect` read-only Transform (pure velocity reflection, no position clamping). Removed position clamping from C++ PostMovementProcessor.
 
+## 10. ~~SpatialQuery facade~~ ✅ DONE
+
+Added `SpatialQuery` resource to `bevy_mass` that wraps UE's `MassSpatialQueries` with a cleaner Rust API (`call()` returns `Option<SpatialHit>` with `DVec3` instead of raw FFI arrays). UE-mode `ant_collision_prepass` uses `Res<SpatialQuery>`. Standalone keeps direct Bevy queries for collision — this is intentional: collision detection and movement application are engine-specific infrastructure (UE uses native physics sweeps, standalone uses Bevy queries). Both produce identical `HitEvent` messages consumed by shared game logic.
+
 ## 9. Entity references instead of numeric indices (future)
 
 Currently game code uses `Carrying.food_index: i32` (numeric index into "all food entities") because UE Mass Entity's chunk architecture uses index-based access. In pure Bevy this would be `Option<Entity>`. Consider changing game logic to use `Entity` references with the UE backend resolving them to chunk indices — more Bevy-idiomatic, but requires reworking how C++ spatial query results are consumed and how cross-archetype references work.

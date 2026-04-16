@@ -34,6 +34,7 @@ mod time;
 mod query;
 pub mod movement;
 pub mod query_all;
+pub mod spatial_query;
 
 pub mod prelude {
     pub use crate::time::Time;
@@ -59,6 +60,9 @@ pub mod prelude {
     #[cfg(feature = "unreal")]
     pub use crate::query_all::QueryAll;
 
+    // Spatial query facade
+    pub use crate::spatial_query::{SpatialQuery, SpatialHit};
+
     // mass_system attribute macro — available unconditionally.
     // In Bevy mode it's a no-op (passes through the original function).
     // In Unreal mode it generates chunk-based dispatch + C++ wrappers.
@@ -75,6 +79,7 @@ pub use query::Query;
 pub use query::BevyQuery;
 pub use movement::{TransformLike, PrevTranslationLike, DesiredMovementLike, MovementPlugin};
 pub use query_all::EntityIndex;
+pub use spatial_query::{SpatialQuery, SpatialHit};
 
 /// Define a MassFragment struct with correct attributes for both Bevy and Unreal modes.
 ///
