@@ -68,6 +68,11 @@ pub mod prelude {
     // In Unreal mode it generates chunk-based dispatch + C++ wrappers.
     pub use unreal_api_derive::mass_system;
 
+    // component attribute macro — defines a Bevy Component with automatic
+    // Unreal MassFragment integration. Replaces mass_fragment!/mass_tag! for
+    // game-authored types.
+    pub use unreal_api_derive::component;
+
     // In Unreal mode, re-export Unreal-specific query types
     #[cfg(feature = "unreal")]
     pub use unreal_api::mass::{MassQuery, MassQueryAll};
@@ -80,6 +85,7 @@ pub use query::BevyQuery;
 pub use movement::{TransformLike, PrevTranslationLike, DesiredMovementLike, MovementPlugin};
 pub use query_all::EntityIndex;
 pub use spatial_query::{SpatialQuery, SpatialHit};
+pub use unreal_api_derive::component;
 
 /// Define a MassFragment struct with correct attributes for both Bevy and Unreal modes.
 ///

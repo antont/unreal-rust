@@ -1,4 +1,4 @@
-use bevy_mass::prelude::{Component, Entity};
+use bevy_mass::prelude::{Component, Entity, component};
 use bevy_mass::movement::{TransformLike, PrevTranslationLike, DesiredMovementLike};
 use bevy_ecs::message::Message;
 use glam::DVec3;
@@ -8,17 +8,14 @@ use std::marker::PhantomData;
 // Tags
 // ---------------------------------------------------------------------------
 
-bevy_mass::mass_tag!(cpp_type = "FGatherersMassAntTag",
-    pub struct AntTag;
-);
+#[component(cpp_type = "FGatherersMassAntTag")]
+pub struct AntTag;
 
-bevy_mass::mass_tag!(cpp_type = "FGatherersMassFoodTag",
-    pub struct FoodTag;
-);
+#[component(cpp_type = "FGatherersMassFoodTag")]
+pub struct FoodTag;
 
-bevy_mass::mass_tag!(cpp_type = "FGatherersBevyMassAntTag", group = "ants",
-    pub struct BevyMassAntTag;
-);
+#[component(cpp_type = "FGatherersBevyMassAntTag", group = "ants")]
+pub struct BevyMassAntTag;
 
 // ---------------------------------------------------------------------------
 // Fragments
@@ -64,13 +61,12 @@ impl TransformLike for Transform {
     fn set_translation(&mut self, v: DVec3) { self.translation = v; }
 }
 
-bevy_mass::mass_fragment!(cpp_type = "FGatherersPreviousTranslation",
-    /// Previous-frame translation, used for spatial sweep queries.
-    #[derive(Default)]
-    pub struct PreviousTranslation {
-        pub value: DVec3,
-    }
-);
+#[component(cpp_type = "FGatherersPreviousTranslation")]
+#[derive(Default)]
+/// Previous-frame translation, used for spatial sweep queries.
+pub struct PreviousTranslation {
+    pub value: DVec3,
+}
 
 impl PrevTranslationLike for PreviousTranslation {
     fn prev(&self) -> DVec3 { self.value }
@@ -163,12 +159,11 @@ pub struct Cooldown {
     pub remaining_seconds: f32,
 }
 
-bevy_mass::mass_fragment!(cpp_type = "FGatherersCarrying",
-    /// Index of carried food item (-1 = not carrying).
-    pub struct Carrying {
-        pub food_index: i32,
-    }
-);
+#[component(cpp_type = "FGatherersCarrying")]
+/// Index of carried food item (-1 = not carrying).
+pub struct Carrying {
+    pub food_index: i32,
+}
 
 impl Default for Carrying {
     fn default() -> Self {
@@ -176,13 +171,12 @@ impl Default for Carrying {
     }
 }
 
-bevy_mass::mass_fragment!(cpp_type = "FGatherersBehavior",
-    /// Per-entity behavior tuning (turn jitter, RNG state).
-    pub struct Behavior {
-        pub turn_jitter_radians: f32,
-        pub random_seed: i32,
-    }
-);
+#[component(cpp_type = "FGatherersBehavior")]
+/// Per-entity behavior tuning (turn jitter, RNG state).
+pub struct Behavior {
+    pub turn_jitter_radians: f32,
+    pub random_seed: i32,
+}
 
 impl Default for Behavior {
     fn default() -> Self {
@@ -193,12 +187,11 @@ impl Default for Behavior {
     }
 }
 
-bevy_mass::mass_fragment!(cpp_type = "FGatherersMassFoodFragment",
-    /// Food entity fragment. Position is in FTransformFragment (shared with vis system).
-    pub struct FoodFragment {
-        pub is_loose: bool,
-    }
-);
+#[component(cpp_type = "FGatherersMassFoodFragment")]
+/// Food entity fragment. Position is in FTransformFragment (shared with vis system).
+pub struct FoodFragment {
+    pub is_loose: bool,
+}
 
 impl Default for FoodFragment {
     fn default() -> Self {
