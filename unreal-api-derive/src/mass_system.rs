@@ -709,12 +709,13 @@ pub fn mass_system_impl(func: &ItemFn, order: u32, entity_group: Option<&str>) -
                 let access = if frag.is_mutable { 1u8 } else { 0u8 };
                 quote! {
                     ::unreal_api::mass::MassSystemRequirement {
-                        cpp_type_name: <#frag_type as ::unreal_api::mass::MassFragment>::CPP_TYPE_NAME,
+                        cpp_type_name: <#frag_type as ::unreal_api::mass::MaybeFragment>::CPP_TYPE_NAME_OR_EMPTY,
                         size: ::std::mem::size_of::<#frag_type>(),
                         align: ::std::mem::align_of::<#frag_type>(),
                         access_mode: #access,
                         is_tag: 0,
                         query_scope: #scope,
+                        is_valid: <#frag_type as ::unreal_api::mass::MaybeFragment>::IS_FRAGMENT,
                     }
                 }
             }).collect::<Vec<_>>()
@@ -745,6 +746,7 @@ pub fn mass_system_impl(func: &ItemFn, order: u32, entity_group: Option<&str>) -
                     access_mode: 0,
                     is_tag: 1,
                     query_scope: #scope_val,
+                    is_valid: true,
                 }
             }
         })
@@ -754,6 +756,32 @@ pub fn mass_system_impl(func: &ItemFn, order: u32, entity_group: Option<&str>) -
         .chain(tag_requirement_entries.iter())
         .collect();
     let num_requirements = all_requirement_entries.len();
+
+    // Compile-time guard: all primary query fragment types must have the same IS_CHUNK value.
+    // Mixing chunk-backed and Bevy-only fragments in one system's primary queries would cause
+    // the Bevy-only data to be re-iterated on every chunk iteration (double-mutation bug).
+    let primary_frag_types: Vec<&syn::Type> = query_params
+        .iter()
+        .filter(|p| p.scope == QueryScope::Primary)
+        .flat_map(|p| p.fragment_refs().into_iter().map(|f| &f.fragment_type))
+        .collect();
+    let chunk_consistency_assert = if primary_frag_types.len() >= 2 {
+        let first = &primary_frag_types[0];
+        let checks: Vec<TokenStream> = primary_frag_types[1..].iter().map(|t| {
+            quote! {
+                <#first as ::unreal_api::mass::QueryBackend>::IS_CHUNK
+                    == <#t as ::unreal_api::mass::QueryBackend>::IS_CHUNK
+            }
+        }).collect();
+        quote! {
+            const _: () = assert!(
+                #(#checks)&&*,
+                "mixed chunk-backed and Bevy-only fragments in one system's primary queries are not supported — split into separate #[mass_system] functions, one per storage kind"
+            );
+        }
+    } else {
+        quote! {}
+    };
 
     // Generate facade struct names for tuple queries
     let facade_names: std::collections::HashMap<String, (syn::Ident, syn::Ident)> = query_params
@@ -886,20 +914,58 @@ pub fn mass_system_impl(func: &ItemFn, order: u32, entity_group: Option<&str>) -
                 }
             }).collect();
 
-            // For single primary queries: add a bevy_ecs::system::Query param for dual-mode dispatch.
+            // For primary queries: add a bevy_ecs::system::Query param for dual-mode dispatch.
             // The Query will be empty for chunk-backed types (no Bevy entities have those components),
             // and populated for Bevy-only types (chunk resource will be empty instead).
-            if !p.is_tuple() && p.scope == QueryScope::Primary {
-                let frag_type = p.single_fragment_type();
+            if p.scope == QueryScope::Primary {
                 let bevy_param_name = format_ident!("__bevy_{}", p.param_name);
-                if p.single_is_mutable() {
-                    params.push(quote! {
-                        mut #bevy_param_name: ::bevy_ecs::system::Query<'_, '_, &mut #frag_type>
-                    });
+                if p.is_tuple() {
+                    let QueryData::Tuple { has_entity, fragments } = &p.data else { unreachable!() };
+                    // Build tuple data type: (Entity, &mut T, &U, ...)
+                    let mut tuple_elems: Vec<TokenStream> = Vec::new();
+                    if *has_entity {
+                        tuple_elems.push(quote! { ::unreal_api::ecs::entity::Entity });
+                    }
+                    for frag in fragments {
+                        let ft = &frag.fragment_type;
+                        if frag.is_mutable {
+                            tuple_elems.push(quote! { &mut #ft });
+                        } else {
+                            tuple_elems.push(quote! { &#ft });
+                        }
+                    }
+                    let data_type = quote! { (#(#tuple_elems),*) };
+
+                    // Build filter type from filter_tags and without_filters
+                    let filter_parts: Vec<TokenStream> = p.filter_tags.iter()
+                        .map(|t| quote! { ::unreal_api::ecs::prelude::With<#t> })
+                        .chain(p.without_filters.iter().map(|t| quote! { ::unreal_api::ecs::prelude::Without<#t> }))
+                        .collect();
+                    if filter_parts.is_empty() {
+                        params.push(quote! {
+                            mut #bevy_param_name: ::bevy_ecs::system::Query<'_, '_, #data_type>
+                        });
+                    } else if filter_parts.len() == 1 {
+                        let f = &filter_parts[0];
+                        params.push(quote! {
+                            mut #bevy_param_name: ::bevy_ecs::system::Query<'_, '_, #data_type, #f>
+                        });
+                    } else {
+                        params.push(quote! {
+                            mut #bevy_param_name: ::bevy_ecs::system::Query<'_, '_, #data_type, (#(#filter_parts),*)>
+                        });
+                    }
                 } else {
-                    params.push(quote! {
-                        #bevy_param_name: ::bevy_ecs::system::Query<'_, '_, &#frag_type>
-                    });
+                    let frag_type = p.single_fragment_type();
+                    if p.single_is_mutable() {
+                        params.push(quote! {
+                            mut #bevy_param_name: ::bevy_ecs::system::Query<'_, '_, &mut #frag_type>
+                        });
+                    } else {
+                        params.push(quote! {
+                            #bevy_param_name: ::bevy_ecs::system::Query<'_, '_, &#frag_type>
+                        });
+                    }
                 }
             }
 
@@ -940,6 +1006,87 @@ pub fn mass_system_impl(func: &ItemFn, order: u32, entity_group: Option<&str>) -
                     };
                 }
             }
+        })
+        .collect();
+
+    // Pre-loop statements for tuple primary queries: declare per-component Vecs and
+    // conditionally collect from the bevy_ecs::system::Query when fragments are Bevy-only.
+    // Safety: the Vecs must not be resized or dropped while the facade struct's raw
+    // pointers are live. Commands defers mutations, so this is safe today.
+    let pre_loop_bevy_tuple_stmts: Vec<TokenStream> = query_params
+        .iter()
+        .filter(|p| p.is_tuple() && p.scope == QueryScope::Primary)
+        .flat_map(|p| {
+            let QueryData::Tuple { has_entity, fragments } = &p.data else { unreachable!() };
+            let bevy_param_name = format_ident!("__bevy_{}", p.param_name);
+            let first_frag_type = &fragments[0].fragment_type;
+
+            let mut stmts: Vec<TokenStream> = Vec::new();
+
+            // Declare Vecs for each fragment (values for contiguous storage).
+            // For mutable fragments, also declare a pointer Vec for write-back.
+            for (i, frag) in fragments.iter().enumerate() {
+                let vec_name = format_ident!("__bvec_{}_{}", p.param_name, i);
+                let ft = &frag.fragment_type;
+                stmts.push(quote! { let mut #vec_name: Vec<#ft> = Vec::new(); });
+                if frag.is_mutable {
+                    let ptrs_name = format_ident!("__bptrs_{}_{}", p.param_name, i);
+                    stmts.push(quote! { let mut #ptrs_name: Vec<*mut #ft> = Vec::new(); });
+                }
+            }
+
+            // Entity vec (if tuple includes Entity)
+            if *has_entity {
+                let evec = format_ident!("__bvec_{}_entities", p.param_name);
+                stmts.push(quote! { let mut #evec: Vec<::unreal_api::ecs::entity::Entity> = Vec::new(); });
+            }
+
+            // Build iteration pattern: (entity, mut v0, v1, ...)
+            let mut pat_parts: Vec<TokenStream> = Vec::new();
+            if *has_entity {
+                pat_parts.push(quote! { __e });
+            }
+            for (i, frag) in fragments.iter().enumerate() {
+                let var = format_ident!("__v{}", i);
+                if frag.is_mutable {
+                    pat_parts.push(quote! { mut #var });
+                } else {
+                    pat_parts.push(quote! { #var });
+                }
+            }
+            let pattern = quote! { (#(#pat_parts),*) };
+
+            // Push statements per component: collect values into contiguous Vecs
+            // (the facade struct's iterator uses pointer arithmetic, requiring contiguous data).
+            // For mutable fragments, we also save the original Bevy pointer for write-back.
+            let mut push_stmts: Vec<TokenStream> = Vec::new();
+            if *has_entity {
+                let evec = format_ident!("__bvec_{}_entities", p.param_name);
+                push_stmts.push(quote! { #evec.push(__e); });
+            }
+            for (i, frag) in fragments.iter().enumerate() {
+                let vec_name = format_ident!("__bvec_{}_{}", p.param_name, i);
+                let var = format_ident!("__v{}", i);
+                if frag.is_mutable {
+                    let ptrs_name = format_ident!("__bptrs_{}_{}", p.param_name, i);
+                    push_stmts.push(quote! {
+                        #ptrs_name.push(&mut *#var as *mut _);
+                        #vec_name.push((*#var).clone());
+                    });
+                } else {
+                    push_stmts.push(quote! { #vec_name.push((*#var).clone()); });
+                }
+            }
+
+            stmts.push(quote! {
+                if !<#first_frag_type as ::unreal_api::mass::QueryBackend>::IS_CHUNK {
+                    for #pattern in #bevy_param_name.iter_mut() {
+                        #(#push_stmts)*
+                    }
+                }
+            });
+
+            stmts
         })
         .collect();
 
@@ -1122,7 +1269,7 @@ pub fn mass_system_impl(func: &ItemFn, order: u32, entity_group: Option<&str>) -
         })
         .collect();
 
-    // Populate resources closure — one per fragment
+    // Populate resources closure — one per fragment (skip Bevy-only types at runtime)
     let populate_primary_stmts: Vec<TokenStream> = query_params
         .iter()
         .filter(|p| p.scope == QueryScope::Primary)
@@ -1131,8 +1278,10 @@ pub fn mass_system_impl(func: &ItemFn, order: u32, entity_group: Option<&str>) -
                 let frag_type = &frag.fragment_type;
                 let idx = frag.scope_index;
                 quote! {
-                    world.resource_mut::<::unreal_api::mass::MassSystemChunks<#marker_name, #frag_type>>()
-                        .push_primary_slice(*chunk.fragments.add(#idx));
+                    if <#frag_type as ::unreal_api::mass::MaybeFragment>::IS_FRAGMENT {
+                        world.resource_mut::<::unreal_api::mass::MassSystemChunks<#marker_name, #frag_type>>()
+                            .push_primary_slice(*chunk.fragments.add(#idx));
+                    }
                 }
             }).collect::<Vec<_>>()
         })
@@ -1146,9 +1295,11 @@ pub fn mass_system_impl(func: &ItemFn, order: u32, entity_group: Option<&str>) -
                 let frag_type = &frag.fragment_type;
                 let idx = frag.scope_index;
                 quote! {
-                    if world.resource::<::unreal_api::mass::MassSystemChunks<#global_marker_name, #frag_type>>().global().is_none() {
-                        world.resource_mut::<::unreal_api::mass::MassSystemChunks<#global_marker_name, #frag_type>>()
-                            .set_global(chunk.global_chunked_fragments.add(#idx));
+                    if <#frag_type as ::unreal_api::mass::MaybeFragment>::IS_FRAGMENT {
+                        if world.resource::<::unreal_api::mass::MassSystemChunks<#global_marker_name, #frag_type>>().global().is_none() {
+                            world.resource_mut::<::unreal_api::mass::MassSystemChunks<#global_marker_name, #frag_type>>()
+                                .set_global(chunk.global_chunked_fragments.add(#idx));
+                        }
                     }
                 }
             }).collect::<Vec<_>>()
@@ -1382,6 +1533,7 @@ pub fn mass_system_impl(func: &ItemFn, order: u32, entity_group: Option<&str>) -
         };
 
         // --- Emit struct + iterator + IntoIterator ---
+        // Each item gets its own entry so the outer #[cfg(feature = "unreal")] applies to each.
         facade_struct_defs.push(quote! {
             #[allow(non_camel_case_types)]
             struct #struct_name<'a> {
@@ -1391,7 +1543,9 @@ pub fn mass_system_impl(func: &ItemFn, order: u32, entity_group: Option<&str>) -
                 __len: usize,
                 __phantom: ::std::marker::PhantomData<&'a ()>,
             }
+        });
 
+        facade_struct_defs.push(quote! {
             #[allow(non_camel_case_types)]
             struct #iter_name<'a> {
                 #(#iter_field_defs,)*
@@ -1401,7 +1555,9 @@ pub fn mass_system_impl(func: &ItemFn, order: u32, entity_group: Option<&str>) -
                 __idx: usize,
                 __phantom: ::std::marker::PhantomData<&'a ()>,
             }
+        });
 
+        facade_struct_defs.push(quote! {
             impl<'a> Iterator for #iter_name<'a> {
                 type Item = #item_type;
 
@@ -1417,7 +1573,9 @@ pub fn mass_system_impl(func: &ItemFn, order: u32, entity_group: Option<&str>) -
                     }
                 }
             }
+        });
 
+        facade_struct_defs.push(quote! {
             impl<'a> IntoIterator for &mut #struct_name<'a> {
                 type Item = <#iter_name<'a> as Iterator>::Item;
                 type IntoIter = #iter_name<'a>;
@@ -1519,6 +1677,10 @@ pub fn mass_system_impl(func: &ItemFn, order: u32, entity_group: Option<&str>) -
         } else if let Some(group) = entity_group {
             // Fallback: explicit entity_group attribute
             quote! { #group }
+        } else if has_single_primary || query_params.iter().any(|p| p.is_tuple() && p.scope == QueryScope::Primary) {
+            // Dual-mode: the chunk path is dead code for Bevy-only types (IS_CHUNK=false),
+            // so entity_group is unreachable. Use a panic placeholder.
+            quote! { panic!("unreachable: Bevy-only query has no entity group") }
         } else {
             return Err(syn::Error::new_spanned(
                 &func.sig.ident,
@@ -1613,16 +1775,90 @@ pub fn mass_system_impl(func: &ItemFn, order: u32, entity_group: Option<&str>) -
         })
         .collect();
 
+    // Fallback facade construction for tuple queries when chunk_count == 0 (Bevy-only).
+    // Constructs facade structs from the pre-collected Vecs.
+    let fallback_tuple_stmts: Vec<TokenStream> = query_params
+        .iter()
+        .filter(|p| p.is_tuple() && p.scope == QueryScope::Primary)
+        .map(|p| {
+            let (struct_name, _) = &facade_names[&p.param_name.to_string()];
+            let param_name = &p.param_name;
+            let QueryData::Tuple { has_entity, fragments } = &p.data else { unreachable!() };
+
+            let field_assigns: Vec<TokenStream> = fragments.iter().enumerate().map(|(i, frag)| {
+                let field_name = format_ident!("__p{}", i);
+                let vec_name = format_ident!("__bvec_{}_{}", param_name, i);
+                if frag.is_mutable {
+                    quote! { #field_name: #vec_name.as_mut_ptr() as *mut _ }
+                } else {
+                    quote! { #field_name: #vec_name.as_ptr() }
+                }
+            }).collect();
+
+            let entity_assign = if *has_entity {
+                let evec = format_ident!("__bvec_{}_entities", param_name);
+                quote! { __entities: &#evec[..], }
+            } else {
+                quote! {}
+            };
+
+            let filter_assign = if !p.without_filters.is_empty() {
+                let first_vec = format_ident!("__bvec_{}_0", param_name);
+                quote! { __filter_mask: vec![true; #first_vec.len()], }
+            } else {
+                quote! {}
+            };
+
+            let first_vec = format_ident!("__bvec_{}_0", param_name);
+            quote! {
+                let mut #param_name = #struct_name {
+                    #(#field_assigns,)*
+                    #entity_assign
+                    #filter_assign
+                    __len: #first_vec.len(),
+                    __phantom: ::std::marker::PhantomData,
+                };
+            }
+        })
+        .collect();
+
+    // Write-back statements: after the fallback system call, copy modified values
+    // from the contiguous Vec back to the original Bevy entity storage.
+    let fallback_writeback_stmts: Vec<TokenStream> = query_params
+        .iter()
+        .filter(|p| p.is_tuple() && p.scope == QueryScope::Primary)
+        .flat_map(|p| {
+            let QueryData::Tuple { fragments, .. } = &p.data else { unreachable!() };
+            fragments.iter().enumerate().filter_map(|(i, frag)| {
+                if frag.is_mutable {
+                    let vec_name = format_ident!("__bvec_{}_{}", p.param_name, i);
+                    let ptrs_name = format_ident!("__bptrs_{}_{}", p.param_name, i);
+                    Some(quote! {
+                        for (__idx, __val) in #vec_name.iter().enumerate() {
+                            unsafe { *#ptrs_name[__idx] = __val.clone(); }
+                        }
+                    })
+                } else {
+                    None
+                }
+            }).collect::<Vec<_>>()
+        })
+        .collect();
+
+    let has_primary_tuples = query_params.iter().any(|p| p.is_tuple() && p.scope == QueryScope::Primary);
+    let has_dual_mode = has_single_primary || has_primary_tuples;
+
     let wrapper_body = if has_primary_queries {
-        if has_single_primary {
+        if has_dual_mode {
             // Dual-mode dispatch: pre-collect Bevy queries, then const-if in chunk loop.
             // If chunk_count == 0 (all types are Bevy-only or no data), run once with
-            // Bevy-sourced DualQuerys as fallback.
+            // Bevy-sourced data as fallback.
             quote! {
                 #(#pre_loop_bevy_stmts)*
-                #pre_loop
+                #(#pre_loop_bevy_tuple_stmts)*
                 let __chunk_count = #primary_count_source;
                 if __chunk_count > 0 {
+                    #pre_loop
                     for __chunk_idx in 0..__chunk_count {
                         #(#bevy_unpack_stmts)*
                         #entity_slice_setup
@@ -1632,13 +1868,18 @@ pub fn mass_system_impl(func: &ItemFn, order: u32, entity_group: Option<&str>) -
                     }
                 } else {
                     // No chunks — pure Bevy fallback
+                    #(#global_unpack_stmts)*
                     #(#fallback_unpack_stmts)*
+                    #(#fallback_tuple_stmts)*
                     #func_name(#(#bevy_call_args),*);
+                    #(#fallback_writeback_stmts)*
                 }
             }
         } else {
-            // Only tuple queries — no dual-mode dispatch needed
+            // Only tuple queries with no dual-mode — shouldn't happen since all
+            // primary queries now get dual-mode, but keep as safety fallback
             quote! {
+                #(#pre_loop_bevy_tuple_stmts)*
                 #pre_loop
                 for __chunk_idx in 0..#primary_count_source {
                     #(#bevy_unpack_stmts)*
@@ -1802,6 +2043,9 @@ pub fn mass_system_impl(func: &ItemFn, order: u32, entity_group: Option<&str>) -
         #[cfg(feature = "unreal")]
         #[allow(non_camel_case_types)]
         struct #global_marker_name;
+
+        #[cfg(feature = "unreal")]
+        #chunk_consistency_assert
 
         #(
             #[cfg(feature = "unreal")]
@@ -2596,8 +2840,9 @@ mod tests {
     }
 
     #[test]
-    fn entity_group_error_when_missing() {
-        // When entity map is needed but no With<Tag> and no entity_group → error
+    fn entity_group_uses_panic_placeholder_for_dual_mode() {
+        // Dual-mode queries without entity_group get a panic placeholder
+        // (chunk path is dead code for Bevy-only types)
         let func: ItemFn = syn::parse2(quote! {
             fn my_system(
                 ants: MassQuery<(Entity, &mut Position), Without<Cooldown>>,
@@ -2606,7 +2851,9 @@ mod tests {
         .unwrap();
 
         let result = mass_system_impl(&func, 0, None);
-        assert!(result.is_err(), "should error when entity_group is missing and no With<Tag>");
+        assert!(result.is_ok(), "dual-mode queries should not error without entity_group");
+        let output = result.unwrap().to_string();
+        assert!(output.contains("unreachable"), "should contain panic placeholder");
     }
 
     // -----------------------------------------------------------------------

@@ -22,13 +22,13 @@ pub const SIM_BOUNDS_MAX: [f64; 3] = [500.0, 500.0, 100.0];
 // ---------------------------------------------------------------------------
 // System 4: Cooldown — decrement pickup cooldown timers
 // Pure-Bevy component with add/remove semantics. In Unreal mode, Cooldown
-// lives on shadow Bevy entities, not in chunk memory.
-// #[bevy] tells the macro to pass this Query through as a real Bevy query.
+// lives on shadow Bevy entities, not in chunk memory. The macro auto-detects
+// this via QueryBackend::IS_CHUNK and dispatches to Bevy storage.
 // ---------------------------------------------------------------------------
 
 #[mass_system(order = 40)]
 pub fn entity_cooldown(
-    #[bevy] mut cooldowns: Query<(Entity, &mut Cooldown)>,
+    mut cooldowns: Query<(Entity, &mut Cooldown)>,
     time: Res<Time>,
     mut commands: Commands,
 ) {

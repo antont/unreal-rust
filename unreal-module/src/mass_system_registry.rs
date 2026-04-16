@@ -32,11 +32,12 @@ pub unsafe extern "C" fn get_mass_system_descriptor(
         return 0;
     };
 
-    // Build requirements array — we need stable pointers, so use a static-lifetime
-    // reference from the registration (requirements is &'static [MassSystemRequirement]).
+    // Build requirements array — filter out non-MassFragment types (is_valid == false),
+    // which are pure-Bevy components with no C++ representation.
     let requirements: Vec<MassFragmentRequirement> = registration
         .requirements
         .iter()
+        .filter(|req| req.is_valid)
         .map(|req| MassFragmentRequirement {
             cpp_type_name: Utf8Str::from(req.cpp_type_name),
             size: req.size as u32,
@@ -47,6 +48,8 @@ pub unsafe extern "C" fn get_mass_system_descriptor(
             _padding: 0,
         })
         .collect();
+
+    let requirements_len = requirements.len();
 
     // Leak the vec to get a stable pointer for C++ to read.
     // This is called once at init, so the leak is acceptable.
@@ -62,7 +65,7 @@ pub unsafe extern "C" fn get_mass_system_descriptor(
     unsafe {
         (*out) = MassSystemDescriptor {
             name: Utf8Str::from(registration.name),
-            num_requirements: registration.requirements.len() as u32,
+            num_requirements: requirements_len as u32,
             order: registration.order,
             requirements: requirements_ptr,
             execute_fn: registration.execute_fn,
