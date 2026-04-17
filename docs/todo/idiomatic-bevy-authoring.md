@@ -46,7 +46,7 @@ The dual-mode dispatch works via:
 - **`ChunkBacked` marker trait** — implemented by `#[derive(MassFragment)]` types, sets `QueryBackend::IS_CHUNK = true`
 - **`MaybeFragment` specialization trait** — compile-time detection of whether a type has C++ MassFragment representation (`IS_FRAGMENT`, `CPP_TYPE_NAME_OR_EMPTY`)
 - **Const-if in generated code** — `if <T as QueryBackend>::IS_CHUNK { chunk_path } else { bevy_path }`, compiler eliminates dead branch
-- **IS_CHUNK consistency guard** — compile-time assert prevents mixing chunk-backed and Bevy-only fragments in one system's primary queries
+- **IS_CHUNK consistency guard** — compile-time assert prevents mixing chunk-backed and Bevy-only fragments in one system's primary queries. Applies only to primary queries; global queries (`QueryAll`) may freely mix storage kinds since they don't drive iteration
 - **`is_valid` on requirements** — non-MassFragment types get `is_valid: false`, filtered before C++ registration
 - **Relaxed bounds** — `MassChunks`, `MassSystemChunks`, `MassQueryRef/Mut` accept `Copy + 'static` (not just `MassFragment`), allowing empty chunk resources for Bevy-only types
 

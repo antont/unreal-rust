@@ -1,5 +1,10 @@
 // Coordinator processor that gathers cached chunk data from all dynamic processors
 // and dispatches them to Rust's Bevy-scheduled mass_frame_dispatch in a single call.
+//
+// Execution order invariant: all URustMassDynamicProcessor instances must run their
+// Execute() and populate chunk caches BEFORE this coordinator reads them. The subsystem
+// enforces this by adding the coordinator last to the processing pipeline and setting
+// ExecutionOrder higher than all dynamic processors.
 
 #pragma once
 

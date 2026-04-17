@@ -422,8 +422,9 @@ bool URustMassBevySubsystem::EnsureProcessorPipelines(UMassEntitySubsystem& Mass
 			{
 				if (SlotIdx >= RustMassSpatialQuery::MaxQueries)
 				{
-					UE_LOG(LogTemp, Warning, TEXT("RustMassBevySubsystem: Too many spatial queries (%d), max is %d"),
+					UE_LOG(LogTemp, Error, TEXT("RustMassBevySubsystem: Too many spatial queries (%d), max is %d. Excess queries will be silently ignored — increase MaxQueries."),
 						SpatialQueries.Num(), RustMassSpatialQuery::MaxQueries);
+					ensureMsgf(false, TEXT("Spatial query count %d exceeds MaxQueries %d"), SpatialQueries.Num(), RustMassSpatialQuery::MaxQueries);
 					break;
 				}
 

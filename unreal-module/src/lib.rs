@@ -191,6 +191,9 @@ pub unsafe fn initialize_module(
 
     unreal_api::bindings::globals::initialize_modules();
 
+    // Clear stale descriptor cache from previous load (hot-reload)
+    mass_system_registry::reset_descriptor_cache();
+
     // Build the Bevy schedule from all registered mass systems
     mass_system_registry::init_global_schedule();
 

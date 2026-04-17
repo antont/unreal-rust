@@ -38,7 +38,16 @@ pub struct Utf8Str {
 }
 impl Utf8Str {
     pub fn as_str(&self) -> &str {
-        unsafe { std::str::from_utf8(std::slice::from_raw_parts(self.ptr as _, self.len)).unwrap() }
+        unsafe {
+            std::str::from_utf8(std::slice::from_raw_parts(self.ptr as _, self.len))
+                .unwrap_or("")
+        }
+    }
+
+    pub fn as_str_checked(&self) -> Option<&str> {
+        unsafe {
+            std::str::from_utf8(std::slice::from_raw_parts(self.ptr as _, self.len)).ok()
+        }
     }
 }
 

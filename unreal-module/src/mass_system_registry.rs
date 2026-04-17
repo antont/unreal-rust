@@ -18,6 +18,21 @@ pub unsafe extern "C" fn get_mass_system_count() -> u32 {
     count
 }
 
+/// Cached requirement arrays — kept alive so descriptor pointers remain valid.
+/// Cleared on hot-reload via `reset_descriptor_cache()`.
+/// Safety: only accessed from game thread behind Mutex.
+struct SyncDescriptorCache(Vec<Box<[MassFragmentRequirement]>>);
+unsafe impl Send for SyncDescriptorCache {}
+unsafe impl Sync for SyncDescriptorCache {}
+
+static DESCRIPTOR_CACHE: Mutex<SyncDescriptorCache> = Mutex::new(SyncDescriptorCache(Vec::new()));
+
+/// Clear the descriptor cache. Called on hot-reload so stale pointers aren't reused.
+pub fn reset_descriptor_cache() {
+    let mut cache = DESCRIPTOR_CACHE.lock().unwrap();
+    cache.0.clear();
+}
+
 /// Fills a MassSystemDescriptor for the system at `index`.
 /// Returns 1 on success, 0 on failure (index out of range).
 pub unsafe extern "C" fn get_mass_system_descriptor(
@@ -51,16 +66,15 @@ pub unsafe extern "C" fn get_mass_system_descriptor(
 
     let requirements_len = requirements.len();
 
-    // Leak the vec to get a stable pointer for C++ to read.
-    // This is called once at init, so the leak is acceptable.
-    let requirements_ptr = if requirements.is_empty() {
+    // Store in cache so the pointer remains valid until the next hot-reload.
+    let mut cache = DESCRIPTOR_CACHE.lock().unwrap();
+    let boxed = requirements.into_boxed_slice();
+    let requirements_ptr = if boxed.is_empty() {
         std::ptr::null()
     } else {
-        let boxed = requirements.into_boxed_slice();
-        let ptr = boxed.as_ptr();
-        std::mem::forget(boxed);
-        ptr
+        boxed.as_ptr()
     };
+    cache.0.push(boxed);
 
     unsafe {
         (*out) = MassSystemDescriptor {
@@ -162,59 +176,68 @@ pub unsafe extern "C" fn mass_frame_dispatch(
     };
     let sched = &mut wrapper.0;
 
-    sched.set_dt(data.dt);
+    // AssertUnwindSafe: mid-schedule panic may leave App state inconsistent,
+    // but worst case is one odd next frame — not UB.
+    let result = std::panic::catch_unwind(std::panic::AssertUnwindSafe(|| {
+        sched.set_dt(data.dt);
 
-    // Update spatial queries from dispatch data
-    {
-        let mut queries = sched.world_mut().resource_mut::<SpatialQuery>();
-        queries.clear();
-        if data.num_spatial_queries > 0 && !data.spatial_queries.is_null() {
-            let slots = unsafe {
-                std::slice::from_raw_parts(data.spatial_queries, data.num_spatial_queries as usize)
-            };
-            for slot in slots {
-                let name = slot.name.as_str().to_string();
-                queries.insert(name, slot.query_fn, slot.radius);
+        // Update spatial queries from dispatch data
+        {
+            let mut queries = sched.world_mut().resource_mut::<SpatialQuery>();
+            queries.clear();
+            if data.num_spatial_queries > 0 && !data.spatial_queries.is_null() {
+                let slots = unsafe {
+                    std::slice::from_raw_parts(data.spatial_queries, data.num_spatial_queries as usize)
+                };
+                for slot in slots {
+                    let name = slot.name.as_str().to_string();
+                    queries.insert(name, slot.query_fn, slot.radius);
+                }
             }
         }
-    }
-    // Collect Bevy registrations (may include Bevy-only systems like collision prepass)
-    let bevy_regs: Vec<&MassBevySystemRegistration> =
-        registered_bevy_mass_systems().into_iter().collect();
+        // Collect Bevy registrations (may include Bevy-only systems like collision prepass)
+        let bevy_regs: Vec<&MassBevySystemRegistration> =
+            registered_bevy_mass_systems().into_iter().collect();
 
-    // Build name→bevy_index lookup so we can map C++ system_index → bevy registration
-    let bevy_name_to_idx: std::collections::HashMap<&str, usize> = bevy_regs
-        .iter()
-        .enumerate()
-        .map(|(i, reg)| (reg.name, i))
-        .collect();
+        // Build name→bevy_index lookup so we can map C++ system_index → bevy registration
+        let bevy_name_to_idx: std::collections::HashMap<&str, usize> = bevy_regs
+            .iter()
+            .enumerate()
+            .map(|(i, reg)| (reg.name, i))
+            .collect();
 
-    // C++ registrations in discovery order — system_index i maps to cpp_regs[i].name
-    let cpp_regs: Vec<&MassSystemRegistration> =
-        registered_mass_systems().into_iter().collect();
+        // C++ registrations in discovery order — system_index i maps to cpp_regs[i].name
+        let cpp_regs: Vec<&MassSystemRegistration> =
+            registered_mass_systems().into_iter().collect();
 
-    // Clear all chunk resources
-    for reg in &bevy_regs {
-        (reg.clear_resources)(sched.world_mut());
-    }
+        // Clear all chunk resources
+        for reg in &bevy_regs {
+            (reg.clear_resources)(sched.world_mut());
+        }
 
-    // Populate from dispatch data — map C++ system_index → name → Bevy registration
-    let batches = unsafe {
-        std::slice::from_raw_parts(data.systems, data.num_systems as usize)
-    };
-    for batch in batches {
-        let cpp_idx = batch.system_index as usize;
-        if let Some(cpp_reg) = cpp_regs.get(cpp_idx) {
-            if let Some(&bevy_idx) = bevy_name_to_idx.get(cpp_reg.name) {
-                unsafe { (bevy_regs[bevy_idx].populate_resources)(sched.world_mut(), batch) };
+        // Populate from dispatch data — map C++ system_index → name → Bevy registration
+        let batches = unsafe {
+            std::slice::from_raw_parts(data.systems, data.num_systems as usize)
+        };
+        for batch in batches {
+            let cpp_idx = batch.system_index as usize;
+            if let Some(cpp_reg) = cpp_regs.get(cpp_idx) {
+                if let Some(&bevy_idx) = bevy_name_to_idx.get(cpp_reg.name) {
+                    unsafe { (bevy_regs[bevy_idx].populate_resources)(sched.world_mut(), batch) };
+                }
             }
         }
+
+        sched.run();
+
+        // Return post-dispatch flags (e.g. food physics dirty) and clear them
+        unreal_api::mass::take_dispatch_flags()
+    }));
+
+    match result {
+        Ok(flags) => flags,
+        Err(_) => 0,
     }
-
-    sched.run();
-
-    // Return post-dispatch flags (e.g. food physics dirty) and clear them
-    unreal_api::mass::take_dispatch_flags()
 }
 
 // ---------------------------------------------------------------------------
@@ -249,61 +272,73 @@ pub unsafe extern "C" fn mass_init_simulation(
     let Some(reg) = registered_sim_inits().into_iter().next() else {
         return 0;
     };
-    let groups = (reg.init_fn)(params);
 
-    let mut stored = INIT_RESULT_GROUPS.lock().unwrap();
-    *stored = groups
-        .into_iter()
-        .map(|(name, handles)| {
-            let mut name_bytes = name.into_bytes();
-            name_bytes.push(0); // null-terminate for C
-            (name_bytes, handles)
-        })
-        .collect();
+    let outcome = std::panic::catch_unwind(std::panic::AssertUnwindSafe(|| {
+        let groups = (reg.init_fn)(params);
 
-    // Build descriptor array pointing into stored data
-    let mut descs = INIT_RESULT_DESCS.lock().unwrap();
-    descs.0.clear();
-    for (name_bytes, handles) in stored.iter() {
-        descs.0.push(unreal_ffi::MassEntityGroupResult {
-            name: unreal_ffi::Utf8Str {
-                ptr: name_bytes.as_ptr() as *const i8,
-                len: (name_bytes.len() - 1) as usize, // exclude null terminator
-            },
-            handles: handles.as_ptr(),
-            count: handles.len() as u32,
-            _pad: 0,
-        });
-    }
+        let mut stored = INIT_RESULT_GROUPS.lock().unwrap();
+        *stored = groups
+            .into_iter()
+            .map(|(name, handles)| {
+                let mut name_bytes = name.into_bytes();
+                name_bytes.push(0); // null-terminate for C
+                (name_bytes, handles)
+            })
+            .collect();
 
-    unsafe {
-        (*result).groups = descs.0.as_ptr();
-        (*result).num_groups = descs.0.len() as u32;
-        (*result)._pad = 0;
-    }
+        // Build descriptor array pointing into stored data
+        let mut descs = INIT_RESULT_DESCS.lock().unwrap();
+        descs.0.clear();
+        for (name_bytes, handles) in stored.iter() {
+            descs.0.push(unreal_ffi::MassEntityGroupResult {
+                name: unreal_ffi::Utf8Str {
+                    ptr: name_bytes.as_ptr() as *const i8,
+                    len: (name_bytes.len() - 1) as usize, // exclude null terminator
+                },
+                handles: handles.as_ptr(),
+                count: handles.len() as u32,
+                _pad: 0,
+            });
+        }
 
-    // Spawn shadow Bevy entities for each Mass Entity entity.
-    // These allow pure-Bevy components to be attached to entities that also
-    // have zero-copy MassFragment data in chunks.
-    if let Ok(mut sched_guard) = MASS_SCHEDULE.lock() {
-        if let Some(sched) = sched_guard.as_mut().map(|w| &mut w.0) {
-            let mut entity_map = MassEntityMap::default();
-            for (name_bytes, handles) in stored.iter() {
-                // name_bytes is null-terminated, extract the name
-                let name = std::str::from_utf8(&name_bytes[..name_bytes.len() - 1])
-                    .unwrap_or("")
-                    .to_string();
-                let entities: Vec<unreal_api::ecs::entity::Entity> = handles
-                    .iter()
-                    .map(|_| sched.world_mut().spawn_empty().id())
-                    .collect();
-                entity_map.insert_group(name, entities);
+        unsafe {
+            (*result).groups = descs.0.as_ptr();
+            (*result).num_groups = descs.0.len() as u32;
+            (*result)._pad = 0;
+        }
+
+        // Spawn shadow Bevy entities for each Mass Entity entity.
+        // These allow pure-Bevy components to be attached to entities that also
+        // have zero-copy MassFragment data in chunks.
+        if let Ok(mut sched_guard) = MASS_SCHEDULE.lock() {
+            if let Some(sched) = sched_guard.as_mut().map(|w| &mut w.0) {
+                let mut entity_map = MassEntityMap::default();
+                for (name_bytes, handles) in stored.iter() {
+                    let name = std::str::from_utf8(&name_bytes[..name_bytes.len() - 1])
+                        .unwrap_or("")
+                        .to_string();
+                    let entities: Vec<unreal_api::ecs::entity::Entity> = handles
+                        .iter()
+                        .map(|_| sched.world_mut().spawn_empty().id())
+                        .collect();
+                    entity_map.insert_group(name, entities);
+                }
+                *sched.world_mut().resource_mut::<MassEntityMap>() = entity_map;
             }
-            *sched.world_mut().resource_mut::<MassEntityMap>() = entity_map;
+        }
+    }));
+
+    match outcome {
+        Ok(()) => 1,
+        Err(_) => {
+            unsafe {
+                (*result).groups = std::ptr::null();
+                (*result).num_groups = 0;
+                (*result)._pad = 0;
+            }
+            0
         }
     }
-
-    1
 }
 
 // ---------------------------------------------------------------------------

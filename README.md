@@ -34,7 +34,7 @@ I am releasing `unreal-rust` on github to develop it in the open.
 ## 🎯 Features
 
 - **Simple opinionated bindings**: Easy access to core APIs like playing sounds, spawning actors, pathfinding, physics etc.
-- **Developer friendly**: Fast iteration times with hot reloading in the editor and during live play. Panics are caught and do not crash the editor
+- **Developer friendly**: Fast iteration times with hot reloading in the editor and during live play. Simulation system panics are caught and logged without crashing the editor
 - **Editor integration**: Add Rust components to actors in the editor, or access Rust components from Blueprint to drive animations.
 - **Entity Component System**: unreal-rust is built on top of an ECS.
 - **Built on top of `AActor`**: Most gameplay features like `GameMode`, `Characters`, `GameState`, `GAS` are not directly accessible in unreal-rust. Instead unreal-rust will provide optional alternatives. But you can still interact with most parts of the engine as Rust components can be accessed in Blueprint.
