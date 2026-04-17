@@ -25,6 +25,8 @@ fn main() {
         .include_item("GetSpatialQueryConfigDescFn")
         .include_item("MassSimDefaultsDesc")
         .include_item("GetSimDefaultsFn")
+        .include_item("FoodDropEvent")
+        .include_item("GetFoodDropEventsFn")
         .with_pragma_once(true)
         .generate()
         .expect("Unable to generate bindings")
@@ -109,7 +111,7 @@ static_assert(sizeof(FScriptArrayFns) == 104, "FScriptArrayFns: 13 fn ptrs");
 // --- Binding structs ---
 static_assert(sizeof(UnrealBindings) == 216,
     "UnrealBindings: LogFn(8) + CoreFns(72) + FStringFns(24) + FScriptArrayFns(104) + Option<SpawnEntitiesFn>(8)");
-static_assert(sizeof(RustBindings) == 128, "RustBindings: 7 fn ptrs + 9 Option<fn ptr> = 16 pointers");
+static_assert(sizeof(RustBindings) == 136, "RustBindings: 7 fn ptrs + 10 Option<fn ptr> = 17 pointers");
 static_assert(sizeof(PluginBindings) == 32, "PluginBindings: 4 fn ptrs");
 
 // --- Mass Entity types ---
@@ -200,6 +202,12 @@ static_assert(offsetof(MassSpatialQueryConfigDesc, filter_bool_offset) == 56, "M
 static_assert(offsetof(MassSpatialQueryConfigDesc, filter_bool_must_be) == 60, "MassSpatialQueryConfigDesc.filter_bool_must_be offset");
 static_assert(offsetof(MassSpatialQueryConfigDesc, query_type) == 61, "MassSpatialQueryConfigDesc.query_type offset");
 static_assert(offsetof(MassSpatialQueryConfigDesc, collision_channel_index) == 62, "MassSpatialQueryConfigDesc.collision_channel_index offset");
+
+// --- Food drop events ---
+static_assert(sizeof(FoodDropEvent) == 32, "FoodDropEvent: i32 + i32 + [f64;3]");
+static_assert(alignof(FoodDropEvent) == 8, "FoodDropEvent alignment");
+static_assert(offsetof(FoodDropEvent, food_index) == 0, "FoodDropEvent.food_index offset");
+static_assert(offsetof(FoodDropEvent, position) == 8, "FoodDropEvent.position offset");
 
 // --- Sim defaults ---
 static_assert(sizeof(MassSimDefaultsDesc) == 72, "MassSimDefaultsDesc");

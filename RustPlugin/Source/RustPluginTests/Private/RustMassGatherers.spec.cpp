@@ -1748,3 +1748,134 @@ bool FGatherersBevyMassTickPathMovementTest::RunTest(const FString& Parameters)
 	Subsystem->ResetSimulation();
 	return true;
 }
+
+// ---------------------------------------------------------------------------
+// Pre-work verification: does UpdateInstanceTransform move the physics body?
+// This test validates the load-bearing assumption for removing per-frame
+// SyncCollisionISMCs + RecreatePhysicsState.
+// ---------------------------------------------------------------------------
+
+IMPLEMENT_SIMPLE_AUTOMATION_TEST(
+	FGatherersBevyMassISMPhysicsBodyMoveTest,
+	"supplemental.RustPlugin.Gatherers.ISMPhysicsBodyMove",
+	EAutomationTestFlags::EditorContext | EAutomationTestFlags::EngineFilter)
+
+bool FGatherersBevyMassISMPhysicsBodyMoveTest::RunTest(const FString& Parameters)
+{
+	UWorld* World = GEditor->GetEditorWorldContext().World();
+	if (!TestNotNull(TEXT("World must exist"), World)) return false;
+
+	UMassEntitySubsystem* MassEntitySubsystem = World->GetSubsystem<UMassEntitySubsystem>();
+	if (!TestNotNull(TEXT("MassEntitySubsystem must exist"), MassEntitySubsystem)) return false;
+
+	URustMassBevySubsystem* Subsystem = World->GetSubsystem<URustMassBevySubsystem>();
+	if (!TestNotNull(TEXT("RustMassBevySubsystem must exist"), Subsystem)) return false;
+
+	// Spawn 1 food entity — we only need the ISMC
+	const FBox Bounds(FVector(-5000.0, -5000.0, -100.0), FVector(5000.0, 5000.0, 100.0));
+	Subsystem->InitializeSimulation({{TEXT("ants"), 0}, {TEXT("food"), 1}}, Bounds, 999);
+
+	FMassEntityManager& EntityManager = MassEntitySubsystem->GetMutableEntityManager();
+	const TArray<FMassEntityHandle>* FoodEntities = Subsystem->GetGroupEntities(TEXT("food"));
+	if (!TestTrue(TEXT("Should have 1 food entity"), FoodEntities && FoodEntities->Num() == 1))
+	{
+		Subsystem->ResetSimulation();
+		return false;
+	}
+
+	UInstancedStaticMeshComponent* FoodISMC = Subsystem->GetGroupISMC(TEXT("food"));
+	if (!TestNotNull(TEXT("Food ISMC should exist"), FoodISMC))
+	{
+		Subsystem->ResetSimulation();
+		return false;
+	}
+
+	TestEqual(TEXT("ISMC should have 1 instance"), FoodISMC->GetInstanceCount(), 1);
+
+	// Collision should already be enabled by spatial query setup (food_pickup config)
+	TestTrue(TEXT("ISMC collision should be enabled"),
+		FoodISMC->GetCollisionEnabled() != ECollisionEnabled::NoCollision);
+
+	// food_pickup spatial query uses collision_channel_index 0 → ECC_GameTraceChannel1
+	ECollisionChannel SweepChannel = ECC_GameTraceChannel1;
+
+	// Get initial food position from fragment
+	FVector InitialPos;
+	{
+		FMassEntityView FoodView(EntityManager, (*FoodEntities)[0]);
+		InitialPos = FoodView.GetFragmentData<FTransformFragment>().GetTransform().GetTranslation();
+	}
+
+	// Verify sweep finds food at initial position
+	{
+		FCollisionShape Shape = FCollisionShape::MakeSphere(30.0f);
+		TArray<FHitResult> Hits;
+		World->SweepMultiByChannel(Hits, InitialPos, InitialPos + FVector(1, 0, 0),
+			FQuat::Identity, SweepChannel, Shape);
+		bool bFoundAtInitial = false;
+		for (const FHitResult& Hit : Hits)
+		{
+			if (Hit.Component == FoodISMC && Hit.Item == 0)
+			{
+				bFoundAtInitial = true;
+				break;
+			}
+		}
+		TestTrue(TEXT("Sweep should find food at initial position"), bFoundAtInitial);
+	}
+
+	// Move the instance via UpdateInstanceTransform — deliberately NO RecreatePhysicsState
+	FVector NewPos(InitialPos.X + 2000.0, InitialPos.Y + 2000.0, InitialPos.Z);
+	{
+		FTransform NewTransform(FQuat::Identity, NewPos, FVector(0.2f));
+		FoodISMC->UpdateInstanceTransform(0, NewTransform, true, true, true);
+	}
+
+	// Sweep at new position — does the physics body follow?
+	bool bFoundAtNew = false;
+	{
+		FCollisionShape Shape = FCollisionShape::MakeSphere(30.0f);
+		TArray<FHitResult> Hits;
+		World->SweepMultiByChannel(Hits, NewPos, NewPos + FVector(1, 0, 0),
+			FQuat::Identity, SweepChannel, Shape);
+		for (const FHitResult& Hit : Hits)
+		{
+			if (Hit.Component == FoodISMC && Hit.Item == 0)
+			{
+				bFoundAtNew = true;
+				break;
+			}
+		}
+	}
+
+	// Sweep at old position — body should no longer be there
+	bool bStillAtOld = false;
+	{
+		FCollisionShape Shape = FCollisionShape::MakeSphere(30.0f);
+		TArray<FHitResult> Hits;
+		World->SweepMultiByChannel(Hits, InitialPos, InitialPos + FVector(1, 0, 0),
+			FQuat::Identity, SweepChannel, Shape);
+		for (const FHitResult& Hit : Hits)
+		{
+			if (Hit.Component == FoodISMC && Hit.Item == 0)
+			{
+				bStillAtOld = true;
+				break;
+			}
+		}
+	}
+
+	TestTrue(TEXT("Physics body should be found at NEW position after UpdateInstanceTransform"),
+		bFoundAtNew);
+	TestFalse(TEXT("Physics body should NOT be found at OLD position after UpdateInstanceTransform"),
+		bStillAtOld);
+
+	if (!bFoundAtNew)
+	{
+		UE_LOG(LogTemp, Warning, TEXT("[ISMPhysicsBodyMove] UpdateInstanceTransform did NOT move "
+			"the physics body. RecreatePhysicsState or UpdateInstanceBodyTransform may be required."));
+	}
+
+	Subsystem->ResetSimulation();
+	return true;
+}

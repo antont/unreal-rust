@@ -35,7 +35,7 @@ use crate::components::{
     FoodState, Food, Ant,
     FoodEncounter,
 };
-use gatherers_sim::components::{AntFoodHit, FoodMutation};
+use gatherers_sim::components::{AntFoodHit, FoodMutation, FoodDropEvents};
 use bevy_ecs::message::{MessageReader, MessageWriter};
 use gatherers_sim::food_decision::{
     ant_food_decision as ant_food_decision_fn,
@@ -136,23 +136,17 @@ fn ant_food_decision(
 fn apply_food_mutations(
     mut mutations: MessageReader<FoodMutation>,
     foods: QueryAll<&mut FoodState, With<Food>>,
+    mut drop_events: ResMut<FoodDropEvents>,
 ) {
-    let mut had_mutation = false;
     for mutation in mutations.read() {
         if let Some(food) = foods.get_mut(mutation.food_index as usize) {
             if mutation.decision == DECISION_PICK_UP {
                 food.is_loose = false;
-                had_mutation = true;
             } else if mutation.decision == DECISION_DROP {
                 food.is_loose = true;
-                // Food drop position is handled by C++ — Rust does not write transforms.
-                had_mutation = true;
+                drop_events.push(mutation.food_index, mutation.drop_position);
             }
         }
-    }
-    if had_mutation {
-        #[cfg(feature = "unreal")]
-        unreal_api::mass::set_dispatch_flag(unreal_api::ffi::DISPATCH_FLAG_FOOD_PHYSICS_DIRTY);
     }
 }
 

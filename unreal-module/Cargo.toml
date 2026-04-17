@@ -8,6 +8,7 @@ edition.workspace = true
 unreal-api = { path = "../unreal-api/"}
 unreal-ffi = { path = "../unreal-ffi/" }
 bevy_mass = { path = "../bevy_mass/", default-features = false, features = ["unreal"] }
+gatherers-sim = { path = "../gatherers-sim/" }
 gatherers-bevy-mass = { path = "../gatherers-bevy-mass/" }
 log = { version = "0.4", features =["std"] }
 

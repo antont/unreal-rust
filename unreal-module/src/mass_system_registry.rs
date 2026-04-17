@@ -27,6 +27,15 @@ unsafe impl Sync for SyncDescriptorCache {}
 
 static DESCRIPTOR_CACHE: Mutex<SyncDescriptorCache> = Mutex::new(SyncDescriptorCache(Vec::new()));
 
+/// Cached food drop events from last dispatch. C++ reads via `get_food_drop_events`.
+/// Cleared at the top of each `mass_frame_dispatch` (before `sched.run()`), so a
+/// panic mid-schedule leaves the cache empty rather than replaying stale events.
+struct SyncDropCache(Vec<unreal_ffi::FoodDropEvent>);
+unsafe impl Send for SyncDropCache {}
+unsafe impl Sync for SyncDropCache {}
+
+static FOOD_DROP_CACHE: Mutex<SyncDropCache> = Mutex::new(SyncDropCache(Vec::new()));
+
 /// Clear the descriptor cache. Called on hot-reload so stale pointers aren't reused.
 pub fn reset_descriptor_cache() {
     let mut cache = DESCRIPTOR_CACHE.lock().unwrap();
@@ -89,6 +98,23 @@ pub unsafe extern "C" fn get_mass_system_descriptor(
     1
 }
 
+/// Copies food drop events from the last dispatch into `out`. Returns event count.
+/// C++ calls this immediately after `mass_frame_dispatch` returns.
+pub unsafe extern "C" fn get_food_drop_events(
+    out: *mut unreal_ffi::FoodDropEvent,
+    max: u32,
+) -> u32 {
+    if out.is_null() || max == 0 {
+        return 0;
+    }
+    let cache = FOOD_DROP_CACHE.lock().unwrap();
+    let count = cache.0.len().min(max as usize);
+    unsafe {
+        std::ptr::copy_nonoverlapping(cache.0.as_ptr(), out, count);
+    }
+    count as u32
+}
+
 // ---------------------------------------------------------------------------
 // Bevy-scheduled dispatch
 // ---------------------------------------------------------------------------
@@ -132,6 +158,9 @@ pub fn build_bevy_schedule() -> MassSchedule {
 
     // Resource for named spatial query callbacks (populated per-frame)
     sched.world_mut().insert_resource(SpatialQuery::default());
+
+    // TODO(layering): game-specific resource — see TODO at mass_frame_dispatch
+    sched.world_mut().insert_resource(gatherers_sim::components::FoodDropEvents::default());
 
     // message_update_system is already added by App::default() in First schedule.
     // No manual wiring needed.
@@ -228,9 +257,28 @@ pub unsafe extern "C" fn mass_frame_dispatch(
             }
         }
 
+        // Clear stale drop events before running the schedule, so a panic
+        // mid-schedule leaves the cache empty rather than replaying old events.
+        FOOD_DROP_CACHE.lock().unwrap().0.clear();
+
         sched.run();
 
-        // Return post-dispatch flags (e.g. food physics dirty) and clear them
+        // TODO(layering): FoodDropEvents is game-specific. Generalize into a
+        // typed post-dispatch event channel (games register Resource<T>; framework
+        // drains to a game-owned static cache) once a second event type appears.
+        {
+            let mut events = sched.world_mut().resource_mut::<gatherers_sim::components::FoodDropEvents>();
+            let mut cache = FOOD_DROP_CACHE.lock().unwrap();
+            for e in events.events.drain(..) {
+                cache.0.push(unreal_ffi::FoodDropEvent {
+                    food_index: e.food_index,
+                    _pad: 0,
+                    position: [e.position.x, e.position.y, e.position.z],
+                });
+            }
+        }
+
+        // Return post-dispatch flags and clear them
         unreal_api::mass::take_dispatch_flags()
     }));
 

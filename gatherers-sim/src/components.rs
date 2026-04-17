@@ -1,4 +1,4 @@
-use bevy_mass::prelude::{Component, Entity, DVec3, component};
+use bevy_mass::prelude::{Component, Entity, DVec3, Resource, component};
 use bevy_mass::movement::PrevTranslationLike;
 use bevy_ecs::message::Message;
 use std::marker::PhantomData;
@@ -140,6 +140,30 @@ pub struct FoodMutation {
     pub food_index: i32,
     pub decision: FoodDecisionCode,
     pub drop_position: DVec3,
+}
+
+// ---------------------------------------------------------------------------
+// Food drop events (Bevy Resource, consumed by C++ via FFI)
+// ---------------------------------------------------------------------------
+
+#[derive(Resource, Default)]
+pub struct FoodDropEvents {
+    pub events: Vec<FoodDropEntry>,
+}
+
+pub struct FoodDropEntry {
+    pub food_index: i32,
+    pub position: DVec3,
+}
+
+impl FoodDropEvents {
+    pub fn push(&mut self, food_index: i32, position: DVec3) {
+        self.events.push(FoodDropEntry { food_index, position });
+    }
+
+    pub fn clear(&mut self) {
+        self.events.clear();
+    }
 }
 
 #[cfg(test)]

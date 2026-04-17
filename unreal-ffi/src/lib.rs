@@ -249,11 +249,24 @@ pub struct MassFrameDispatchData {
 }
 
 /// Function signature for per-frame Bevy-scheduled dispatch.
-/// Returns a bitmask of post-dispatch flags (see `DISPATCH_FLAG_*` constants).
+/// Returns a bitmask of post-dispatch flags (reserved for future use).
 pub type MassFrameDispatchFn = unsafe extern "C" fn(data: *const MassFrameDispatchData) -> u32;
 
-/// Post-dispatch flag: food physics bodies need recreation (pickup/drop occurred).
-pub const DISPATCH_FLAG_FOOD_PHYSICS_DIRTY: u32 = 1 << 0;
+/// A food drop event: one food entity was dropped at a new position.
+/// C++ reads these after dispatch to call UpdateInstanceTransform on the specific instance.
+/// TODO(layering): game-specific type in the framework ABI. Generalize into a typed
+/// post-dispatch event channel when a second event type appears.
+#[repr(C)]
+#[derive(Clone, Copy, Debug)]
+pub struct FoodDropEvent {
+    pub food_index: i32,
+    pub _pad: i32,
+    pub position: [f64; 3],
+}
+
+/// Copies food drop events into `out` buffer. Returns the number of events written.
+/// C++ calls this immediately after mass_frame_dispatch returns.
+pub type GetFoodDropEventsFn = unsafe extern "C" fn(out: *mut FoodDropEvent, max: u32) -> u32;
 
 // --- Spatial query callback for Rust collision processor ---
 
@@ -591,6 +604,7 @@ pub struct RustBindings {
     pub get_mass_test_count: Option<GetMassTestCountFn>,
     pub get_mass_test_desc: Option<GetMassTestDescFn>,
     pub run_mass_test: Option<RunMassTestFn>,
+    pub get_food_drop_events: Option<GetFoodDropEventsFn>,
 }
 
 impl RustBindings {
@@ -647,6 +661,7 @@ impl RustBindings {
             get_mass_test_count: None,
             get_mass_test_desc: None,
             run_mass_test: None,
+            get_food_drop_events: None,
         }
     }
 }
@@ -963,10 +978,10 @@ mod tests {
 
     #[test]
     fn rust_bindings_has_mass_bob_process_field() {
-        // RustBindings: 7 non-optional fn ptrs + 9 Option<fn ptr> = 16 pointers
+        // RustBindings: 7 non-optional fn ptrs + 10 Option<fn ptr> = 17 pointers
         let size = std::mem::size_of::<RustBindings>();
-        assert_eq!(size, 16 * std::mem::size_of::<usize>(),
-            "actual size = {}, expected = {}", size, 16 * std::mem::size_of::<usize>());
+        assert_eq!(size, 17 * std::mem::size_of::<usize>(),
+            "actual size = {}, expected = {}", size, 17 * std::mem::size_of::<usize>());
     }
 
     #[test]
@@ -1159,6 +1174,15 @@ mod tests {
         // ptr(8) + u32(4) + u32(4) + [f64;3](24) + [f64;3](24) + i32(4) + i32(4) = 72
         assert_eq!(std::mem::size_of::<MassSimDefaultsDesc>(), 72);
         assert_eq!(std::mem::align_of::<MassSimDefaultsDesc>(), 8);
+    }
+
+    #[test]
+    fn food_drop_event_layout() {
+        // i32(4) + i32(4) + [f64;3](24) = 32
+        assert_eq!(std::mem::size_of::<FoodDropEvent>(), 32);
+        assert_eq!(std::mem::align_of::<FoodDropEvent>(), 8);
+        assert_eq!(std::mem::offset_of!(FoodDropEvent, food_index), 0);
+        assert_eq!(std::mem::offset_of!(FoodDropEvent, position), 8);
     }
 
     #[test]

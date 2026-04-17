@@ -775,28 +775,25 @@ void URustMassBevySubsystem::Tick(float DeltaTime)
 		}
 	}
 
-	// Sync collision ISMCs for spatial queries (rendering handled by native MassRepresentation)
+	// Apply targeted ISM updates for food drops (no per-frame full sync needed)
 	if (CollisionGroups.Num() > 0)
 	{
-		UWorld* World = GetWorld();
-		if (World != nullptr)
+		FRustPluginModule& Module = FModuleManager::GetModuleChecked<FRustPluginModule>("RustPlugin");
+		if (Module.Plugin.Rust.get_food_drop_events.IsSome())
 		{
-			UMassEntitySubsystem* MassEntitySubsystem = World->GetSubsystem<UMassEntitySubsystem>();
-			if (MassEntitySubsystem != nullptr)
+			constexpr uint32_t MaxDropEvents = 64;
+			FoodDropEvent DropEvents[MaxDropEvents];
+			uint32_t Count = Module.Plugin.Rust.get_food_drop_events.Unwrap()(DropEvents, MaxDropEvents);
+			ensureMsgf(Count < MaxDropEvents, TEXT("Food drop events saturated buffer (%u). Some ISM updates were lost."), Count);
+			for (uint32_t i = 0; i < Count; ++i)
 			{
-				FMassEntityManager& EntityManager = MassEntitySubsystem->GetMutableEntityManager();
-				SyncCollisionISMCs(EntityManager);
-
-				// Recreate physics bodies only when Rust signals a food state change
-				if (ScheduleCoordinator &&
-					(ScheduleCoordinator->GetLastDispatchFlags() & DISPATCH_FLAG_FOOD_PHYSICS_DIRTY))
+				const FoodDropEvent& Evt = DropEvents[i];
+				for (auto& Group : CollisionGroups)
 				{
-					for (auto& Group : CollisionGroups)
+					if (Group.ISMC && Group.ISMC->GetCollisionEnabled() != ECollisionEnabled::NoCollision)
 					{
-						if (Group.ISMC && Group.ISMC->GetCollisionEnabled() != ECollisionEnabled::NoCollision)
-						{
-							Group.ISMC->RecreatePhysicsState();
-						}
+						FTransform T(FQuat::Identity, FVector(Evt.position[0], Evt.position[1], Evt.position[2]), Group.Scale);
+						Group.ISMC->UpdateInstanceTransform(Evt.food_index, T, true, true, true);
 					}
 				}
 			}
@@ -1052,30 +1049,25 @@ void URustMassBevySubsystem::RunSimulationProcessorsForTesting(float DeltaTime)
 {
 	RunSimulationProcessorStep(FMath::Max(0.0f, DeltaTime));
 
-	// Sync collision ISMC transforms so spatial queries (physics sweeps) see current positions.
-	// Without this, food that moved during the simulation step would have stale
-	// physics bodies, causing sweeps to miss on subsequent test steps.
+	// Apply targeted ISM updates for food drops
 	if (CollisionGroups.Num() > 0)
 	{
-		UWorld* World = GetWorld();
-		if (World)
+		FRustPluginModule& Module = FModuleManager::GetModuleChecked<FRustPluginModule>("RustPlugin");
+		if (Module.Plugin.Rust.get_food_drop_events.IsSome())
 		{
-			UMassEntitySubsystem* MassEntitySubsystem = World->GetSubsystem<UMassEntitySubsystem>();
-			if (MassEntitySubsystem)
+			constexpr uint32_t MaxDropEvents = 64;
+			FoodDropEvent DropEvents[MaxDropEvents];
+			uint32_t Count = Module.Plugin.Rust.get_food_drop_events.Unwrap()(DropEvents, MaxDropEvents);
+			ensureMsgf(Count < MaxDropEvents, TEXT("Food drop events saturated buffer (%u). Some ISM updates were lost."), Count);
+			for (uint32_t i = 0; i < Count; ++i)
 			{
-				FMassEntityManager& EntityManager = MassEntitySubsystem->GetMutableEntityManager();
-				SyncCollisionISMCs(EntityManager);
-
-				// Recreate physics bodies only when Rust signals a food state change
-				if (ScheduleCoordinator &&
-					(ScheduleCoordinator->GetLastDispatchFlags() & DISPATCH_FLAG_FOOD_PHYSICS_DIRTY))
+				const FoodDropEvent& Evt = DropEvents[i];
+				for (auto& Group : CollisionGroups)
 				{
-					for (auto& Group : CollisionGroups)
+					if (Group.ISMC && Group.ISMC->GetCollisionEnabled() != ECollisionEnabled::NoCollision)
 					{
-						if (Group.ISMC && Group.ISMC->GetCollisionEnabled() != ECollisionEnabled::NoCollision)
-						{
-							Group.ISMC->RecreatePhysicsState();
-						}
+						FTransform T(FQuat::Identity, FVector(Evt.position[0], Evt.position[1], Evt.position[2]), Group.Scale);
+						Group.ISMC->UpdateInstanceTransform(Evt.food_index, T, true, true, true);
 					}
 				}
 			}

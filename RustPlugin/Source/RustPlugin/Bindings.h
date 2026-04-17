@@ -6,9 +6,6 @@
 #include <ostream>
 #include <new>
 
-/// Post-dispatch flag: food physics bodies need recreation (pickup/drop occurred).
-constexpr static const uint32_t DISPATCH_FLAG_FOOD_PHYSICS_DIRTY = (1 << 0);
-
 enum class ResultCode : uint8_t {
   Success = 0,
   Panic = 1,
@@ -401,7 +398,7 @@ struct MassFrameDispatchData {
 };
 
 /// Function signature for per-frame Bevy-scheduled dispatch.
-/// Returns a bitmask of post-dispatch flags (see `DISPATCH_FLAG_*` constants).
+/// Returns a bitmask of post-dispatch flags (reserved for future use).
 using MassFrameDispatchFn = uint32_t(*)(const MassFrameDispatchData *data);
 
 /// Returns the number of registered visualizer groups.
@@ -563,6 +560,20 @@ struct MassTestCallbacks {
 /// Runs the named Rust test with the provided callbacks. Returns test result.
 using RunMassTestFn = MassTestResult(*)(Utf8Str name, const MassTestCallbacks *callbacks);
 
+/// A food drop event: one food entity was dropped at a new position.
+/// C++ reads these after dispatch to call UpdateInstanceTransform on the specific instance.
+/// TODO(layering): game-specific type in the framework ABI. Generalize into a typed
+/// post-dispatch event channel when a second event type appears.
+struct FoodDropEvent {
+  int32_t food_index;
+  int32_t _pad;
+  double position[3];
+};
+
+/// Copies food drop events into `out` buffer. Returns the number of events written.
+/// C++ calls this immediately after mass_frame_dispatch returns.
+using GetFoodDropEventsFn = uint32_t(*)(FoodDropEvent *out, uint32_t max);
+
 struct RustBindings {
   TickFn tick;
   BeginPlayFn begin_play;
@@ -580,6 +591,7 @@ struct RustBindings {
   Option<GetMassTestCountFn> get_mass_test_count;
   Option<GetMassTestDescFn> get_mass_test_desc;
   Option<RunMassTestFn> run_mass_test;
+  Option<GetFoodDropEventsFn> get_food_drop_events;
 };
 
 using EntryUnrealBindingsFn = uint32_t(*)(UnrealBindings bindings);
@@ -715,7 +727,7 @@ static_assert(sizeof(FScriptArrayFns) == 104, "FScriptArrayFns: 13 fn ptrs");
 // --- Binding structs ---
 static_assert(sizeof(UnrealBindings) == 216,
     "UnrealBindings: LogFn(8) + CoreFns(72) + FStringFns(24) + FScriptArrayFns(104) + Option<SpawnEntitiesFn>(8)");
-static_assert(sizeof(RustBindings) == 128, "RustBindings: 7 fn ptrs + 9 Option<fn ptr> = 16 pointers");
+static_assert(sizeof(RustBindings) == 136, "RustBindings: 7 fn ptrs + 10 Option<fn ptr> = 17 pointers");
 static_assert(sizeof(PluginBindings) == 32, "PluginBindings: 4 fn ptrs");
 
 // --- Mass Entity types ---
@@ -806,6 +818,12 @@ static_assert(offsetof(MassSpatialQueryConfigDesc, filter_bool_offset) == 56, "M
 static_assert(offsetof(MassSpatialQueryConfigDesc, filter_bool_must_be) == 60, "MassSpatialQueryConfigDesc.filter_bool_must_be offset");
 static_assert(offsetof(MassSpatialQueryConfigDesc, query_type) == 61, "MassSpatialQueryConfigDesc.query_type offset");
 static_assert(offsetof(MassSpatialQueryConfigDesc, collision_channel_index) == 62, "MassSpatialQueryConfigDesc.collision_channel_index offset");
+
+// --- Food drop events ---
+static_assert(sizeof(FoodDropEvent) == 32, "FoodDropEvent: i32 + i32 + [f64;3]");
+static_assert(alignof(FoodDropEvent) == 8, "FoodDropEvent alignment");
+static_assert(offsetof(FoodDropEvent, food_index) == 0, "FoodDropEvent.food_index offset");
+static_assert(offsetof(FoodDropEvent, position) == 8, "FoodDropEvent.position offset");
 
 // --- Sim defaults ---
 static_assert(sizeof(MassSimDefaultsDesc) == 72, "MassSimDefaultsDesc");
