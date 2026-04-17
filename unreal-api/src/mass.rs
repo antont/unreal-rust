@@ -1610,6 +1610,39 @@ pub fn registered_bevy_mass_systems() -> inventory::iter<MassBevySystemRegistrat
     inventory::iter::<MassBevySystemRegistration>
 }
 
+/// Pre/post-dispatch hooks for game-specific logic around `sched.run()`.
+///
+/// `pre_dispatch` runs inside `catch_unwind`, before `sched.run()`.
+/// `post_dispatch` runs after `sched.run()` returns normally (skipped on panic).
+/// Hook ordering among multiple registrations is unspecified; hooks must be order-independent.
+///
+/// Reference implementation: `gatherers-bevy-mass/src/systems.rs`.
+pub struct MassDispatchHook {
+    pub pre_dispatch: fn(&mut bevy_ecs::world::World),
+    pub post_dispatch: fn(&mut bevy_ecs::world::World),
+}
+
+inventory::collect!(MassDispatchHook);
+
+pub fn registered_dispatch_hooks() -> inventory::iter<MassDispatchHook> {
+    inventory::iter::<MassDispatchHook>
+}
+
+/// Game-specific FFI function pointers discovered via inventory.
+/// Framework folds over these to fill `Option` fields in `RustBindings`.
+///
+/// Add new game FFI functions as additional `Option<Fn>` fields here.
+/// If this grows past ~3 fields, consider generalizing to an inventory-keyed dispatch map.
+pub struct MassExternBinding {
+    pub get_food_drop_events: Option<unreal_ffi::GetFoodDropEventsFn>,
+}
+
+inventory::collect!(MassExternBinding);
+
+pub fn registered_extern_bindings() -> inventory::iter<MassExternBinding> {
+    inventory::iter::<MassExternBinding>
+}
+
 // ---------------------------------------------------------------------------
 // Spatial query config registration
 // ---------------------------------------------------------------------------

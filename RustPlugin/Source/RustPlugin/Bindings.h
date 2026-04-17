@@ -562,8 +562,11 @@ using RunMassTestFn = MassTestResult(*)(Utf8Str name, const MassTestCallbacks *c
 
 /// A food drop event: one food entity was dropped at a new position.
 /// C++ reads these after dispatch to call UpdateInstanceTransform on the specific instance.
-/// TODO(layering): game-specific type in the framework ABI. Generalize into a typed
-/// post-dispatch event channel when a second event type appears.
+///
+/// The accompanying `GetFoodDropEventsFn` function pointer is supplied by the game crate
+/// (not the framework) via `unreal_api::mass::MassExternBinding`, and the underlying cache
+/// is drained post-dispatch by a `MassDispatchHook`. See `gatherers-bevy-mass/src/systems.rs`
+/// for the reference implementation.
 struct FoodDropEvent {
   int32_t food_index;
   int32_t _pad;
@@ -572,6 +575,7 @@ struct FoodDropEvent {
 
 /// Copies food drop events into `out` buffer. Returns the number of events written.
 /// C++ calls this immediately after mass_frame_dispatch returns.
+/// Registered via `unreal_api::mass::MassExternBinding` from the game crate.
 using GetFoodDropEventsFn = uint32_t(*)(FoodDropEvent *out, uint32_t max);
 
 struct RustBindings {

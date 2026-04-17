@@ -106,7 +106,9 @@ fn create_rust_bindings() -> RustBindings {
         get_mass_test_count: Some(mass_system_registry::get_mass_test_count),
         get_mass_test_desc: Some(mass_system_registry::get_mass_test_desc),
         run_mass_test: Some(mass_system_registry::run_mass_test),
-        get_food_drop_events: Some(mass_system_registry::get_food_drop_events),
+        get_food_drop_events: unreal_api::mass::registered_extern_bindings()
+            .into_iter()
+            .find_map(|b| b.get_food_drop_events),
     }
 }
 fn debug_break() {

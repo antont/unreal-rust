@@ -55,6 +55,67 @@ pub use gatherers_sim::movement::{
 pub use gatherers_sim::movement::reflect_velocity;
 
 // ---------------------------------------------------------------------------
+// Food drop FFI cache + dispatch hooks.
+//
+// The Bevy `FoodDropEvents` resource is drained each frame into a static cache
+// that C++ reads via `get_food_drop_events`. This keeps the framework
+// (`unreal-module`) free of game-specific types — it discovers the FFI binding
+// and the pre/post-dispatch hooks via `inventory`.
+// ---------------------------------------------------------------------------
+
+struct SyncDropCache(Vec<unreal_ffi::FoodDropEvent>);
+// Safe: only ever accessed through the Mutex below.
+unsafe impl Send for SyncDropCache {}
+unsafe impl Sync for SyncDropCache {}
+
+static FOOD_DROP_CACHE: std::sync::Mutex<SyncDropCache> =
+    std::sync::Mutex::new(SyncDropCache(Vec::new()));
+
+fn clear_food_drop_cache(_world: &mut bevy_ecs::world::World) {
+    FOOD_DROP_CACHE.lock().unwrap().0.clear();
+}
+
+fn drain_food_drop_events(world: &mut bevy_ecs::world::World) {
+    // Defensive: resource may be absent if apply_food_mutations is disabled.
+    let Some(mut events) = world.get_resource_mut::<FoodDropEvents>() else {
+        return;
+    };
+    let mut cache = FOOD_DROP_CACHE.lock().unwrap();
+    for e in events.events.drain(..) {
+        cache.0.push(unreal_ffi::FoodDropEvent {
+            food_index: e.food_index,
+            _pad: 0,
+            position: [e.position.x, e.position.y, e.position.z],
+        });
+    }
+}
+
+/// C++ reads queued drop events through this FFI. Registered via `MassExternBinding`.
+pub unsafe extern "C" fn get_food_drop_events(
+    out: *mut unreal_ffi::FoodDropEvent,
+    max: u32,
+) -> u32 {
+    if out.is_null() || max == 0 {
+        return 0;
+    }
+    let cache = FOOD_DROP_CACHE.lock().unwrap();
+    let count = cache.0.len().min(max as usize);
+    unsafe {
+        std::ptr::copy_nonoverlapping(cache.0.as_ptr(), out, count);
+    }
+    count as u32
+}
+
+inventory::submit!(unreal_api::mass::MassDispatchHook {
+    pre_dispatch: clear_food_drop_cache,
+    post_dispatch: drain_food_drop_events,
+});
+
+inventory::submit!(unreal_api::mass::MassExternBinding {
+    get_food_drop_events: Some(get_food_drop_events),
+});
+
+// ---------------------------------------------------------------------------
 // System 2: Collision pre-pass — detect food encounters via UE spatial query,
 // emit HitEvent messages (matching original gatherers CollisionPlugin pattern)
 // ---------------------------------------------------------------------------

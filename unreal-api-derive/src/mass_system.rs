@@ -1243,7 +1243,20 @@ pub fn mass_system_impl(func: &ItemFn, order: u32, entity_group: Option<&str>) -
         })
         .collect();
 
-    let init_resource_stmts = chunk_init_stmts;
+    // Auto-init `ResMut<T>` resources so game code doesn't need to manually insert them.
+    // Does NOT auto-init `Res<T>` (read-only resources may need custom construction,
+    // e.g. SpatialQuery). Requires `T: FromWorld` (blanket-impl'd for `T: Default`).
+    let res_init_stmts: Vec<TokenStream> = resource_params
+        .iter()
+        .filter(|rp| rp.is_mutable)
+        .map(|rp| {
+            let ty = &rp.resource_type;
+            quote! { world.init_resource::<#ty>(); }
+        })
+        .collect();
+
+    let init_resource_stmts: Vec<TokenStream> =
+        chunk_init_stmts.into_iter().chain(res_init_stmts).collect();
 
     // Auto-register message types via app.add_message::<T>() (deduplicates internally)
     let register_message_stmts: Vec<TokenStream> = message_types

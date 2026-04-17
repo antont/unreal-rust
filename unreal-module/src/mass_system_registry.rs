@@ -4,8 +4,9 @@ use unreal_api::ffi::{MassFragmentRequirement, MassSystemDescriptor, Utf8Str};
 use unreal_api::mass::{
     MassBevySystemRegistration, MassEntityMap, MassSchedule,
     MassSystemRegistration, MassSystemStage,
-    registered_bevy_mass_systems, registered_mass_systems, registered_sim_inits,
-    registered_visualizer_groups, registered_spatial_query_configs, registered_sim_defaults,
+    registered_bevy_mass_systems, registered_dispatch_hooks, registered_mass_systems,
+    registered_sim_inits, registered_visualizer_groups, registered_spatial_query_configs,
+    registered_sim_defaults,
 };
 use bevy_mass::SpatialQuery;
 
@@ -26,15 +27,6 @@ unsafe impl Send for SyncDescriptorCache {}
 unsafe impl Sync for SyncDescriptorCache {}
 
 static DESCRIPTOR_CACHE: Mutex<SyncDescriptorCache> = Mutex::new(SyncDescriptorCache(Vec::new()));
-
-/// Cached food drop events from last dispatch. C++ reads via `get_food_drop_events`.
-/// Cleared at the top of each `mass_frame_dispatch` (before `sched.run()`), so a
-/// panic mid-schedule leaves the cache empty rather than replaying stale events.
-struct SyncDropCache(Vec<unreal_ffi::FoodDropEvent>);
-unsafe impl Send for SyncDropCache {}
-unsafe impl Sync for SyncDropCache {}
-
-static FOOD_DROP_CACHE: Mutex<SyncDropCache> = Mutex::new(SyncDropCache(Vec::new()));
 
 /// Clear the descriptor cache. Called on hot-reload so stale pointers aren't reused.
 pub fn reset_descriptor_cache() {
@@ -98,26 +90,25 @@ pub unsafe extern "C" fn get_mass_system_descriptor(
     1
 }
 
-/// Copies food drop events from the last dispatch into `out`. Returns event count.
-/// C++ calls this immediately after `mass_frame_dispatch` returns.
-pub unsafe extern "C" fn get_food_drop_events(
-    out: *mut unreal_ffi::FoodDropEvent,
-    max: u32,
-) -> u32 {
-    if out.is_null() || max == 0 {
-        return 0;
-    }
-    let cache = FOOD_DROP_CACHE.lock().unwrap();
-    let count = cache.0.len().min(max as usize);
-    unsafe {
-        std::ptr::copy_nonoverlapping(cache.0.as_ptr(), out, count);
-    }
-    count as u32
-}
-
 // ---------------------------------------------------------------------------
 // Bevy-scheduled dispatch
 // ---------------------------------------------------------------------------
+
+/// Run all registered `MassDispatchHook::pre_dispatch` callbacks.
+/// Called inside `catch_unwind`, before `sched.run()`.
+fn run_pre_dispatch_hooks(world: &mut unreal_api::ecs::world::World) {
+    for hook in registered_dispatch_hooks() {
+        (hook.pre_dispatch)(world);
+    }
+}
+
+/// Run all registered `MassDispatchHook::post_dispatch` callbacks.
+/// Called after `sched.run()` returns normally — skipped on panic.
+fn run_post_dispatch_hooks(world: &mut unreal_api::ecs::world::World) {
+    for hook in registered_dispatch_hooks() {
+        (hook.post_dispatch)(world);
+    }
+}
 
 /// Wrapper to allow MassSchedule (which contains App) in a static Mutex.
 /// App's runner `Box<dyn FnOnce>` isn't Send, but we only access from game thread.
@@ -158,9 +149,6 @@ pub fn build_bevy_schedule() -> MassSchedule {
 
     // Resource for named spatial query callbacks (populated per-frame)
     sched.world_mut().insert_resource(SpatialQuery::default());
-
-    // TODO(layering): game-specific resource — see TODO at mass_frame_dispatch
-    sched.world_mut().insert_resource(gatherers_sim::components::FoodDropEvents::default());
 
     // message_update_system is already added by App::default() in First schedule.
     // No manual wiring needed.
@@ -257,26 +245,15 @@ pub unsafe extern "C" fn mass_frame_dispatch(
             }
         }
 
-        // Clear stale drop events before running the schedule, so a panic
-        // mid-schedule leaves the cache empty rather than replaying old events.
-        FOOD_DROP_CACHE.lock().unwrap().0.clear();
+        // Pre-dispatch hooks: game-specific state reset / staging for the frame.
+        // Runs inside catch_unwind so a panic leaves no stale state behind.
+        run_pre_dispatch_hooks(sched.world_mut());
 
         sched.run();
 
-        // TODO(layering): FoodDropEvents is game-specific. Generalize into a
-        // typed post-dispatch event channel (games register Resource<T>; framework
-        // drains to a game-owned static cache) once a second event type appears.
-        {
-            let mut events = sched.world_mut().resource_mut::<gatherers_sim::components::FoodDropEvents>();
-            let mut cache = FOOD_DROP_CACHE.lock().unwrap();
-            for e in events.events.drain(..) {
-                cache.0.push(unreal_ffi::FoodDropEvent {
-                    food_index: e.food_index,
-                    _pad: 0,
-                    position: [e.position.x, e.position.y, e.position.z],
-                });
-            }
-        }
+        // Post-dispatch hooks: drain game-specific events into FFI caches.
+        // Only reached on successful return — skipped if sched.run() panics.
+        run_post_dispatch_hooks(sched.world_mut());
 
         // Return post-dispatch flags and clear them
         unreal_api::mass::take_dispatch_flags()
@@ -638,5 +615,50 @@ mod tests {
             mass_frame_dispatch(&data as *const _);
         }
         // If we get here without panic, the test passes
+    }
+
+    // --- Dispatch hook iteration test ---
+    //
+    // Submits a sentinel MassDispatchHook via inventory and verifies that
+    // run_pre_dispatch_hooks / run_post_dispatch_hooks fire it in the right order.
+    // This test guards against regressions where the hook iteration is
+    // accidentally reordered or dropped relative to sched.run().
+
+    use std::sync::Mutex;
+
+    static HOOK_LOG: Mutex<Vec<&'static str>> = Mutex::new(Vec::new());
+
+    fn pre_test_hook(_world: &mut unreal_api::ecs::world::World) {
+        HOOK_LOG.lock().unwrap().push("pre");
+    }
+
+    fn post_test_hook(_world: &mut unreal_api::ecs::world::World) {
+        HOOK_LOG.lock().unwrap().push("post");
+    }
+
+    unreal_api::inventory::submit!(unreal_api::mass::MassDispatchHook {
+        pre_dispatch: pre_test_hook,
+        post_dispatch: post_test_hook,
+    });
+
+    #[test]
+    fn test_dispatch_hooks_fire_in_order() {
+        let mut world = unreal_api::ecs::world::World::new();
+
+        HOOK_LOG.lock().unwrap().clear();
+
+        run_pre_dispatch_hooks(&mut world);
+        run_post_dispatch_hooks(&mut world);
+
+        let log = HOOK_LOG.lock().unwrap();
+        let pre_idx = log.iter().position(|&s| s == "pre");
+        let post_idx = log.iter().position(|&s| s == "post");
+        assert!(pre_idx.is_some(), "pre_dispatch hook should have fired");
+        assert!(post_idx.is_some(), "post_dispatch hook should have fired");
+        assert!(
+            pre_idx.unwrap() < post_idx.unwrap(),
+            "pre_dispatch must run before post_dispatch, got log: {:?}",
+            *log
+        );
     }
 }
