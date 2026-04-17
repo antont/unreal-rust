@@ -40,9 +40,9 @@ inventory::submit!(unreal_api::mass::MassSpatialQueryConfigRegistration {
 // Default simulation parameters (overridable by actor UPROPERTY in editor)
 inventory::submit!(unreal_api::mass::MassSimDefaultsRegistration {
     name: "gatherers",
-    groups: &[("ants", 100), ("food", 500)],
-    bounds_min: [-500.0, -500.0, 0.0],
-    bounds_max: [500.0, 500.0, 100.0],
+    groups: &[("ants", 3000), ("food", 10000)],
+    bounds_min: [-5000.0, -5000.0, 0.0],
+    bounds_max: [5000.0, 5000.0, 100.0],
     random_seed: 42,
 });
 
@@ -50,8 +50,12 @@ inventory::submit!(unreal_api::mass::MassSimDefaultsRegistration {
 mod tests {
     #[test]
     fn sim_defaults_registered() {
-        let defaults: Vec<_> = unreal_api::mass::registered_sim_defaults().into_iter().collect();
-        let d = defaults.iter().find(|d| d.name == "gatherers")
+        let defaults: Vec<_> = unreal_api::mass::registered_sim_defaults()
+            .into_iter()
+            .collect();
+        let d = defaults
+            .iter()
+            .find(|d| d.name == "gatherers")
             .expect("MassSimDefaultsRegistration 'gatherers' must be registered");
         assert_eq!(d.groups.len(), 2);
         assert_eq!(d.groups[0], ("ants", 100));
@@ -63,12 +67,19 @@ mod tests {
 
     #[test]
     fn spatial_query_config_registered() {
-        let configs: Vec<_> = unreal_api::mass::registered_spatial_query_configs().into_iter().collect();
-        let c = configs.iter().find(|c| c.query_group == "food")
+        let configs: Vec<_> = unreal_api::mass::registered_spatial_query_configs()
+            .into_iter()
+            .collect();
+        let c = configs
+            .iter()
+            .find(|c| c.query_group == "food")
             .expect("MassSpatialQueryConfigRegistration 'food' must be registered");
         assert_eq!(c.query_name, "food_pickup");
         assert_eq!(c.radius, 15.0);
-        assert_eq!(c.query_type, unreal_api::mass::MassSpatialQueryType::PhysicsSweep);
+        assert_eq!(
+            c.query_type,
+            unreal_api::mass::MassSpatialQueryType::PhysicsSweep
+        );
         assert_eq!(c.collision_channel_index, 0);
         assert_eq!(c.filter_fragment_type, "FGatherersFoodStateFragment");
         assert_eq!(c.filter_bool_offset, 0); // is_loose is the only field in FoodState
@@ -77,12 +88,18 @@ mod tests {
 
     #[test]
     fn visualizer_groups_registered() {
-        let groups: Vec<_> = unreal_api::mass::registered_visualizer_groups().into_iter().collect();
-        let ants = groups.iter().find(|g| g.name == "ants")
+        let groups: Vec<_> = unreal_api::mass::registered_visualizer_groups()
+            .into_iter()
+            .collect();
+        let ants = groups
+            .iter()
+            .find(|g| g.name == "ants")
             .expect("visualizer group 'ants' must be registered");
         assert_eq!(ants.position_fragment_type, "FTransformFragment");
         assert_eq!(ants.scale, 0.2);
-        let food = groups.iter().find(|g| g.name == "food")
+        let food = groups
+            .iter()
+            .find(|g| g.name == "food")
             .expect("visualizer group 'food' must be registered");
         assert_eq!(food.position_fragment_type, "FTransformFragment");
         assert_eq!(food.scale, 0.1);
