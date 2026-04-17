@@ -131,6 +131,23 @@ The simulation restarts from scratch with the new Rust code — entities are des
 
 **Note:** This requires the C++ plugin to be compiled with the `OnRustReloaded()` hook. If you only see `Hotreload` but not the reset message, rebuild the C++ side (UE toolbar compile button or restart the editor after a CLI build).
 
+### Automated hot-reload tests (CLI)
+
+Two external-process scripts exercise the full reload cycle end-to-end. Both launch a headless editor, verify initial plugin load, trigger a reload, and assert the editor picked up the new dylib. Exit 0 on success.
+
+```bash
+# ~15s — tests the reload infrastructure only (timestamp detect + unique-name + codesign).
+# Touches the dylib; no cargo rebuild.
+./scripts/hot_reload_smoke_test.sh
+
+# ~30s — edits a Rust source file, runs `cargo build --release -p unreal-rust-host`,
+# asserts a unique marker from the edit appears in the editor log after reload.
+# Auto-reverts the source edit on exit (success or failure).
+./scripts/hot_reload_rebuild_test.sh
+```
+
+The in-process UE automation test `BevyMassReloadPreservesDispatchHooks` covers `OnRustReloaded()`'s state-cleanup paths (inventory bindings, drop cache) but does NOT actually rebuild or reload the dylib — these shell scripts do.
+
 ## Unreal C++ build (CLI)
 
 ```bash
