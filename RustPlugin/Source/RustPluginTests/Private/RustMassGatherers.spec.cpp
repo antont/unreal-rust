@@ -1147,6 +1147,76 @@ bool FGatherersBevyMassOnRustReloadedResetsStateTest::RunTest(const FString& Par
 }
 
 // ---------------------------------------------------------------------------
+
+// NOTE: This test exercises OnRustReloaded() in-process only. It does NOT
+// rebuild the dylib or trigger the timestamp-polling reload path. A full
+// end-to-end reload test (external process rebuilds dylib, editor picks it
+// up) is tracked separately and will run outside the UE automation harness.
+IMPLEMENT_SIMPLE_AUTOMATION_TEST(
+	FGatherersBevyMassReloadPreservesDispatchHooksTest,
+	"supplemental.RustPlugin.Gatherers.BevyMassReloadPreservesDispatchHooks",
+	EAutomationTestFlags::EditorContext | EAutomationTestFlags::EngineFilter)
+
+bool FGatherersBevyMassReloadPreservesDispatchHooksTest::RunTest(const FString& Parameters)
+{
+	UWorld* World = GEditor->GetEditorWorldContext().World();
+	if (!TestNotNull(TEXT("World must exist"), World))
+	{
+		return false;
+	}
+
+	URustMassBevySubsystem* Subsystem = World->GetSubsystem<URustMassBevySubsystem>();
+	if (!TestNotNull(TEXT("RustMassBevySubsystem must exist"), Subsystem))
+	{
+		return false;
+	}
+
+	FRustPluginModule& Module = FModuleManager::GetModuleChecked<FRustPluginModule>("RustPlugin");
+	TestTrue(TEXT("get_food_drop_events binding resolved before reload"),
+		Module.Plugin.Rust.get_food_drop_events.IsSome());
+
+	const FBox Bounds(FVector(-500.0, -500.0, 0.0), FVector(500.0, 500.0, 100.0));
+	Subsystem->InitializeSimulation({{TEXT("ants"), 20}, {TEXT("food"), 10}}, Bounds, 12345);
+
+	// Tick a few steps to exercise the dispatch-hook round-trip before reload.
+	for (int32 Step = 0; Step < 5; ++Step)
+	{
+		Subsystem->RunSimulationProcessorsForTesting(0.016f);
+	}
+
+	// Simulated reload — re-inits sim via saved params and rebinds inventory state.
+	Subsystem->OnRustReloaded();
+
+	TestTrue(TEXT("HasManagedSimulation after reload"), Subsystem->HasManagedSimulation());
+	TestTrue(TEXT("get_food_drop_events binding still resolved after reload"),
+		Module.Plugin.Rust.get_food_drop_events.IsSome());
+	TestEqual(TEXT("Ant count preserved after reload"),
+		Subsystem->GetGroupEntityCount(TEXT("ants")), 20);
+	TestEqual(TEXT("Food count preserved after reload"),
+		Subsystem->GetGroupEntityCount(TEXT("food")), 10);
+
+	// Tick more steps post-reload to re-exercise the hook path on the fresh inventory.
+	for (int32 Step = 0; Step < 5; ++Step)
+	{
+		Subsystem->RunSimulationProcessorsForTesting(0.016f);
+	}
+
+	// Drain the drop cache through the FFI binding the same way the subsystem does.
+	// Count is stochastic — we only assert the call succeeds without overflow.
+	if (Module.Plugin.Rust.get_food_drop_events.IsSome())
+	{
+		constexpr uint32_t MaxDropEvents = 64;
+		FoodDropEvent DropEvents[MaxDropEvents];
+		uint32_t Count = Module.Plugin.Rust.get_food_drop_events.Unwrap()(DropEvents, MaxDropEvents);
+		TestTrue(TEXT("Drop event FFI callable after reload (no buffer overflow)"),
+			Count < MaxDropEvents);
+	}
+
+	Subsystem->ResetSimulation();
+	return true;
+}
+
+// ---------------------------------------------------------------------------
 // Native MassRepresentation visualization tests
 // ---------------------------------------------------------------------------
 
