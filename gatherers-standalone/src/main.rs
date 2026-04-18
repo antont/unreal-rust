@@ -1,4 +1,5 @@
 use bevy::prelude::*;
+use bevy::render::view::screenshot::{save_to_disk, Screenshot};
 use bevy_mass::{MovementPlugin, EntityIndex};
 use gatherers_sim::components::{
     Transform as SimTransform, PreviousTranslation, DesiredMovement,
@@ -15,15 +16,24 @@ use glam::DVec3;
 // Constants
 // ---------------------------------------------------------------------------
 
-const ANT_COUNT: u32 = 10_000;
-const FOOD_COUNT: u32 = 5_000;
-const ANT_SIZE: f32 = 20.0;
-const FOOD_SIZE: f32 = 10.0;
+// 800×800 window at current scale can't visually accommodate the UE-scale
+// counts (10k ants / 5k food); entities end up packed so tight that every
+// food is within pickup radius of an ant at spawn, and the ants themselves
+// carpet the window. These counts give a legible simulation.
+const ANT_COUNT: u32 = 300;
+const FOOD_COUNT: u32 = 150;
+const ANT_SIZE: f32 = 8.0;
+const FOOD_SIZE: f32 = 6.0;
 const PICKUP_RADIUS: f64 = 15.0;
 
+// Matches /Users/tonialatalo/src/gatherers/src/config.rs
+const COLOR_BACKGROUND: Color = Color::srgb(95.0 / 255.0, 151.0 / 255.0, 212.0 / 255.0);
 const COLOR_ANT: Color = Color::srgb(0.8, 0.8, 0.8);
-const COLOR_FOOD_LOOSE: Color = Color::srgb(0.75, 0.01, 0.01);
-const COLOR_FOOD_CARRIED: Color = Color::srgb(1.0, 0.5, 0.0); // orange, visible on top of ant
+const COLOR_FOOD_LOOSE: Color = Color::srgb(192.0 / 255.0, 2.0 / 255.0, 2.0 / 255.0);
+// Original sim doesn't recolor carried food, just raises its Z layer. We do
+// the same — carried food stays the same red and is visible on top of ants
+// via Z ordering.
+const COLOR_FOOD_CARRIED: Color = COLOR_FOOD_LOOSE;
 
 const Z_FOOD: f32 = 1.0;
 const Z_ANT: f32 = 2.0;
@@ -43,7 +53,13 @@ struct FoodMarker;
 // ---------------------------------------------------------------------------
 
 fn setup_camera(mut commands: Commands) {
-    commands.spawn(Camera2d::default());
+    commands.spawn((
+        Camera2d,
+        Camera {
+            clear_color: ClearColorConfig::Custom(COLOR_BACKGROUND),
+            ..default()
+        },
+    ));
 }
 
 /// Scale factor: sim coordinates → screen pixels.
@@ -251,7 +267,82 @@ fn sync_food_colors(mut foods: Query<(&FoodState, &mut Sprite), With<FoodMarker>
 // App
 // ---------------------------------------------------------------------------
 
+/// Parsed from `--screenshot-at <frame>,<frame>,...` / `--exit-after <frame>`.
+/// Lets us drive the app headfully and capture frames to disk for
+/// autonomous inspection.
+#[derive(Resource, Default)]
+struct CaptureSchedule {
+    /// Frames at which to spawn a Screenshot entity (sorted, deduped).
+    frames: Vec<u64>,
+    /// Frame after which to AppExit. None = run forever.
+    exit_after: Option<u64>,
+    /// Directory where screenshots are written.
+    out_dir: String,
+}
+
+fn parse_capture_schedule() -> CaptureSchedule {
+    let mut sched = CaptureSchedule {
+        out_dir: "/tmp".to_string(),
+        ..default()
+    };
+    let args: Vec<String> = std::env::args().collect();
+    let mut i = 1;
+    while i < args.len() {
+        match args[i].as_str() {
+            "--screenshot-at" => {
+                if let Some(v) = args.get(i + 1) {
+                    sched.frames = v
+                        .split(',')
+                        .filter_map(|s| s.trim().parse::<u64>().ok())
+                        .collect();
+                    sched.frames.sort();
+                    sched.frames.dedup();
+                }
+                i += 2;
+            }
+            "--exit-after" => {
+                sched.exit_after = args.get(i + 1).and_then(|v| v.parse::<u64>().ok());
+                i += 2;
+            }
+            "--out-dir" => {
+                if let Some(v) = args.get(i + 1) {
+                    sched.out_dir = v.clone();
+                }
+                i += 2;
+            }
+            _ => i += 1,
+        }
+    }
+    sched
+}
+
+fn capture_scheduled_screenshots(
+    mut commands: Commands,
+    sched: Res<CaptureSchedule>,
+    mut frame: Local<u64>,
+    mut exit: MessageWriter<AppExit>,
+) {
+    let current = *frame;
+    *frame += 1;
+
+    if sched.frames.binary_search(&current).is_ok() {
+        let path = format!("{}/standalone_frame_{:04}.png", sched.out_dir, current);
+        commands
+            .spawn(Screenshot::primary_window())
+            .observe(save_to_disk(path));
+    }
+
+    if let Some(last) = sched.exit_after {
+        // Give the screenshot one extra frame to finish capturing before we exit.
+        if current >= last + 2 {
+            exit.write(AppExit::Success);
+        }
+    }
+}
+
 fn main() {
+    let sched = parse_capture_schedule();
+
     App::new()
         .add_plugins(DefaultPlugins.set(WindowPlugin {
             primary_window: Some(Window {
@@ -262,6 +353,7 @@ fn main() {
             ..default()
         }))
         .add_plugins(MovementPlugin::<SimTransform, PreviousTranslation, DesiredMovement>::default())
+        .insert_resource(sched)
         .add_message::<AntFoodHit>()
         .add_message::<FoodMutation>()
         .add_systems(Startup, (setup_camera, spawn_entities))
@@ -276,6 +368,7 @@ fn main() {
                 sync_ant_transforms,
                 sync_food_transforms,
                 sync_food_colors,
+                capture_scheduled_screenshots,
             )
                 .chain(),
         )

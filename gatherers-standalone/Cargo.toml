@@ -19,4 +19,5 @@ features = [
   "bevy_winit",
   "bevy_log",
   "bevy_ui_render",
+  "png",
 ]
