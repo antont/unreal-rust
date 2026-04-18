@@ -16,14 +16,17 @@ use glam::DVec3;
 // Constants
 // ---------------------------------------------------------------------------
 
-// 800×800 window at current scale can't visually accommodate the UE-scale
-// counts (10k ants / 5k food); entities end up packed so tight that every
-// food is within pickup radius of an ant at spawn, and the ants themselves
-// carpet the window. These counts give a legible simulation.
-const ANT_COUNT: u32 = 300;
-const FOOD_COUNT: u32 = 150;
-const ANT_SIZE: f32 = 8.0;
-const FOOD_SIZE: f32 = 6.0;
+// Counts derived from the original gatherers formula
+// (/Users/tonialatalo/src/gatherers/src/config.rs):
+//   ants = map_width / ANT_SPAWN_STEP  →  1000 / 50 = 20
+//   food = FOOD_COUNT constant         →  80
+// 1:4 ants-to-food, calibrated against the sim-bound width (1000 units).
+const ANT_SPAWN_STEP: f64 = 50.0;
+const SIM_WIDTH: f64 = SIM_BOUNDS_MAX[0] - SIM_BOUNDS_MIN[0];
+const ANT_COUNT: u32 = (SIM_WIDTH / ANT_SPAWN_STEP) as u32;
+const FOOD_COUNT: u32 = 80;
+const ANT_SIZE: f32 = 20.0;
+const FOOD_SIZE: f32 = 10.0;
 const PICKUP_RADIUS: f64 = 15.0;
 
 // Matches /Users/tonialatalo/src/gatherers/src/config.rs
