@@ -47,8 +47,9 @@ fn setup_camera(mut commands: Commands) {
 }
 
 /// Scale factor: sim coordinates → screen pixels.
-/// Sim spans 10000 units, window is 800px. We shrink to fit with margin.
-const SIM_TO_SCREEN: f32 = 800.0 / 11000.0; // 11000 = 10000 + 10% margin
+/// Sim spans (SIM_BOUNDS_MAX − SIM_BOUNDS_MIN).x = 1000 units on each axis;
+/// fit into the 800px window with a 10% margin.
+const SIM_TO_SCREEN: f32 = 800.0 / 1100.0;
 
 fn spawn_entities(mut commands: Commands) {
     let bounds_min = DVec3::new(SIM_BOUNDS_MIN[0], SIM_BOUNDS_MIN[1], SIM_BOUNDS_MIN[2]);
