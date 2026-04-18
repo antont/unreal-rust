@@ -278,6 +278,10 @@ struct CaptureSchedule {
     exit_after: Option<u64>,
     /// Directory where screenshots are written.
     out_dir: String,
+    /// When true, pause `Time<Virtual>` and advance it by a fixed 1/60s step
+    /// at the head of Update. Makes `time.delta_secs()` in the sim
+    /// deterministic frame-to-frame so screenshots are reproducible.
+    deterministic_clock: bool,
 }
 
 fn parse_capture_schedule() -> CaptureSchedule {
@@ -310,6 +314,10 @@ fn parse_capture_schedule() -> CaptureSchedule {
                 }
                 i += 2;
             }
+            "--deterministic-clock" => {
+                sched.deterministic_clock = true;
+                i += 1;
+            }
             _ => i += 1,
         }
     }
@@ -333,8 +341,11 @@ fn capture_scheduled_screenshots(
     }
 
     if let Some(last) = sched.exit_after {
-        // Give the screenshot one extra frame to finish capturing before we exit.
-        if current >= last + 2 {
+        // Screenshot capture + save is async through observers and the render
+        // pipeline, so give it several frames of slack after the last
+        // requested frame. 10 is comfortably over the 2–3 a screenshot
+        // usually needs and costs nothing at CI scale.
+        if current >= last + 10 {
             exit.write(AppExit::Success);
         }
     }
@@ -342,9 +353,10 @@ fn capture_scheduled_screenshots(
 
 fn main() {
     let sched = parse_capture_schedule();
+    let deterministic = sched.deterministic_clock;
 
-    App::new()
-        .add_plugins(DefaultPlugins.set(WindowPlugin {
+    let mut app = App::new();
+    app.add_plugins(DefaultPlugins.set(WindowPlugin {
             primary_window: Some(Window {
                 title: "Gatherers Sim".into(),
                 resolution: (800, 800).into(),
@@ -355,7 +367,13 @@ fn main() {
         .add_plugins(MovementPlugin::<SimTransform, PreviousTranslation, DesiredMovement>::default())
         .insert_resource(sched)
         .add_message::<AntFoodHit>()
-        .add_message::<FoodMutation>()
+        .add_message::<FoodMutation>();
+    if deterministic {
+        app.insert_resource(bevy::time::TimeUpdateStrategy::ManualDuration(
+            std::time::Duration::from_secs_f64(1.0 / 60.0),
+        ));
+    }
+    app
         .add_systems(Startup, (setup_camera, spawn_entities))
         .add_systems(
             Update,

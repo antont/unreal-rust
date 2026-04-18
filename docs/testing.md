@@ -148,6 +148,55 @@ Two external-process scripts exercise the full reload cycle end-to-end. Both lau
 
 The in-process UE automation test `BevyMassReloadPreservesDispatchHooks` covers `OnRustReloaded()`'s state-cleanup paths (inventory bindings, drop cache) but does NOT actually rebuild or reload the dylib — these shell scripts do.
 
+## Standalone screenshot regression (pre-commit hook)
+
+`gatherers-standalone` is a pure-Bevy harness (no Unreal) that runs the same `gatherers-sim` + `bevy_mass` crates the UE plugin uses. A pre-commit hook rebuilds it, runs it with a deterministic clock + fixed seed, and compares three frames against committed references with `odiff`. This catches sim regressions (ordering changes, movement/collision tweaks, renames that compile but break visuals) before they leave your machine.
+
+### Install
+
+```bash
+chmod +x scripts/pre-commit.sh scripts/verify_standalone.sh scripts/update_standalone_references.sh
+ln -sf ../../scripts/pre-commit.sh .git/hooks/pre-commit
+```
+
+Requires `odiff` on PATH (install with `npm i -g odiff-bin` or Homebrew).
+
+### What triggers the hook
+
+Only when staged paths touch one of:
+- `gatherers-standalone/`
+- `gatherers-sim/src/`
+- `bevy_mass/src/`
+- `scripts/verify_standalone.sh`
+- `gatherers-standalone/test/reference_screenshots/`
+
+Unrelated commits (README, UE C++, docs) exit the hook instantly.
+
+### Commands
+
+```bash
+# Run the check manually
+scripts/verify_standalone.sh
+
+# Custom tolerance (default 0.5%)
+TOLERANCE=1.0 scripts/verify_standalone.sh
+
+# Bypass the hook for an intentional or emergency commit
+git commit --no-verify
+```
+
+### Intentional regressions
+
+When a change legitimately alters the sim's output, regenerate the references:
+
+```bash
+scripts/update_standalone_references.sh       # interactive confirm
+scripts/update_standalone_references.sh -y    # no prompt
+git add gatherers-standalone/test/reference_screenshots/
+```
+
+The determinism comes from `bevy::time::TimeUpdateStrategy::ManualDuration(1/60s)`, set when the standalone is invoked with `--deterministic-clock`. Combined with the seed-42 LCG spawn in `gatherers-standalone/src/main.rs`, runs are pixel-reproducible. Diff images land in `/tmp/standalone_regression/` for inspection on failure.
+
 ## Unreal C++ build (CLI)
 
 ```bash
