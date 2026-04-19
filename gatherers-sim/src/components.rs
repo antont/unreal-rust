@@ -166,6 +166,28 @@ impl FoodDropEvents {
     }
 }
 
+// ---------------------------------------------------------------------------
+// Food pickup events (Bevy Resource, consumed by C++ via FFI).
+//
+// C++ uses these to remove the picked-up food from the navigation hash grid
+// so the GridHash spatial query doesn't have to filter `is_loose` per candidate.
+// ---------------------------------------------------------------------------
+
+#[derive(Resource, Default)]
+pub struct FoodPickupEvents {
+    pub indices: Vec<i32>,
+}
+
+impl FoodPickupEvents {
+    pub fn push(&mut self, food_index: i32) {
+        self.indices.push(food_index);
+    }
+
+    pub fn clear(&mut self) {
+        self.indices.clear();
+    }
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;

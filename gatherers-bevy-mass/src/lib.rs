@@ -24,14 +24,14 @@ inventory::submit!(unreal_api::mass::MassVisualizerGroupRegistration {
     scale: 0.1,
 });
 
-// Spatial query config: search "food" group for loose food within 15.0 units
-// Uses UE physics sweep via ECC_GameTraceChannel1 ("FoodQuery")
+// Spatial query config: search "food" group for loose food within 15.0 units.
+// Uses UE's Mass navigation hash grid (FNavigationObstacleHashGrid2D).
 inventory::submit!(unreal_api::mass::MassSpatialQueryConfigRegistration {
     query_name: "food_pickup",
     query_group: "food",
     radius: 15.0,
-    query_type: unreal_api::mass::MassSpatialQueryType::PhysicsSweep,
-    collision_channel_index: 0, // ECC_GameTraceChannel1 = "FoodQuery"
+    query_type: unreal_api::mass::MassSpatialQueryType::GridHash,
+    collision_channel_index: 0, // unused for GridHash
     filter_fragment_type: "FGatherersFoodStateFragment",
     filter_bool_offset: 0, // is_loose is the first (only) field in FoodState
     filter_bool_must_be: true,
@@ -58,10 +58,10 @@ mod tests {
             .find(|d| d.name == "gatherers")
             .expect("MassSimDefaultsRegistration 'gatherers' must be registered");
         assert_eq!(d.groups.len(), 2);
-        assert_eq!(d.groups[0], ("ants", 100));
-        assert_eq!(d.groups[1], ("food", 500));
-        assert_eq!(d.bounds_min, [-500.0, -500.0, 0.0]);
-        assert_eq!(d.bounds_max, [500.0, 500.0, 100.0]);
+        assert_eq!(d.groups[0], ("ants", 3000));
+        assert_eq!(d.groups[1], ("food", 10000));
+        assert_eq!(d.bounds_min, [-5000.0, -5000.0, 0.0]);
+        assert_eq!(d.bounds_max, [5000.0, 5000.0, 100.0]);
         assert_eq!(d.random_seed, 42);
     }
 
@@ -78,7 +78,7 @@ mod tests {
         assert_eq!(c.radius, 15.0);
         assert_eq!(
             c.query_type,
-            unreal_api::mass::MassSpatialQueryType::PhysicsSweep
+            unreal_api::mass::MassSpatialQueryType::GridHash
         );
         assert_eq!(c.collision_channel_index, 0);
         assert_eq!(c.filter_fragment_type, "FGatherersFoodStateFragment");

@@ -35,7 +35,7 @@ use crate::components::{
     FoodState, Food, Ant,
     FoodEncounter,
 };
-use gatherers_sim::components::{AntFoodHit, FoodMutation, FoodDropEvents};
+use gatherers_sim::components::{AntFoodHit, FoodMutation, FoodDropEvents, FoodPickupEvents};
 use bevy_ecs::message::{MessageReader, MessageWriter};
 use gatherers_sim::food_decision::{
     ant_food_decision as ant_food_decision_fn,
@@ -71,22 +71,28 @@ unsafe impl Sync for SyncDropCache {}
 static FOOD_DROP_CACHE: std::sync::Mutex<SyncDropCache> =
     std::sync::Mutex::new(SyncDropCache(Vec::new()));
 
-fn clear_food_drop_cache(_world: &mut bevy_ecs::world::World) {
+static FOOD_PICKUP_CACHE: std::sync::Mutex<Vec<i32>> =
+    std::sync::Mutex::new(Vec::new());
+
+fn clear_food_event_caches(_world: &mut bevy_ecs::world::World) {
     FOOD_DROP_CACHE.lock().unwrap().0.clear();
+    FOOD_PICKUP_CACHE.lock().unwrap().clear();
 }
 
-fn drain_food_drop_events(world: &mut bevy_ecs::world::World) {
-    // Defensive: resource may be absent if apply_food_mutations is disabled.
-    let Some(mut events) = world.get_resource_mut::<FoodDropEvents>() else {
-        return;
-    };
-    let mut cache = FOOD_DROP_CACHE.lock().unwrap();
-    for e in events.events.drain(..) {
-        cache.0.push(unreal_ffi::FoodDropEvent {
-            food_index: e.food_index,
-            _pad: 0,
-            position: [e.position.x, e.position.y, e.position.z],
-        });
+fn drain_food_events(world: &mut bevy_ecs::world::World) {
+    if let Some(mut events) = world.get_resource_mut::<FoodDropEvents>() {
+        let mut cache = FOOD_DROP_CACHE.lock().unwrap();
+        for e in events.events.drain(..) {
+            cache.0.push(unreal_ffi::FoodDropEvent {
+                food_index: e.food_index,
+                _pad: 0,
+                position: [e.position.x, e.position.y, e.position.z],
+            });
+        }
+    }
+    if let Some(mut events) = world.get_resource_mut::<FoodPickupEvents>() {
+        let mut cache = FOOD_PICKUP_CACHE.lock().unwrap();
+        cache.extend(events.indices.drain(..));
     }
 }
 
@@ -109,13 +115,32 @@ pub unsafe extern "C" fn get_food_drop_events(
     count as u32
 }
 
+/// C++ reads queued pickup events (food indices) through this FFI. Registered
+/// via `MassExternBinding`. Same drain-loop contract as `get_food_drop_events`.
+pub unsafe extern "C" fn get_food_pickup_events(
+    out: *mut i32,
+    max: u32,
+) -> u32 {
+    if out.is_null() || max == 0 {
+        return 0;
+    }
+    let mut cache = FOOD_PICKUP_CACHE.lock().unwrap();
+    let count = cache.len().min(max as usize);
+    unsafe {
+        std::ptr::copy_nonoverlapping(cache.as_ptr(), out, count);
+    }
+    cache.drain(..count);
+    count as u32
+}
+
 inventory::submit!(unreal_api::mass::MassDispatchHook {
-    pre_dispatch: clear_food_drop_cache,
-    post_dispatch: drain_food_drop_events,
+    pre_dispatch: clear_food_event_caches,
+    post_dispatch: drain_food_events,
 });
 
 inventory::submit!(unreal_api::mass::MassExternBinding {
     get_food_drop_events: Some(get_food_drop_events),
+    get_food_pickup_events: Some(get_food_pickup_events),
 });
 
 // ---------------------------------------------------------------------------
@@ -201,11 +226,13 @@ fn apply_food_mutations(
     mut mutations: MessageReader<FoodMutation>,
     foods: QueryAll<&mut FoodState, With<Food>>,
     mut drop_events: ResMut<FoodDropEvents>,
+    mut pickup_events: ResMut<FoodPickupEvents>,
 ) {
     for mutation in mutations.read() {
         if let Some(food) = foods.get_mut(mutation.food_index as usize) {
             if mutation.decision == DECISION_PICK_UP {
                 food.is_loose = false;
+                pickup_events.push(mutation.food_index);
             } else if mutation.decision == DECISION_DROP {
                 food.is_loose = true;
                 drop_events.push(mutation.food_index, mutation.drop_position);

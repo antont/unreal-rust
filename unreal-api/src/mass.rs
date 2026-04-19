@@ -1689,6 +1689,7 @@ pub fn drain_mass_system_samples() -> Vec<MassSystemSample> {
 /// If this grows past ~3 fields, consider generalizing to an inventory-keyed dispatch map.
 pub struct MassExternBinding {
     pub get_food_drop_events: Option<unreal_ffi::GetFoodDropEventsFn>,
+    pub get_food_pickup_events: Option<unreal_ffi::GetFoodPickupEventsFn>,
 }
 
 inventory::collect!(MassExternBinding);
@@ -1710,6 +1711,8 @@ pub enum MassSpatialQueryType {
     IsmcOverlap = 0,
     /// UE physics sweep (World->SweepMultiByChannel).
     PhysicsSweep = 1,
+    /// UMassNavigationSubsystem hash grid (FNavigationObstacleHashGrid2D).
+    GridHash = 2,
 }
 
 /// Game crates register spatial query configurations via inventory.

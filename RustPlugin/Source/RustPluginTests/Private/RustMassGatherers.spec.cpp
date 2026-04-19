@@ -874,12 +874,12 @@ bool FGatherersBevyMassRustSimDefaultsFFITest::RunTest(const FString& Parameters
 		if (Name == TEXT("ants"))
 		{
 			FoundAnts = true;
-			TestEqual(TEXT("Ants default count"), Defaults.groups[i].count, 100);
+			TestEqual(TEXT("Ants default count"), Defaults.groups[i].count, 3000);
 		}
 		else if (Name == TEXT("food"))
 		{
 			FoundFood = true;
-			TestEqual(TEXT("Food default count"), Defaults.groups[i].count, 500);
+			TestEqual(TEXT("Food default count"), Defaults.groups[i].count, 10000);
 		}
 	}
 	TestTrue(TEXT("Should have 'ants' group in defaults"), FoundAnts);
@@ -923,7 +923,7 @@ bool FGatherersBevyMassRustSpatialQueryConfigFFITest::RunTest(const FString& Par
 	TestEqual(TEXT("Query group should be 'food'"), QueryGroup, TEXT("food"));
 
 	TestEqual(TEXT("Radius should be 15.0"), Config.radius, 15.0f);
-	TestEqual(TEXT("query_type should be 1 (PhysicsSweep)"), Config.query_type, (uint8)1);
+	TestEqual(TEXT("query_type should be 2 (GridHash)"), Config.query_type, (uint8)2);
 	TestEqual(TEXT("collision_channel_index should be 0"), Config.collision_channel_index, (uint8)0);
 	TestEqual(TEXT("Bool offset should be 0"), Config.filter_bool_offset, (uint32)0);
 	TestTrue(TEXT("filter_bool_must_be should be true"), Config.filter_bool_must_be);
@@ -1862,12 +1862,14 @@ bool FGatherersBevyMassISMPhysicsBodyMoveTest::RunTest(const FString& Parameters
 
 	TestEqual(TEXT("ISMC should have 1 instance"), FoodISMC->GetInstanceCount(), 1);
 
-	// Collision should already be enabled by spatial query setup (food_pickup config)
-	TestTrue(TEXT("ISMC collision should be enabled"),
-		FoodISMC->GetCollisionEnabled() != ECollisionEnabled::NoCollision);
-
-	// food_pickup spatial query uses collision_channel_index 0 → ECC_GameTraceChannel1
+	// This test validates pure UE behavior (does UpdateInstanceTransform move the
+	// physics body?) independent of which spatial query backend is active, so we
+	// enable collision explicitly here rather than relying on the query's setup.
 	ECollisionChannel SweepChannel = ECC_GameTraceChannel1;
+	FoodISMC->SetCollisionEnabled(ECollisionEnabled::QueryOnly);
+	FoodISMC->SetCollisionResponseToAllChannels(ECR_Ignore);
+	FoodISMC->SetCollisionResponseToChannel(SweepChannel, ECR_Block);
+	FoodISMC->RecreatePhysicsState();
 
 	// Get initial food position from fragment
 	FVector InitialPos;
@@ -1984,6 +1986,14 @@ bool FGatherersBevyMassPerfProfileTest::RunTest(const FString& Parameters)
 
 	URustMassBevySubsystem* Subsystem = World->GetSubsystem<URustMassBevySubsystem>();
 	if (!TestNotNull(TEXT("RustMassBevySubsystem must exist"), Subsystem)) return false;
+
+	// UMassRepresentationSubsystem logs `LogMassRepresentation: Error: Template
+	// actor type 0 is not referring to a valid type` when the perf scenario uses
+	// static-mesh-only visualization (no template actors registered). Harmless noise;
+	// tolerate it so the automation framework doesn't fail the test on engine logs.
+	// Occurrences < 0 = silently ignore any count (may be zero on some trajectories).
+	AddExpectedError(TEXT("Template actor type .* is not referring to a valid type"),
+		EAutomationExpectedErrorFlags::Contains, -1);
 
 	// Use UE-scale bounds matching gatherers-bevy-mass/src/lib.rs defaults.
 	const FBox Bounds(FVector(-5000.0, -5000.0, 0.0), FVector(5000.0, 5000.0, 100.0));

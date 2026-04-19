@@ -109,6 +109,9 @@ fn create_rust_bindings() -> RustBindings {
         get_food_drop_events: unreal_api::mass::registered_extern_bindings()
             .into_iter()
             .find_map(|b| b.get_food_drop_events),
+        get_food_pickup_events: unreal_api::mass::registered_extern_bindings()
+            .into_iter()
+            .find_map(|b| b.get_food_pickup_events),
     }
 }
 fn debug_break() {

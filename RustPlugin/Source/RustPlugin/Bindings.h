@@ -578,6 +578,11 @@ struct FoodDropEvent {
 /// Registered via `unreal_api::mass::MassExternBinding` from the game crate.
 using GetFoodDropEventsFn = uint32_t(*)(FoodDropEvent *out, uint32_t max);
 
+/// A food pickup event: one food entity was picked up by an ant.
+/// C++ reads these after dispatch to remove the food from the navigation hash grid
+/// (so GridHash queries don't return picked-up food).
+using GetFoodPickupEventsFn = uint32_t(*)(int32_t *out, uint32_t max);
+
 struct RustBindings {
   TickFn tick;
   BeginPlayFn begin_play;
@@ -596,6 +601,7 @@ struct RustBindings {
   Option<GetMassTestDescFn> get_mass_test_desc;
   Option<RunMassTestFn> run_mass_test;
   Option<GetFoodDropEventsFn> get_food_drop_events;
+  Option<GetFoodPickupEventsFn> get_food_pickup_events;
 };
 
 using EntryUnrealBindingsFn = uint32_t(*)(UnrealBindings bindings);
@@ -731,7 +737,7 @@ static_assert(sizeof(FScriptArrayFns) == 104, "FScriptArrayFns: 13 fn ptrs");
 // --- Binding structs ---
 static_assert(sizeof(UnrealBindings) == 216,
     "UnrealBindings: LogFn(8) + CoreFns(72) + FStringFns(24) + FScriptArrayFns(104) + Option<SpawnEntitiesFn>(8)");
-static_assert(sizeof(RustBindings) == 136, "RustBindings: 7 fn ptrs + 10 Option<fn ptr> = 17 pointers");
+static_assert(sizeof(RustBindings) == 144, "RustBindings: 7 fn ptrs + 11 Option<fn ptr> = 18 pointers");
 static_assert(sizeof(PluginBindings) == 32, "PluginBindings: 4 fn ptrs");
 
 // --- Mass Entity types ---

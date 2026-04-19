@@ -33,6 +33,8 @@ public class RustPlugin : ModuleRules
 				"MassSpawner",
 				"MassSimulation",
 				"MassActors",
+				"MassNavigation",
+				"AIModule",
 				"StructUtils",
 			}
 			);

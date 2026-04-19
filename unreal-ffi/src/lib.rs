@@ -272,6 +272,11 @@ pub struct FoodDropEvent {
 /// Registered via `unreal_api::mass::MassExternBinding` from the game crate.
 pub type GetFoodDropEventsFn = unsafe extern "C" fn(out: *mut FoodDropEvent, max: u32) -> u32;
 
+/// A food pickup event: one food entity was picked up by an ant.
+/// C++ reads these after dispatch to remove the food from the navigation hash grid
+/// (so GridHash queries don't return picked-up food).
+pub type GetFoodPickupEventsFn = unsafe extern "C" fn(out: *mut i32, max: u32) -> u32;
+
 // --- Spatial query callback for Rust collision processor ---
 
 /// Result of a spatial query (nearest entity encounter detection).
@@ -609,6 +614,7 @@ pub struct RustBindings {
     pub get_mass_test_desc: Option<GetMassTestDescFn>,
     pub run_mass_test: Option<RunMassTestFn>,
     pub get_food_drop_events: Option<GetFoodDropEventsFn>,
+    pub get_food_pickup_events: Option<GetFoodPickupEventsFn>,
 }
 
 impl RustBindings {
@@ -666,6 +672,7 @@ impl RustBindings {
             get_mass_test_desc: None,
             run_mass_test: None,
             get_food_drop_events: None,
+            get_food_pickup_events: None,
         }
     }
 }

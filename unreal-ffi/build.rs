@@ -27,6 +27,7 @@ fn main() {
         .include_item("GetSimDefaultsFn")
         .include_item("FoodDropEvent")
         .include_item("GetFoodDropEventsFn")
+        .include_item("GetFoodPickupEventsFn")
         .with_pragma_once(true)
         .generate()
         .expect("Unable to generate bindings")
@@ -111,7 +112,7 @@ static_assert(sizeof(FScriptArrayFns) == 104, "FScriptArrayFns: 13 fn ptrs");
 // --- Binding structs ---
 static_assert(sizeof(UnrealBindings) == 216,
     "UnrealBindings: LogFn(8) + CoreFns(72) + FStringFns(24) + FScriptArrayFns(104) + Option<SpawnEntitiesFn>(8)");
-static_assert(sizeof(RustBindings) == 136, "RustBindings: 7 fn ptrs + 10 Option<fn ptr> = 17 pointers");
+static_assert(sizeof(RustBindings) == 144, "RustBindings: 7 fn ptrs + 11 Option<fn ptr> = 18 pointers");
 static_assert(sizeof(PluginBindings) == 32, "PluginBindings: 4 fn ptrs");
 
 // --- Mass Entity types ---

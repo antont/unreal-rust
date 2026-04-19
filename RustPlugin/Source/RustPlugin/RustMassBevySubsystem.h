@@ -5,6 +5,7 @@
 #include "MassEntityHandle.h"
 #include "MassExternalSubsystemTraits.h"
 #include "MassProcessingTypes.h"
+#include "MassNavigationSubsystem.h"
 #include "Subsystems/WorldSubsystem.h"
 #include "Bindings.h"
 #include "RustMassBevySubsystem.generated.h"
@@ -126,7 +127,26 @@ private:
 		uint32 PositionOffset = 0;
 		FVector Scale = FVector::OneVector;
 		UInstancedStaticMeshComponent* ISMC = nullptr;
+		/** When true, this group's entities are tracked in the navigation hash grid
+		 *  (populated at init, updated on food-drop events & pickup events). */
+		bool bOwnedByGridHash = false;
+		/** Cached grid cell locations per instance, for incremental Move/Remove. */
+		TArray<FNavigationObstacleHashGrid2D::FCellLocation> GridCellLocations;
+		/** Per-instance: whether this entity currently has a grid cell location.
+		 *  Instances removed on pickup are cleared; re-added on drop. */
+		TBitArray<> InGrid;
+		/** Reverse map from entity handle to group instance index (for GridHash queries). */
+		TMap<FMassEntityHandle, int32> EntityToIndex;
 	};
+
+	/** Populate the navigation hash grid from the current instance transforms for a GridHash-owned group. */
+	void PopulateGridHashForGroup(FCollisionGroupEntry& Group);
+
+	/** Remove the group's entries from the navigation hash grid (called on reset). */
+	void ClearGridHashForGroup(FCollisionGroupEntry& Group);
+
+	/** Drain Rust's food pickup + drop event queues and apply ISM-transform + grid-location updates. */
+	void ApplyFoodEvents();
 
 private:
 	UPROPERTY(Transient)
