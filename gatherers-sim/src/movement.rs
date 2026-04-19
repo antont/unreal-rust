@@ -51,10 +51,9 @@ pub fn entity_cooldown(
 /// movement application is handled by framework infrastructure.
 #[mass_system(order = 50)]
 pub fn entity_boundary_reflect(
-    transforms: Query<&Transform>,
-    mut movements: Query<&mut DesiredMovement>,
+    mut entities: Query<(&Transform, &mut DesiredMovement)>,
 ) {
-    for (transform, mut movement) in transforms.iter().zip(movements.iter_mut()) {
+    for (transform, mut movement) in &mut entities {
         let inward_normal = compute_boundary_normal(transform.translation);
         if inward_normal.length() > 1e-8 {
             movement.velocity = reflect_velocity(movement.velocity, inward_normal);

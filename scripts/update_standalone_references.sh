@@ -19,7 +19,6 @@ done
 WORKSPACE="$(cd "$(dirname "$0")/.." && pwd)"
 OUT_DIR="/tmp/standalone_regression"
 REF_DIR="$WORKSPACE/gatherers-standalone/test/reference_screenshots"
-BIN="$WORKSPACE/target/release/gatherers-standalone"
 FRAMES=(30 180 600)
 
 mkdir -p "$REF_DIR" "$OUT_DIR"
@@ -27,6 +26,10 @@ find "$OUT_DIR" -maxdepth 1 -name '*.png' -delete
 
 echo "== Building gatherers-standalone (release) =="
 ( cd "$WORKSPACE" && cargo build --release -p gatherers-standalone )
+
+TARGET_DIR="$(cd "$WORKSPACE" && cargo metadata --format-version=1 --no-deps \
+    | python3 -c 'import json,sys; print(json.load(sys.stdin)["target_directory"])')"
+BIN="$TARGET_DIR/release/gatherers-standalone"
 
 FRAMES_CSV=$(IFS=,; echo "${FRAMES[*]}")
 LAST_FRAME="${FRAMES[$((${#FRAMES[@]} - 1))]}"

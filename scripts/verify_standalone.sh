@@ -13,7 +13,6 @@ set -euo pipefail
 WORKSPACE="$(cd "$(dirname "$0")/.." && pwd)"
 OUT_DIR="/tmp/standalone_regression"
 REF_DIR="$WORKSPACE/gatherers-standalone/test/reference_screenshots"
-BIN="$WORKSPACE/target/release/gatherers-standalone"
 TOLERANCE="${TOLERANCE:-0.5}"
 FRAMES=(30 180 600)
 
@@ -22,6 +21,12 @@ find "$OUT_DIR" -maxdepth 1 -name '*.png' -delete
 
 echo "== Building gatherers-standalone (release) =="
 ( cd "$WORKSPACE" && cargo build --release -p gatherers-standalone )
+
+# Honour a workspace- or user-level cargo target-dir override (this repo
+# shares its target dir with other projects via ~/.cargo/config.toml).
+TARGET_DIR="$(cd "$WORKSPACE" && cargo metadata --format-version=1 --no-deps \
+    | python3 -c 'import json,sys; print(json.load(sys.stdin)["target_directory"])')"
+BIN="$TARGET_DIR/release/gatherers-standalone"
 
 FRAMES_CSV=$(IFS=,; echo "${FRAMES[*]}")
 LAST_FRAME="${FRAMES[$((${#FRAMES[@]} - 1))]}"

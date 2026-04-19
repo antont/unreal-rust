@@ -16,12 +16,15 @@ use glam::DVec3;
 // Constants
 // ---------------------------------------------------------------------------
 
-// 800×800 window at current scale can't visually accommodate the UE-scale
-// counts (10k ants / 5k food); entities end up packed so tight that every
-// food is within pickup radius of an ant at spawn, and the ants themselves
-// carpet the window. These counts give a legible simulation.
-const ANT_COUNT: u32 = 300;
-const FOOD_COUNT: u32 = 150;
+// Ant:food ratio must stay around 1:4 — the sim only has a useful steady
+// state when food is in surplus. With more ants than food, every ant picks
+// something up and the sim freezes into a static carpet; nothing drops
+// because there's no loose food left to trigger a drop-and-retarget. With
+// plenty of food, ants keep picking up, wandering, and dropping in an
+// observable loop. 800×800 window can't accommodate the UE-scale counts
+// (10k ants / 40k food) — these give a legible simulation at the same ratio.
+const ANT_COUNT: u32 = 150;
+const FOOD_COUNT: u32 = 600;
 const ANT_SIZE: f32 = 8.0;
 const FOOD_SIZE: f32 = 6.0;
 const PICKUP_RADIUS: f64 = 15.0;

@@ -44,9 +44,7 @@ pub trait DesiredMovementLike: Component<Mutability = Mutable> {
 /// Use this directly in a system chain, or via `MovementPlugin`.
 #[cfg(not(feature = "unreal"))]
 pub fn apply_movement<T, P, D>(
-    mut transforms: Query<&mut T>,
-    mut prev_translations: Query<&mut P>,
-    movements: Query<&D>,
+    mut entities: Query<(&mut T, &mut P, &D)>,
     time: Res<Time>,
 ) where
     T: TransformLike,
@@ -54,11 +52,7 @@ pub fn apply_movement<T, P, D>(
     D: DesiredMovementLike,
 {
     let dt = time.delta_secs() as f64;
-    for ((mut transform, mut prev), movement) in transforms
-        .iter_mut()
-        .zip(prev_translations.iter_mut())
-        .zip(movements.iter())
-    {
+    for (mut transform, mut prev, movement) in &mut entities {
         // Save previous position for spatial sweep queries
         prev.set_prev(transform.translation());
 
