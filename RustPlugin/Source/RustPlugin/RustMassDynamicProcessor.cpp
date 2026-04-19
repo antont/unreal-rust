@@ -194,16 +194,12 @@ void URustMassDynamicProcessor::Execute(FMassEntityManager& EntityManager, FMass
 
 	const float DeltaSeconds = Context.GetDeltaTimeSeconds();
 
-	// --- Rebuild chunk cache every frame ---
-	// Chunk memory can be relocated when entities move between archetypes
-	// (e.g., vis pipeline LOD processor adding/removing tags). Re-caching
-	// every frame ensures pointers are always valid.
-	bChunkCacheValid = false;
-	CachedPrimarySlices.Empty();
-	CachedPrimaryChunks.Empty();
-	CachedChunkSlices.Empty();
-	CachedChunkedFrags.Empty();
-	CachedGlobalEntityCount = 0;
+	// --- Cache archetype/chunk pointers once, reuse across frames ---
+	// Our pipeline does not move entities between archetypes at runtime
+	// (no LOD processor, no tag-swapping systems on Mass entities; Cooldown
+	// add/remove happens on shadow Bevy entities, not Mass chunks).
+	// If a future system starts mutating tags, call ConfigureQueries() again
+	// (which invalidates this cache) or add explicit invalidation here.
 
 	if (!bChunkCacheValid)
 	{

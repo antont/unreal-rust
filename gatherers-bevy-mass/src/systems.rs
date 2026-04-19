@@ -91,6 +91,8 @@ fn drain_food_drop_events(world: &mut bevy_ecs::world::World) {
 }
 
 /// C++ reads queued drop events through this FFI. Registered via `MassExternBinding`.
+/// Drains up to `max` events from the front of the cache; caller loops until
+/// it gets back fewer than `max`.
 pub unsafe extern "C" fn get_food_drop_events(
     out: *mut unreal_ffi::FoodDropEvent,
     max: u32,
@@ -98,11 +100,12 @@ pub unsafe extern "C" fn get_food_drop_events(
     if out.is_null() || max == 0 {
         return 0;
     }
-    let cache = FOOD_DROP_CACHE.lock().unwrap();
+    let mut cache = FOOD_DROP_CACHE.lock().unwrap();
     let count = cache.0.len().min(max as usize);
     unsafe {
         std::ptr::copy_nonoverlapping(cache.0.as_ptr(), out, count);
     }
+    cache.0.drain(..count);
     count as u32
 }
 

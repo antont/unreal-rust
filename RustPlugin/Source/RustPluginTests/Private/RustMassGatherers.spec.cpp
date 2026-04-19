@@ -1949,3 +1949,110 @@ bool FGatherersBevyMassISMPhysicsBodyMoveTest::RunTest(const FString& Parameters
 	Subsystem->ResetSimulation();
 	return true;
 }
+
+// ---------------------------------------------------------------------------
+// Perf profile: observational, no pass/fail on timings.
+//
+// Runs a fixed scenario (10k ants, 40k food, seed 42) for 60 warmup ticks +
+// 600 measured ticks at 1/60s each (10s of sim time). Reports total, avg,
+// p50, p99 ms/tick via AddInfo so results are grep-able from the UE log.
+//
+// Grep recipe:
+//   grep "\[perf\]" .../RustExampleEditor/RustExample.log
+// ---------------------------------------------------------------------------
+
+IMPLEMENT_SIMPLE_AUTOMATION_TEST(
+	FGatherersBevyMassPerfProfileTest,
+	"supplemental.RustPlugin.Gatherers.BevyMassPerfProfile",
+	EAutomationTestFlags::EditorContext | EAutomationTestFlags::EngineFilter)
+
+bool FGatherersBevyMassPerfProfileTest::RunTest(const FString& Parameters)
+{
+	// NOTE: vis pipeline (UMassRepresentation + UMassUpdateISMProcessor)
+	// dominates full Tick() at scale — ~12s/tick at 10k ants. Start small
+	// so the test runs in a reasonable time; scale up manually once we
+	// understand where the vis cost comes from.
+	constexpr int32 AntCount = 1000;
+	constexpr int32 FoodCount = 4000;
+	constexpr int32 WarmupTicks = 30;
+	constexpr int32 MeasuredTicks = 120;
+	constexpr float DeltaTime = 1.0f / 60.0f;
+	constexpr int32 RandomSeed = 42;
+
+	UWorld* World = GEditor->GetEditorWorldContext().World();
+	if (!TestNotNull(TEXT("World must exist"), World)) return false;
+
+	URustMassBevySubsystem* Subsystem = World->GetSubsystem<URustMassBevySubsystem>();
+	if (!TestNotNull(TEXT("RustMassBevySubsystem must exist"), Subsystem)) return false;
+
+	// Use UE-scale bounds matching gatherers-bevy-mass/src/lib.rs defaults.
+	const FBox Bounds(FVector(-5000.0, -5000.0, 0.0), FVector(5000.0, 5000.0, 100.0));
+	Subsystem->InitializeSimulation(
+		{{TEXT("ants"), AntCount}, {TEXT("food"), FoodCount}},
+		Bounds, RandomSeed);
+
+	TestEqual(TEXT("ant count"), Subsystem->GetGroupEntityCount(TEXT("ants")), AntCount);
+	TestEqual(TEXT("food count"), Subsystem->GetGroupEntityCount(TEXT("food")), FoodCount);
+
+	AddInfo(FString::Printf(TEXT("[perf] scenario: %d ants, %d food, seed=%d, dt=%.4f"),
+		AntCount, FoodCount, RandomSeed, DeltaTime));
+
+	auto Summarize = [&](const TCHAR* Label, TArray<double>& Samples, double WallMs) -> double
+	{
+		TArray<double> Sorted = Samples;
+		Sorted.Sort();
+		const double Min = Sorted[0];
+		const double Max = Sorted.Last();
+		const double P50 = Sorted[Sorted.Num() / 2];
+		const double P99 = Sorted[(Sorted.Num() * 99) / 100];
+		double Sum = 0.0;
+		for (double S : Samples) { Sum += S; }
+		const double Avg = Sum / Samples.Num();
+		AddInfo(FString::Printf(
+			TEXT("[perf] %s %d ticks: avg=%.3fms p50=%.3fms p99=%.3fms min=%.3fms max=%.3fms total=%.1fms wall=%.1fms"),
+			Label, Samples.Num(), Avg, P50, P99, Min, Max, Sum, WallMs));
+		return Avg;
+	};
+
+	auto MeasurePhase = [&](const TCHAR* Label, TFunctionRef<void()> Step) -> double
+	{
+		for (int32 i = 0; i < WarmupTicks; ++i) { Step(); }
+		TArray<double> Samples;
+		Samples.Reserve(MeasuredTicks);
+		const double WallStart = FPlatformTime::Seconds();
+		for (int32 i = 0; i < MeasuredTicks; ++i)
+		{
+			const double T0 = FPlatformTime::Seconds();
+			Step();
+			Samples.Add((FPlatformTime::Seconds() - T0) * 1000.0);
+		}
+		const double WallMs = (FPlatformTime::Seconds() - WallStart) * 1000.0;
+		return Summarize(Label, Samples, WallMs);
+	};
+
+	// Phase 1: full subsystem Tick (sim step + vis pipeline + ISM drop events)
+	const double AvgFullMs = MeasurePhase(TEXT("full Tick()"),
+		[&]() { Subsystem->Tick(DeltaTime); });
+
+	// Phase 2: sim step only (+ ISM drops) — skips the MassRepresentation /
+	// MassUpdateISMProcessor vis pipeline. Difference vs phase 1 ≈ vis cost.
+	// Reset to the same seed so both phases see equivalent work.
+	Subsystem->ResetSimulation();
+	Subsystem->InitializeSimulation(
+		{{TEXT("ants"), AntCount}, {TEXT("food"), FoodCount}},
+		Bounds, RandomSeed);
+	const double AvgSimMs = MeasurePhase(TEXT("sim+drops only"),
+		[&]() { Subsystem->RunSimulationProcessorsForTesting(DeltaTime); });
+
+	AddInfo(FString::Printf(
+		TEXT("[perf] breakdown: sim≈%.2fms, vis≈%.2fms (delta), full=%.2fms"),
+		AvgSimMs, AvgFullMs - AvgSimMs, AvgFullMs));
+
+	if (AvgFullMs > 33.0)
+	{
+		AddWarning(FString::Printf(TEXT("[perf] full Tick avg %.2fms exceeds 2x 60Hz budget (33ms)"), AvgFullMs));
+	}
+
+	Subsystem->ResetSimulation();
+	return true;
+}

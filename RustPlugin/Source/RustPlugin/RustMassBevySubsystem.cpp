@@ -775,27 +775,31 @@ void URustMassBevySubsystem::Tick(float DeltaTime)
 		}
 	}
 
-	// Apply targeted ISM updates for food drops (no per-frame full sync needed)
+	// Apply targeted ISM updates for food drops (no per-frame full sync needed).
+	// Rust drains on read — loop until we get back less than the buffer size.
 	if (CollisionGroups.Num() > 0)
 	{
 		FRustPluginModule& Module = FModuleManager::GetModuleChecked<FRustPluginModule>("RustPlugin");
 		if (Module.Plugin.Rust.get_food_drop_events.IsSome())
 		{
-			constexpr uint32_t MaxDropEvents = 64;
-			FoodDropEvent DropEvents[MaxDropEvents];
-			uint32_t Count = Module.Plugin.Rust.get_food_drop_events.Unwrap()(DropEvents, MaxDropEvents);
-			ensureMsgf(Count < MaxDropEvents, TEXT("Food drop events saturated buffer (%u). Some ISM updates were lost."), Count);
-			for (uint32_t i = 0; i < Count; ++i)
+			constexpr uint32_t BatchSize = 64;
+			FoodDropEvent DropEvents[BatchSize];
+			for (;;)
 			{
-				const FoodDropEvent& Evt = DropEvents[i];
-				for (auto& Group : CollisionGroups)
+				uint32_t Count = Module.Plugin.Rust.get_food_drop_events.Unwrap()(DropEvents, BatchSize);
+				for (uint32_t i = 0; i < Count; ++i)
 				{
-					if (Group.ISMC && Group.ISMC->GetCollisionEnabled() != ECollisionEnabled::NoCollision)
+					const FoodDropEvent& Evt = DropEvents[i];
+					for (auto& Group : CollisionGroups)
 					{
-						FTransform T(FQuat::Identity, FVector(Evt.position[0], Evt.position[1], Evt.position[2]), Group.Scale);
-						Group.ISMC->UpdateInstanceTransform(Evt.food_index, T, true, true, true);
+						if (Group.ISMC && Group.ISMC->GetCollisionEnabled() != ECollisionEnabled::NoCollision)
+						{
+							FTransform T(FQuat::Identity, FVector(Evt.position[0], Evt.position[1], Evt.position[2]), Group.Scale);
+							Group.ISMC->UpdateInstanceTransform(Evt.food_index, T, true, true, true);
+						}
 					}
 				}
+				if (Count < BatchSize) break;
 			}
 		}
 	}
@@ -1049,27 +1053,31 @@ void URustMassBevySubsystem::RunSimulationProcessorsForTesting(float DeltaTime)
 {
 	RunSimulationProcessorStep(FMath::Max(0.0f, DeltaTime));
 
-	// Apply targeted ISM updates for food drops
+	// Apply targeted ISM updates for food drops.
+	// Rust drains on read — loop until we get back less than the buffer size.
 	if (CollisionGroups.Num() > 0)
 	{
 		FRustPluginModule& Module = FModuleManager::GetModuleChecked<FRustPluginModule>("RustPlugin");
 		if (Module.Plugin.Rust.get_food_drop_events.IsSome())
 		{
-			constexpr uint32_t MaxDropEvents = 64;
-			FoodDropEvent DropEvents[MaxDropEvents];
-			uint32_t Count = Module.Plugin.Rust.get_food_drop_events.Unwrap()(DropEvents, MaxDropEvents);
-			ensureMsgf(Count < MaxDropEvents, TEXT("Food drop events saturated buffer (%u). Some ISM updates were lost."), Count);
-			for (uint32_t i = 0; i < Count; ++i)
+			constexpr uint32_t BatchSize = 64;
+			FoodDropEvent DropEvents[BatchSize];
+			for (;;)
 			{
-				const FoodDropEvent& Evt = DropEvents[i];
-				for (auto& Group : CollisionGroups)
+				uint32_t Count = Module.Plugin.Rust.get_food_drop_events.Unwrap()(DropEvents, BatchSize);
+				for (uint32_t i = 0; i < Count; ++i)
 				{
-					if (Group.ISMC && Group.ISMC->GetCollisionEnabled() != ECollisionEnabled::NoCollision)
+					const FoodDropEvent& Evt = DropEvents[i];
+					for (auto& Group : CollisionGroups)
 					{
-						FTransform T(FQuat::Identity, FVector(Evt.position[0], Evt.position[1], Evt.position[2]), Group.Scale);
-						Group.ISMC->UpdateInstanceTransform(Evt.food_index, T, true, true, true);
+						if (Group.ISMC && Group.ISMC->GetCollisionEnabled() != ECollisionEnabled::NoCollision)
+						{
+							FTransform T(FQuat::Identity, FVector(Evt.position[0], Evt.position[1], Evt.position[2]), Group.Scale);
+							Group.ISMC->UpdateInstanceTransform(Evt.food_index, T, true, true, true);
+						}
 					}
 				}
+				if (Count < BatchSize) break;
 			}
 		}
 	}
