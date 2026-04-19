@@ -251,6 +251,37 @@ pub unsafe extern "C" fn mass_frame_dispatch(
 
         sched.run();
 
+        // Per-system timing (opt-in). Drain samples collected during sched.run(),
+        // accumulate by system name (in case a system ran more than once — it
+        // shouldn't under our scheduler, but let's be forgiving), and log one
+        // line per system plus a total. Gated on env var so the cost is zero
+        // when disabled.
+        if unreal_api::mass::is_mass_timing_enabled() {
+            let samples = unreal_api::mass::drain_mass_system_samples();
+            if !samples.is_empty() {
+                use std::collections::BTreeMap;
+                let mut totals: BTreeMap<&'static str, (u128, u32)> = BTreeMap::new();
+                let mut grand_total: u128 = 0;
+                for s in &samples {
+                    let entry = totals.entry(s.name).or_insert((0, 0));
+                    entry.0 += s.nanos;
+                    entry.1 += 1;
+                    grand_total += s.nanos;
+                }
+                let mut buf = String::from("[mass-perf]");
+                for (name, (nanos, calls)) in &totals {
+                    let ms = (*nanos as f64) / 1_000_000.0;
+                    if *calls > 1 {
+                        buf.push_str(&format!(" {}={:.3}ms(x{})", name, ms, calls));
+                    } else {
+                        buf.push_str(&format!(" {}={:.3}ms", name, ms));
+                    }
+                }
+                buf.push_str(&format!(" total={:.3}ms", (grand_total as f64) / 1_000_000.0));
+                eprintln!("{}", buf);
+            }
+        }
+
         // Post-dispatch hooks: drain game-specific events into FFI caches.
         // Only reached on successful return — skipped if sched.run() panics.
         run_post_dispatch_hooks(sched.world_mut());

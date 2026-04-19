@@ -1628,6 +1628,60 @@ pub fn registered_dispatch_hooks() -> inventory::iter<MassDispatchHook> {
     inventory::iter::<MassDispatchHook>
 }
 
+// ---------------------------------------------------------------------------
+// Per-system timing (opt-in)
+// ---------------------------------------------------------------------------
+//
+// When `UNREAL_RUST_MASS_TIMING=1`, each `#[mass_system]` wrapper records the
+// wall-clock time of its body into a per-frame accumulator. `mass_frame_dispatch`
+// drains and logs the table after `sched.run()` returns.
+//
+// Overhead when disabled: one atomic load per system per frame. Enabled: adds
+// two `Instant::now()` calls + a mutex lock per system per frame.
+
+static MASS_TIMING_ENABLED: std::sync::atomic::AtomicBool =
+    std::sync::atomic::AtomicBool::new(false);
+static MASS_TIMING_INITIALIZED: std::sync::atomic::AtomicBool =
+    std::sync::atomic::AtomicBool::new(false);
+
+pub fn is_mass_timing_enabled() -> bool {
+    use std::sync::atomic::Ordering;
+    // Lazy one-shot init from env var. Avoids re-reading env every call.
+    if !MASS_TIMING_INITIALIZED.load(Ordering::Relaxed) {
+        let on = std::env::var("UNREAL_RUST_MASS_TIMING")
+            .map(|v| v == "1" || v.eq_ignore_ascii_case("true"))
+            .unwrap_or(false);
+        MASS_TIMING_ENABLED.store(on, Ordering::Relaxed);
+        MASS_TIMING_INITIALIZED.store(true, Ordering::Relaxed);
+    }
+    MASS_TIMING_ENABLED.load(Ordering::Relaxed)
+}
+
+/// Per-system cumulative sample recorded during a single frame.
+pub struct MassSystemSample {
+    pub name: &'static str,
+    pub nanos: u128,
+}
+
+static MASS_TIMING_SAMPLES: std::sync::Mutex<Vec<MassSystemSample>> =
+    std::sync::Mutex::new(Vec::new());
+
+/// Record a timing sample for a single system invocation.
+/// No-op unless `is_mass_timing_enabled()`.
+pub fn record_mass_system_time(name: &'static str, nanos: u128) {
+    if let Ok(mut samples) = MASS_TIMING_SAMPLES.lock() {
+        samples.push(MassSystemSample { name, nanos });
+    }
+}
+
+/// Drain all samples collected this frame. Called by `mass_frame_dispatch`.
+pub fn drain_mass_system_samples() -> Vec<MassSystemSample> {
+    match MASS_TIMING_SAMPLES.lock() {
+        Ok(mut g) => std::mem::take(&mut *g),
+        Err(_) => Vec::new(),
+    }
+}
+
 /// Game-specific FFI function pointers discovered via inventory.
 /// Framework folds over these to fill `Option` fields in `RustBindings`.
 ///

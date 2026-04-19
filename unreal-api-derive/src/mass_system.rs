@@ -2074,7 +2074,22 @@ pub fn mass_system_impl(func: &ItemFn, order: u32, entity_group: Option<&str>) -
             #(#passthrough_params,)*
             #(#bevy_dt_param)*
         ) {
+            // Per-system timing (opt-in via UNREAL_RUST_MASS_TIMING=1).
+            // The `enabled` flag is a cached atomic load; when off this is a
+            // single-branch no-op, so unconditional wrapping is safe.
+            let __mass_timing_enabled = ::unreal_api::mass::is_mass_timing_enabled();
+            let __mass_timing_start = if __mass_timing_enabled {
+                Some(::std::time::Instant::now())
+            } else {
+                None
+            };
             #wrapper_body
+            if let Some(__start) = __mass_timing_start {
+                ::unreal_api::mass::record_mass_system_time(
+                    #system_name_str,
+                    __start.elapsed().as_nanos(),
+                );
+            }
         }
 
         #[cfg(feature = "unreal")]
