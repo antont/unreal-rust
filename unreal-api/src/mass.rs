@@ -1737,6 +1737,19 @@ pub fn drain_mass_system_samples() -> Vec<MassSystemSample> {
     }
 }
 
+/// Called once at the start of every `mass_frame_dispatch`, before any system
+/// runs. Discards any timing samples left over from a prior frame that failed
+/// to drain — e.g. when `catch_unwind` caught a panic from `sched.run()` so
+/// the drain at the end of the closure never executed. Without this hook,
+/// stale samples survive into the next successful frame's `[mass-perf]` line,
+/// producing phantom duplicate entries and inflated totals.
+///
+/// No-op when timing is disabled, so zero overhead in the default path.
+pub fn prepare_mass_frame() {
+    // Intentionally empty — will be filled in by the GREEN commit.
+    // Exposed now so the RED test can link against the API it tests.
+}
+
 /// Game-specific FFI function pointers discovered via inventory.
 /// Framework folds over these to fill `Option` fields in `RustBindings`.
 ///
@@ -2600,5 +2613,65 @@ mod tests {
         // Original data should be mutated via reborrow
         let vals: Vec<i32> = (&mut q).into_iter().map(|v| *v).collect();
         assert_eq!(vals, vec![11, 12, 13]);
+    }
+
+    // -----------------------------------------------------------------------
+    // Finding 3: mass timing samples must not leak across panicked frames.
+    //
+    // `mass_frame_dispatch` records per-system timing samples during
+    // `sched.run()`, then drains them at the end of the closure passed to
+    // `catch_unwind`. If `sched.run()` panics, the closure unwinds out
+    // *before* the drain runs, so any samples accumulated during the partial
+    // frame stay in the global `MASS_TIMING_SAMPLES` Vec and are double-
+    // reported on the next successful frame.
+    //
+    // `prepare_mass_frame()` is the fix point — called at the top of every
+    // dispatch, before `catch_unwind`, it drains any residual samples so a
+    // fresh frame starts from an empty table.
+    // -----------------------------------------------------------------------
+
+    // Serialize the timing-table tests — they all touch the shared global
+    // MASS_TIMING_SAMPLES, and `cargo test` runs tests in parallel by default.
+    // One shared mutex keeps them from stepping on each other's push/drain
+    // sequences without requiring `--test-threads=1` on the command line.
+    static TIMING_TEST_LOCK: std::sync::Mutex<()> = std::sync::Mutex::new(());
+
+    #[test]
+    fn timing_samples_do_not_leak_across_panic() {
+        let _guard = TIMING_TEST_LOCK.lock().unwrap_or_else(|e| e.into_inner());
+
+        // Start from a known-empty table — any residue from a prior test in
+        // this process must not contaminate this one.
+        let _ = drain_mass_system_samples();
+
+        // --- Simulate a frame that panicked before its drain ran ---
+        // In the real code path this is `record_mass_system_time(...)` calls
+        // inside `sched.run()`, followed by a panic that unwinds out of the
+        // `catch_unwind` closure without reaching the final drain.
+        record_mass_system_time("system_from_panicked_frame", 1_000);
+        // (no drain here — mirrors the unwind-skipped-drain case)
+
+        // --- Start of a fresh frame ---
+        // `mass_frame_dispatch` should call `prepare_mass_frame()` here,
+        // before any timing data for the new frame is recorded.
+        prepare_mass_frame();
+
+        // --- New frame runs its systems ---
+        record_mass_system_time("system_from_fresh_frame", 2_000);
+
+        // --- End of the new frame: drain and inspect ---
+        let samples = drain_mass_system_samples();
+        let names: Vec<&'static str> = samples.iter().map(|s| s.name).collect();
+
+        assert!(
+            !names.contains(&"system_from_panicked_frame"),
+            "stale sample from panicked frame leaked into next frame's drain: names={:?}",
+            names
+        );
+        assert_eq!(
+            names,
+            vec!["system_from_fresh_frame"],
+            "fresh-frame drain should contain only the samples recorded after prepare_mass_frame"
+        );
     }
 }
