@@ -177,6 +177,12 @@ private:
 	/** Populate the navigation hash grid from the current instance transforms for a GridHash-owned group. */
 	void PopulateGridHashForGroup(FCollisionGroupEntry& Group);
 
+	/** Try to mark a group as the (single) GridHash owner and populate its grid entries.
+	 *  Returns false if the group doesn't exist or a *different* group is already the owner
+	 *  (see FoodPickupEvents/FoodDropEvents single-group constraint). Idempotent for the
+	 *  existing owner. LogPrefix labels the error message if a claim is refused. */
+	bool TryMarkGridHashOwner(const FString& GroupName, const TCHAR* LogPrefix);
+
 	/** Remove the group's entries from the navigation hash grid (called on reset). */
 	void ClearGridHashForGroup(FCollisionGroupEntry& Group);
 

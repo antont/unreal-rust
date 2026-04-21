@@ -244,18 +244,53 @@ bool URustMassBevySubsystem::RepopulateGridHashForGroupForTesting(const FString&
 	return false;
 }
 
-bool URustMassBevySubsystem::TryMarkGridHashOwnerForTesting(const FString& GroupName)
+bool URustMassBevySubsystem::TryMarkGridHashOwner(const FString& GroupName, const TCHAR* LogPrefix)
 {
+	// Enforce at-most-one GridHash owner across all CollisionGroups.
+	// FoodPickupEvents/FoodDropEvents carry a bare instance index with no group
+	// identifier — the index space is implicitly scoped to a single GridHash
+	// owner. A second owner would cause ApplyFoodEvents to apply each pickup/drop
+	// to every GridHash-owned group using the same index, corrupting whichever
+	// group didn't originate the event. Extending to multi-group requires an
+	// FFI change (add group identifier to the event payload) — see docs comments
+	// on FoodDropEvents / FoodPickupEvents in gatherers-sim/src/components.rs.
+	const FCollisionGroupEntry* ExistingOwner = nullptr;
+	FCollisionGroupEntry* Target = nullptr;
 	for (FCollisionGroupEntry& CG : CollisionGroups)
 	{
-		if (CG.Name == GroupName)
+		if (CG.bOwnedByGridHash && !ExistingOwner)
 		{
-			CG.bOwnedByGridHash = true;
-			PopulateGridHashForGroup(CG);
-			return true;
+			ExistingOwner = &CG;
+		}
+		if (CG.Name == GroupName && !Target)
+		{
+			Target = &CG;
 		}
 	}
-	return false;
+
+	if (!Target) return false;
+	if (Target->bOwnedByGridHash) return true; // already the owner — idempotent
+
+	if (ExistingOwner && ExistingOwner->Name != GroupName)
+	{
+		UE_LOG(LogTemp, Error,
+			TEXT("RustMassBevySubsystem: %s refused GridHash ownership for group '%s' — '%s' is already the GridHash owner. "
+			     "Food pickup/drop events carry a bare instance index that is implicitly scoped to one group; a second owner "
+			     "would corrupt the non-originating group. Extending to multi-group requires an FFI change."),
+			LogPrefix ? LogPrefix : TEXT("TryMarkGridHashOwner"),
+			*GroupName,
+			*ExistingOwner->Name);
+		return false;
+	}
+
+	Target->bOwnedByGridHash = true;
+	PopulateGridHashForGroup(*Target);
+	return true;
+}
+
+bool URustMassBevySubsystem::TryMarkGridHashOwnerForTesting(const FString& GroupName)
+{
+	return TryMarkGridHashOwner(GroupName, TEXT("TryMarkGridHashOwnerForTesting"));
 }
 
 int32 URustMassBevySubsystem::GetGroupEntityCount(const FString& GroupName) const
@@ -340,15 +375,12 @@ void URustMassBevySubsystem::SetupSpatialQueriesFromRust()
 		if (QueryType == 2) // GridHash (UMassNavigationSubsystem)
 		{
 			// Flag the target group as hash-grid-owned so init/reset/event paths keep it in sync.
-			for (FCollisionGroupEntry& CG : CollisionGroups)
-			{
-				if (CG.Name == QueryGroup)
-				{
-					CG.bOwnedByGridHash = true;
-					PopulateGridHashForGroup(CG);
-					break;
-				}
-			}
+			// TryMarkGridHashOwner enforces the single-owner constraint — FoodPickupEvents /
+			// FoodDropEvents carry a bare instance index that is implicitly scoped to one group,
+			// so a second claim from Rust config is refused + logged (query registration still
+			// proceeds, but its callback will return no encounters because EntityToIndex stays
+			// empty for the unowned group).
+			TryMarkGridHashOwner(QueryGroup, /*LogPrefix=*/TEXT("SetupSpatialQueriesFromRust"));
 
 			// FilterBoolOffset / FilterBoolMustBe / FilterStruct are unused for GridHash:
 			// grid membership IS the filter (see ApplyFoodEvents).

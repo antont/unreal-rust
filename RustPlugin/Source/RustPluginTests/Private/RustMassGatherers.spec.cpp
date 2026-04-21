@@ -536,6 +536,12 @@ bool FGatherersBevyMassGridHashRefusesSecondOwnerTest::RunTest(const FString& Pa
 	URustMassBevySubsystem* Subsystem = World->GetSubsystem<URustMassBevySubsystem>();
 	if (!TestNotNull(TEXT("RustMassBevySubsystem must exist"), Subsystem)) return false;
 
+	// The refused-claim path emits a Log.Error (intentionally loud; this is a
+	// framework-violation from Rust config). Tell the automation framework
+	// to expect it so the log message doesn't fail the test on its own.
+	AddExpectedError(TEXT("refused GridHash ownership for group 'ants'"),
+		EAutomationExpectedErrorFlags::Contains, 1);
+
 	// After InitializeSimulation the "food" group is already the sole GridHash
 	// owner (registered by the default gatherers sim). Try to mark "ants" as
 	// a *second* GridHash owner — must be refused.
