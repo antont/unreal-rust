@@ -18,6 +18,9 @@
 #include "RustMassVisualizationSetup.h"
 #include "MassSimulationSubsystem.h"
 #include "MassRepresentationProcessor.h"
+#include "MassRepresentationSubsystem.h"
+#include "MassRepresentationTypes.h"
+#include "MassRepresentationFragments.h"
 #include "MassVisualizationLODProcessor.h"
 #include "MassUpdateISMProcessor.h"
 #include "CollisionShape.h"
@@ -43,7 +46,8 @@ namespace RustMassSpatialQuery
 	static uint64 GridHashCandidatesValid = 0;  // after EntityManager.IsEntityValid
 	static uint64 GridHashCandidatesMapped = 0; // after EntityToIndex lookup
 	static uint64 GridHashCandidatesPassed = 0; // after filter fragment read
-	static uint64 GridHashEncountersWithin = 0; // passed the radius distance check
+	static uint64 GridHashEncountersWithin = 0; // passed the radius distance check (per candidate)
+	static uint64 GridHashEncountersReturned = 0; // calls that returned has_encounter=true
 
 	template<int N>
 	uint32_t Trampoline(
@@ -69,6 +73,112 @@ namespace RustMassSpatialQuery
 		&Trampoline<4>, &Trampoline<5>, &Trampoline<6>, &Trampoline<7>,
 	};
 } // namespace RustMassSpatialQuery
+
+URustMassBevySubsystem::FGridHashCounters URustMassBevySubsystem::GetGridHashCounters()
+{
+	FGridHashCounters Out;
+	Out.Calls = RustMassSpatialQuery::GridHashCalls;
+	Out.Candidates = RustMassSpatialQuery::GridHashCandidates;
+	Out.CandidatesValid = RustMassSpatialQuery::GridHashCandidatesValid;
+	Out.CandidatesMapped = RustMassSpatialQuery::GridHashCandidatesMapped;
+	Out.CandidatesPassed = RustMassSpatialQuery::GridHashCandidatesPassed;
+	Out.EncountersWithin = RustMassSpatialQuery::GridHashEncountersWithin;
+	Out.EncountersReturned = RustMassSpatialQuery::GridHashEncountersReturned;
+	return Out;
+}
+
+void URustMassBevySubsystem::ResetGridHashCounters()
+{
+	RustMassSpatialQuery::GridHashCalls = 0;
+	RustMassSpatialQuery::GridHashCandidates = 0;
+	RustMassSpatialQuery::GridHashCandidatesValid = 0;
+	RustMassSpatialQuery::GridHashCandidatesMapped = 0;
+	RustMassSpatialQuery::GridHashCandidatesPassed = 0;
+	RustMassSpatialQuery::GridHashEncountersWithin = 0;
+	RustMassSpatialQuery::GridHashEncountersReturned = 0;
+}
+
+// ---------------------------------------------------------------------------
+// GridHash spatial-query body (extracted for test reachability).
+//
+// Grid membership IS the `is_loose` filter — picked-up food is removed from
+// the grid on pickup and re-added on drop (see ApplyFoodEvents).
+// ---------------------------------------------------------------------------
+
+uint32 ExecuteGridHashSpatialQuery(
+	FMassEntityManager& EntityManager,
+	const FNavigationObstacleHashGrid2D& Grid,
+	const TMap<FMassEntityHandle, int32>& EntityToIndex,
+	const UInstancedStaticMeshComponent& ISMC,
+	const double* PreviousPos,
+	const double* CurrentPos,
+	float PickupRadius,
+	MassSpatialQueryResult* Out)
+{
+	if (!Out) return 0;
+
+	Out->has_encounter = false;
+	Out->entity_index = -1;
+	Out->encounter_position[0] = 0.0;
+	Out->encounter_position[1] = 0.0;
+	Out->encounter_position[2] = 0.0;
+
+	const FVector SweepStart(PreviousPos[0], PreviousPos[1], PreviousPos[2]);
+	const FVector SweepEnd(CurrentPos[0], CurrentPos[1], CurrentPos[2]);
+	const float PickupRadiusSq = PickupRadius * PickupRadius;
+
+	// Build query bounds covering the swept segment expanded by the radius
+	// (2D-grid uses XY; Z extent is ignored).
+	FBox QueryBounds(ForceInit);
+	QueryBounds += SweepStart;
+	QueryBounds += SweepEnd;
+	QueryBounds = QueryBounds.ExpandBy(PickupRadius);
+
+	TArray<FMassNavigationObstacleItem, TInlineAllocator<32>> Candidates;
+	Grid.QuerySmall(QueryBounds, Candidates);
+
+	++RustMassSpatialQuery::GridHashCalls;
+	RustMassSpatialQuery::GridHashCandidates += (uint64)Candidates.Num();
+
+	float BestDistSq = TNumericLimits<float>::Max();
+	for (const FMassNavigationObstacleItem& Item : Candidates)
+	{
+		const FMassEntityHandle Entity = Item.Entity;
+		if (!EntityManager.IsEntityValid(Entity)) continue;
+		++RustMassSpatialQuery::GridHashCandidatesValid;
+
+		// Reverse-map entity handle → instance index for this group (O(1)).
+		const int32* FoundIdx = EntityToIndex.Find(Entity);
+		if (!FoundIdx) continue;
+		++RustMassSpatialQuery::GridHashCandidatesMapped;
+		const int32 Idx = *FoundIdx;
+		++RustMassSpatialQuery::GridHashCandidatesPassed;
+
+		FTransform InstanceTransform;
+		ISMC.GetInstanceTransform(Idx, InstanceTransform, true);
+		const FVector EntityPos = InstanceTransform.GetLocation();
+
+		const FVector Closest = FMath::ClosestPointOnSegment(EntityPos, SweepStart, SweepEnd);
+		const float DistSq = FVector::DistSquared(Closest, EntityPos);
+		if (DistSq <= PickupRadiusSq && DistSq < BestDistSq)
+		{
+			BestDistSq = DistSq;
+			Out->has_encounter = true;
+			Out->entity_index = Idx;
+			Out->encounter_position[0] = Closest.X;
+			Out->encounter_position[1] = Closest.Y;
+			Out->encounter_position[2] = Closest.Z;
+			++RustMassSpatialQuery::GridHashEncountersWithin;
+		}
+	}
+
+	if (Out->has_encounter)
+	{
+		++RustMassSpatialQuery::GridHashEncountersReturned;
+	}
+
+	return 1;
+}
 
 // ---------------------------------------------------------------------------
 // Subsystem lifecycle
@@ -104,6 +214,18 @@ UInstancedStaticMeshComponent* URustMassBevySubsystem::GetGroupISMC(const FStrin
 		if (Entry.Name == GroupName)
 		{
 			return Entry.ISMC;
+		}
+	}
+	return nullptr;
+}
+
+const TMap<FMassEntityHandle, int32>* URustMassBevySubsystem::GetGroupEntityToIndex(const FString& GroupName) const
+{
+	for (const FCollisionGroupEntry& Entry : CollisionGroups)
+	{
+		if (Entry.Name == GroupName && Entry.bOwnedByGridHash)
+		{
+			return &Entry.EntityToIndex;
 		}
 	}
 	return nullptr;
@@ -201,91 +323,35 @@ void URustMassBevySubsystem::SetupSpatialQueriesFromRust()
 				}
 			}
 
+			// FilterBoolOffset / FilterBoolMustBe / FilterStruct are unused for GridHash:
+			// grid membership IS the filter (see ApplyFoodEvents).
+			(void)FilterBoolOffset; (void)FilterBoolMustBe; (void)FilterStruct;
+
 			RegisterSpatialQuery(QueryName,
-				[Self, QueryGroup, FilterBoolOffset, FilterBoolMustBe, FilterStruct](
+				[Self, QueryGroup](
 					const double* PreviousPos, const double* CurrentPos,
 					float PickupRadius, MassSpatialQueryResult* Out) -> uint32
 				{
 					if (!Out) return 0;
 
-					Out->has_encounter = false;
-					Out->entity_index = -1;
-					Out->encounter_position[0] = 0.0;
-					Out->encounter_position[1] = 0.0;
-					Out->encounter_position[2] = 0.0;
-
-					const TArray<FMassEntityHandle>* TargetEntities = Self->GetGroupEntities(QueryGroup);
 					UInstancedStaticMeshComponent* TargetISMC = Self->GetGroupISMC(QueryGroup);
 					UWorld* W = Self->GetWorld();
 					UMassEntitySubsystem* MES = W ? W->GetSubsystem<UMassEntitySubsystem>() : nullptr;
 					UMassNavigationSubsystem* NavSubsystem = W ? W->GetSubsystem<UMassNavigationSubsystem>() : nullptr;
-					const FCollisionGroupEntry* GroupEntry = nullptr;
-					for (const FCollisionGroupEntry& CG : Self->CollisionGroups)
+					const TMap<FMassEntityHandle, int32>* EntityToIndex = Self->GetGroupEntityToIndex(QueryGroup);
+					if (!TargetISMC || !MES || !NavSubsystem || !EntityToIndex)
 					{
-						if (CG.Name == QueryGroup) { GroupEntry = &CG; break; }
-					}
-					if (!TargetEntities || !TargetISMC || !MES || !NavSubsystem || !GroupEntry)
-					{
+						Out->has_encounter = false;
+						Out->entity_index = -1;
 						return 0;
 					}
 
 					FMassEntityManager& EntityManager = MES->GetMutableEntityManager();
 					const FNavigationObstacleHashGrid2D& Grid = NavSubsystem->GetObstacleGrid();
 
-					const FVector SweepStart(PreviousPos[0], PreviousPos[1], PreviousPos[2]);
-					const FVector SweepEnd(CurrentPos[0], CurrentPos[1], CurrentPos[2]);
-					const float PickupRadiusSq = PickupRadius * PickupRadius;
-
-					// Build query bounds covering the swept segment expanded by the radius (2D-grid uses XY; Z extent is ignored).
-					FBox QueryBounds(ForceInit);
-					QueryBounds += SweepStart;
-					QueryBounds += SweepEnd;
-					QueryBounds = QueryBounds.ExpandBy(PickupRadius);
-
-					TArray<FMassNavigationObstacleItem, TInlineAllocator<32>> Candidates;
-					Grid.QuerySmall(QueryBounds, Candidates);
-
-					++RustMassSpatialQuery::GridHashCalls;
-					RustMassSpatialQuery::GridHashCandidates += (uint64)Candidates.Num();
-
-					// Grid membership IS the `is_loose` filter — picked-up food is removed
-					// from the grid on pickup and re-added on drop (see ApplyFoodEvents).
-					// So we skip the per-candidate fragment read here.
-					(void)FilterStruct; (void)FilterBoolOffset; (void)FilterBoolMustBe;
-
-					float BestDistSq = TNumericLimits<float>::Max();
-					for (const FMassNavigationObstacleItem& Item : Candidates)
-					{
-						const FMassEntityHandle Entity = Item.Entity;
-						if (!EntityManager.IsEntityValid(Entity)) continue;
-						++RustMassSpatialQuery::GridHashCandidatesValid;
-
-						// Reverse-map entity handle → instance index for this group (O(1)).
-						const int32* FoundIdx = GroupEntry->EntityToIndex.Find(Entity);
-						if (!FoundIdx) continue;
-						++RustMassSpatialQuery::GridHashCandidatesMapped;
-						const int32 Idx = *FoundIdx;
-						++RustMassSpatialQuery::GridHashCandidatesPassed;
-
-						FTransform InstanceTransform;
-						TargetISMC->GetInstanceTransform(Idx, InstanceTransform, true);
-						const FVector EntityPos = InstanceTransform.GetLocation();
-
-						const FVector Closest = FMath::ClosestPointOnSegment(EntityPos, SweepStart, SweepEnd);
-						const float DistSq = FVector::DistSquared(Closest, EntityPos);
-						if (DistSq <= PickupRadiusSq && DistSq < BestDistSq)
-						{
-							BestDistSq = DistSq;
-							Out->has_encounter = true;
-							Out->entity_index = Idx;
-							Out->encounter_position[0] = Closest.X;
-							Out->encounter_position[1] = Closest.Y;
-							Out->encounter_position[2] = Closest.Z;
-							++RustMassSpatialQuery::GridHashEncountersWithin;
-						}
-					}
-
-					return 1;
+					return ExecuteGridHashSpatialQuery(
+						EntityManager, Grid, *EntityToIndex, *TargetISMC,
+						PreviousPos, CurrentPos, PickupRadius, Out);
 				},
 				Radius);
 		}
@@ -630,7 +696,10 @@ void URustMassBevySubsystem::RunSimulationProcessorStep(float SimulatedDeltaTime
 	}
 
 	// Per-step GridHash callback stats (opt-in via UNREAL_RUST_MASS_TIMING=1, same gate
-	// as per-system timing so both appear together). Reset after emit for the next step.
+	// as per-system timing so both appear together). When the per-step log is on,
+	// reset after emit so each line covers one step. Otherwise leave counters to
+	// accumulate — automation tests read them via GetGridHashCounters() and manage
+	// their own baseline via ResetGridHashCounters().
 	{
 		static const bool bTimingEnabled = []{
 			const FString V = FPlatformMisc::GetEnvironmentVariable(TEXT("UNREAL_RUST_MASS_TIMING"));
@@ -640,21 +709,24 @@ void URustMassBevySubsystem::RunSimulationProcessorStep(float SimulatedDeltaTime
 		{
 			const double AvgCands = (double)RustMassSpatialQuery::GridHashCandidates / (double)RustMassSpatialQuery::GridHashCalls;
 			UE_LOG(LogTemp, Log,
-				TEXT("[gridhash-perf] calls=%llu cands=%llu(avg=%.2f) valid=%llu mapped=%llu passed=%llu within=%llu"),
+				TEXT("[gridhash-perf] calls=%llu cands=%llu(avg=%.2f) valid=%llu mapped=%llu passed=%llu within=%llu returned=%llu"),
 				(unsigned long long)RustMassSpatialQuery::GridHashCalls,
 				(unsigned long long)RustMassSpatialQuery::GridHashCandidates,
 				AvgCands,
 				(unsigned long long)RustMassSpatialQuery::GridHashCandidatesValid,
 				(unsigned long long)RustMassSpatialQuery::GridHashCandidatesMapped,
 				(unsigned long long)RustMassSpatialQuery::GridHashCandidatesPassed,
-				(unsigned long long)RustMassSpatialQuery::GridHashEncountersWithin);
+				(unsigned long long)RustMassSpatialQuery::GridHashEncountersWithin,
+				(unsigned long long)RustMassSpatialQuery::GridHashEncountersReturned);
+
+			RustMassSpatialQuery::GridHashCalls = 0;
+			RustMassSpatialQuery::GridHashCandidates = 0;
+			RustMassSpatialQuery::GridHashCandidatesValid = 0;
+			RustMassSpatialQuery::GridHashCandidatesMapped = 0;
+			RustMassSpatialQuery::GridHashCandidatesPassed = 0;
+			RustMassSpatialQuery::GridHashEncountersWithin = 0;
+			RustMassSpatialQuery::GridHashEncountersReturned = 0;
 		}
-		RustMassSpatialQuery::GridHashCalls = 0;
-		RustMassSpatialQuery::GridHashCandidates = 0;
-		RustMassSpatialQuery::GridHashCandidatesValid = 0;
-		RustMassSpatialQuery::GridHashCandidatesMapped = 0;
-		RustMassSpatialQuery::GridHashCandidatesPassed = 0;
-		RustMassSpatialQuery::GridHashEncountersWithin = 0;
 	}
 }
 
@@ -1105,6 +1177,136 @@ void URustMassBevySubsystem::Tick(float DeltaTime)
 			UE::Mass::Executor::Run(VisualizationPipeline, VisContext);
 		}
 	}
+
+#if RUST_MASS_VALIDATE_ROTATIONS
+	// ---------------------------------------------------------------------
+	// PIE diagnostic: detect rotation corruption BEFORE the PostPhysics
+	// broadcast asserts in UpdateInstanceTransform. Enabled via
+	//   RustPlugin.Build.cs: PublicDefinitions.Add("RUST_MASS_VALIDATE_ROTATIONS=1");
+	// Checks three surfaces that feed ISM UpdateInstanceTransform:
+	//   1. FTransformFragment (source rotation read by UpdateISMProcessor)
+	//   2. FMassRepresentationFragment::PrevTransform (written per-frame)
+	//   3. FMassISMCSharedData::{Current,Prev}Transforms (post-multiply
+	//      batched buffers consumed by EndVisualChanges)
+	// Emits one summary line per tick + first 3 failure details per surface.
+	// ---------------------------------------------------------------------
+	{
+		UWorld* ValidationWorld = GetWorld();
+		UMassEntitySubsystem* VMSubsystem = ValidationWorld ? ValidationWorld->GetSubsystem<UMassEntitySubsystem>() : nullptr;
+		UMassRepresentationSubsystem* VRSubsystem = ValidationWorld ? ValidationWorld->GetSubsystem<UMassRepresentationSubsystem>() : nullptr;
+		if (VMSubsystem && VRSubsystem)
+		{
+			FMassEntityManager& EM = VMSubsystem->GetMutableEntityManager();
+			int32 FragBad = 0;
+			int32 PrevBad = 0;
+			int32 BufCurBad = 0;
+			int32 BufPrevBad = 0;
+			int32 FragLogged = 0;
+			int32 PrevLogged = 0;
+			int32 BufCurLogged = 0;
+			int32 BufPrevLogged = 0;
+			int32 TotalEntities = 0;
+			int32 TotalBufEntries = 0;
+
+			auto CheckQuat = [](const FQuat& Q) -> double {
+				return Q.X * Q.X + Q.Y * Q.Y + Q.Z * Q.Z + Q.W * Q.W;
+			};
+
+			// Surfaces 1 & 2: per-entity fragments.
+			for (const auto& GroupPair : EntityGroups)
+			{
+				for (const FMassEntityHandle& E : GroupPair.Value)
+				{
+					if (!EM.IsEntityValid(E)) continue;
+					++TotalEntities;
+					FMassEntityView View(EM, E);
+					const FTransform& T = View.GetFragmentData<FTransformFragment>().GetTransform();
+					const double N2 = CheckQuat(T.GetRotation());
+					if (FMath::Abs(N2 - 1.0) > 0.01)
+					{
+						++FragBad;
+						if (FragLogged < 3)
+						{
+							const FQuat R = T.GetRotation();
+							const FVector P = T.GetTranslation();
+							UE_LOG(LogTemp, Error,
+								TEXT("[RustMass] TransformFrag[%s idx=%d] rot=(%.6f,%.6f,%.6f,%.6f) |rot|^2=%.6f pos=(%.2f,%.2f,%.2f)"),
+								*GroupPair.Key, E.Index, R.X, R.Y, R.Z, R.W, N2, P.X, P.Y, P.Z);
+							++FragLogged;
+						}
+					}
+					if (FMassRepresentationFragment* RF = View.GetFragmentDataPtr<FMassRepresentationFragment>())
+					{
+						const double Np = CheckQuat(RF->PrevTransform.GetRotation());
+						if (FMath::Abs(Np - 1.0) > 0.01)
+						{
+							++PrevBad;
+							if (PrevLogged < 3)
+							{
+								const FQuat R = RF->PrevTransform.GetRotation();
+								const FVector P = RF->PrevTransform.GetTranslation();
+								UE_LOG(LogTemp, Error,
+									TEXT("[RustMass] RepFrag::PrevTransform[%s idx=%d] rot=(%.6f,%.6f,%.6f,%.6f) |rot|^2=%.6f pos=(%.2f,%.2f,%.2f)"),
+									*GroupPair.Key, E.Index, R.X, R.Y, R.Z, R.W, Np, P.X, P.Y, P.Z);
+								++PrevLogged;
+							}
+						}
+					}
+				}
+			}
+
+			// Surface 3: ISM shared-data batched buffers (exact path crashes).
+			for (int32 DescIdx = 0; DescIdx < 32; ++DescIdx)
+			{
+				const FMassISMCSharedData* Shared = VRSubsystem->GetISMCSharedDataForDescriptionIndex(DescIdx);
+				if (!Shared) continue;
+				auto Check = [&](TConstArrayView<FTransform> Buf, int32& BadCount, int32& LogCount, const TCHAR* Which) {
+					for (int32 i = 0; i < Buf.Num(); ++i)
+					{
+						const double N2 = CheckQuat(Buf[i].GetRotation());
+						if (FMath::Abs(N2 - 1.0) > 0.01)
+						{
+							++BadCount;
+							if (LogCount < 3)
+							{
+								const FQuat R = Buf[i].GetRotation();
+								const FVector P = Buf[i].GetTranslation();
+								const FVector S = Buf[i].GetScale3D();
+								UE_LOG(LogTemp, Error,
+									TEXT("[RustMass] ISMShared[desc=%d].%s[%d] rot=(%.6f,%.6f,%.6f,%.6f) |rot|^2=%.6f pos=(%.2f,%.2f,%.2f) scale=(%.3f,%.3f,%.3f)"),
+									DescIdx, Which, i, R.X, R.Y, R.Z, R.W, N2, P.X, P.Y, P.Z, S.X, S.Y, S.Z);
+								++LogCount;
+							}
+						}
+					}
+				};
+				Check(Shared->GetStaticMeshInstanceTransforms(), BufCurBad, BufCurLogged, TEXT("Current"));
+				Check(Shared->GetStaticMeshInstancePrevTransforms(), BufPrevBad, BufPrevLogged, TEXT("Prev"));
+				TotalBufEntries += Shared->GetStaticMeshInstanceTransforms().Num();
+			}
+
+			const int32 TotalBad = FragBad + PrevBad + BufCurBad + BufPrevBad;
+			if (TotalBad > 0)
+			{
+				UE_LOG(LogTemp, Error,
+					TEXT("[RustMass] ROTATION CORRUPTION detected (tick, before PostPhysics broadcast): "
+						 "TransformFrag=%d RepFrag::Prev=%d ISMShared.Current=%d ISMShared.Prev=%d "
+						 "(entities=%d bufEntries=%d)"),
+					FragBad, PrevBad, BufCurBad, BufPrevBad, TotalEntities, TotalBufEntries);
+			}
+			else
+			{
+				static int32 TickCounter = 0;
+				if (++TickCounter <= 5 || TickCounter % 60 == 0)
+				{
+					UE_LOG(LogTemp, Display,
+						TEXT("[RustMass] Rotation validation OK @ tick %d: entities=%d bufEntries=%d"),
+						TickCounter, TotalEntities, TotalBufEntries);
+				}
+			}
+		}
+	}
+#endif  // RUST_MASS_VALIDATE_ROTATIONS
 
 	ApplyFoodEvents();
 }

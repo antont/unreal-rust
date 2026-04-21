@@ -101,6 +101,28 @@ public:
 	bool WriteFragmentData(const FString& GroupName, int32 EntityIndex,
 		const FString& FragmentTypeName, const void* InData, int32 DataSize);
 
+	/** Read the reverse entity→instance-index map for a GridHash-owned group.
+	 *  Returns nullptr if the group is not GridHash-owned or doesn't exist.
+	 *  Exposed for automation tests that drive ExecuteGridHashSpatialQuery directly. */
+	const TMap<FMassEntityHandle, int32>* GetGroupEntityToIndex(const FString& GroupName) const;
+
+	/** Snapshot of the GridHash diagnostic counters. Values accumulate across every
+	 *  invocation of ExecuteGridHashSpatialQuery and are reset at the end of each
+	 *  RunSimulationProcessorStep. Exposed so automation tests can measure where
+	 *  candidates get dropped in the pickup pipeline. */
+	struct FGridHashCounters
+	{
+		uint64 Calls = 0;
+		uint64 Candidates = 0;       // items returned by QuerySmall
+		uint64 CandidatesValid = 0;  // after EntityManager.IsEntityValid
+		uint64 CandidatesMapped = 0; // after EntityToIndex lookup
+		uint64 CandidatesPassed = 0; // after filter fragment read
+		uint64 EncountersWithin = 0; // passed the radius distance check (per candidate)
+		uint64 EncountersReturned = 0; // calls that returned has_encounter=true
+	};
+	static FGridHashCounters GetGridHashCounters();
+	static void ResetGridHashCounters();
+
 public:
 	/** Named entity groups: key = group name, value = entity handles. */
 	TMap<FString, TArray<FMassEntityHandle>> EntityGroups;
@@ -200,6 +222,26 @@ private:
 	 *  called InitializeSimulation(). Runs once on first Tick. */
 	void TryAutoInitFromRustDefaults();
 };
+
+/**
+ * Execute the GridHash spatial-query callback body against a prebuilt grid/group.
+ *
+ * Extracted from URustMassBevySubsystem::RegisterSpatialQueryFromConfig (QueryType=2)
+ * so automation tests can exercise it without standing up a full simulation.
+ * Grid membership IS the is_loose filter — the caller is responsible for
+ * adding/removing items from Grid on drop/pickup.
+ *
+ * Returns 1 (query ran); encounter data in *Out.
+ */
+RUSTPLUGIN_API uint32 ExecuteGridHashSpatialQuery(
+	FMassEntityManager& EntityManager,
+	const FNavigationObstacleHashGrid2D& Grid,
+	const TMap<FMassEntityHandle, int32>& EntityToIndex,
+	const UInstancedStaticMeshComponent& ISMC,
+	const double* PreviousPos,
+	const double* CurrentPos,
+	float PickupRadius,
+	MassSpatialQueryResult* Out);
 
 template<>
 struct TMassExternalSubsystemTraits<URustMassBevySubsystem>

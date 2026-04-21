@@ -7,7 +7,14 @@ public class RustPlugin : ModuleRules
 	public RustPlugin(ReadOnlyTargetRules Target) : base(Target)
 	{
 		PCHUsage = ModuleRules.PCHUsageMode.UseExplicitOrSharedPCHs;
-		
+
+		// Diagnostic: validate FTransformFragment / RepFrag / ISMShared rotations
+		// every frame inside URustMassBevySubsystem::Tick(), before the
+		// PostPhysics broadcast. Logs an error with first failing entity/buffer
+		// instead of crashing in UInstancedStaticMeshComponent::UpdateInstanceTransform.
+		// Set to 0 to remove overhead in production builds.
+		PublicDefinitions.Add("RUST_MASS_VALIDATE_ROTATIONS=1");
+
 		PublicIncludePaths.AddRange(
 			new string[] {
 			}
