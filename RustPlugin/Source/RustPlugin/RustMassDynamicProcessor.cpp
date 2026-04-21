@@ -194,12 +194,24 @@ void URustMassDynamicProcessor::Execute(FMassEntityManager& EntityManager, FMass
 
 	const float DeltaSeconds = Context.GetDeltaTimeSeconds();
 
-	// --- Cache archetype/chunk pointers once, reuse across frames ---
-	// Our pipeline does not move entities between archetypes at runtime
-	// (no LOD processor, no tag-swapping systems on Mass entities; Cooldown
-	// add/remove happens on shadow Bevy entities, not Mass chunks).
-	// If a future system starts mutating tags, call ConfigureQueries() again
-	// (which invalidates this cache) or add explicit invalidation here.
+	// Rebuild the chunk-pointer cache every frame. Native Mass processors in
+	// the PIE phase graph (UMassRepresentation / UMassVisualizationLOD) add and
+	// remove tags on entities between frames, which migrates them into new
+	// archetypes and moves their fragment memory. Any pointer we captured in an
+	// earlier frame would then point at orphaned storage — with symptoms
+	// ranging from "ants no longer pick up food" (stale Carrying reads) to
+	// FTransform assertion crashes when the orphaned memory gets reused. The
+	// headless automation path (RunSimulationProcessorsForTesting) doesn't run
+	// vis, so the cache *looks* safe there, but it is not safe in PIE.
+	bChunkCacheValid = false;
+	CachedPrimarySlices.Empty();
+	CachedPrimaryChunks.Empty();
+	for (TArray<MassGlobalChunkSlice>& Slices : CachedChunkSlices)
+	{
+		Slices.Empty();
+	}
+	CachedChunkedFrags.Empty();
+	CachedGlobalEntityCount = 0;
 
 	if (!bChunkCacheValid)
 	{
