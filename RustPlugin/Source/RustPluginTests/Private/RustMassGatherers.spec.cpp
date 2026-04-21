@@ -512,6 +512,47 @@ bool FGatherersBevyMassGridHashTwoQueriesOneGroupTest::RunTest(const FString& Pa
 }
 
 // ---------------------------------------------------------------------------
+// Regression: at most ONE group may be the GridHash owner.
+//
+// FoodPickupEvents / FoodDropEvents carry a bare instance index with no group
+// identifier — the index space is implicitly scoped to the single GridHash
+// owner. If two groups ever get marked bOwnedByGridHash, ApplyFoodEvents
+// applies each pickup/drop to *every* GridHash-owned group using the same
+// index, corrupting whichever group didn't originate the event. This test
+// simulates a second Rust spatial-query config trying to claim a second
+// group as GridHash-owned — the framework must refuse it.
+// ---------------------------------------------------------------------------
+
+IMPLEMENT_SIMPLE_AUTOMATION_TEST(
+	FGatherersBevyMassGridHashRefusesSecondOwnerTest,
+	"supplemental.RustPlugin.Gatherers.BevyMassGridHashRefusesSecondOwner",
+	EAutomationTestFlags::EditorContext | EAutomationTestFlags::EngineFilter)
+
+bool FGatherersBevyMassGridHashRefusesSecondOwnerTest::RunTest(const FString& Parameters)
+{
+	UWorld* World = GEditor->GetEditorWorldContext().World();
+	if (!TestNotNull(TEXT("World must exist"), World)) return false;
+
+	URustMassBevySubsystem* Subsystem = World->GetSubsystem<URustMassBevySubsystem>();
+	if (!TestNotNull(TEXT("RustMassBevySubsystem must exist"), Subsystem)) return false;
+
+	// After InitializeSimulation the "food" group is already the sole GridHash
+	// owner (registered by the default gatherers sim). Try to mark "ants" as
+	// a *second* GridHash owner — must be refused.
+	const FBox Bounds(FVector(-500.0, -500.0, 0.0), FVector(500.0, 500.0, 100.0));
+	Subsystem->InitializeSimulation({{TEXT("ants"), 3}, {TEXT("food"), 5}}, Bounds, 42);
+
+	const bool bAcceptedSecond = Subsystem->TryMarkGridHashOwnerForTesting(TEXT("ants"));
+	AddInfo(FString::Printf(TEXT("[SecondOwner] TryMarkGridHashOwner('ants') returned %s (expected false)"),
+		bAcceptedSecond ? TEXT("true") : TEXT("false")));
+
+	TestFalse(TEXT("Framework must refuse a second GridHash-owned group"), bAcceptedSecond);
+
+	Subsystem->ResetSimulation();
+	return true;
+}
+
+// ---------------------------------------------------------------------------
 // Pickup-density diagnostic — runs the full sim at production-like scale
 // (3000 ants × 10000 food in 10000×10000 area) for ~2 seconds and reports
 // where candidates drop off in the GridHash pipeline. Mirrors what the

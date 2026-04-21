@@ -129,6 +129,13 @@ public:
 	 *  Returns true if the group exists and is GridHash-owned. */
 	bool RepopulateGridHashForGroupForTesting(const FString& GroupName);
 
+	/** Drive the GridHash ownership setup for a group exactly like
+	 *  SetupSpatialQueriesFromRust does for QueryType==2. Returns true if the
+	 *  group was newly marked as GridHash-owned, false if refused (e.g. a
+	 *  different group is already the GridHash owner — enforced single-owner
+	 *  constraint for the single-group food-event FFI). */
+	bool TryMarkGridHashOwnerForTesting(const FString& GroupName);
+
 public:
 	/** Named entity groups: key = group name, value = entity handles. */
 	TMap<FString, TArray<FMassEntityHandle>> EntityGroups;

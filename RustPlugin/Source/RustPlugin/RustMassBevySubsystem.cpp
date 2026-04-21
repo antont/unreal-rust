@@ -244,6 +244,20 @@ bool URustMassBevySubsystem::RepopulateGridHashForGroupForTesting(const FString&
 	return false;
 }
 
+bool URustMassBevySubsystem::TryMarkGridHashOwnerForTesting(const FString& GroupName)
+{
+	for (FCollisionGroupEntry& CG : CollisionGroups)
+	{
+		if (CG.Name == GroupName)
+		{
+			CG.bOwnedByGridHash = true;
+			PopulateGridHashForGroup(CG);
+			return true;
+		}
+	}
+	return false;
+}
+
 int32 URustMassBevySubsystem::GetGroupEntityCount(const FString& GroupName) const
 {
 	const TArray<FMassEntityHandle>* Arr = EntityGroups.Find(GroupName);
