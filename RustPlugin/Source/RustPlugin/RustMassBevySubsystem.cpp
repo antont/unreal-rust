@@ -1134,9 +1134,12 @@ void URustMassBevySubsystem::ApplyOneFoodDropEvent(int32 FoodIdx, const FVector&
 	{
 		if (!Group.ISMC) continue;
 
-		const bool IsmcActive = Group.ISMC->GetCollisionEnabled() != ECollisionEnabled::NoCollision;
-		const bool GridActive = Group.bOwnedByGridHash && Grid != nullptr;
-		if (!IsmcActive && !GridActive) continue;
+		// `FoodDropEvent::food_index` is an instance index scoped to the single
+		// GridHash-owned group (enforced by TryMarkGridHashOwner; see FFI doc
+		// comments on GetFoodDropEventsFn / GetFoodPickupEventsFn). Applying the
+		// drop to any other collision-enabled group would teleport same-indexed
+		// instances in unrelated groups — scope strictly to the owner.
+		if (!Group.bOwnedByGridHash) continue;
 
 		// Keep ISMC transforms current — callback reads position from the ISMC.
 		FTransform T(FQuat::Identity, NewPos, Group.Scale);
@@ -1145,7 +1148,7 @@ void URustMassBevySubsystem::ApplyOneFoodDropEvent(int32 FoodIdx, const FVector&
 			Group.ISMC->UpdateInstanceTransform(FoodIdx, T, true, true, true);
 		}
 
-		if (!GridActive) continue;
+		if (Grid == nullptr) continue;
 
 		const TArray<FMassEntityHandle>* Entities = EntityGroups.Find(Group.Name);
 		if (!Entities || !Entities->IsValidIndex(FoodIdx)) continue;
