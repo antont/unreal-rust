@@ -277,6 +277,26 @@ pub type GetFoodDropEventsFn = unsafe extern "C" fn(out: *mut FoodDropEvent, max
 /// (so GridHash queries don't return picked-up food).
 pub type GetFoodPickupEventsFn = unsafe extern "C" fn(out: *mut i32, max: u32) -> u32;
 
+/// Diagnostic counters for the `ant_food_decision` system. Populated each frame
+/// inside the Rust sim; tests read these via the loader's `RustBindings` to
+/// measure where the pickup pipeline drops candidates.
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default)]
+pub struct DecisionCounters {
+    pub calls: u64,
+    pub hits_seen: u64,
+    pub ants_seen: u64,
+    pub matched: u64,
+    pub pickups: u64,
+    pub drops: u64,
+    pub no_actions: u64,
+}
+
+/// Copies current decision counters into `*out`. Counters are monotonic within
+/// a dispatch run and reset by `ResetDecisionCountersFn`.
+pub type GetDecisionCountersFn = unsafe extern "C" fn(out: *mut DecisionCounters);
+pub type ResetDecisionCountersFn = unsafe extern "C" fn();
+
 // --- Spatial query callback for Rust collision processor ---
 
 /// Result of a spatial query (nearest entity encounter detection).
@@ -615,6 +635,8 @@ pub struct RustBindings {
     pub run_mass_test: Option<RunMassTestFn>,
     pub get_food_drop_events: Option<GetFoodDropEventsFn>,
     pub get_food_pickup_events: Option<GetFoodPickupEventsFn>,
+    pub get_decision_counters: Option<GetDecisionCountersFn>,
+    pub reset_decision_counters: Option<ResetDecisionCountersFn>,
 }
 
 impl RustBindings {
@@ -673,6 +695,8 @@ impl RustBindings {
             run_mass_test: None,
             get_food_drop_events: None,
             get_food_pickup_events: None,
+            get_decision_counters: None,
+            reset_decision_counters: None,
         }
     }
 }
@@ -989,10 +1013,11 @@ mod tests {
 
     #[test]
     fn rust_bindings_has_mass_bob_process_field() {
-        // RustBindings: 7 non-optional fn ptrs + 10 Option<fn ptr> = 17 pointers
+        // RustBindings: 7 non-optional fn ptrs + 13 Option<fn ptr> = 20 pointers.
+        // Must match the C++ static_assert in unreal-ffi/build.rs.
         let size = std::mem::size_of::<RustBindings>();
-        assert_eq!(size, 17 * std::mem::size_of::<usize>(),
-            "actual size = {}, expected = {}", size, 17 * std::mem::size_of::<usize>());
+        assert_eq!(size, 20 * std::mem::size_of::<usize>(),
+            "actual size = {}, expected = {}", size, 20 * std::mem::size_of::<usize>());
     }
 
     #[test]

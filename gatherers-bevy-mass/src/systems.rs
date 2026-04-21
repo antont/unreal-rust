@@ -74,6 +74,21 @@ static FOOD_DROP_CACHE: std::sync::Mutex<SyncDropCache> =
 static FOOD_PICKUP_CACHE: std::sync::Mutex<Vec<i32>> =
     std::sync::Mutex::new(Vec::new());
 
+// ---------------------------------------------------------------------------
+// Decision-outcome diagnostic counters (exposed via FFI to automation tests).
+// Counts every invocation of ant_food_decision_fn inside the UE `ant_food_decision`
+// system so we can see how returned encounters split into pickup/drop/no-action.
+// ---------------------------------------------------------------------------
+
+use std::sync::atomic::{AtomicU64, Ordering};
+static DECISION_CALLS: AtomicU64 = AtomicU64::new(0);
+static DECISION_HITS_SEEN: AtomicU64 = AtomicU64::new(0);
+static DECISION_ANTS_SEEN: AtomicU64 = AtomicU64::new(0);
+static DECISION_MATCHED: AtomicU64 = AtomicU64::new(0);
+static DECISION_PICKUPS: AtomicU64 = AtomicU64::new(0);
+static DECISION_DROPS: AtomicU64 = AtomicU64::new(0);
+static DECISION_NO_ACTIONS: AtomicU64 = AtomicU64::new(0);
+
 fn clear_food_event_caches(_world: &mut bevy_ecs::world::World) {
     FOOD_DROP_CACHE.lock().unwrap().0.clear();
     FOOD_PICKUP_CACHE.lock().unwrap().clear();
@@ -141,6 +156,8 @@ inventory::submit!(unreal_api::mass::MassDispatchHook {
 inventory::submit!(unreal_api::mass::MassExternBinding {
     get_food_drop_events: Some(get_food_drop_events),
     get_food_pickup_events: Some(get_food_pickup_events),
+    get_decision_counters: Some(get_decision_counters),
+    reset_decision_counters: Some(reset_decision_counters),
 });
 
 // ---------------------------------------------------------------------------
@@ -180,15 +197,20 @@ fn ant_food_decision(
     mut food_mutations: MessageWriter<FoodMutation>,
     mut commands: Commands,
 ) {
+    DECISION_CALLS.fetch_add(1, Ordering::Relaxed);
+
     // Build entity → hit lookup from messages (read once, lookup per entity)
     let hit_map: HashMap<bevy_ecs::entity::Entity, _> = hits.read()
+        .inspect(|_| { DECISION_HITS_SEEN.fetch_add(1, Ordering::Relaxed); })
         .map(|h| (h.hitter_entity, (h.hittable_index, h.encounter_position)))
         .collect();
 
     for (entity, transform, mut movement, mut carry, mut behavior) in &mut ants {
+        DECISION_ANTS_SEEN.fetch_add(1, Ordering::Relaxed);
         let Some(&(hittable_index, encounter_position)) = hit_map.get(&entity) else {
             continue;
         };
+        DECISION_MATCHED.fetch_add(1, Ordering::Relaxed);
 
         let old_food_index = carry.food_index;
         let pos_before = transform.translation;
@@ -206,6 +228,12 @@ fn ant_food_decision(
             Some(&encounter),
         );
 
+        match decision {
+            DECISION_PICK_UP => { DECISION_PICKUPS.fetch_add(1, Ordering::Relaxed); }
+            DECISION_DROP => { DECISION_DROPS.fetch_add(1, Ordering::Relaxed); }
+            _ => { DECISION_NO_ACTIONS.fetch_add(1, Ordering::Relaxed); }
+        }
+
         if decision != DECISION_NO_ACTION {
             commands.entity(entity).insert(cd);
             food_mutations.write(FoodMutation {
@@ -216,6 +244,72 @@ fn ant_food_decision(
         }
     }
 }
+
+/// Read decision-outcome diagnostic counters. Populated inside `ant_food_decision`
+/// each frame; tests read these via the loader's `RustBindings.get_decision_counters`
+/// (registered through `MassExternBinding` below) so they hit the same dylib
+/// instance as the running sim.
+pub unsafe extern "C" fn get_decision_counters(out: *mut unreal_ffi::DecisionCounters) {
+    if out.is_null() { return; }
+    unsafe {
+        (*out).calls = DECISION_CALLS.load(Ordering::Relaxed);
+        (*out).hits_seen = DECISION_HITS_SEEN.load(Ordering::Relaxed);
+        (*out).ants_seen = DECISION_ANTS_SEEN.load(Ordering::Relaxed);
+        (*out).matched = DECISION_MATCHED.load(Ordering::Relaxed);
+        (*out).pickups = DECISION_PICKUPS.load(Ordering::Relaxed);
+        (*out).drops = DECISION_DROPS.load(Ordering::Relaxed);
+        (*out).no_actions = DECISION_NO_ACTIONS.load(Ordering::Relaxed);
+    }
+}
+
+/// Reset decision counters to zero.
+pub unsafe extern "C" fn reset_decision_counters() {
+    DECISION_CALLS.store(0, Ordering::Relaxed);
+    DECISION_HITS_SEEN.store(0, Ordering::Relaxed);
+    DECISION_ANTS_SEEN.store(0, Ordering::Relaxed);
+    DECISION_MATCHED.store(0, Ordering::Relaxed);
+    DECISION_PICKUPS.store(0, Ordering::Relaxed);
+    DECISION_DROPS.store(0, Ordering::Relaxed);
+    DECISION_NO_ACTIONS.store(0, Ordering::Relaxed);
+}
+
+/// Control flag: set via FFI before the test run to enable per-frame logging
+/// of decision counters. Checked each frame in `log_decision_counters`.
+static DECISION_LOG_ENABLED: std::sync::atomic::AtomicBool =
+    std::sync::atomic::AtomicBool::new(false);
+
+#[unsafe(no_mangle)]
+pub unsafe extern "C" fn set_decision_log_enabled(enabled: u32) {
+    DECISION_LOG_ENABLED.store(enabled != 0, Ordering::Relaxed);
+}
+
+/// Log decision counters once per frame when enabled + reset. Runs as a
+/// post-dispatch hook so it prints even without a dedicated FFI accessor.
+fn log_decision_counters(_world: &mut bevy_ecs::world::World) {
+    // Fall back to env var so PIE runs can also be toggled from the shell.
+    let env_on = std::env::var("UNREAL_RUST_MASS_TIMING").ok().as_deref() == Some("1");
+    if !env_on && !DECISION_LOG_ENABLED.load(Ordering::Relaxed) {
+        return;
+    }
+    let calls = DECISION_CALLS.load(Ordering::Relaxed);
+    if calls == 0 { return; }
+    eprintln!(
+        "[decision-perf] calls={} hits_seen={} ants_seen={} matched={} pickups={} drops={} no_actions={}",
+        calls,
+        DECISION_HITS_SEEN.load(Ordering::Relaxed),
+        DECISION_ANTS_SEEN.load(Ordering::Relaxed),
+        DECISION_MATCHED.load(Ordering::Relaxed),
+        DECISION_PICKUPS.load(Ordering::Relaxed),
+        DECISION_DROPS.load(Ordering::Relaxed),
+        DECISION_NO_ACTIONS.load(Ordering::Relaxed),
+    );
+    unsafe { reset_decision_counters(); }
+}
+
+inventory::submit!(unreal_api::mass::MassDispatchHook {
+    pre_dispatch: |_| {},
+    post_dispatch: log_decision_counters,
+});
 
 // ---------------------------------------------------------------------------
 // System 3b: Apply food mutations — reads FoodMutation messages, updates food
