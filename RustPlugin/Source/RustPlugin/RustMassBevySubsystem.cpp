@@ -939,6 +939,18 @@ void URustMassBevySubsystem::PopulateGridHashForGroup(FCollisionGroupEntry& Grou
 	const TArray<FMassEntityHandle>* Entities = EntityGroups.Find(Group.Name);
 	if (!Entities || !Group.ISMC) return;
 
+	// Idempotent: two GridHash query configs can legally target the same group.
+	// The first populate owns the grid; subsequent calls share it. Without this
+	// guard, every extra call re-inserts every entity into the nav grid (duplicates
+	// inflate QuerySmall results and desync pickup/drop mutation — removes clear
+	// only one copy, leaving phantom obstacles). Reset via ClearGridHashForGroup.
+	if (Group.GridCellLocations.Num() > 0)
+	{
+		UE_LOG(LogTemp, Verbose, TEXT("RustMassBevySubsystem: Skipping duplicate populate for group '%s' (%d items already in grid)"),
+			*Group.Name, Group.GridCellLocations.Num());
+		return;
+	}
+
 	FNavigationObstacleHashGrid2D& Grid = NavSubsystem->GetObstacleGridMutable();
 	Group.GridCellLocations.Reset();
 	Group.GridCellLocations.Reserve(Entities->Num());
