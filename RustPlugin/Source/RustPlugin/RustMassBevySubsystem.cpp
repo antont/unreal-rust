@@ -231,6 +231,19 @@ const TMap<FMassEntityHandle, int32>* URustMassBevySubsystem::GetGroupEntityToIn
 	return nullptr;
 }
 
+bool URustMassBevySubsystem::RepopulateGridHashForGroupForTesting(const FString& GroupName)
+{
+	for (FCollisionGroupEntry& Entry : CollisionGroups)
+	{
+		if (Entry.Name == GroupName && Entry.bOwnedByGridHash)
+		{
+			PopulateGridHashForGroup(Entry);
+			return true;
+		}
+	}
+	return false;
+}
+
 int32 URustMassBevySubsystem::GetGroupEntityCount(const FString& GroupName) const
 {
 	const TArray<FMassEntityHandle>* Arr = EntityGroups.Find(GroupName);

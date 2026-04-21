@@ -452,6 +452,66 @@ bool FGatherersBevyMassGridHashCallbackTest::RunTest(const FString& Parameters)
 }
 
 // ---------------------------------------------------------------------------
+// Regression: PopulateGridHashForGroup must be idempotent.
+//
+// Two GridHash query configs can legally target the same group (e.g. a normal
+// pickup query + a speculative look-ahead query). Running PopulateGridHashForGroup
+// twice must leave the nav grid with exactly one entry per entity, not two —
+// duplicate entries make QuerySmall return the same food repeatedly and desync
+// any grid mutation (pickup/drop events remove only one copy, the duplicate
+// lingers forever as a phantom obstacle).
+// ---------------------------------------------------------------------------
+
+IMPLEMENT_SIMPLE_AUTOMATION_TEST(
+	FGatherersBevyMassGridHashTwoQueriesOneGroupTest,
+	"supplemental.RustPlugin.Gatherers.BevyMassGridHashTwoQueriesOneGroup",
+	EAutomationTestFlags::EditorContext | EAutomationTestFlags::EngineFilter)
+
+bool FGatherersBevyMassGridHashTwoQueriesOneGroupTest::RunTest(const FString& Parameters)
+{
+	UWorld* World = GEditor->GetEditorWorldContext().World();
+	if (!TestNotNull(TEXT("World must exist"), World)) return false;
+
+	UMassNavigationSubsystem* NavSubsystem = World->GetSubsystem<UMassNavigationSubsystem>();
+	if (!TestNotNull(TEXT("UMassNavigationSubsystem must exist"), NavSubsystem)) return false;
+
+	URustMassBevySubsystem* Subsystem = World->GetSubsystem<URustMassBevySubsystem>();
+	if (!TestNotNull(TEXT("RustMassBevySubsystem must exist"), Subsystem)) return false;
+
+	constexpr int32 FoodCount = 5;
+	const FBox Bounds(FVector(-500.0, -500.0, 0.0), FVector(500.0, 500.0, 100.0));
+	Subsystem->InitializeSimulation({{TEXT("ants"), 1}, {TEXT("food"), FoodCount}}, Bounds, 42);
+
+	// InitializeSimulation's auto-registration has already populated the grid
+	// for the "food" group exactly once. Simulate a second GridHash query config
+	// also targeting "food" — this exercises the same PopulateGridHashForGroup
+	// path that SetupSpatialQueriesFromRust invokes per matching config.
+	const bool bOk = Subsystem->RepopulateGridHashForGroupForTesting(TEXT("food"));
+	if (!TestTrue(TEXT("RepopulateGridHashForGroupForTesting should succeed"), bOk))
+	{
+		Subsystem->ResetSimulation();
+		return false;
+	}
+
+	// Count obstacles in the nav grid by querying a bounding box that covers
+	// all food positions. With idempotent populate we expect exactly FoodCount
+	// items back; without it, the second populate doubled every entry.
+	const FNavigationObstacleHashGrid2D& Grid = NavSubsystem->GetObstacleGrid();
+	TArray<FMassNavigationObstacleItem, TInlineAllocator<32>> Candidates;
+	const FBox FullBounds(FVector(-10000.0, -10000.0, 0.0), FVector(10000.0, 10000.0, 0.0));
+	Grid.QuerySmall(FullBounds, Candidates);
+
+	AddInfo(FString::Printf(TEXT("[DoubleInsert] foods=%d grid items=%d (expect %d)"),
+		FoodCount, Candidates.Num(), FoodCount));
+
+	TestEqual(TEXT("Nav grid should contain exactly one entry per food after double populate"),
+		Candidates.Num(), FoodCount);
+
+	Subsystem->ResetSimulation();
+	return true;
+}
+
+// ---------------------------------------------------------------------------
 // Pickup-density diagnostic — runs the full sim at production-like scale
 // (3000 ants × 10000 food in 10000×10000 area) for ~2 seconds and reports
 // where candidates drop off in the GridHash pipeline. Mirrors what the

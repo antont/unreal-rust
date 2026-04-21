@@ -123,6 +123,12 @@ public:
 	static FGridHashCounters GetGridHashCounters();
 	static void ResetGridHashCounters();
 
+	/** Re-run PopulateGridHashForGroup for a named GridHash-owned group.
+	 *  Exposed for automation tests that need to drive the populate path
+	 *  more than once (e.g. the two-queries-one-group regression spec).
+	 *  Returns true if the group exists and is GridHash-owned. */
+	bool RepopulateGridHashForGroupForTesting(const FString& GroupName);
+
 public:
 	/** Named entity groups: key = group name, value = entity handles. */
 	TMap<FString, TArray<FMassEntityHandle>> EntityGroups;
