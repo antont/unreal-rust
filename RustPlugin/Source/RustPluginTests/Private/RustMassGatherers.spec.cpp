@@ -559,6 +559,75 @@ bool FGatherersBevyMassGridHashRefusesSecondOwnerTest::RunTest(const FString& Pa
 }
 
 // ---------------------------------------------------------------------------
+// Regression: the food-drop path must be scoped to the single GridHash owner.
+//
+// FoodDropEvent carries a bare `food_index` with no group identifier. The
+// index space is scoped to the single GridHash-owned group — but historically
+// the drop loop also fanned the ISMC transform update to any other group whose
+// ISMC had collision enabled, so adding a second collision-enabled group (e.g.
+// a PhysicsSweep target for ants) would teleport that group's same-indexed
+// instance on every food drop. This test sets up exactly that scenario:
+// "food" is the GridHash owner; "ants" has ISMC collision enabled but no
+// GridHash ownership. Apply a drop for index 0 and assert only the food
+// instance moved — the ant instance must stay put.
+// ---------------------------------------------------------------------------
+
+IMPLEMENT_SIMPLE_AUTOMATION_TEST(
+	FGatherersBevyMassFoodDropIsSingleGroupTest,
+	"supplemental.RustPlugin.Gatherers.BevyMassFoodDropIsSingleGroup",
+	EAutomationTestFlags::EditorContext | EAutomationTestFlags::EngineFilter)
+
+bool FGatherersBevyMassFoodDropIsSingleGroupTest::RunTest(const FString& Parameters)
+{
+	UWorld* World = GEditor->GetEditorWorldContext().World();
+	if (!TestNotNull(TEXT("World must exist"), World)) return false;
+
+	URustMassBevySubsystem* Subsystem = World->GetSubsystem<URustMassBevySubsystem>();
+	if (!TestNotNull(TEXT("RustMassBevySubsystem must exist"), Subsystem)) return false;
+
+	const FBox Bounds(FVector(-500.0, -500.0, 0.0), FVector(500.0, 500.0, 100.0));
+	Subsystem->InitializeSimulation({{TEXT("ants"), 2}, {TEXT("food"), 2}}, Bounds, 42);
+
+	UInstancedStaticMeshComponent* AntISMC = Subsystem->GetGroupISMC(TEXT("ants"));
+	UInstancedStaticMeshComponent* FoodISMC = Subsystem->GetGroupISMC(TEXT("food"));
+	if (!TestNotNull(TEXT("Ant ISMC must exist"), AntISMC)) { Subsystem->ResetSimulation(); return false; }
+	if (!TestNotNull(TEXT("Food ISMC must exist"), FoodISMC)) { Subsystem->ResetSimulation(); return false; }
+
+	// Simulate a non-GridHash spatial query for ants (e.g. PhysicsSweep) —
+	// enables ISMC collision on the ants group but does NOT claim GridHash ownership.
+	AntISMC->SetCollisionEnabled(ECollisionEnabled::QueryOnly);
+
+	// Capture the ant instance 0 transform BEFORE the drop event.
+	FTransform AntBefore;
+	AntISMC->GetInstanceTransform(0, AntBefore, /*bWorldSpace=*/false);
+	const FVector AntPosBefore = AntBefore.GetTranslation();
+
+	// Drop event targets index 0, far away from any ant.
+	const FVector DropPos(12345.0, -6789.0, 42.0);
+	Subsystem->ApplyFoodDropEventForTesting(0, DropPos);
+
+	// Food instance 0 should be at the drop position.
+	FTransform FoodAfter;
+	FoodISMC->GetInstanceTransform(0, FoodAfter, /*bWorldSpace=*/false);
+	TestEqual(TEXT("Food instance 0 must move to drop position"),
+		FoodAfter.GetTranslation(), DropPos);
+
+	// Ant instance 0 must NOT have moved — the single-group FFI contract means
+	// the drop path is scoped to the GridHash owner, not any ISMC-active group.
+	FTransform AntAfter;
+	AntISMC->GetInstanceTransform(0, AntAfter, /*bWorldSpace=*/false);
+	const FVector AntPosAfter = AntAfter.GetTranslation();
+	AddInfo(FString::Printf(TEXT("[DropScope] ant[0] before=(%.1f,%.1f,%.1f) after=(%.1f,%.1f,%.1f)"),
+		AntPosBefore.X, AntPosBefore.Y, AntPosBefore.Z,
+		AntPosAfter.X, AntPosAfter.Y, AntPosAfter.Z));
+	TestEqual(TEXT("Ant instance 0 must NOT move — drop is scoped to GridHash owner"),
+		AntPosAfter, AntPosBefore);
+
+	Subsystem->ResetSimulation();
+	return true;
+}
+
+// ---------------------------------------------------------------------------
 // Pickup-density diagnostic — runs the full sim at production-like scale
 // (3000 ants × 10000 food in 10000×10000 area) for ~2 seconds and reports
 // where candidates drop off in the GridHash pipeline. Mirrors what the

@@ -136,6 +136,12 @@ public:
 	 *  constraint for the single-group food-event FFI). */
 	bool TryMarkGridHashOwnerForTesting(const FString& GroupName);
 
+	/** Apply a single food-drop event through the same code path as the real
+	 *  FFI drain (ApplyFoodEvents' drop loop body). Exposed for automation
+	 *  tests that need to verify the single-group scope of the drop path
+	 *  without standing up a full Bevy→C++ FFI round-trip. */
+	void ApplyFoodDropEventForTesting(int32 FoodIdx, const FVector& NewPos);
+
 public:
 	/** Named entity groups: key = group name, value = entity handles. */
 	TMap<FString, TArray<FMassEntityHandle>> EntityGroups;
@@ -188,6 +194,10 @@ private:
 
 	/** Drain Rust's food pickup + drop event queues and apply ISM-transform + grid-location updates. */
 	void ApplyFoodEvents();
+
+	/** Apply a single food-drop event across all collision groups. Shared body between
+	 *  the production FFI drain and the test-only `ApplyFoodDropEventForTesting` hook. */
+	void ApplyOneFoodDropEvent(int32 FoodIdx, const FVector& NewPos, FNavigationObstacleHashGrid2D* Grid);
 
 private:
 	UPROPERTY(Transient)

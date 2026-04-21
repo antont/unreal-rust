@@ -293,6 +293,14 @@ bool URustMassBevySubsystem::TryMarkGridHashOwnerForTesting(const FString& Group
 	return TryMarkGridHashOwner(GroupName, TEXT("TryMarkGridHashOwnerForTesting"));
 }
 
+void URustMassBevySubsystem::ApplyFoodDropEventForTesting(int32 FoodIdx, const FVector& NewPos)
+{
+	UWorld* World = GetWorld();
+	UMassNavigationSubsystem* NavSubsystem = World ? World->GetSubsystem<UMassNavigationSubsystem>() : nullptr;
+	FNavigationObstacleHashGrid2D* Grid = NavSubsystem ? &NavSubsystem->GetObstacleGridMutable() : nullptr;
+	ApplyOneFoodDropEvent(FoodIdx, NewPos, Grid);
+}
+
 int32 URustMassBevySubsystem::GetGroupEntityCount(const FString& GroupName) const
 {
 	const TArray<FMassEntityHandle>* Arr = EntityGroups.Find(GroupName);
@@ -1113,49 +1121,54 @@ void URustMassBevySubsystem::ApplyFoodEvents()
 			{
 				const FoodDropEvent& Evt = DropEvents[i];
 				const FVector NewPos(Evt.position[0], Evt.position[1], Evt.position[2]);
-				for (auto& Group : CollisionGroups)
-				{
-					if (!Group.ISMC) continue;
-
-					const bool IsmcActive = Group.ISMC->GetCollisionEnabled() != ECollisionEnabled::NoCollision;
-					const bool GridActive = Group.bOwnedByGridHash && Grid != nullptr;
-					if (!IsmcActive && !GridActive) continue;
-
-					// Keep ISMC transforms current — callback reads position from the ISMC.
-					FTransform T(FQuat::Identity, NewPos, Group.Scale);
-					if (Group.ISMC->IsValidInstance(Evt.food_index))
-					{
-						Group.ISMC->UpdateInstanceTransform(Evt.food_index, T, true, true, true);
-					}
-
-					if (!GridActive) continue;
-
-					const TArray<FMassEntityHandle>* Entities = EntityGroups.Find(Group.Name);
-					if (!Entities || !Entities->IsValidIndex(Evt.food_index)) continue;
-					if (!Group.GridCellLocations.IsValidIndex(Evt.food_index)) continue;
-
-					FMassNavigationObstacleItem Item;
-					Item.Entity = (*Entities)[Evt.food_index];
-					const FBox NewBounds = MakeGridItemBounds(NewPos);
-
-					if (Group.InGrid.IsValidIndex(Evt.food_index) && Group.InGrid[Evt.food_index])
-					{
-						// Already in grid (unusual — covers out-of-order events or non-gatherers sims).
-						const FNavigationObstacleHashGrid2D::FCellLocation NewLoc =
-							Grid->Move(Item, Group.GridCellLocations[Evt.food_index], NewBounds);
-						Group.GridCellLocations[Evt.food_index] = NewLoc;
-					}
-					else
-					{
-						Group.GridCellLocations[Evt.food_index] = Grid->Add(Item, NewBounds);
-						if (Group.InGrid.IsValidIndex(Evt.food_index))
-						{
-							Group.InGrid[Evt.food_index] = true;
-						}
-					}
-				}
+				ApplyOneFoodDropEvent(Evt.food_index, NewPos, Grid);
 			}
 			if (Count < BatchSize) break;
+		}
+	}
+}
+
+void URustMassBevySubsystem::ApplyOneFoodDropEvent(int32 FoodIdx, const FVector& NewPos, FNavigationObstacleHashGrid2D* Grid)
+{
+	for (auto& Group : CollisionGroups)
+	{
+		if (!Group.ISMC) continue;
+
+		const bool IsmcActive = Group.ISMC->GetCollisionEnabled() != ECollisionEnabled::NoCollision;
+		const bool GridActive = Group.bOwnedByGridHash && Grid != nullptr;
+		if (!IsmcActive && !GridActive) continue;
+
+		// Keep ISMC transforms current — callback reads position from the ISMC.
+		FTransform T(FQuat::Identity, NewPos, Group.Scale);
+		if (Group.ISMC->IsValidInstance(FoodIdx))
+		{
+			Group.ISMC->UpdateInstanceTransform(FoodIdx, T, true, true, true);
+		}
+
+		if (!GridActive) continue;
+
+		const TArray<FMassEntityHandle>* Entities = EntityGroups.Find(Group.Name);
+		if (!Entities || !Entities->IsValidIndex(FoodIdx)) continue;
+		if (!Group.GridCellLocations.IsValidIndex(FoodIdx)) continue;
+
+		FMassNavigationObstacleItem Item;
+		Item.Entity = (*Entities)[FoodIdx];
+		const FBox NewBounds = MakeGridItemBounds(NewPos);
+
+		if (Group.InGrid.IsValidIndex(FoodIdx) && Group.InGrid[FoodIdx])
+		{
+			// Already in grid (unusual — covers out-of-order events or non-gatherers sims).
+			const FNavigationObstacleHashGrid2D::FCellLocation NewLoc =
+				Grid->Move(Item, Group.GridCellLocations[FoodIdx], NewBounds);
+			Group.GridCellLocations[FoodIdx] = NewLoc;
+		}
+		else
+		{
+			Group.GridCellLocations[FoodIdx] = Grid->Add(Item, NewBounds);
+			if (Group.InGrid.IsValidIndex(FoodIdx))
+			{
+				Group.InGrid[FoodIdx] = true;
+			}
 		}
 	}
 }
