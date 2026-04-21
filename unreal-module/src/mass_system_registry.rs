@@ -193,6 +193,13 @@ pub unsafe extern "C" fn mass_frame_dispatch(
     };
     let sched = &mut wrapper.0;
 
+    // Discard timing samples left over from a prior frame whose drain was
+    // skipped (e.g. sched.run() panicked and unwound out of catch_unwind
+    // below before the drain at the end of the closure ran). Without this,
+    // stale samples double-report in the next successful frame's [mass-perf]
+    // line. Cheap (one mutex lock; Vec is empty when timing is disabled).
+    unreal_api::mass::prepare_mass_frame();
+
     // AssertUnwindSafe: mid-schedule panic may leave App state inconsistent,
     // but worst case is one odd next frame — not UB.
     let result = std::panic::catch_unwind(std::panic::AssertUnwindSafe(|| {

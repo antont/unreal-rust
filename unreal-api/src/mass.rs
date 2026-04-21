@@ -1744,10 +1744,14 @@ pub fn drain_mass_system_samples() -> Vec<MassSystemSample> {
 /// stale samples survive into the next successful frame's `[mass-perf]` line,
 /// producing phantom duplicate entries and inflated totals.
 ///
-/// No-op when timing is disabled, so zero overhead in the default path.
+/// Always drops (no enabled-flag check) — one mutex lock per frame, and the
+/// Vec is empty when timing is disabled so the clear is a no-op. Keeping it
+/// unconditional means the invariant holds even if timing gets toggled at
+/// runtime mid-frame.
 pub fn prepare_mass_frame() {
-    // Intentionally empty — will be filled in by the GREEN commit.
-    // Exposed now so the RED test can link against the API it tests.
+    if let Ok(mut samples) = MASS_TIMING_SAMPLES.lock() {
+        samples.clear();
+    }
 }
 
 /// Game-specific FFI function pointers discovered via inventory.
