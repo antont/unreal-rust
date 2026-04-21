@@ -143,7 +143,19 @@ pub struct FoodMutation {
 }
 
 // ---------------------------------------------------------------------------
-// Food drop events (Bevy Resource, consumed by C++ via FFI)
+// Food drop events (Bevy Resource, consumed by C++ via FFI).
+//
+// `food_index` is an instance index into the **single** GridHash-owned group
+// on the C++ side — there is no group identifier in the event payload. C++
+// enforces the one-owner constraint (see URustMassBevySubsystem::
+// TryMarkGridHashOwner): if two `#[mass_system_config]` entries tried to
+// register GridHash queries for different groups, the second claim is
+// refused and logged as an error.
+//
+// Extending to multiple groups requires an FFI change — adding a group
+// identifier (e.g. a stable group-id u16, resolved from a `GroupName`
+// interned on both sides) to `FoodDropEntry` + the matching C++ consumer
+// in URustMassBevySubsystem::ApplyFoodEvents.
 // ---------------------------------------------------------------------------
 
 #[derive(Resource, Default)]
@@ -171,6 +183,10 @@ impl FoodDropEvents {
 //
 // C++ uses these to remove the picked-up food from the navigation hash grid
 // so the GridHash spatial query doesn't have to filter `is_loose` per candidate.
+//
+// `indices` are instance indices into the **single** GridHash-owned group
+// on the C++ side — same constraint as FoodDropEvents above. See that type's
+// doc comment for the enforcement path and the FFI change needed to lift it.
 // ---------------------------------------------------------------------------
 
 #[derive(Resource, Default)]

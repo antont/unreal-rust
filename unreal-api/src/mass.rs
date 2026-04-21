@@ -48,6 +48,14 @@ pub fn take_dispatch_flags() -> u32 {
 /// into a `Vec<T>` once per frame (via the outer Bevy wrapper's real
 /// `MessageReader`) and hands each chunk a fresh `MessageReplay` that iterates
 /// the same buffer from the start. Same `.read()` API as `MessageReader`.
+///
+/// **`T: Clone` requirement**: the `#[mass_system]` macro expansion builds the
+/// shared per-frame buffer via `reader.read().cloned().collect::<Vec<T>>()`
+/// (see `unreal-api-derive/src/mass_system.rs`), so any message type used as
+/// `MessageReader<T>` in a `#[mass_system]` parameter must implement `Clone`.
+/// Standalone-Bevy uses of `MessageReader<T>` are unaffected. This is a
+/// deliberate tradeoff: payloads are small, `Clone` is cheap, and pre-collecting
+/// avoids per-chunk borrowed-slice lifetimes from the outer scheduler.
 pub struct MessageReplay<'a, T: 'static> {
     messages: &'a [T],
     cursor: usize,

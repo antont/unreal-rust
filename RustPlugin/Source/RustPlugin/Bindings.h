@@ -576,11 +576,20 @@ struct FoodDropEvent {
 /// Copies food drop events into `out` buffer. Returns the number of events written.
 /// C++ calls this immediately after mass_frame_dispatch returns.
 /// Registered via `unreal_api::mass::MassExternBinding` from the game crate.
+///
+/// `food_index` is an instance index into the **single** GridHash-owned
+/// C++ group. No group identifier is carried on the wire, and C++ enforces
+/// the one-owner constraint (URustMassBevySubsystem::TryMarkGridHashOwner
+/// refuses a second claim). Extending to multi-group food requires growing
+/// this FFI with a group id on both sides.
 using GetFoodDropEventsFn = uint32_t(*)(FoodDropEvent *out, uint32_t max);
 
 /// A food pickup event: one food entity was picked up by an ant.
 /// C++ reads these after dispatch to remove the food from the navigation hash grid
 /// (so GridHash queries don't return picked-up food).
+///
+/// Same single-group constraint as `GetFoodDropEventsFn` above — `out` entries
+/// are bare instance indices into the sole GridHash-owned group.
 using GetFoodPickupEventsFn = uint32_t(*)(int32_t *out, uint32_t max);
 
 /// Diagnostic counters for the `ant_food_decision` system. Populated each frame
