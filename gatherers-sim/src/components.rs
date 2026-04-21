@@ -116,7 +116,7 @@ pub const DECISION_DROP: FoodDecisionCode = 2;
 ///
 /// Carries the hittable's index (not entity) because in Unreal mode food lives
 /// in Mass Entity chunks without Bevy entities.
-#[derive(Debug, Message)]
+#[derive(Debug, Clone, Message)]
 pub struct HitEvent<Hittable: 'static, Hitter: 'static> {
     pub hittable_index: i32,
     pub hitter_entity: Entity,
@@ -135,7 +135,7 @@ pub type AntFoodHit = HitEvent<Food, Ant>;
 
 /// Food-side mutation produced by the decision system, consumed by
 /// a mode-specific apply system that can access food data.
-#[derive(Debug, Message)]
+#[derive(Debug, Clone, Message)]
 pub struct FoodMutation {
     pub food_index: i32,
     pub decision: FoodDecisionCode,

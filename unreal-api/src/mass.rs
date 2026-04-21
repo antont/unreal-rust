@@ -36,6 +36,50 @@ pub fn take_dispatch_flags() -> u32 {
 }
 
 // ---------------------------------------------------------------------------
+// Message replay (chunk-loop safe MessageReader)
+// ---------------------------------------------------------------------------
+
+/// A per-chunk view over messages drained once by the outer Bevy wrapper.
+///
+/// Background: `#[mass_system]` calls the user function once per Mass Entity
+/// chunk. A Bevy `MessageReader<T>` advances its internal cursor when `.read()`
+/// is called; calling it on the first chunk drains the entire queue and
+/// subsequent chunks observe no messages. The macro now pre-collects messages
+/// into a `Vec<T>` once per frame (via the outer Bevy wrapper's real
+/// `MessageReader`) and hands each chunk a fresh `MessageReplay` that iterates
+/// the same buffer from the start. Same `.read()` API as `MessageReader`.
+pub struct MessageReplay<'a, T: 'static> {
+    messages: &'a [T],
+    cursor: usize,
+}
+
+impl<'a, T: 'static> MessageReplay<'a, T> {
+    /// Construct a replay view over the shared per-frame buffer.
+    pub fn new(messages: &'a [T]) -> Self {
+        Self { messages, cursor: 0 }
+    }
+
+    /// Iterate remaining messages — same semantics as `MessageReader::read`,
+    /// but scoped to a single chunk iteration (cursor does not leak between
+    /// chunks because each chunk gets a fresh `MessageReplay`).
+    pub fn read(&mut self) -> std::slice::Iter<'a, T> {
+        let iter = self.messages[self.cursor..].iter();
+        self.cursor = self.messages.len();
+        iter
+    }
+
+    /// Number of messages remaining in this replay view.
+    pub fn len(&self) -> usize {
+        self.messages.len() - self.cursor
+    }
+
+    /// Whether this replay view has any remaining messages.
+    pub fn is_empty(&self) -> bool {
+        self.cursor >= self.messages.len()
+    }
+}
+
+// ---------------------------------------------------------------------------
 // Bevy scheduling resources
 // ---------------------------------------------------------------------------
 
@@ -1206,6 +1250,17 @@ impl<'a, T: Copy + 'static> MassQueryAllMut<'a, T> {
     pub fn is_empty(&self) -> bool {
         self.desc.total_count == 0
     }
+
+    /// Diagnostic: returns (num_chunks, total_count, stride, first_chunk_data_addr, first_chunk_count).
+    pub fn debug_info(&self) -> (u32, i32, u32, usize, i32) {
+        let (first_addr, first_count) = if self.desc.num_chunks > 0 && !self.desc.chunks.is_null() {
+            let c = unsafe { &*self.desc.chunks };
+            (c.data as usize, c.count)
+        } else {
+            (0, 0)
+        };
+        (self.desc.num_chunks, self.desc.total_count, self.desc.stride, first_addr, first_count)
+    }
 }
 
 // ---------------------------------------------------------------------------
@@ -1690,6 +1745,8 @@ pub fn drain_mass_system_samples() -> Vec<MassSystemSample> {
 pub struct MassExternBinding {
     pub get_food_drop_events: Option<unreal_ffi::GetFoodDropEventsFn>,
     pub get_food_pickup_events: Option<unreal_ffi::GetFoodPickupEventsFn>,
+    pub get_decision_counters: Option<unreal_ffi::GetDecisionCountersFn>,
+    pub reset_decision_counters: Option<unreal_ffi::ResetDecisionCountersFn>,
 }
 
 inventory::collect!(MassExternBinding);
