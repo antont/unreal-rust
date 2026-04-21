@@ -5,6 +5,7 @@
 #include "MassEntityHandle.h"
 #include "MassExternalSubsystemTraits.h"
 #include "MassProcessingTypes.h"
+#include "MassNavigationSubsystem.h"
 #include "Subsystems/WorldSubsystem.h"
 #include "Bindings.h"
 #include "RustMassBevySubsystem.generated.h"
@@ -100,6 +101,47 @@ public:
 	bool WriteFragmentData(const FString& GroupName, int32 EntityIndex,
 		const FString& FragmentTypeName, const void* InData, int32 DataSize);
 
+	/** Read the reverse entity→instance-index map for a GridHash-owned group.
+	 *  Returns nullptr if the group is not GridHash-owned or doesn't exist.
+	 *  Exposed for automation tests that drive ExecuteGridHashSpatialQuery directly. */
+	const TMap<FMassEntityHandle, int32>* GetGroupEntityToIndex(const FString& GroupName) const;
+
+	/** Snapshot of the GridHash diagnostic counters. Values accumulate across every
+	 *  invocation of ExecuteGridHashSpatialQuery and are reset at the end of each
+	 *  RunSimulationProcessorStep. Exposed so automation tests can measure where
+	 *  candidates get dropped in the pickup pipeline. */
+	struct FGridHashCounters
+	{
+		uint64 Calls = 0;
+		uint64 Candidates = 0;       // items returned by QuerySmall
+		uint64 CandidatesValid = 0;  // after EntityManager.IsEntityValid
+		uint64 CandidatesMapped = 0; // after EntityToIndex lookup
+		uint64 CandidatesPassed = 0; // after filter fragment read
+		uint64 EncountersWithin = 0; // passed the radius distance check (per candidate)
+		uint64 EncountersReturned = 0; // calls that returned has_encounter=true
+	};
+	static FGridHashCounters GetGridHashCounters();
+	static void ResetGridHashCounters();
+
+	/** Re-run PopulateGridHashForGroup for a named GridHash-owned group.
+	 *  Exposed for automation tests that need to drive the populate path
+	 *  more than once (e.g. the two-queries-one-group regression spec).
+	 *  Returns true if the group exists and is GridHash-owned. */
+	bool RepopulateGridHashForGroupForTesting(const FString& GroupName);
+
+	/** Drive the GridHash ownership setup for a group exactly like
+	 *  SetupSpatialQueriesFromRust does for QueryType==2. Returns true if the
+	 *  group was newly marked as GridHash-owned, false if refused (e.g. a
+	 *  different group is already the GridHash owner — enforced single-owner
+	 *  constraint for the single-group food-event FFI). */
+	bool TryMarkGridHashOwnerForTesting(const FString& GroupName);
+
+	/** Apply a single food-drop event through the same code path as the real
+	 *  FFI drain (ApplyFoodEvents' drop loop body). Exposed for automation
+	 *  tests that need to verify the single-group scope of the drop path
+	 *  without standing up a full Bevy→C++ FFI round-trip. */
+	void ApplyFoodDropEventForTesting(int32 FoodIdx, const FVector& NewPos);
+
 public:
 	/** Named entity groups: key = group name, value = entity handles. */
 	TMap<FString, TArray<FMassEntityHandle>> EntityGroups;
@@ -126,7 +168,36 @@ private:
 		uint32 PositionOffset = 0;
 		FVector Scale = FVector::OneVector;
 		UInstancedStaticMeshComponent* ISMC = nullptr;
+		/** When true, this group's entities are tracked in the navigation hash grid
+		 *  (populated at init, updated on food-drop events & pickup events). */
+		bool bOwnedByGridHash = false;
+		/** Cached grid cell locations per instance, for incremental Move/Remove. */
+		TArray<FNavigationObstacleHashGrid2D::FCellLocation> GridCellLocations;
+		/** Per-instance: whether this entity currently has a grid cell location.
+		 *  Instances removed on pickup are cleared; re-added on drop. */
+		TBitArray<> InGrid;
+		/** Reverse map from entity handle to group instance index (for GridHash queries). */
+		TMap<FMassEntityHandle, int32> EntityToIndex;
 	};
+
+	/** Populate the navigation hash grid from the current instance transforms for a GridHash-owned group. */
+	void PopulateGridHashForGroup(FCollisionGroupEntry& Group);
+
+	/** Try to mark a group as the (single) GridHash owner and populate its grid entries.
+	 *  Returns false if the group doesn't exist or a *different* group is already the owner
+	 *  (see FoodPickupEvents/FoodDropEvents single-group constraint). Idempotent for the
+	 *  existing owner. LogPrefix labels the error message if a claim is refused. */
+	bool TryMarkGridHashOwner(const FString& GroupName, const TCHAR* LogPrefix);
+
+	/** Remove the group's entries from the navigation hash grid (called on reset). */
+	void ClearGridHashForGroup(FCollisionGroupEntry& Group);
+
+	/** Drain Rust's food pickup + drop event queues and apply ISM-transform + grid-location updates. */
+	void ApplyFoodEvents();
+
+	/** Apply a single food-drop event across all collision groups. Shared body between
+	 *  the production FFI drain and the test-only `ApplyFoodDropEventForTesting` hook. */
+	void ApplyOneFoodDropEvent(int32 FoodIdx, const FVector& NewPos, FNavigationObstacleHashGrid2D* Grid);
 
 private:
 	UPROPERTY(Transient)
@@ -180,6 +251,26 @@ private:
 	 *  called InitializeSimulation(). Runs once on first Tick. */
 	void TryAutoInitFromRustDefaults();
 };
+
+/**
+ * Execute the GridHash spatial-query callback body against a prebuilt grid/group.
+ *
+ * Extracted from URustMassBevySubsystem::RegisterSpatialQueryFromConfig (QueryType=2)
+ * so automation tests can exercise it without standing up a full simulation.
+ * Grid membership IS the is_loose filter — the caller is responsible for
+ * adding/removing items from Grid on drop/pickup.
+ *
+ * Returns 1 (query ran); encounter data in *Out.
+ */
+RUSTPLUGIN_API uint32 ExecuteGridHashSpatialQuery(
+	FMassEntityManager& EntityManager,
+	const FNavigationObstacleHashGrid2D& Grid,
+	const TMap<FMassEntityHandle, int32>& EntityToIndex,
+	const UInstancedStaticMeshComponent& ISMC,
+	const double* PreviousPos,
+	const double* CurrentPos,
+	float PickupRadius,
+	MassSpatialQueryResult* Out);
 
 template<>
 struct TMassExternalSubsystemTraits<URustMassBevySubsystem>

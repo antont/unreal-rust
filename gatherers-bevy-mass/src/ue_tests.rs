@@ -147,6 +147,87 @@ fn food_pickup(ctx: &TestCtx) {
 }
 
 // ---------------------------------------------------------------------------
+// FoodPickupMultiChunk — regression for #[mass_system] MessageReader drain
+// across chunks. If `MessageReader<AntFoodHit>` is consumed on the first chunk
+// call, only ants in chunk 0 can ever match a hit → 99% pass-through in PIE.
+//
+// We spawn enough ants to guarantee >1 primary chunk, position two ants (one
+// in an early chunk, one in a late chunk) directly on distinct loose foods,
+// and expect BOTH to pick up. A correct implementation makes every emitted
+// `AntFoodHit` visible to every chunk invocation of `ant_food_decision`.
+// ---------------------------------------------------------------------------
+
+inventory::submit!(MassTestRegistration {
+    name: "FoodPickupMultiChunk",
+    test_fn: food_pickup_multi_chunk,
+});
+
+fn food_pickup_multi_chunk(ctx: &TestCtx) {
+    // Mass archetype chunks default to ~300 entities — 1000 ants reliably
+    // produces at least 3 chunks. Using two ants deep in different chunk
+    // indices proves the bug regardless of chunk-size tuning.
+    const NUM_ANTS: u32 = 1000;
+    const EARLY_ANT: u32 = 0;   // chunk 0
+    const LATE_ANT: u32 = 900;  // guaranteed a later chunk (≥3 expected)
+    const EARLY_FOOD: u32 = 0;
+    const LATE_FOOD: u32 = 1;
+
+    ctx.init_sim(
+        &[("ants", NUM_ANTS as i32), ("food", 2)],
+        [-500.0, -500.0, 0.0],
+        [500.0, 500.0, 100.0],
+        42,
+    );
+
+    assert!(ctx.has_spatial_query("food_pickup"),
+        "food_pickup spatial query should be auto-registered");
+
+    // Park the two test ants directly on their respective foods (so the
+    // collision prepass emits a hit for each on the very next step).
+    // Don't move the food — the navigation hash grid is populated from the
+    // food's spawn position and not rebuilt when we write the Transform.
+    let early_food_tf = ctx.read::<Transform>("food", EARLY_FOOD).unwrap();
+    let late_food_tf = ctx.read::<Transform>("food", LATE_FOOD).unwrap();
+
+    ctx.write("ants", EARLY_ANT,
+        &Transform::from_translation(early_food_tf.translation));
+    ctx.write("ants", EARLY_ANT,
+        &PreviousTranslation { value: early_food_tf.translation });
+    ctx.write("ants", EARLY_ANT, &Carrying { food_index: -1 });
+
+    ctx.write("ants", LATE_ANT,
+        &Transform::from_translation(late_food_tf.translation));
+    ctx.write("ants", LATE_ANT,
+        &PreviousTranslation { value: late_food_tf.translation });
+    ctx.write("ants", LATE_ANT, &Carrying { food_index: -1 });
+
+    // Same step count as FoodPickup so any difference is about chunk placement,
+    // not time-to-pickup. With both ants parked on their food, a correct
+    // implementation picks up within a few frames; the bug keeps the late-chunk
+    // ant idle forever (empty MessageReader on its chunk call).
+    ctx.step(0.016, 20);
+
+    let early_carry = ctx.read::<Carrying>("ants", EARLY_ANT).unwrap();
+    let late_carry = ctx.read::<Carrying>("ants", LATE_ANT).unwrap();
+
+    assert!(
+        early_carry.food_index >= 0,
+        "ant {EARLY_ANT} (early chunk) should have picked up food: got {}",
+        early_carry.food_index,
+    );
+    assert!(
+        late_carry.food_index >= 0,
+        "ant {LATE_ANT} (late chunk) should have picked up food: got {}. \
+         If only the early-chunk ant picks up, the #[mass_system] macro is \
+         draining MessageReader on the first chunk call and leaving later \
+         chunks with an empty message queue.",
+        late_carry.food_index,
+    );
+
+    ctx.reset();
+}
+
+// ---------------------------------------------------------------------------
 // FoodDrop — carrying ant that encounters loose food should drop
 // ---------------------------------------------------------------------------
 

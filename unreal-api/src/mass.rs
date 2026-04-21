@@ -36,6 +36,58 @@ pub fn take_dispatch_flags() -> u32 {
 }
 
 // ---------------------------------------------------------------------------
+// Message replay (chunk-loop safe MessageReader)
+// ---------------------------------------------------------------------------
+
+/// A per-chunk view over messages drained once by the outer Bevy wrapper.
+///
+/// Background: `#[mass_system]` calls the user function once per Mass Entity
+/// chunk. A Bevy `MessageReader<T>` advances its internal cursor when `.read()`
+/// is called; calling it on the first chunk drains the entire queue and
+/// subsequent chunks observe no messages. The macro now pre-collects messages
+/// into a `Vec<T>` once per frame (via the outer Bevy wrapper's real
+/// `MessageReader`) and hands each chunk a fresh `MessageReplay` that iterates
+/// the same buffer from the start. Same `.read()` API as `MessageReader`.
+///
+/// **`T: Clone` requirement**: the `#[mass_system]` macro expansion builds the
+/// shared per-frame buffer via `reader.read().cloned().collect::<Vec<T>>()`
+/// (see `unreal-api-derive/src/mass_system.rs`), so any message type used as
+/// `MessageReader<T>` in a `#[mass_system]` parameter must implement `Clone`.
+/// Standalone-Bevy uses of `MessageReader<T>` are unaffected. This is a
+/// deliberate tradeoff: payloads are small, `Clone` is cheap, and pre-collecting
+/// avoids per-chunk borrowed-slice lifetimes from the outer scheduler.
+pub struct MessageReplay<'a, T: 'static> {
+    messages: &'a [T],
+    cursor: usize,
+}
+
+impl<'a, T: 'static> MessageReplay<'a, T> {
+    /// Construct a replay view over the shared per-frame buffer.
+    pub fn new(messages: &'a [T]) -> Self {
+        Self { messages, cursor: 0 }
+    }
+
+    /// Iterate remaining messages — same semantics as `MessageReader::read`,
+    /// but scoped to a single chunk iteration (cursor does not leak between
+    /// chunks because each chunk gets a fresh `MessageReplay`).
+    pub fn read(&mut self) -> std::slice::Iter<'a, T> {
+        let iter = self.messages[self.cursor..].iter();
+        self.cursor = self.messages.len();
+        iter
+    }
+
+    /// Number of messages remaining in this replay view.
+    pub fn len(&self) -> usize {
+        self.messages.len() - self.cursor
+    }
+
+    /// Whether this replay view has any remaining messages.
+    pub fn is_empty(&self) -> bool {
+        self.cursor >= self.messages.len()
+    }
+}
+
+// ---------------------------------------------------------------------------
 // Bevy scheduling resources
 // ---------------------------------------------------------------------------
 
@@ -1206,6 +1258,17 @@ impl<'a, T: Copy + 'static> MassQueryAllMut<'a, T> {
     pub fn is_empty(&self) -> bool {
         self.desc.total_count == 0
     }
+
+    /// Diagnostic: returns (num_chunks, total_count, stride, first_chunk_data_addr, first_chunk_count).
+    pub fn debug_info(&self) -> (u32, i32, u32, usize, i32) {
+        let (first_addr, first_count) = if self.desc.num_chunks > 0 && !self.desc.chunks.is_null() {
+            let c = unsafe { &*self.desc.chunks };
+            (c.data as usize, c.count)
+        } else {
+            (0, 0)
+        };
+        (self.desc.num_chunks, self.desc.total_count, self.desc.stride, first_addr, first_count)
+    }
 }
 
 // ---------------------------------------------------------------------------
@@ -1628,6 +1691,77 @@ pub fn registered_dispatch_hooks() -> inventory::iter<MassDispatchHook> {
     inventory::iter::<MassDispatchHook>
 }
 
+// ---------------------------------------------------------------------------
+// Per-system timing (opt-in)
+// ---------------------------------------------------------------------------
+//
+// When `UNREAL_RUST_MASS_TIMING=1`, each `#[mass_system]` wrapper records the
+// wall-clock time of its body into a per-frame accumulator. `mass_frame_dispatch`
+// drains and logs the table after `sched.run()` returns.
+//
+// Overhead when disabled: one atomic load per system per frame. Enabled: adds
+// two `Instant::now()` calls + a mutex lock per system per frame.
+
+static MASS_TIMING_ENABLED: std::sync::atomic::AtomicBool =
+    std::sync::atomic::AtomicBool::new(false);
+static MASS_TIMING_INITIALIZED: std::sync::atomic::AtomicBool =
+    std::sync::atomic::AtomicBool::new(false);
+
+pub fn is_mass_timing_enabled() -> bool {
+    use std::sync::atomic::Ordering;
+    // Lazy one-shot init from env var. Avoids re-reading env every call.
+    if !MASS_TIMING_INITIALIZED.load(Ordering::Relaxed) {
+        let on = std::env::var("UNREAL_RUST_MASS_TIMING")
+            .map(|v| v == "1" || v.eq_ignore_ascii_case("true"))
+            .unwrap_or(false);
+        MASS_TIMING_ENABLED.store(on, Ordering::Relaxed);
+        MASS_TIMING_INITIALIZED.store(true, Ordering::Relaxed);
+    }
+    MASS_TIMING_ENABLED.load(Ordering::Relaxed)
+}
+
+/// Per-system cumulative sample recorded during a single frame.
+pub struct MassSystemSample {
+    pub name: &'static str,
+    pub nanos: u128,
+}
+
+static MASS_TIMING_SAMPLES: std::sync::Mutex<Vec<MassSystemSample>> =
+    std::sync::Mutex::new(Vec::new());
+
+/// Record a timing sample for a single system invocation.
+/// No-op unless `is_mass_timing_enabled()`.
+pub fn record_mass_system_time(name: &'static str, nanos: u128) {
+    if let Ok(mut samples) = MASS_TIMING_SAMPLES.lock() {
+        samples.push(MassSystemSample { name, nanos });
+    }
+}
+
+/// Drain all samples collected this frame. Called by `mass_frame_dispatch`.
+pub fn drain_mass_system_samples() -> Vec<MassSystemSample> {
+    match MASS_TIMING_SAMPLES.lock() {
+        Ok(mut g) => std::mem::take(&mut *g),
+        Err(_) => Vec::new(),
+    }
+}
+
+/// Called once at the start of every `mass_frame_dispatch`, before any system
+/// runs. Discards any timing samples left over from a prior frame that failed
+/// to drain — e.g. when `catch_unwind` caught a panic from `sched.run()` so
+/// the drain at the end of the closure never executed. Without this hook,
+/// stale samples survive into the next successful frame's `[mass-perf]` line,
+/// producing phantom duplicate entries and inflated totals.
+///
+/// Always drops (no enabled-flag check) — one mutex lock per frame, and the
+/// Vec is empty when timing is disabled so the clear is a no-op. Keeping it
+/// unconditional means the invariant holds even if timing gets toggled at
+/// runtime mid-frame.
+pub fn prepare_mass_frame() {
+    if let Ok(mut samples) = MASS_TIMING_SAMPLES.lock() {
+        samples.clear();
+    }
+}
+
 /// Game-specific FFI function pointers discovered via inventory.
 /// Framework folds over these to fill `Option` fields in `RustBindings`.
 ///
@@ -1635,6 +1769,9 @@ pub fn registered_dispatch_hooks() -> inventory::iter<MassDispatchHook> {
 /// If this grows past ~3 fields, consider generalizing to an inventory-keyed dispatch map.
 pub struct MassExternBinding {
     pub get_food_drop_events: Option<unreal_ffi::GetFoodDropEventsFn>,
+    pub get_food_pickup_events: Option<unreal_ffi::GetFoodPickupEventsFn>,
+    pub get_decision_counters: Option<unreal_ffi::GetDecisionCountersFn>,
+    pub reset_decision_counters: Option<unreal_ffi::ResetDecisionCountersFn>,
 }
 
 inventory::collect!(MassExternBinding);
@@ -1656,6 +1793,8 @@ pub enum MassSpatialQueryType {
     IsmcOverlap = 0,
     /// UE physics sweep (World->SweepMultiByChannel).
     PhysicsSweep = 1,
+    /// UMassNavigationSubsystem hash grid (FNavigationObstacleHashGrid2D).
+    GridHash = 2,
 }
 
 /// Game crates register spatial query configurations via inventory.
@@ -2486,5 +2625,65 @@ mod tests {
         // Original data should be mutated via reborrow
         let vals: Vec<i32> = (&mut q).into_iter().map(|v| *v).collect();
         assert_eq!(vals, vec![11, 12, 13]);
+    }
+
+    // -----------------------------------------------------------------------
+    // Finding 3: mass timing samples must not leak across panicked frames.
+    //
+    // `mass_frame_dispatch` records per-system timing samples during
+    // `sched.run()`, then drains them at the end of the closure passed to
+    // `catch_unwind`. If `sched.run()` panics, the closure unwinds out
+    // *before* the drain runs, so any samples accumulated during the partial
+    // frame stay in the global `MASS_TIMING_SAMPLES` Vec and are double-
+    // reported on the next successful frame.
+    //
+    // `prepare_mass_frame()` is the fix point — called at the top of every
+    // dispatch, before `catch_unwind`, it drains any residual samples so a
+    // fresh frame starts from an empty table.
+    // -----------------------------------------------------------------------
+
+    // Serialize the timing-table tests — they all touch the shared global
+    // MASS_TIMING_SAMPLES, and `cargo test` runs tests in parallel by default.
+    // One shared mutex keeps them from stepping on each other's push/drain
+    // sequences without requiring `--test-threads=1` on the command line.
+    static TIMING_TEST_LOCK: std::sync::Mutex<()> = std::sync::Mutex::new(());
+
+    #[test]
+    fn timing_samples_do_not_leak_across_panic() {
+        let _guard = TIMING_TEST_LOCK.lock().unwrap_or_else(|e| e.into_inner());
+
+        // Start from a known-empty table — any residue from a prior test in
+        // this process must not contaminate this one.
+        let _ = drain_mass_system_samples();
+
+        // --- Simulate a frame that panicked before its drain ran ---
+        // In the real code path this is `record_mass_system_time(...)` calls
+        // inside `sched.run()`, followed by a panic that unwinds out of the
+        // `catch_unwind` closure without reaching the final drain.
+        record_mass_system_time("system_from_panicked_frame", 1_000);
+        // (no drain here — mirrors the unwind-skipped-drain case)
+
+        // --- Start of a fresh frame ---
+        // `mass_frame_dispatch` should call `prepare_mass_frame()` here,
+        // before any timing data for the new frame is recorded.
+        prepare_mass_frame();
+
+        // --- New frame runs its systems ---
+        record_mass_system_time("system_from_fresh_frame", 2_000);
+
+        // --- End of the new frame: drain and inspect ---
+        let samples = drain_mass_system_samples();
+        let names: Vec<&'static str> = samples.iter().map(|s| s.name).collect();
+
+        assert!(
+            !names.contains(&"system_from_panicked_frame"),
+            "stale sample from panicked frame leaked into next frame's drain: names={:?}",
+            names
+        );
+        assert_eq!(
+            names,
+            vec!["system_from_fresh_frame"],
+            "fresh-frame drain should contain only the samples recorded after prepare_mass_frame"
+        );
     }
 }

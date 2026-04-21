@@ -116,7 +116,7 @@ pub const DECISION_DROP: FoodDecisionCode = 2;
 ///
 /// Carries the hittable's index (not entity) because in Unreal mode food lives
 /// in Mass Entity chunks without Bevy entities.
-#[derive(Debug, Message)]
+#[derive(Debug, Clone, Message)]
 pub struct HitEvent<Hittable: 'static, Hitter: 'static> {
     pub hittable_index: i32,
     pub hitter_entity: Entity,
@@ -135,7 +135,7 @@ pub type AntFoodHit = HitEvent<Food, Ant>;
 
 /// Food-side mutation produced by the decision system, consumed by
 /// a mode-specific apply system that can access food data.
-#[derive(Debug, Message)]
+#[derive(Debug, Clone, Message)]
 pub struct FoodMutation {
     pub food_index: i32,
     pub decision: FoodDecisionCode,
@@ -143,7 +143,19 @@ pub struct FoodMutation {
 }
 
 // ---------------------------------------------------------------------------
-// Food drop events (Bevy Resource, consumed by C++ via FFI)
+// Food drop events (Bevy Resource, consumed by C++ via FFI).
+//
+// `food_index` is an instance index into the **single** GridHash-owned group
+// on the C++ side — there is no group identifier in the event payload. C++
+// enforces the one-owner constraint (see URustMassBevySubsystem::
+// TryMarkGridHashOwner): if two `#[mass_system_config]` entries tried to
+// register GridHash queries for different groups, the second claim is
+// refused and logged as an error.
+//
+// Extending to multiple groups requires an FFI change — adding a group
+// identifier (e.g. a stable group-id u16, resolved from a `GroupName`
+// interned on both sides) to `FoodDropEntry` + the matching C++ consumer
+// in URustMassBevySubsystem::ApplyFoodEvents.
 // ---------------------------------------------------------------------------
 
 #[derive(Resource, Default)]
@@ -163,6 +175,32 @@ impl FoodDropEvents {
 
     pub fn clear(&mut self) {
         self.events.clear();
+    }
+}
+
+// ---------------------------------------------------------------------------
+// Food pickup events (Bevy Resource, consumed by C++ via FFI).
+//
+// C++ uses these to remove the picked-up food from the navigation hash grid
+// so the GridHash spatial query doesn't have to filter `is_loose` per candidate.
+//
+// `indices` are instance indices into the **single** GridHash-owned group
+// on the C++ side — same constraint as FoodDropEvents above. See that type's
+// doc comment for the enforcement path and the FFI change needed to lift it.
+// ---------------------------------------------------------------------------
+
+#[derive(Resource, Default)]
+pub struct FoodPickupEvents {
+    pub indices: Vec<i32>,
+}
+
+impl FoodPickupEvents {
+    pub fn push(&mut self, food_index: i32) {
+        self.indices.push(food_index);
+    }
+
+    pub fn clear(&mut self) {
+        self.indices.clear();
     }
 }
 

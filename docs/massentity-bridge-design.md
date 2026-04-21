@@ -106,7 +106,7 @@ fn carried_food_tracking(
 
 | Type | Backing | Use case |
 |---|---|---|
-| `SpatialQuery` | Wraps `MassSpatialQueries` (C++ physics sweep results) | Collision detection via `Res<SpatialQuery>` — returns `SpatialHit` with `DVec3` |
+| `SpatialQuery` | Wraps `MassSpatialQueries` (C++ ISMC overlap, physics sweep, or MassNavigation grid hash — backend selected per query in `MassSpatialQueryConfigRegistration`) | Collision detection via `Res<SpatialQuery>` — returns `SpatialHit` with `DVec3` |
 
 Facade `Query` supports tuples with `Entity`, `With<Tag>`/`Without<T>` filters, and multiple mutable fragments. The `#[mass_system]` macro handles all backend-specific rewrites. Components that don't implement `MassFragment` (pure-Bevy components on shadow entities) are auto-detected via `QueryBackend::IS_CHUNK` and dispatched to Bevy entity storage — no annotation needed.
 

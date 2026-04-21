@@ -179,6 +179,7 @@ bool URustMassVisualizationSetup::SetupGroupVisualization(
 	// 6. Move all entities to the target archetype and initialize vis fragments
 	// -----------------------------------------------------------------------
 	int32 SetupCount = 0;
+	int32 LoggedCount = 0;
 	for (const FMassEntityHandle& Entity : Entities)
 	{
 		if (!EntityManager.IsEntityValid(Entity))
@@ -197,7 +198,26 @@ bool URustMassVisualizationSetup::SetupGroupVisualization(
 		RepFrag.PrevRepresentation = EMassRepresentationType::None;
 		RepFrag.HighResTemplateActorIndex = INDEX_NONE;
 		RepFrag.LowResTemplateActorIndex = INDEX_NONE;
-		RepFrag.PrevTransform = View.GetFragmentData<FTransformFragment>().GetTransform();
+		const FTransform& EntityTransform = View.GetFragmentData<FTransformFragment>().GetTransform();
+
+		// Diagnostic: log rotation bytes for the first few entities to confirm
+		// what Rust actually wrote into the Transform fragment.
+		if (LoggedCount < 3)
+		{
+			const FQuat Rot = EntityTransform.GetRotation();
+			const FVector Trans = EntityTransform.GetTranslation();
+			const FVector EntityScale = EntityTransform.GetScale3D();
+			const double Norm2 = Rot.X * Rot.X + Rot.Y * Rot.Y + Rot.Z * Rot.Z + Rot.W * Rot.W;
+			UE_LOG(LogTemp, Display,
+				TEXT("RustMassVisualizationSetup: entity[%d] rot=(%.6f,%.6f,%.6f,%.6f) |rot|^2=%.6f trans=(%.2f,%.2f,%.2f) scale=(%.4f,%.4f,%.4f)"),
+				LoggedCount,
+				Rot.X, Rot.Y, Rot.Z, Rot.W, Norm2,
+				Trans.X, Trans.Y, Trans.Z,
+				EntityScale.X, EntityScale.Y, EntityScale.Z);
+			++LoggedCount;
+		}
+
+		RepFrag.PrevTransform = EntityTransform;
 
 		// Initialize LOD fragment to High so the first vis processor pass
 		// sees a valid LOD (default is EMassLOD::Max which maps to Off → None).

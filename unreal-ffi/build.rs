@@ -27,6 +27,10 @@ fn main() {
         .include_item("GetSimDefaultsFn")
         .include_item("FoodDropEvent")
         .include_item("GetFoodDropEventsFn")
+        .include_item("GetFoodPickupEventsFn")
+        .include_item("DecisionCounters")
+        .include_item("GetDecisionCountersFn")
+        .include_item("ResetDecisionCountersFn")
         .with_pragma_once(true)
         .generate()
         .expect("Unable to generate bindings")
@@ -111,7 +115,7 @@ static_assert(sizeof(FScriptArrayFns) == 104, "FScriptArrayFns: 13 fn ptrs");
 // --- Binding structs ---
 static_assert(sizeof(UnrealBindings) == 216,
     "UnrealBindings: LogFn(8) + CoreFns(72) + FStringFns(24) + FScriptArrayFns(104) + Option<SpawnEntitiesFn>(8)");
-static_assert(sizeof(RustBindings) == 136, "RustBindings: 7 fn ptrs + 10 Option<fn ptr> = 17 pointers");
+static_assert(sizeof(RustBindings) == 160, "RustBindings: 7 fn ptrs + 13 Option<fn ptr> = 20 pointers");
 static_assert(sizeof(PluginBindings) == 32, "PluginBindings: 4 fn ptrs");
 
 // --- Mass Entity types ---
@@ -208,6 +212,14 @@ static_assert(sizeof(FoodDropEvent) == 32, "FoodDropEvent: i32 + i32 + [f64;3]")
 static_assert(alignof(FoodDropEvent) == 8, "FoodDropEvent alignment");
 static_assert(offsetof(FoodDropEvent, food_index) == 0, "FoodDropEvent.food_index offset");
 static_assert(offsetof(FoodDropEvent, position) == 8, "FoodDropEvent.position offset");
+
+// --- Decision counters ---
+static_assert(sizeof(DecisionCounters) == 56, "DecisionCounters: 7 u64");
+static_assert(alignof(DecisionCounters) == 8, "DecisionCounters alignment");
+static_assert(sizeof(Option<GetDecisionCountersFn>) == sizeof(void*),
+    "Option<fn ptr> must be pointer-sized (Rust niche optimization)");
+static_assert(sizeof(Option<ResetDecisionCountersFn>) == sizeof(void*),
+    "Option<fn ptr> must be pointer-sized (Rust niche optimization)");
 
 // --- Sim defaults ---
 static_assert(sizeof(MassSimDefaultsDesc) == 72, "MassSimDefaultsDesc");

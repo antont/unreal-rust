@@ -44,38 +44,50 @@ fn find_own_dylib_path() -> Option<PathBuf> {
     }
 }
 
-/// Resolve the path to the example plugin library.
+/// Cargo target profile directory baked in at build time by `build.rs`.
+/// This is the directory the loader dylib itself was written into —
+/// cargo places every artifact from this workspace there, including the
+/// sibling host dylib we want to load. Honours user-configured target dirs
+/// (e.g. `~/.cargo/config.toml` pointing at a shared cache) automatically.
+const BUILD_TARGET_DIR: &str = env!("UNREAL_RUST_LOADER_BUILD_TARGET_DIR");
+
+/// Resolve the path to the host plugin library by trying candidates in order.
 ///
 /// Search order:
-/// 1. UNREAL_RUST_TARGET_DIR env var (absolute path to cargo target dir)
-/// 2. Relative to the loader dylib: traverse up from Binaries/ to find
-///    the workspace target/ directory (handles the symlinked plugin layout)
-/// 3. Fallback to cargo default target/release/
+/// 1. `UNREAL_RUST_TARGET_DIR` env var (explicit override, primarily for CI)
+/// 2. The cargo target dir this loader was built into (baked in by build.rs)
+/// 3. Workspace-relative fallback derived from loader dylib location
+/// 4. `target/release/` relative to cwd (last-ditch)
+///
+/// Returns the first candidate whose file exists, or the highest-priority
+/// candidate otherwise (so callers can report a meaningful "not found" path).
 fn resolve_plugin_path() -> PathBuf {
-    // 1. Explicit env var
+    // Explicit env var is an unconditional override — used in CI and when a
+    // caller wants to point the loader at a specific build deliberately.
     if let Ok(dir) = std::env::var("UNREAL_RUST_TARGET_DIR") {
         return PathBuf::from(dir).join(PLUGIN_LIB_NAME);
     }
 
-    // 2. Derive from loader's own location
-    // Loader lives at: <project>/Binaries/unreal_rust_loader.dylib
-    // Workspace root is: <project>/../../  (through the Plugins/RustPlugin symlink)
-    // Cargo output is: <workspace>/target/release/
-    if let Some(own_path) = find_own_dylib_path() {
-        if let Some(binaries_dir) = own_path.parent() {
-            // Try: <binaries>/../../../target/release/ (project -> workspace via setup.sh layout)
-            let workspace_root = binaries_dir.join("../../..");
-            for profile in ["release", "debug", "development"] {
-                let candidate = workspace_root.join("target").join(profile).join(PLUGIN_LIB_NAME);
-                if candidate.exists() {
-                    return candidate;
-                }
-            }
+    let mut candidates: Vec<PathBuf> = Vec::new();
+    candidates.push(PathBuf::from(BUILD_TARGET_DIR).join(PLUGIN_LIB_NAME));
+
+    if let Some(own_path) = find_own_dylib_path()
+        && let Some(binaries_dir) = own_path.parent()
+    {
+        let workspace_root = binaries_dir.join("../../..");
+        for profile in ["release", "debug", "development"] {
+            candidates.push(workspace_root.join("target").join(profile).join(PLUGIN_LIB_NAME));
         }
     }
 
-    // 3. Fallback
-    PathBuf::from("target/release").join(PLUGIN_LIB_NAME)
+    candidates.push(PathBuf::from("target/release").join(PLUGIN_LIB_NAME));
+
+    for candidate in &candidates {
+        if candidate.exists() {
+            return candidate.clone();
+        }
+    }
+    candidates.into_iter().next().unwrap_or_else(|| PathBuf::from(PLUGIN_LIB_NAME))
 }
 
 pub struct Plugin {
@@ -147,16 +159,18 @@ impl Loader {
         timestamp > plugin.timestamp
     }
 
-    pub fn load(&mut self, rust_bindings: &mut RustBindings) {
+    pub fn load(&mut self, rust_bindings: &mut RustBindings) -> Result<(), String> {
         // Unload the currently loaded plugin
         self.loaded_plugin = None;
 
         if !self.path.exists() {
-            eprintln!(
-                "[unreal-rust] Plugin not found at {:?}, skipping load",
+            let msg = format!(
+                "Plugin not found at {:?}. Build with: cargo build --release -p unreal-rust-host. \
+                 If using a shared cargo target dir, set UNREAL_RUST_TARGET_DIR or rebuild the loader.",
                 self.path
             );
-            return;
+            eprintln!("[unreal-rust] {}", msg);
+            return Err(msg);
         }
 
         let root_dir = self
@@ -187,11 +201,12 @@ impl Loader {
         let _ = fs::create_dir_all(&hot_reload_dir);
 
         if let Err(e) = fs::copy(&self.path, &hotreload_lib_path) {
-            eprintln!(
-                "[unreal-rust] Failed to copy {:?} to {:?}: {}",
+            let msg = format!(
+                "Failed to copy {:?} to {:?}: {}",
                 self.path, hotreload_lib_path, e
             );
-            return;
+            eprintln!("[unreal-rust] {}", msg);
+            return Err(msg);
         }
 
         // On macOS, copied dylibs lose their code signature and the OS will
@@ -219,9 +234,11 @@ impl Loader {
                 eprintln!("[unreal-rust] Loaded plugin from {:?}", self.path);
                 self.loaded_plugin = Some(plugin);
                 self.hotreload_id += 1;
+                Ok(())
             }
             Err(e) => {
                 eprintln!("[unreal-rust] {}", e);
+                Err(e)
             }
         }
     }
@@ -233,9 +250,10 @@ extern "C" fn register_unreal_bindings(bindings: UnrealBindings) -> u32 {
         if LOADER.is_null() {
             let plugin_path = resolve_plugin_path();
             eprintln!(
-                "[unreal-rust] Resolved plugin path: {:?} (exists: {})",
+                "[unreal-rust] Resolved plugin path: {:?} (exists: {}, build-time target dir: {})",
                 plugin_path,
-                plugin_path.exists()
+                plugin_path.exists(),
+                BUILD_TARGET_DIR,
             );
             LOADER = Box::leak(Box::new(Loader::new(bindings, plugin_path))) as *mut _;
         }
@@ -300,11 +318,12 @@ unsafe extern "C" fn is_out_of_date() -> u32 {
 #[unsafe(no_mangle)]
 unsafe extern "C" fn try_load(rust_bindings: *mut RustBindings) -> u32 {
     unsafe {
-        if !LOADER.is_null() {
-            (*LOADER).load(&mut *rust_bindings);
-            1
-        } else {
-            0
+        if LOADER.is_null() {
+            return 0;
+        }
+        match (*LOADER).load(&mut *rust_bindings) {
+            Ok(()) => 1,
+            Err(_) => 0,
         }
     }
 }

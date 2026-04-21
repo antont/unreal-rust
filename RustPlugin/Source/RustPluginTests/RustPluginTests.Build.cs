@@ -26,6 +26,8 @@ public class RustPluginTests : ModuleRules
 			"MassRepresentation",
 			"MassLOD",
 			"MassActors",
+			"MassSimulation",
+			"MassNavigation",
 		});
 	}
 }

@@ -9,12 +9,15 @@
 #include "MassMovementFragments.h"
 #include "MassRepresentationFragments.h"
 #include "MassRepresentationTypes.h"
+#include "MassRepresentationSubsystem.h"
 #include "MassRepresentationProcessor.h"
 #include "MassVisualizationLODProcessor.h"
 #include "MassLODFragments.h"
 #include "MassActorSubsystem.h"
 #include "MassExecutor.h"
 #include "MassProcessingContext.h"
+#include "MassSimulationSubsystem.h"
+#include "MassProcessingPhaseManager.h"
 #include "Bindings.h"
 #include "RustMassDynamicProcessor.h"
 #include "RustPlugin.h"
@@ -243,64 +246,12 @@ bool FGatherersBevyMassFoodPickupTest::RunTest(const FString& Parameters)
 		}
 	}
 
-	// Replace the auto-registered physics sweep with a proximity callback that
-	// reads food fragment positions directly. Physics sweep requires collision
-	// bodies (ISMC) which aren't available in headless automation tests.
-	Subsystem->RegisterSpatialQuery(TEXT("food_pickup"),
-		[Subsystem, &EntityManager](
-			const double* PreviousPos, const double* CurrentPos,
-			float PickupRadius, MassSpatialQueryResult* Out) -> uint32
-		{
-			if (!Out) return 0;
-			Out->has_encounter = false;
-			Out->entity_index = -1;
-
-			const TArray<FMassEntityHandle>* Foods = Subsystem->GetGroupEntities(TEXT("food"));
-			if (!Foods) { UE_LOG(LogTemp, Warning, TEXT("[FoodPickup Mock] No food entities")); return 1; }
-
-			const FVector AntPos(CurrentPos[0], CurrentPos[1], CurrentPos[2]);
-			const double RadiusSq = static_cast<double>(PickupRadius) * PickupRadius;
-			double BestDistSq = TNumericLimits<double>::Max();
-
-			for (int32 Idx = 0; Idx < Foods->Num(); ++Idx)
-			{
-				const FMassEntityHandle Entity = (*Foods)[Idx];
-				if (!EntityManager.IsEntityValid(Entity)) continue;
-
-				FMassEntityView View(EntityManager, Entity);
-				const FGatherersFoodStateFragment& Food = View.GetFragmentData<FGatherersFoodStateFragment>();
-				const FVector FoodPos_i = View.GetFragmentData<FTransformFragment>().GetTransform().GetTranslation();
-
-				const double Dx = AntPos.X - FoodPos_i.X;
-				const double Dy = AntPos.Y - FoodPos_i.Y;
-				const double Dz = AntPos.Z - FoodPos_i.Z;
-				const double DistSq = Dx*Dx + Dy*Dy + Dz*Dz;
-
-				UE_LOG(LogTemp, Display, TEXT("[FoodPickup Mock] Ant=(%.1f,%.1f,%.1f) Food[%d]=(%.1f,%.1f,%.1f) dist=%.1f radius=%.1f loose=%d"),
-					AntPos.X, AntPos.Y, AntPos.Z, Idx,
-					FoodPos_i.X, FoodPos_i.Y, FoodPos_i.Z,
-					FMath::Sqrt(DistSq), PickupRadius, Food.bIsLoose ? 1 : 0);
-
-				if (!Food.bIsLoose) continue;
-
-				if (DistSq < RadiusSq && DistSq < BestDistSq)
-				{
-					BestDistSq = DistSq;
-					Out->has_encounter = true;
-					Out->entity_index = Idx;
-					Out->encounter_position[0] = FoodPos_i.X;
-					Out->encounter_position[1] = FoodPos_i.Y;
-					Out->encounter_position[2] = FoodPos_i.Z;
-					UE_LOG(LogTemp, Display, TEXT("[FoodPickup Mock] HIT! food_index=%d"), Idx);
-				}
-			}
-			if (!Out->has_encounter)
-			{
-				UE_LOG(LogTemp, Warning, TEXT("[FoodPickup Mock] No encounter found"));
-			}
-			return 1;
-		},
-		15.0f);
+	// Keep the auto-registered GridHash spatial query in place — this test
+	// exercises the real callback path (ExecuteGridHashSpatialQuery), not a mock.
+	// ISMC instance transforms are created by InitializeCollisionISMCs and are
+	// readable in headless automation; grid membership is populated by
+	// PopulateGridHashForGroup at init time (food entities spawn is_loose, so
+	// all three are in the grid on frame 0).
 
 	// Run enough simulation steps for collision detection + food decision
 	for (int32 Step = 0; Step < 20; ++Step)
@@ -340,6 +291,501 @@ bool FGatherersBevyMassFoodPickupTest::RunTest(const FString& Parameters)
 // Cooldown is a pure-Bevy component on shadow entities — not readable from C++.
 // Cooldown behavior is tested in Rust: gatherers-sim unit tests + Rust-authored
 // UE automation tests (CooldownCycle, CooldownRecovery).
+
+// ---------------------------------------------------------------------------
+// GridHash spatial-query callback unit test — exercises the real
+// ExecuteGridHashSpatialQuery body against a populated grid. Covers the math
+// and grid-lookup paths that were bypassed by FoodPickupTest's mock override.
+// ---------------------------------------------------------------------------
+
+IMPLEMENT_SIMPLE_AUTOMATION_TEST(
+	FGatherersBevyMassGridHashCallbackTest,
+	"supplemental.RustPlugin.Gatherers.BevyMassGridHashCallback",
+	EAutomationTestFlags::EditorContext | EAutomationTestFlags::EngineFilter)
+
+bool FGatherersBevyMassGridHashCallbackTest::RunTest(const FString& Parameters)
+{
+	UWorld* World = GEditor->GetEditorWorldContext().World();
+	if (!TestNotNull(TEXT("World must exist"), World)) return false;
+
+	UMassEntitySubsystem* MassEntitySubsystem = World->GetSubsystem<UMassEntitySubsystem>();
+	if (!TestNotNull(TEXT("MassEntitySubsystem must exist"), MassEntitySubsystem)) return false;
+
+	UMassNavigationSubsystem* NavSubsystem = World->GetSubsystem<UMassNavigationSubsystem>();
+	if (!TestNotNull(TEXT("UMassNavigationSubsystem must exist"), NavSubsystem)) return false;
+
+	URustMassBevySubsystem* Subsystem = World->GetSubsystem<URustMassBevySubsystem>();
+	if (!TestNotNull(TEXT("RustMassBevySubsystem must exist"), Subsystem)) return false;
+
+	// Spawn ants (irrelevant — we drive the callback directly) and 3 foods.
+	// Small bounds so foods land close to the origin; we'll reposition them anyway.
+	const FBox Bounds(FVector(-500.0, -500.0, 0.0), FVector(500.0, 500.0, 100.0));
+	Subsystem->InitializeSimulation({{TEXT("ants"), 1}, {TEXT("food"), 3}}, Bounds, 42);
+
+	// Auto-registration should have populated the grid for the "food" group.
+	TestTrue(TEXT("'food_pickup' query should be auto-registered"),
+		Subsystem->HasSpatialQuery(TEXT("food_pickup")));
+
+	FMassEntityManager& EntityManager = MassEntitySubsystem->GetMutableEntityManager();
+	const TArray<FMassEntityHandle>* FoodEntities = Subsystem->GetGroupEntities(TEXT("food"));
+	UInstancedStaticMeshComponent* FoodISMC = Subsystem->GetGroupISMC(TEXT("food"));
+	const TMap<FMassEntityHandle, int32>* EntityToIndex = Subsystem->GetGroupEntityToIndex(TEXT("food"));
+
+	if (!TestTrue(TEXT("Food group entities + ISMC + index map must exist"),
+		FoodEntities && FoodISMC && EntityToIndex && FoodEntities->Num() == 3))
+	{
+		Subsystem->ResetSimulation();
+		return false;
+	}
+
+	// Pin food positions to deterministic coordinates and reflect them in the grid + ISMC.
+	// The grid was populated from ISMC transforms at spawn, so just moving the fragments
+	// would desync it — we rebuild the grid manually from our pinned positions.
+	const FVector Food0Pos(0.0, 0.0, 0.0);
+	const FVector Food1Pos(200.0, 0.0, 0.0);
+	const FVector Food2Pos(1000.0, 1000.0, 0.0); // far-off control
+
+	const TArray<FVector> PinnedPositions = { Food0Pos, Food1Pos, Food2Pos };
+
+	// Update ISMC instance transforms so the callback reads the pinned positions.
+	for (int32 i = 0; i < 3; ++i)
+	{
+		FTransform T;
+		T.SetTranslation(PinnedPositions[i]);
+		FoodISMC->UpdateInstanceTransform(i, T, /*bWorldSpace=*/true, /*bMarkRenderStateDirty=*/false, /*bTeleport=*/true);
+	}
+
+	// Rebuild the grid to match: remove all items, re-add at pinned positions.
+	// We can't access FCollisionGroupEntry directly, so use the public path:
+	// Reset via ResetSimulation would wipe everything. Instead, rebuild by calling
+	// the subsystem's grid-populate path indirectly — re-run InitializeSimulation
+	// would randomize positions again. Easiest: bypass the subsystem's grid state
+	// and directly stand up a test grid for ExecuteGridHashSpatialQuery.
+
+	// Build a test grid + EntityToIndex map from scratch using the real food entities.
+	// This isolates the callback from the subsystem's grid state, which is what
+	// a unit test should do.
+	FNavigationObstacleHashGrid2D TestGrid;
+	TMap<FMassEntityHandle, int32> TestEntityToIndex;
+	TArray<FNavigationObstacleHashGrid2D::FCellLocation> CellLocs;
+	CellLocs.Reserve(3);
+
+	for (int32 i = 0; i < 3; ++i)
+	{
+		const FMassEntityHandle H = (*FoodEntities)[i];
+		TestEntityToIndex.Add(H, i);
+
+		FMassNavigationObstacleItem Item;
+		Item.Entity = H;
+		Item.ItemFlags = EMassNavigationObstacleFlags::None;
+		const FVector& P = PinnedPositions[i];
+		const FBox ItemBounds(FVector(P.X, P.Y, 0.0), FVector(P.X, P.Y, 0.0));
+		CellLocs.Add(TestGrid.Add(Item, ItemBounds));
+	}
+
+	const float Radius = 50.0f;
+
+	auto RunQuery = [&](const FVector& Prev, const FVector& Curr) -> MassSpatialQueryResult
+	{
+		const double PrevD[3] = { Prev.X, Prev.Y, Prev.Z };
+		const double CurrD[3] = { Curr.X, Curr.Y, Curr.Z };
+		MassSpatialQueryResult Out = {};
+		Out.has_encounter = false;
+		Out.entity_index = -1;
+		ExecuteGridHashSpatialQuery(
+			EntityManager, TestGrid, TestEntityToIndex, *FoodISMC,
+			PrevD, CurrD, Radius, &Out);
+		return Out;
+	};
+
+	// Case 1: current position inside radius of food 0 → hit, index 0.
+	{
+		const MassSpatialQueryResult R = RunQuery(FVector(-30.0, 0.0, 0.0), FVector(-10.0, 0.0, 0.0));
+		TestTrue(TEXT("Case 1: hit expected (dist 10 < radius 50)"), R.has_encounter);
+		TestEqual(TEXT("Case 1: entity_index should be 0"), R.entity_index, 0);
+	}
+
+	// Case 2: ant both endpoints far outside radius of every food → miss.
+	{
+		const MassSpatialQueryResult R = RunQuery(FVector(-500.0, -500.0, 0.0), FVector(-400.0, -500.0, 0.0));
+		TestFalse(TEXT("Case 2: no encounter expected (all foods > radius)"), R.has_encounter);
+	}
+
+	// Case 3: swept segment passes within radius of food 1 even though endpoints
+	// are farther than radius. Sweep runs along Y=0 through X=200.
+	// Endpoints at (150, 70, 0) and (250, 70, 0): dist to (200,0,0) = 70 at each
+	// endpoint but closest-point-on-segment is (200, 70, 0), dist 70 still > 50.
+	// Use a narrower test: endpoints (150, 40, 0) → (250, 40, 0); closest point
+	// at (200, 40, 0), dist 40 < 50. Neither endpoint is within 50 of (200,0,0):
+	// endpoint dist = sqrt(50^2+40^2) = sqrt(4100) ≈ 64.
+	{
+		const MassSpatialQueryResult R = RunQuery(FVector(150.0, 40.0, 0.0), FVector(250.0, 40.0, 0.0));
+		TestTrue(TEXT("Case 3: swept-segment hit expected (endpoint dist 64 > 50 but segment dist 40 < 50)"),
+			R.has_encounter);
+		TestEqual(TEXT("Case 3: should hit food 1"), R.entity_index, 1);
+	}
+
+	// Case 4: ant at (100, 0, 0) — equidistant from food 0 and food 1 (dist 100 each).
+	// Outside radius 50, so no hit. Move ant to (10, 0, 0): dist 10 to food 0, dist 190
+	// to food 1. Expect food 0 chosen as nearest.
+	{
+		const MassSpatialQueryResult R = RunQuery(FVector(10.0, 0.0, 0.0), FVector(10.0, 0.0, 0.0));
+		TestTrue(TEXT("Case 4: hit expected"), R.has_encounter);
+		TestEqual(TEXT("Case 4: nearest food is index 0"), R.entity_index, 0);
+	}
+
+	// Case 5: empty grid → no encounter. Remove all items first.
+	{
+		FMassNavigationObstacleItem Item;
+		for (int32 i = 0; i < 3; ++i)
+		{
+			Item.Entity = (*FoodEntities)[i];
+			TestGrid.Remove(Item, CellLocs[i]);
+		}
+		const MassSpatialQueryResult R = RunQuery(FVector(0.0, 0.0, 0.0), FVector(0.0, 0.0, 0.0));
+		TestFalse(TEXT("Case 5: empty grid → no encounter"), R.has_encounter);
+		TestEqual(TEXT("Case 5: entity_index should be -1"), R.entity_index, -1);
+	}
+
+	Subsystem->ResetSimulation();
+	return true;
+}
+
+// ---------------------------------------------------------------------------
+// Regression: PopulateGridHashForGroup must be idempotent.
+//
+// Two GridHash query configs can legally target the same group (e.g. a normal
+// pickup query + a speculative look-ahead query). Running PopulateGridHashForGroup
+// twice must leave the nav grid with exactly one entry per entity, not two —
+// duplicate entries make QuerySmall return the same food repeatedly and desync
+// any grid mutation (pickup/drop events remove only one copy, the duplicate
+// lingers forever as a phantom obstacle).
+// ---------------------------------------------------------------------------
+
+IMPLEMENT_SIMPLE_AUTOMATION_TEST(
+	FGatherersBevyMassGridHashTwoQueriesOneGroupTest,
+	"supplemental.RustPlugin.Gatherers.BevyMassGridHashTwoQueriesOneGroup",
+	EAutomationTestFlags::EditorContext | EAutomationTestFlags::EngineFilter)
+
+bool FGatherersBevyMassGridHashTwoQueriesOneGroupTest::RunTest(const FString& Parameters)
+{
+	UWorld* World = GEditor->GetEditorWorldContext().World();
+	if (!TestNotNull(TEXT("World must exist"), World)) return false;
+
+	UMassNavigationSubsystem* NavSubsystem = World->GetSubsystem<UMassNavigationSubsystem>();
+	if (!TestNotNull(TEXT("UMassNavigationSubsystem must exist"), NavSubsystem)) return false;
+
+	URustMassBevySubsystem* Subsystem = World->GetSubsystem<URustMassBevySubsystem>();
+	if (!TestNotNull(TEXT("RustMassBevySubsystem must exist"), Subsystem)) return false;
+
+	constexpr int32 FoodCount = 5;
+	const FBox Bounds(FVector(-500.0, -500.0, 0.0), FVector(500.0, 500.0, 100.0));
+	Subsystem->InitializeSimulation({{TEXT("ants"), 1}, {TEXT("food"), FoodCount}}, Bounds, 42);
+
+	// InitializeSimulation's auto-registration has already populated the grid
+	// for the "food" group exactly once. Simulate a second GridHash query config
+	// also targeting "food" — this exercises the same PopulateGridHashForGroup
+	// path that SetupSpatialQueriesFromRust invokes per matching config.
+	const bool bOk = Subsystem->RepopulateGridHashForGroupForTesting(TEXT("food"));
+	if (!TestTrue(TEXT("RepopulateGridHashForGroupForTesting should succeed"), bOk))
+	{
+		Subsystem->ResetSimulation();
+		return false;
+	}
+
+	// Count obstacles in the nav grid by querying a bounding box that covers
+	// all food positions. With idempotent populate we expect exactly FoodCount
+	// items back; without it, the second populate doubled every entry.
+	const FNavigationObstacleHashGrid2D& Grid = NavSubsystem->GetObstacleGrid();
+	TArray<FMassNavigationObstacleItem, TInlineAllocator<32>> Candidates;
+	const FBox FullBounds(FVector(-10000.0, -10000.0, 0.0), FVector(10000.0, 10000.0, 0.0));
+	Grid.QuerySmall(FullBounds, Candidates);
+
+	AddInfo(FString::Printf(TEXT("[DoubleInsert] foods=%d grid items=%d (expect %d)"),
+		FoodCount, Candidates.Num(), FoodCount));
+
+	TestEqual(TEXT("Nav grid should contain exactly one entry per food after double populate"),
+		Candidates.Num(), FoodCount);
+
+	Subsystem->ResetSimulation();
+	return true;
+}
+
+// ---------------------------------------------------------------------------
+// Regression: at most ONE group may be the GridHash owner.
+//
+// FoodPickupEvents / FoodDropEvents carry a bare instance index with no group
+// identifier — the index space is implicitly scoped to the single GridHash
+// owner. If two groups ever get marked bOwnedByGridHash, ApplyFoodEvents
+// applies each pickup/drop to *every* GridHash-owned group using the same
+// index, corrupting whichever group didn't originate the event. This test
+// simulates a second Rust spatial-query config trying to claim a second
+// group as GridHash-owned — the framework must refuse it.
+// ---------------------------------------------------------------------------
+
+IMPLEMENT_SIMPLE_AUTOMATION_TEST(
+	FGatherersBevyMassGridHashRefusesSecondOwnerTest,
+	"supplemental.RustPlugin.Gatherers.BevyMassGridHashRefusesSecondOwner",
+	EAutomationTestFlags::EditorContext | EAutomationTestFlags::EngineFilter)
+
+bool FGatherersBevyMassGridHashRefusesSecondOwnerTest::RunTest(const FString& Parameters)
+{
+	UWorld* World = GEditor->GetEditorWorldContext().World();
+	if (!TestNotNull(TEXT("World must exist"), World)) return false;
+
+	URustMassBevySubsystem* Subsystem = World->GetSubsystem<URustMassBevySubsystem>();
+	if (!TestNotNull(TEXT("RustMassBevySubsystem must exist"), Subsystem)) return false;
+
+	// The refused-claim path emits a Log.Error (intentionally loud; this is a
+	// framework-violation from Rust config). Tell the automation framework
+	// to expect it so the log message doesn't fail the test on its own.
+	AddExpectedError(TEXT("refused GridHash ownership for group 'ants'"),
+		EAutomationExpectedErrorFlags::Contains, 1);
+
+	// After InitializeSimulation the "food" group is already the sole GridHash
+	// owner (registered by the default gatherers sim). Try to mark "ants" as
+	// a *second* GridHash owner — must be refused.
+	const FBox Bounds(FVector(-500.0, -500.0, 0.0), FVector(500.0, 500.0, 100.0));
+	Subsystem->InitializeSimulation({{TEXT("ants"), 3}, {TEXT("food"), 5}}, Bounds, 42);
+
+	const bool bAcceptedSecond = Subsystem->TryMarkGridHashOwnerForTesting(TEXT("ants"));
+	AddInfo(FString::Printf(TEXT("[SecondOwner] TryMarkGridHashOwner('ants') returned %s (expected false)"),
+		bAcceptedSecond ? TEXT("true") : TEXT("false")));
+
+	TestFalse(TEXT("Framework must refuse a second GridHash-owned group"), bAcceptedSecond);
+
+	Subsystem->ResetSimulation();
+	return true;
+}
+
+// ---------------------------------------------------------------------------
+// Regression: the food-drop path must be scoped to the single GridHash owner.
+//
+// FoodDropEvent carries a bare `food_index` with no group identifier. The
+// index space is scoped to the single GridHash-owned group — but historically
+// the drop loop also fanned the ISMC transform update to any other group whose
+// ISMC had collision enabled, so adding a second collision-enabled group (e.g.
+// a PhysicsSweep target for ants) would teleport that group's same-indexed
+// instance on every food drop. This test sets up exactly that scenario:
+// "food" is the GridHash owner; "ants" has ISMC collision enabled but no
+// GridHash ownership. Apply a drop for index 0 and assert only the food
+// instance moved — the ant instance must stay put.
+// ---------------------------------------------------------------------------
+
+IMPLEMENT_SIMPLE_AUTOMATION_TEST(
+	FGatherersBevyMassFoodDropIsSingleGroupTest,
+	"supplemental.RustPlugin.Gatherers.BevyMassFoodDropIsSingleGroup",
+	EAutomationTestFlags::EditorContext | EAutomationTestFlags::EngineFilter)
+
+bool FGatherersBevyMassFoodDropIsSingleGroupTest::RunTest(const FString& Parameters)
+{
+	UWorld* World = GEditor->GetEditorWorldContext().World();
+	if (!TestNotNull(TEXT("World must exist"), World)) return false;
+
+	URustMassBevySubsystem* Subsystem = World->GetSubsystem<URustMassBevySubsystem>();
+	if (!TestNotNull(TEXT("RustMassBevySubsystem must exist"), Subsystem)) return false;
+
+	const FBox Bounds(FVector(-500.0, -500.0, 0.0), FVector(500.0, 500.0, 100.0));
+	Subsystem->InitializeSimulation({{TEXT("ants"), 2}, {TEXT("food"), 2}}, Bounds, 42);
+
+	UInstancedStaticMeshComponent* AntISMC = Subsystem->GetGroupISMC(TEXT("ants"));
+	UInstancedStaticMeshComponent* FoodISMC = Subsystem->GetGroupISMC(TEXT("food"));
+	if (!TestNotNull(TEXT("Ant ISMC must exist"), AntISMC)) { Subsystem->ResetSimulation(); return false; }
+	if (!TestNotNull(TEXT("Food ISMC must exist"), FoodISMC)) { Subsystem->ResetSimulation(); return false; }
+
+	// Simulate a non-GridHash spatial query for ants (e.g. PhysicsSweep) —
+	// enables ISMC collision on the ants group but does NOT claim GridHash ownership.
+	AntISMC->SetCollisionEnabled(ECollisionEnabled::QueryOnly);
+
+	// Capture the ant instance 0 transform BEFORE the drop event.
+	FTransform AntBefore;
+	AntISMC->GetInstanceTransform(0, AntBefore, /*bWorldSpace=*/false);
+	const FVector AntPosBefore = AntBefore.GetTranslation();
+
+	// Drop event targets index 0, far away from any ant.
+	const FVector DropPos(12345.0, -6789.0, 42.0);
+	Subsystem->ApplyFoodDropEventForTesting(0, DropPos);
+
+	// Food instance 0 should be at the drop position.
+	FTransform FoodAfter;
+	FoodISMC->GetInstanceTransform(0, FoodAfter, /*bWorldSpace=*/false);
+	TestEqual(TEXT("Food instance 0 must move to drop position"),
+		FoodAfter.GetTranslation(), DropPos);
+
+	// Ant instance 0 must NOT have moved — the single-group FFI contract means
+	// the drop path is scoped to the GridHash owner, not any ISMC-active group.
+	FTransform AntAfter;
+	AntISMC->GetInstanceTransform(0, AntAfter, /*bWorldSpace=*/false);
+	const FVector AntPosAfter = AntAfter.GetTranslation();
+	AddInfo(FString::Printf(TEXT("[DropScope] ant[0] before=(%.1f,%.1f,%.1f) after=(%.1f,%.1f,%.1f)"),
+		AntPosBefore.X, AntPosBefore.Y, AntPosBefore.Z,
+		AntPosAfter.X, AntPosAfter.Y, AntPosAfter.Z));
+	TestEqual(TEXT("Ant instance 0 must NOT move — drop is scoped to GridHash owner"),
+		AntPosAfter, AntPosBefore);
+
+	Subsystem->ResetSimulation();
+	return true;
+}
+
+// ---------------------------------------------------------------------------
+// Pickup-density diagnostic — runs the full sim at production-like scale
+// (3000 ants × 10000 food in 10000×10000 area) for ~2 seconds and reports
+// where candidates drop off in the GridHash pipeline. Mirrors what the
+// [gridhash-perf] log shows under PIE, but deterministic and reviewable in
+// CI logs without needing UNREAL_RUST_MASS_TIMING=1.
+//
+// This test does NOT assert a specific pickup count — expected pickup rates
+// depend on geometry (radius 15 on ~1.66 u/frame movement) and probabilistic
+// encounters. Instead it asserts the pipeline stages are roughly self-consistent
+// (no full drop-off between stages), and reports ratios for diagnosis.
+// ---------------------------------------------------------------------------
+
+IMPLEMENT_SIMPLE_AUTOMATION_TEST(
+	FGatherersBevyMassPickupDensityTest,
+	"supplemental.RustPlugin.Gatherers.BevyMassPickupDensity",
+	EAutomationTestFlags::EditorContext | EAutomationTestFlags::EngineFilter)
+
+bool FGatherersBevyMassPickupDensityTest::RunTest(const FString& Parameters)
+{
+	UWorld* World = GEditor->GetEditorWorldContext().World();
+	if (!TestNotNull(TEXT("World must exist"), World)) return false;
+
+	URustMassBevySubsystem* Subsystem = World->GetSubsystem<URustMassBevySubsystem>();
+	if (!TestNotNull(TEXT("RustMassBevySubsystem must exist"), Subsystem)) return false;
+
+	// Match the registered sim defaults (see gatherers-bevy-mass/src/lib.rs).
+	const FBox Bounds(FVector(-5000.0, -5000.0, 0.0), FVector(5000.0, 5000.0, 100.0));
+	const int32 AntCount = 3000;
+	const int32 FoodCount = 10000;
+	Subsystem->InitializeSimulation(
+		{{TEXT("ants"), AntCount}, {TEXT("food"), FoodCount}}, Bounds, 42);
+
+	TestEqual(TEXT("Ant count"), Subsystem->GetGroupEntityCount(TEXT("ants")), AntCount);
+	TestEqual(TEXT("Food count"), Subsystem->GetGroupEntityCount(TEXT("food")), FoodCount);
+	TestTrue(TEXT("food_pickup auto-registered"),
+		Subsystem->HasSpatialQuery(TEXT("food_pickup")));
+
+	// Clear counters after init (PopulateGridHashForGroup doesn't call the
+	// callback, but reset anyway so the numbers reflect only the sim loop).
+	URustMassBevySubsystem::ResetGridHashCounters();
+
+	// Decision-counter FFI is routed through MassExternBinding → RustBindings
+	// so the test reads the same dylib instance as the running sim (a direct
+	// dlopen of the host dylib path loads a second copy — see git log for #172).
+	FRustPluginModule& RustModule = FModuleManager::GetModuleChecked<FRustPluginModule>("RustPlugin");
+	AddInfo(FString::Printf(TEXT("[PickupDensity] decision FFI: get=%d reset=%d"),
+		RustModule.Plugin.Rust.get_decision_counters.IsSome() ? 1 : 0,
+		RustModule.Plugin.Rust.reset_decision_counters.IsSome() ? 1 : 0));
+	if (RustModule.Plugin.Rust.reset_decision_counters.IsSome())
+	{
+		RustModule.Plugin.Rust.reset_decision_counters.Unwrap()();
+	}
+
+	UMassEntitySubsystem* MassEntitySubsystem = World->GetSubsystem<UMassEntitySubsystem>();
+	FMassEntityManager& EntityManager = MassEntitySubsystem->GetMutableEntityManager();
+	const TArray<FMassEntityHandle>* AntEntities = Subsystem->GetGroupEntities(TEXT("ants"));
+
+	// Per-ant previous-frame carrying index, for transition detection.
+	TArray<int32> PrevCarrying;
+	PrevCarrying.Init(-1, AntCount);
+
+	// Total pickup + drop transitions across the whole run.
+	int64 TotalPickups = 0;
+	int64 TotalDrops = 0;
+	int32 MaxCarryingSeen = 0;
+
+	// Count ants that never picked up anything across the entire run
+	// (to answer "do ants just pass through food?").
+	TArray<int32> PickupsPerAnt;
+	PickupsPerAnt.Init(0, AntCount);
+
+	// Run ~2 seconds of sim at 60 Hz, sampling state after every step.
+	const int32 NumSteps = 120;
+	const float Dt = 1.0f / 60.0f;
+	for (int32 Step = 0; Step < NumSteps; ++Step)
+	{
+		Subsystem->RunSimulationProcessorsForTesting(Dt);
+
+		int32 CarryingThisStep = 0;
+		if (AntEntities)
+		{
+			for (int32 i = 0; i < AntEntities->Num(); ++i)
+			{
+				const FMassEntityHandle H = (*AntEntities)[i];
+				if (!EntityManager.IsEntityValid(H)) continue;
+				FMassEntityView V(EntityManager, H);
+				const FGatherersCarryingFragment& Carry = V.GetFragmentData<FGatherersCarryingFragment>();
+				const int32 Now = Carry.FoodIndex;
+				const int32 Prev = PrevCarrying[i];
+				if (Prev < 0 && Now >= 0)
+				{
+					++TotalPickups;
+					++PickupsPerAnt[i];
+				}
+				else if (Prev >= 0 && Now < 0)
+				{
+					++TotalDrops;
+				}
+				PrevCarrying[i] = Now;
+				if (Now >= 0) ++CarryingThisStep;
+			}
+		}
+		MaxCarryingSeen = FMath::Max(MaxCarryingSeen, CarryingThisStep);
+	}
+
+	const URustMassBevySubsystem::FGridHashCounters C = URustMassBevySubsystem::GetGridHashCounters();
+
+	DecisionCounters D = {};
+	if (RustModule.Plugin.Rust.get_decision_counters.IsSome())
+	{
+		RustModule.Plugin.Rust.get_decision_counters.Unwrap()(&D);
+	}
+
+	int32 CarryingCount = 0;
+	int32 AntsWithAnyPickup = 0;
+	for (int32 i = 0; i < AntCount; ++i)
+	{
+		if (PrevCarrying[i] >= 0) ++CarryingCount;
+		if (PickupsPerAnt[i] > 0) ++AntsWithAnyPickup;
+	}
+
+	const double AvgCands = C.Calls > 0 ? (double)C.Candidates / (double)C.Calls : 0.0;
+	const double PickupsPerEncounter = C.EncountersWithin > 0
+		? (double)TotalPickups / (double)C.EncountersWithin : 0.0;
+
+	AddInfo(FString::Printf(
+		TEXT("[PickupDensity] steps=%d ants=%d food=%d | calls=%llu cands=%llu(avg=%.2f) within=%llu returned=%llu | pickups=%lld drops=%lld | ants_with_any_pickup=%d/%d max_carrying=%d carrying_now=%d | pickups_per_returned=%.3f"),
+		NumSteps, AntCount, FoodCount,
+		(unsigned long long)C.Calls,
+		(unsigned long long)C.Candidates, AvgCands,
+		(unsigned long long)C.EncountersWithin,
+		(unsigned long long)C.EncountersReturned,
+		(long long)TotalPickups, (long long)TotalDrops,
+		AntsWithAnyPickup, AntCount,
+		MaxCarryingSeen, CarryingCount,
+		C.EncountersReturned > 0 ? (double)TotalPickups / (double)C.EncountersReturned : 0.0));
+
+	AddInfo(FString::Printf(
+		TEXT("[PickupDensity] decision-fn: calls=%llu hits_seen=%llu ants_iterated=%llu matched=%llu pickups=%llu drops=%llu no_actions=%llu"),
+		(unsigned long long)D.calls,
+		(unsigned long long)D.hits_seen,
+		(unsigned long long)D.ants_seen,
+		(unsigned long long)D.matched,
+		(unsigned long long)D.pickups,
+		(unsigned long long)D.drops,
+		(unsigned long long)D.no_actions));
+
+	// Sanity-check basic pipeline shape. If any of these fail, there's a wiring
+	// problem (grid empty, entity-to-index stale, filter flag flipped, etc.).
+	TestTrue(TEXT("prepass was called"), C.Calls > 0);
+	TestTrue(TEXT("grid returned at least some candidates"), C.Candidates > 0);
+	TestTrue(TEXT("candidates mapped to instance indices"), C.CandidatesMapped > 0);
+	TestEqual(TEXT("no filter stage for GridHash — passed == mapped"),
+		C.CandidatesPassed, C.CandidatesMapped);
+
+	Subsystem->ResetSimulation();
+	return true;
+}
 
 // ---------------------------------------------------------------------------
 // Carried food tracking — food transform follows carrying ant
@@ -602,6 +1048,82 @@ bool FGatherersBevyMassDescriptorLayoutTest::RunTest(const FString& Parameters)
 	TestEqual(TEXT("MassSystemDescriptor execute_fn offset"),
 		(int32)offsetof(MassSystemDescriptor, execute_fn), 32);
 
+	return true;
+}
+
+// ---------------------------------------------------------------------------
+// Large-scale stress test — spawn enough ants that the primary archetype spans
+// multiple Mass chunks. Exercises the C++ chunk-pointer cache in
+// URustMassDynamicProcessor across many frames and many chunks, which is the
+// scenario where PIE reproduces the FTransform::IsRotationNormalized assertion
+// (fragment memory corrupted after frame 1).
+// ---------------------------------------------------------------------------
+
+IMPLEMENT_SIMPLE_AUTOMATION_TEST(
+	FGatherersBevyMassLargeScaleStressTest,
+	"supplemental.RustPlugin.Gatherers.BevyMassLargeScaleStress",
+	EAutomationTestFlags::EditorContext | EAutomationTestFlags::EngineFilter)
+
+bool FGatherersBevyMassLargeScaleStressTest::RunTest(const FString& Parameters)
+{
+	UWorld* World = GEditor->GetEditorWorldContext().World();
+	if (!TestNotNull(TEXT("World must exist"), World))
+	{
+		return false;
+	}
+
+	UMassEntitySubsystem* MassEntitySubsystem = World->GetSubsystem<UMassEntitySubsystem>();
+	if (!TestNotNull(TEXT("MassEntitySubsystem must exist"), MassEntitySubsystem))
+	{
+		return false;
+	}
+
+	URustMassBevySubsystem* Subsystem = World->GetSubsystem<URustMassBevySubsystem>();
+	if (!TestNotNull(TEXT("RustMassBevySubsystem must exist"), Subsystem))
+	{
+		return false;
+	}
+
+	// Match PIE's default group sizes (see gatherers-bevy-mass/src/lib.rs) so
+	// the primary ant archetype spans as many chunks as PIE does (~11 chunks of
+	// ~273 entities each in UE 5.7 Mass).
+	const int32 AntCount = 3000;
+	const int32 FoodCount = 500;
+	const FBox Bounds(FVector(-5000.0, -5000.0, -100.0), FVector(5000.0, 5000.0, 100.0));
+	Subsystem->InitializeSimulation({{TEXT("ants"), AntCount}, {TEXT("food"), FoodCount}}, Bounds, 4242);
+
+	TestEqual(TEXT("Should have 3000 ants"), Subsystem->GetGroupEntityCount(TEXT("ants")), AntCount);
+	TestEqual(TEXT("Should have 500 food"), Subsystem->GetGroupEntityCount(TEXT("food")), FoodCount);
+
+	// Many steps so the chunk-pointer cache is exercised across many frames,
+	// and food pickups / cooldown cycles have time to trigger on plenty of ants.
+	for (int32 Step = 0; Step < 300; ++Step)
+	{
+		Subsystem->RunSimulationProcessorsForTesting(0.016f);
+	}
+
+	// Sanity: verify every ant has a normalized Transform rotation after the
+	// run. An unnormalized quaternion is the proximate signal of fragment-
+	// memory corruption (FTransform::ToMatrixWithScale asserts on this in PIE).
+	FMassEntityManager& EntityManager = MassEntitySubsystem->GetMutableEntityManager();
+	const TArray<FMassEntityHandle>* AntEntities = Subsystem->GetGroupEntities(TEXT("ants"));
+	int32 BadRotationCount = 0;
+	for (const FMassEntityHandle AntEntity : *AntEntities)
+	{
+		if (EntityManager.IsEntityValid(AntEntity))
+		{
+			FMassEntityView AntView(EntityManager, AntEntity);
+			const FTransformFragment& T = AntView.GetFragmentData<FTransformFragment>();
+			if (!T.GetTransform().IsRotationNormalized())
+			{
+				++BadRotationCount;
+			}
+		}
+	}
+	TestEqual(TEXT("No ant should have an unnormalized rotation after stress run"),
+		BadRotationCount, 0);
+
+	Subsystem->ResetSimulation();
 	return true;
 }
 
@@ -874,12 +1396,12 @@ bool FGatherersBevyMassRustSimDefaultsFFITest::RunTest(const FString& Parameters
 		if (Name == TEXT("ants"))
 		{
 			FoundAnts = true;
-			TestEqual(TEXT("Ants default count"), Defaults.groups[i].count, 100);
+			TestEqual(TEXT("Ants default count"), Defaults.groups[i].count, 3000);
 		}
 		else if (Name == TEXT("food"))
 		{
 			FoundFood = true;
-			TestEqual(TEXT("Food default count"), Defaults.groups[i].count, 500);
+			TestEqual(TEXT("Food default count"), Defaults.groups[i].count, 10000);
 		}
 	}
 	TestTrue(TEXT("Should have 'ants' group in defaults"), FoundAnts);
@@ -923,7 +1445,7 @@ bool FGatherersBevyMassRustSpatialQueryConfigFFITest::RunTest(const FString& Par
 	TestEqual(TEXT("Query group should be 'food'"), QueryGroup, TEXT("food"));
 
 	TestEqual(TEXT("Radius should be 15.0"), Config.radius, 15.0f);
-	TestEqual(TEXT("query_type should be 1 (PhysicsSweep)"), Config.query_type, (uint8)1);
+	TestEqual(TEXT("query_type should be 2 (GridHash)"), Config.query_type, (uint8)2);
 	TestEqual(TEXT("collision_channel_index should be 0"), Config.collision_channel_index, (uint8)0);
 	TestEqual(TEXT("Bool offset should be 0"), Config.filter_bool_offset, (uint32)0);
 	TestTrue(TEXT("filter_bool_must_be should be true"), Config.filter_bool_must_be);
@@ -1862,12 +2384,14 @@ bool FGatherersBevyMassISMPhysicsBodyMoveTest::RunTest(const FString& Parameters
 
 	TestEqual(TEXT("ISMC should have 1 instance"), FoodISMC->GetInstanceCount(), 1);
 
-	// Collision should already be enabled by spatial query setup (food_pickup config)
-	TestTrue(TEXT("ISMC collision should be enabled"),
-		FoodISMC->GetCollisionEnabled() != ECollisionEnabled::NoCollision);
-
-	// food_pickup spatial query uses collision_channel_index 0 → ECC_GameTraceChannel1
+	// This test validates pure UE behavior (does UpdateInstanceTransform move the
+	// physics body?) independent of which spatial query backend is active, so we
+	// enable collision explicitly here rather than relying on the query's setup.
 	ECollisionChannel SweepChannel = ECC_GameTraceChannel1;
+	FoodISMC->SetCollisionEnabled(ECollisionEnabled::QueryOnly);
+	FoodISMC->SetCollisionResponseToAllChannels(ECR_Ignore);
+	FoodISMC->SetCollisionResponseToChannel(SweepChannel, ECR_Block);
+	FoodISMC->RecreatePhysicsState();
 
 	// Get initial food position from fragment
 	FVector InitialPos;
@@ -1944,6 +2468,380 @@ bool FGatherersBevyMassISMPhysicsBodyMoveTest::RunTest(const FString& Parameters
 	{
 		UE_LOG(LogTemp, Warning, TEXT("[ISMPhysicsBodyMove] UpdateInstanceTransform did NOT move "
 			"the physics body. RecreatePhysicsState or UpdateInstanceBodyTransform may be required."));
+	}
+
+	Subsystem->ResetSimulation();
+	return true;
+}
+
+// ---------------------------------------------------------------------------
+// Perf profile: observational, no pass/fail on timings.
+//
+// Runs a fixed scenario (10k ants, 40k food, seed 42) for 60 warmup ticks +
+// 600 measured ticks at 1/60s each (10s of sim time). Reports total, avg,
+// p50, p99 ms/tick via AddInfo so results are grep-able from the UE log.
+//
+// Grep recipe:
+//   grep "\[perf\]" .../RustExampleEditor/RustExample.log
+// ---------------------------------------------------------------------------
+
+IMPLEMENT_SIMPLE_AUTOMATION_TEST(
+	FGatherersBevyMassPerfProfileTest,
+	"supplemental.RustPlugin.Gatherers.BevyMassPerfProfile",
+	EAutomationTestFlags::EditorContext | EAutomationTestFlags::EngineFilter)
+
+bool FGatherersBevyMassPerfProfileTest::RunTest(const FString& Parameters)
+{
+	// NOTE: vis pipeline (UMassRepresentation + UMassUpdateISMProcessor)
+	// dominates full Tick() at scale — ~12s/tick at 10k ants. Start small
+	// so the test runs in a reasonable time; scale up manually once we
+	// understand where the vis cost comes from.
+	constexpr int32 AntCount = 1000;
+	constexpr int32 FoodCount = 4000;
+	constexpr int32 WarmupTicks = 30;
+	constexpr int32 MeasuredTicks = 120;
+	constexpr float DeltaTime = 1.0f / 60.0f;
+	constexpr int32 RandomSeed = 42;
+
+	UWorld* World = GEditor->GetEditorWorldContext().World();
+	if (!TestNotNull(TEXT("World must exist"), World)) return false;
+
+	URustMassBevySubsystem* Subsystem = World->GetSubsystem<URustMassBevySubsystem>();
+	if (!TestNotNull(TEXT("RustMassBevySubsystem must exist"), Subsystem)) return false;
+
+	// UMassRepresentationSubsystem logs `LogMassRepresentation: Error: Template
+	// actor type 0 is not referring to a valid type` when the perf scenario uses
+	// static-mesh-only visualization (no template actors registered). Harmless noise;
+	// tolerate it so the automation framework doesn't fail the test on engine logs.
+	// Occurrences < 0 = silently ignore any count (may be zero on some trajectories).
+	AddExpectedError(TEXT("Template actor type .* is not referring to a valid type"),
+		EAutomationExpectedErrorFlags::Contains, -1);
+
+	// Use UE-scale bounds matching gatherers-bevy-mass/src/lib.rs defaults.
+	const FBox Bounds(FVector(-5000.0, -5000.0, 0.0), FVector(5000.0, 5000.0, 100.0));
+	Subsystem->InitializeSimulation(
+		{{TEXT("ants"), AntCount}, {TEXT("food"), FoodCount}},
+		Bounds, RandomSeed);
+
+	TestEqual(TEXT("ant count"), Subsystem->GetGroupEntityCount(TEXT("ants")), AntCount);
+	TestEqual(TEXT("food count"), Subsystem->GetGroupEntityCount(TEXT("food")), FoodCount);
+
+	AddInfo(FString::Printf(TEXT("[perf] scenario: %d ants, %d food, seed=%d, dt=%.4f"),
+		AntCount, FoodCount, RandomSeed, DeltaTime));
+
+	auto Summarize = [&](const TCHAR* Label, TArray<double>& Samples, double WallMs) -> double
+	{
+		TArray<double> Sorted = Samples;
+		Sorted.Sort();
+		const double Min = Sorted[0];
+		const double Max = Sorted.Last();
+		const double P50 = Sorted[Sorted.Num() / 2];
+		const double P99 = Sorted[(Sorted.Num() * 99) / 100];
+		double Sum = 0.0;
+		for (double S : Samples) { Sum += S; }
+		const double Avg = Sum / Samples.Num();
+		AddInfo(FString::Printf(
+			TEXT("[perf] %s %d ticks: avg=%.3fms p50=%.3fms p99=%.3fms min=%.3fms max=%.3fms total=%.1fms wall=%.1fms"),
+			Label, Samples.Num(), Avg, P50, P99, Min, Max, Sum, WallMs));
+		return Avg;
+	};
+
+	auto MeasurePhase = [&](const TCHAR* Label, TFunctionRef<void()> Step) -> double
+	{
+		for (int32 i = 0; i < WarmupTicks; ++i) { Step(); }
+		TArray<double> Samples;
+		Samples.Reserve(MeasuredTicks);
+		const double WallStart = FPlatformTime::Seconds();
+		for (int32 i = 0; i < MeasuredTicks; ++i)
+		{
+			const double T0 = FPlatformTime::Seconds();
+			Step();
+			Samples.Add((FPlatformTime::Seconds() - T0) * 1000.0);
+		}
+		const double WallMs = (FPlatformTime::Seconds() - WallStart) * 1000.0;
+		return Summarize(Label, Samples, WallMs);
+	};
+
+	// Phase 1: full subsystem Tick (sim step + vis pipeline + ISM drop events)
+	const double AvgFullMs = MeasurePhase(TEXT("full Tick()"),
+		[&]() { Subsystem->Tick(DeltaTime); });
+
+	// Phase 2: sim step only (+ ISM drops) — skips the MassRepresentation /
+	// MassUpdateISMProcessor vis pipeline. Difference vs phase 1 ≈ vis cost.
+	// Reset to the same seed so both phases see equivalent work.
+	Subsystem->ResetSimulation();
+	Subsystem->InitializeSimulation(
+		{{TEXT("ants"), AntCount}, {TEXT("food"), FoodCount}},
+		Bounds, RandomSeed);
+	const double AvgSimMs = MeasurePhase(TEXT("sim+drops only"),
+		[&]() { Subsystem->RunSimulationProcessorsForTesting(DeltaTime); });
+
+	AddInfo(FString::Printf(
+		TEXT("[perf] breakdown: sim≈%.2fms, vis≈%.2fms (delta), full=%.2fms"),
+		AvgSimMs, AvgFullMs - AvgSimMs, AvgFullMs));
+
+	if (AvgFullMs > 33.0)
+	{
+		AddWarning(FString::Printf(TEXT("[perf] full Tick avg %.2fms exceeds 2x 60Hz budget (33ms)"), AvgFullMs));
+	}
+
+	Subsystem->ResetSimulation();
+	return true;
+}
+
+// ---------------------------------------------------------------------------
+// Regression: IsRotationNormalized() assertion in UpdateInstanceTransform
+// ---------------------------------------------------------------------------
+//
+// Observed in PIE ~280ms after entity spawn: PostPhysics broadcasts
+// UMassRepresentationSubsystem::OnProcessingPhaseStarted, which calls
+// UMassVisualizationComponent::EndVisualChanges, which calls
+// UInstancedStaticMeshComponent::UpdateInstanceTransform, which calls
+// FTransform::ToMatrixWithScale and asserts IsRotationNormalized().
+//
+// Identity rotations are set at SetupGroupVisualization time (confirmed by
+// diagnostic log). Corruption happens between setup and the fatal broadcast.
+//
+// This test rebuilds that code path in the editor harness:
+//   1. Init sim with realistic counts (8k ants + 2.4k food = 10.4k batched
+//      transforms per tick, matching PIE ISM cardinality).
+//   2. Tick() each frame (runs sim processors AND VisualizationPipeline, which
+//      batches transforms into FMassISMCSharedData).
+//   3. After each tick, validate THREE surfaces:
+//      a. FTransformFragment (the source rotation read by vis).
+//      b. FMassRepresentationFragment::PrevTransform (written per-frame by
+//         UMassUpdateISMProcessor — candidate for SIMD-aligned copy corruption).
+//      c. FMassISMCSharedData::{StaticMeshInstanceTransforms,
+//         StaticMeshInstancePrevTransforms} (the buffers that
+//         UpdateInstanceTransformById reads → ToMatrixWithScale asserts on).
+//      The shared-data buffers are fetched via
+//      UMassRepresentationSubsystem::GetISMCSharedDataForDescriptionIndex —
+//      this is the exact memory the PIE crash consumes.
+//   4. Fire GetOnProcessingPhaseFinished(PostPhysics).Broadcast to run
+//      EndVisualChanges → ISM UpdateInstanceTransformById, reproducing the
+//      assertion call chain when buffers are clean, and reporting actionable
+//      errors (without crashing the runner) when they're not.
+//
+// STATUS (2026-04-20): test passes clean at 8000+2400 = 10400 batched
+// transforms over 30 ticks, both in FTransformFragment and in shared-data
+// buffers. The PIE crash does NOT reproduce in editor-context automation.
+// Candidates for the PIE-specific trigger:
+//   - GameThread/RenderThread ordering (ISMC may render while we write).
+//   - Actor-representation path (FMassActorFragment — our entities have
+//     the fragment but no template actor; PIE may do more).
+//   - Re-spawn / re-archetype movement on hot-reload paths.
+//   - Tick ordering across multiple MassSim subsystems sharing vis.
+// ---------------------------------------------------------------------------
+
+IMPLEMENT_SIMPLE_AUTOMATION_TEST(
+	FGatherersBevyMassRotationNormalizedRegressionTest,
+	"supplemental.RustPlugin.Gatherers.BevyMassRotationNormalizedRegression",
+	EAutomationTestFlags::EditorContext | EAutomationTestFlags::EngineFilter)
+
+bool FGatherersBevyMassRotationNormalizedRegressionTest::RunTest(const FString& Parameters)
+{
+	// Moderate scale that still exercises the sim + vis pipeline fast enough in the
+	// editor test harness (PIE crashes at 10k+3k, but ISM render proxy creation there
+	// is too slow for automation tests — we can still catch corruption with fewer agents
+	// since it's a per-entity integrity issue, not a cardinality one).
+	constexpr int32 AntCount = 8000;
+	constexpr int32 FoodCount = 2400;
+	constexpr int32 TickCount = 30;
+	constexpr float DeltaTime = 1.0f / 60.0f;
+
+	UWorld* World = GEditor->GetEditorWorldContext().World();
+	if (!TestNotNull(TEXT("World must exist"), World)) return false;
+
+	UMassEntitySubsystem* MassEntitySubsystem = World->GetSubsystem<UMassEntitySubsystem>();
+	if (!TestNotNull(TEXT("MassEntitySubsystem must exist"), MassEntitySubsystem)) return false;
+
+	URustMassBevySubsystem* Subsystem = World->GetSubsystem<URustMassBevySubsystem>();
+	if (!TestNotNull(TEXT("RustMassBevySubsystem must exist"), Subsystem)) return false;
+
+	UMassSimulationSubsystem* SimSystem = World->GetSubsystem<UMassSimulationSubsystem>();
+	if (!TestNotNull(TEXT("MassSimulationSubsystem must exist"), SimSystem)) return false;
+
+	// Tolerate engine-side template-actor error (we use ISM-only vis).
+	AddExpectedError(TEXT("Template actor type .* is not referring to a valid type"),
+		EAutomationExpectedErrorFlags::Contains, -1);
+
+	const FBox Bounds(FVector(-5000.0, -5000.0, 0.0), FVector(5000.0, 5000.0, 100.0));
+	Subsystem->InitializeSimulation({{TEXT("ants"), AntCount}, {TEXT("food"), FoodCount}}, Bounds, 42);
+
+	FMassEntityManager& EntityManager = MassEntitySubsystem->GetMutableEntityManager();
+	const TArray<FMassEntityHandle>* AntEntities = Subsystem->GetGroupEntities(TEXT("ants"));
+	const TArray<FMassEntityHandle>* FoodEntities = Subsystem->GetGroupEntities(TEXT("food"));
+	if (!TestNotNull(TEXT("Ants must exist"), AntEntities)) { Subsystem->ResetSimulation(); return false; }
+	if (!TestNotNull(TEXT("Food must exist"), FoodEntities)) { Subsystem->ResetSimulation(); return false; }
+
+	// Report first few failures in detail, then summarize count. Keeps log
+	// output bounded at high entity counts while preserving useful diagnostics.
+	auto ReportRotFailure = [&](int32& FailLogged, const TCHAR* Where, int32 Idx, const FQuat& Rot, double Norm2, const FVector& Pos)
+	{
+		if (FailLogged < 5)
+		{
+			AddError(FString::Printf(
+				TEXT("%s[%d] rotation not normalized: (%.6f,%.6f,%.6f,%.6f) |rot|^2=%.6f pos=(%.2f,%.2f,%.2f)"),
+				Where, Idx, Rot.X, Rot.Y, Rot.Z, Rot.W, Norm2, Pos.X, Pos.Y, Pos.Z));
+		}
+		++FailLogged;
+	};
+
+	auto ValidateAllRotations = [&](const TCHAR* Stage) -> bool
+	{
+		auto CheckGroup = [&](const TArray<FMassEntityHandle>* Entities, const TCHAR* GroupName) -> bool
+		{
+			int32 FragFailures = 0;
+			int32 PrevFailures = 0;
+			int32 FragLogged = 0;
+			int32 PrevLogged = 0;
+			for (int32 i = 0; i < Entities->Num(); ++i)
+			{
+				const FMassEntityHandle& E = (*Entities)[i];
+				if (!EntityManager.IsEntityValid(E)) continue;
+				FMassEntityView View(EntityManager, E);
+
+				// 1) Per-entity FTransformFragment rotation.
+				{
+					const FTransform& T = View.GetFragmentData<FTransformFragment>().GetTransform();
+					const FQuat Rot = T.GetRotation();
+					const double Norm2 = Rot.X * Rot.X + Rot.Y * Rot.Y + Rot.Z * Rot.Z + Rot.W * Rot.W;
+					if (FMath::Abs(Norm2 - 1.0) > 0.01)
+					{
+						ReportRotFailure(FragLogged,
+							*FString::Printf(TEXT("%s: TransformFrag %s"), Stage, GroupName),
+							i, Rot, Norm2, T.GetTranslation());
+						++FragFailures;
+					}
+				}
+
+				// 2) Per-entity FMassRepresentationFragment::PrevTransform.
+				// This is written every frame by UMassUpdateISMProcessor and is
+				// a candidate for SIMD-unaligned copy corruption.
+				if (FMassRepresentationFragment* RepFrag = View.GetFragmentDataPtr<FMassRepresentationFragment>())
+				{
+					const FQuat Rot = RepFrag->PrevTransform.GetRotation();
+					const double Norm2 = Rot.X * Rot.X + Rot.Y * Rot.Y + Rot.Z * Rot.Z + Rot.W * Rot.W;
+					if (FMath::Abs(Norm2 - 1.0) > 0.01)
+					{
+						ReportRotFailure(PrevLogged,
+							*FString::Printf(TEXT("%s: RepFrag::PrevTransform %s"), Stage, GroupName),
+							i, Rot, Norm2, RepFrag->PrevTransform.GetTranslation());
+						++PrevFailures;
+					}
+				}
+			}
+			if (FragFailures > FragLogged)
+			{
+				AddError(FString::Printf(TEXT("%s: %s TransformFrag total failures = %d (first %d logged above)"),
+					Stage, GroupName, FragFailures, FragLogged));
+			}
+			if (PrevFailures > PrevLogged)
+			{
+				AddError(FString::Printf(TEXT("%s: %s RepFrag::PrevTransform total failures = %d (first %d logged above)"),
+					Stage, GroupName, PrevFailures, PrevLogged));
+			}
+			return (FragFailures == 0) && (PrevFailures == 0);
+		};
+		const bool bAntsOk = CheckGroup(AntEntities, TEXT("ant"));
+		const bool bFoodOk = CheckGroup(FoodEntities, TEXT("food"));
+		return bAntsOk && bFoodOk;
+	};
+
+	// Inspect every FMassISMCSharedData shared buffer: LocalTransform (the
+	// pre-multiplier) + StaticMeshInstanceTransforms / PrevTransforms (the
+	// batched post-multiply buffers consumed by ISM UpdateInstanceTransform).
+	// This is the exact data path the PIE crash fires on.
+	UMassRepresentationSubsystem* RepSubsystem = World->GetSubsystem<UMassRepresentationSubsystem>();
+	auto ValidateSharedBuffers = [&](const TCHAR* Stage) -> bool
+	{
+		if (!RepSubsystem) return true;
+		bool bAllOk = true;
+		int32 DescriptorsFound = 0;
+		int32 TotalEntries = 0;
+		// Handles are small non-negative ints. We don't know how many groups ended
+		// up with a desc handle (cache could be shared across groups), so probe
+		// a reasonable range — enumeration can bail on first nullptr miss pattern.
+		for (int32 DescIdx = 0; DescIdx < 32; ++DescIdx)
+		{
+			const FMassISMCSharedData* Shared = RepSubsystem->GetISMCSharedDataForDescriptionIndex(DescIdx);
+			if (!Shared) continue;
+			++DescriptorsFound;
+			TotalEntries += Shared->GetStaticMeshInstanceTransforms().Num();
+
+			auto CheckBuf = [&](TConstArrayView<FTransform> Buf, const TCHAR* BufName) -> bool
+			{
+				int32 Failures = 0;
+				int32 Logged = 0;
+				for (int32 i = 0; i < Buf.Num(); ++i)
+				{
+					const FQuat Rot = Buf[i].GetRotation();
+					const double Norm2 = Rot.X * Rot.X + Rot.Y * Rot.Y + Rot.Z * Rot.Z + Rot.W * Rot.W;
+					if (FMath::Abs(Norm2 - 1.0) > 0.01)
+					{
+						if (Logged < 5)
+						{
+							const FVector& T = Buf[i].GetTranslation();
+							const FVector& S = Buf[i].GetScale3D();
+							AddError(FString::Printf(
+								TEXT("%s: ISMShared[desc=%d].%s[%d] rot=(%.6f,%.6f,%.6f,%.6f) |rot|^2=%.6f pos=(%.2f,%.2f,%.2f) scale=(%.3f,%.3f,%.3f)"),
+								Stage, DescIdx, BufName, i, Rot.X, Rot.Y, Rot.Z, Rot.W, Norm2,
+								T.X, T.Y, T.Z, S.X, S.Y, S.Z));
+						}
+						++Logged;
+						++Failures;
+					}
+				}
+				if (Failures > Logged)
+				{
+					AddError(FString::Printf(TEXT("%s: ISMShared[desc=%d].%s total failures = %d (first %d logged)"),
+						Stage, DescIdx, BufName, Failures, Logged));
+				}
+				return Failures == 0;
+			};
+			const bool bCurOk = CheckBuf(Shared->GetStaticMeshInstanceTransforms(), TEXT("StaticMeshInstanceTransforms"));
+			const bool bPrevOk = CheckBuf(Shared->GetStaticMeshInstancePrevTransforms(), TEXT("StaticMeshInstancePrevTransforms"));
+			bAllOk = bAllOk && bCurOk && bPrevOk;
+		}
+		UE_LOG(LogTemp, Display, TEXT("RotationRegression: %s ISMShared descriptors=%d total-entries=%d"),
+			Stage, DescriptorsFound, TotalEntries);
+		return bAllOk;
+	};
+
+	// Baseline: after init, everything should be identity.
+	TestTrue(TEXT("rotations normalized after init"), ValidateAllRotations(TEXT("post-init")));
+
+	// Mirror the PIE broadcast cycle each tick:
+	//   PrePhysics started   → UMassVisualizationComponent::BeginVisualChanges (resets shared data)
+	//   <tick>                → sim step + vis pipeline (fills FMassISMCSharedData)
+	//   PostPhysics finished → UMassVisualizationComponent::EndVisualChanges  (consumes shared data
+	//                                                                           and calls ISM
+	//                                                                           UpdateInstanceTransform,
+	//                                                                           which asserts on rot norm)
+	for (int32 i = 0; i < TickCount; ++i)
+	{
+		// Preconditions for the PIE-like broadcast: UMassRepresentationProcessor needs to see
+		// a world-valid RepSubsystem. Fire PrePhysics-Started to reset the batch buffers.
+		SimSystem->GetOnProcessingPhaseStarted(EMassProcessingPhase::PrePhysics).Broadcast(DeltaTime);
+
+		Subsystem->Tick(DeltaTime);
+
+		// Validate rotations AFTER tick but BEFORE the broadcast that would assert,
+		// so we can report a useful error instead of crashing the runner.
+		const FString Stage = FString::Printf(TEXT("post-Tick[%d]"), i);
+		const bool bFragsOk = ValidateAllRotations(*Stage);
+		// ISM shared buffers are the exact structure consumed by EndVisualChanges
+		// → UpdateInstanceTransform (the call chain that asserts in PIE).
+		const bool bBuffersOk = ValidateSharedBuffers(*Stage);
+		if (!bFragsOk || !bBuffersOk)
+		{
+			AddInfo(TEXT("Aborting — rotation corruption detected; skipping PostPhysics broadcast to avoid the assertion crash."));
+			Subsystem->ResetSimulation();
+			return false;
+		}
+
+		// Now fire the phase-finished broadcast. This is where the assertion fires in PIE.
+		SimSystem->GetOnProcessingPhaseFinished(EMassProcessingPhase::PostPhysics).Broadcast(DeltaTime);
 	}
 
 	Subsystem->ResetSimulation();

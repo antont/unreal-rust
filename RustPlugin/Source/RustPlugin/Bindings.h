@@ -576,7 +576,40 @@ struct FoodDropEvent {
 /// Copies food drop events into `out` buffer. Returns the number of events written.
 /// C++ calls this immediately after mass_frame_dispatch returns.
 /// Registered via `unreal_api::mass::MassExternBinding` from the game crate.
+///
+/// `food_index` is an instance index into the **single** GridHash-owned
+/// C++ group. No group identifier is carried on the wire, and C++ enforces
+/// the one-owner constraint (URustMassBevySubsystem::TryMarkGridHashOwner
+/// refuses a second claim). Extending to multi-group food requires growing
+/// this FFI with a group id on both sides.
 using GetFoodDropEventsFn = uint32_t(*)(FoodDropEvent *out, uint32_t max);
+
+/// A food pickup event: one food entity was picked up by an ant.
+/// C++ reads these after dispatch to remove the food from the navigation hash grid
+/// (so GridHash queries don't return picked-up food).
+///
+/// Same single-group constraint as `GetFoodDropEventsFn` above — `out` entries
+/// are bare instance indices into the sole GridHash-owned group.
+using GetFoodPickupEventsFn = uint32_t(*)(int32_t *out, uint32_t max);
+
+/// Diagnostic counters for the `ant_food_decision` system. Populated each frame
+/// inside the Rust sim; tests read these via the loader's `RustBindings` to
+/// measure where the pickup pipeline drops candidates.
+struct DecisionCounters {
+  uint64_t calls;
+  uint64_t hits_seen;
+  uint64_t ants_seen;
+  uint64_t matched;
+  uint64_t pickups;
+  uint64_t drops;
+  uint64_t no_actions;
+};
+
+/// Copies current decision counters into `*out`. Counters are monotonic within
+/// a dispatch run and reset by `ResetDecisionCountersFn`.
+using GetDecisionCountersFn = void(*)(DecisionCounters *out);
+
+using ResetDecisionCountersFn = void(*)();
 
 struct RustBindings {
   TickFn tick;
@@ -596,6 +629,9 @@ struct RustBindings {
   Option<GetMassTestDescFn> get_mass_test_desc;
   Option<RunMassTestFn> run_mass_test;
   Option<GetFoodDropEventsFn> get_food_drop_events;
+  Option<GetFoodPickupEventsFn> get_food_pickup_events;
+  Option<GetDecisionCountersFn> get_decision_counters;
+  Option<ResetDecisionCountersFn> reset_decision_counters;
 };
 
 using EntryUnrealBindingsFn = uint32_t(*)(UnrealBindings bindings);
@@ -731,7 +767,7 @@ static_assert(sizeof(FScriptArrayFns) == 104, "FScriptArrayFns: 13 fn ptrs");
 // --- Binding structs ---
 static_assert(sizeof(UnrealBindings) == 216,
     "UnrealBindings: LogFn(8) + CoreFns(72) + FStringFns(24) + FScriptArrayFns(104) + Option<SpawnEntitiesFn>(8)");
-static_assert(sizeof(RustBindings) == 136, "RustBindings: 7 fn ptrs + 10 Option<fn ptr> = 17 pointers");
+static_assert(sizeof(RustBindings) == 160, "RustBindings: 7 fn ptrs + 13 Option<fn ptr> = 20 pointers");
 static_assert(sizeof(PluginBindings) == 32, "PluginBindings: 4 fn ptrs");
 
 // --- Mass Entity types ---
@@ -828,6 +864,14 @@ static_assert(sizeof(FoodDropEvent) == 32, "FoodDropEvent: i32 + i32 + [f64;3]")
 static_assert(alignof(FoodDropEvent) == 8, "FoodDropEvent alignment");
 static_assert(offsetof(FoodDropEvent, food_index) == 0, "FoodDropEvent.food_index offset");
 static_assert(offsetof(FoodDropEvent, position) == 8, "FoodDropEvent.position offset");
+
+// --- Decision counters ---
+static_assert(sizeof(DecisionCounters) == 56, "DecisionCounters: 7 u64");
+static_assert(alignof(DecisionCounters) == 8, "DecisionCounters alignment");
+static_assert(sizeof(Option<GetDecisionCountersFn>) == sizeof(void*),
+    "Option<fn ptr> must be pointer-sized (Rust niche optimization)");
+static_assert(sizeof(Option<ResetDecisionCountersFn>) == sizeof(void*),
+    "Option<fn ptr> must be pointer-sized (Rust niche optimization)");
 
 // --- Sim defaults ---
 static_assert(sizeof(MassSimDefaultsDesc) == 72, "MassSimDefaultsDesc");

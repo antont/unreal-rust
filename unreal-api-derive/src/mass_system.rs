@@ -846,14 +846,29 @@ pub fn mass_system_impl(func: &ItemFn, order: u32, entity_group: Option<&str>) -
                 }
             }
 
-            // MessageWriter/MessageReader: rewrite to &mut T so they survive the chunk loop.
-            // These Bevy system params are non-Copy and would be moved on the first chunk
-            // iteration, causing a use-after-move error on subsequent chunks.
+            // MessageWriter: rewrite to &mut MessageWriter<T> so it survives the chunk
+            // loop. Writes accumulate correctly across chunks — each chunk appends into
+            // the same queue.
+            //
+            // MessageReader: rewrite to &mut MessageReplay<'_, T>. A real MessageReader
+            // would drain its cursor on the first chunk call and leave later chunks with
+            // an empty queue (see MessageReplay docs). The outer Bevy wrapper
+            // pre-collects the messages once per frame and hands each chunk a fresh
+            // MessageReplay over the shared buffer.
             if let Type::Path(type_path) = &*pat_type.ty {
                 if let Some(seg) = type_path.path.segments.last() {
-                    if seg.ident == "MessageWriter" || seg.ident == "MessageReader" {
+                    if seg.ident == "MessageWriter" {
                         let ty = &pat_type.ty;
                         return quote! { #param_name: &mut #ty };
+                    }
+                    if seg.ident == "MessageReader" {
+                        if let syn::PathArguments::AngleBracketed(args) = &seg.arguments {
+                            if let Some(syn::GenericArgument::Type(inner)) = args.args.first() {
+                                return quote! {
+                                    #param_name: &mut ::unreal_api::mass::MessageReplay<'_, #inner>
+                                };
+                            }
+                        }
                     }
                 }
             }
@@ -1212,18 +1227,76 @@ pub fn mass_system_impl(func: &ItemFn, order: u32, entity_group: Option<&str>) -
                 return quote! { __mass_dt.delta_secs() };
             }
             // Non-Copy passthrough params must survive multiple chunk iterations.
-            // Commands: use reborrow(). MessageWriter/MessageReader: pass &mut.
+            // Commands: use reborrow(). MessageWriter: pass &mut (writes accumulate
+            // correctly). MessageReader: pass &mut to a per-chunk MessageReplay (the
+            // real reader was drained once into a Vec before the loop, see
+            // message_reader_pre_loop_stmts).
             if let Type::Path(type_path) = &*pat_type.ty {
                 if let Some(seg) = type_path.path.segments.last() {
                     if seg.ident == "Commands" {
                         return quote! { #param_name.reborrow() };
                     }
-                    if seg.ident == "MessageWriter" || seg.ident == "MessageReader" {
+                    if seg.ident == "MessageWriter" {
                         return quote! { &mut #param_name };
+                    }
+                    if seg.ident == "MessageReader" {
+                        let replay_name = format_ident!("__msg_replay_{}", param_name);
+                        return quote! { &mut #replay_name };
                     }
                 }
             }
             quote! { #param_name }
+        })
+        .collect();
+
+    // Message reader params: collect (param_name, inner_type) so we can emit the
+    // pre-loop drain + per-chunk replay construction.
+    let message_reader_params: Vec<(syn::Ident, syn::Type)> = func
+        .sig
+        .inputs
+        .iter()
+        .filter_map(|arg| {
+            let FnArg::Typed(pat_type) = arg else { return None };
+            let param_name = match &*pat_type.pat {
+                Pat::Ident(pat_ident) => pat_ident.ident.clone(),
+                _ => return None,
+            };
+            if let Type::Path(type_path) = &*pat_type.ty {
+                if let Some(seg) = type_path.path.segments.last() {
+                    if seg.ident == "MessageReader" {
+                        if let syn::PathArguments::AngleBracketed(args) = &seg.arguments {
+                            if let Some(syn::GenericArgument::Type(inner)) = args.args.first() {
+                                return Some((param_name, inner.clone()));
+                            }
+                        }
+                    }
+                }
+            }
+            None
+        })
+        .collect();
+
+    // Pre-loop: drain each MessageReader into a Vec<T> once per frame. Requires
+    // T: Clone because MessageReader::read() yields &T.
+    let message_reader_pre_loop_stmts: Vec<TokenStream> = message_reader_params
+        .iter()
+        .map(|(name, inner)| {
+            let buf_name = format_ident!("__msg_buf_{}", name);
+            quote! {
+                let #buf_name: ::std::vec::Vec<#inner> = #name.read().cloned().collect();
+            }
+        })
+        .collect();
+
+    // Per-chunk: construct a fresh MessageReplay over the shared buffer.
+    let message_reader_per_chunk_stmts: Vec<TokenStream> = message_reader_params
+        .iter()
+        .map(|(name, _inner)| {
+            let buf_name = format_ident!("__msg_buf_{}", name);
+            let replay_name = format_ident!("__msg_replay_{}", name);
+            quote! {
+                let mut #replay_name = ::unreal_api::mass::MessageReplay::new(&#buf_name);
+            }
         })
         .collect();
 
@@ -1869,6 +1942,7 @@ pub fn mass_system_impl(func: &ItemFn, order: u32, entity_group: Option<&str>) -
             quote! {
                 #(#pre_loop_bevy_stmts)*
                 #(#pre_loop_bevy_tuple_stmts)*
+                #(#message_reader_pre_loop_stmts)*
                 let __chunk_count = #primary_count_source;
                 if __chunk_count > 0 {
                     #pre_loop
@@ -1876,6 +1950,7 @@ pub fn mass_system_impl(func: &ItemFn, order: u32, entity_group: Option<&str>) -
                         #(#bevy_unpack_stmts)*
                         #entity_slice_setup
                         #(#tuple_construct_stmts)*
+                        #(#message_reader_per_chunk_stmts)*
                         #func_name(#(#bevy_call_args),*);
                         #post_chunk
                     }
@@ -1884,6 +1959,7 @@ pub fn mass_system_impl(func: &ItemFn, order: u32, entity_group: Option<&str>) -
                     #(#global_unpack_stmts)*
                     #(#fallback_unpack_stmts)*
                     #(#fallback_tuple_stmts)*
+                    #(#message_reader_per_chunk_stmts)*
                     #func_name(#(#bevy_call_args),*);
                     #(#fallback_writeback_stmts)*
                 }
@@ -1893,11 +1969,13 @@ pub fn mass_system_impl(func: &ItemFn, order: u32, entity_group: Option<&str>) -
             // primary queries now get dual-mode, but keep as safety fallback
             quote! {
                 #(#pre_loop_bevy_tuple_stmts)*
+                #(#message_reader_pre_loop_stmts)*
                 #pre_loop
                 for __chunk_idx in 0..#primary_count_source {
                     #(#bevy_unpack_stmts)*
                     #entity_slice_setup
                     #(#tuple_construct_stmts)*
+                    #(#message_reader_per_chunk_stmts)*
                     #func_name(#(#bevy_call_args),*);
                     #post_chunk
                 }
@@ -1906,6 +1984,8 @@ pub fn mass_system_impl(func: &ItemFn, order: u32, entity_group: Option<&str>) -
     } else {
         quote! {
             #(#global_unpack_stmts)*
+            #(#message_reader_pre_loop_stmts)*
+            #(#message_reader_per_chunk_stmts)*
             #func_name(#(#bevy_call_args),*);
         }
     };
@@ -2074,7 +2154,22 @@ pub fn mass_system_impl(func: &ItemFn, order: u32, entity_group: Option<&str>) -
             #(#passthrough_params,)*
             #(#bevy_dt_param)*
         ) {
+            // Per-system timing (opt-in via UNREAL_RUST_MASS_TIMING=1).
+            // The `enabled` flag is a cached atomic load; when off this is a
+            // single-branch no-op, so unconditional wrapping is safe.
+            let __mass_timing_enabled = ::unreal_api::mass::is_mass_timing_enabled();
+            let __mass_timing_start = if __mass_timing_enabled {
+                Some(::std::time::Instant::now())
+            } else {
+                None
+            };
             #wrapper_body
+            if let Some(__start) = __mass_timing_start {
+                ::unreal_api::mass::record_mass_system_time(
+                    #system_name_str,
+                    __start.elapsed().as_nanos(),
+                );
+            }
         }
 
         #[cfg(feature = "unreal")]

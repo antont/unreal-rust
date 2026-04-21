@@ -51,6 +51,17 @@ pub fn event_derive(input: proc_macro::TokenStream) -> proc_macro::TokenStream {
 ///     for ant in ants.iter_mut() { /* ... */ }
 /// }
 /// ```
+///
+/// **`MessageReader<T>` / `MessageReplay<T>` — `T: Clone` requirement**:
+/// because the macro is called once per Mass Entity chunk, a plain Bevy
+/// `MessageReader` would drain on the first chunk and observe nothing on
+/// subsequent ones. The expansion therefore pre-collects messages into a
+/// shared per-frame buffer with `reader.read().cloned().collect::<Vec<T>>()`
+/// (see the `MessageReplay` buffer construction in `mass_system.rs`), and
+/// hands each chunk a fresh replay view over that buffer. This forces any
+/// message type used as `MessageReader<T>` in a `#[mass_system]` parameter
+/// to implement `Clone`. Payloads are small by convention, `Clone` is cheap,
+/// and this avoids per-chunk borrowed-slice lifetimes.
 #[proc_macro_attribute]
 pub fn mass_system(
     attr: proc_macro::TokenStream,
