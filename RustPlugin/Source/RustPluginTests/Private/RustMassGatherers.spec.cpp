@@ -2590,6 +2590,115 @@ bool FGatherersBevyMassPerfProfileTest::RunTest(const FString& Parameters)
 }
 
 // ---------------------------------------------------------------------------
+// Perf scale sweep: observational, no pass/fail on timings.
+//
+// Sweeps ant count across {1k, 2k, 4k, 8k} and reports sim+drops p50/p99 per
+// scale so we can spot where sim cost goes superlinear. Skips the vis pipeline
+// (UMassRepresentation + UMassUpdateISMProcessor) — at 8k entities the full
+// Tick is dominated by vis (see #162) and would make the sweep unworkably
+// slow. Food count scales with ants (4× food per ant, matching the
+// single-scale BevyMassPerfProfile ratio).
+//
+// Grep recipe:
+//   grep "\[scale-sweep\]" .../RustExampleEditor/RustExample.log
+// ---------------------------------------------------------------------------
+
+IMPLEMENT_SIMPLE_AUTOMATION_TEST(
+	FGatherersBevyMassPerfScaleSweepTest,
+	"supplemental.RustPlugin.Gatherers.BevyMassPerfScaleSweep",
+	EAutomationTestFlags::EditorContext | EAutomationTestFlags::EngineFilter)
+
+bool FGatherersBevyMassPerfScaleSweepTest::RunTest(const FString& Parameters)
+{
+	constexpr int32 WarmupTicks = 20;
+	constexpr int32 MeasuredTicks = 120;
+	constexpr float DeltaTime = 1.0f / 60.0f;
+	constexpr int32 RandomSeed = 42;
+
+	// 4× food:ant ratio matches BevyMassPerfProfile.
+	const TArray<int32> AntCounts = {1000, 2000, 4000, 8000};
+
+	UWorld* World = GEditor->GetEditorWorldContext().World();
+	if (!TestNotNull(TEXT("World must exist"), World)) return false;
+
+	URustMassBevySubsystem* Subsystem = World->GetSubsystem<URustMassBevySubsystem>();
+	if (!TestNotNull(TEXT("RustMassBevySubsystem must exist"), Subsystem)) return false;
+
+	AddExpectedError(TEXT("Template actor type .* is not referring to a valid type"),
+		EAutomationExpectedErrorFlags::Contains, -1);
+
+	const FBox Bounds(FVector(-5000.0, -5000.0, 0.0), FVector(5000.0, 5000.0, 100.0));
+
+	struct FScalePoint
+	{
+		int32 Ants;
+		int32 Food;
+		double Avg;
+		double P50;
+		double P99;
+	};
+	TArray<FScalePoint> Points;
+	Points.Reserve(AntCounts.Num());
+
+	for (int32 Ants : AntCounts)
+	{
+		const int32 Food = Ants * 4;
+
+		Subsystem->ResetSimulation();
+		Subsystem->InitializeSimulation(
+			{{TEXT("ants"), Ants}, {TEXT("food"), Food}},
+			Bounds, RandomSeed);
+
+		TestEqual(TEXT("ant count"), Subsystem->GetGroupEntityCount(TEXT("ants")), Ants);
+		TestEqual(TEXT("food count"), Subsystem->GetGroupEntityCount(TEXT("food")), Food);
+
+		for (int32 i = 0; i < WarmupTicks; ++i)
+		{
+			Subsystem->RunSimulationProcessorsForTesting(DeltaTime);
+		}
+
+		TArray<double> Samples;
+		Samples.Reserve(MeasuredTicks);
+		for (int32 i = 0; i < MeasuredTicks; ++i)
+		{
+			const double T0 = FPlatformTime::Seconds();
+			Subsystem->RunSimulationProcessorsForTesting(DeltaTime);
+			Samples.Add((FPlatformTime::Seconds() - T0) * 1000.0);
+		}
+
+		TArray<double> Sorted = Samples;
+		Sorted.Sort();
+		const double P50 = Sorted[Sorted.Num() / 2];
+		const double P99 = Sorted[(Sorted.Num() * 99) / 100];
+		double Sum = 0.0;
+		for (double S : Samples) { Sum += S; }
+		const double Avg = Sum / Samples.Num();
+
+		Points.Add({Ants, Food, Avg, P50, P99});
+
+		AddInfo(FString::Printf(
+			TEXT("[scale-sweep] ants=%d food=%d ticks=%d avg=%.3fms p50=%.3fms p99=%.3fms"),
+			Ants, Food, MeasuredTicks, Avg, P50, P99));
+	}
+
+	// Relative growth report — flags superlinear scaling.
+	AddInfo(TEXT("[scale-sweep] scaling analysis (p50 ratio vs previous step):"));
+	for (int32 i = 1; i < Points.Num(); ++i)
+	{
+		const double AntRatio = double(Points[i].Ants) / double(Points[i - 1].Ants);
+		const double P50Ratio = Points[i].P50 / FMath::Max(Points[i - 1].P50, KINDA_SMALL_NUMBER);
+		const TCHAR* Verdict = P50Ratio < AntRatio * 1.15 ? TEXT("linear")
+			: P50Ratio < AntRatio * 1.5 ? TEXT("mildly-super") : TEXT("SUPERLINEAR");
+		AddInfo(FString::Printf(
+			TEXT("[scale-sweep]   %d→%d: ants×%.1f p50×%.2f (%s)"),
+			Points[i - 1].Ants, Points[i].Ants, AntRatio, P50Ratio, Verdict));
+	}
+
+	Subsystem->ResetSimulation();
+	return true;
+}
+
+// ---------------------------------------------------------------------------
 // Regression: IsRotationNormalized() assertion in UpdateInstanceTransform
 // ---------------------------------------------------------------------------
 //
