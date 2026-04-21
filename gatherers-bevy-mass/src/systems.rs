@@ -273,22 +273,12 @@ pub unsafe extern "C" fn reset_decision_counters() {
     DECISION_NO_ACTIONS.store(0, Ordering::Relaxed);
 }
 
-/// Control flag: set via FFI before the test run to enable per-frame logging
-/// of decision counters. Checked each frame in `log_decision_counters`.
-static DECISION_LOG_ENABLED: std::sync::atomic::AtomicBool =
-    std::sync::atomic::AtomicBool::new(false);
-
-#[unsafe(no_mangle)]
-pub unsafe extern "C" fn set_decision_log_enabled(enabled: u32) {
-    DECISION_LOG_ENABLED.store(enabled != 0, Ordering::Relaxed);
-}
-
 /// Log decision counters once per frame when enabled + reset. Runs as a
 /// post-dispatch hook so it prints even without a dedicated FFI accessor.
 fn log_decision_counters(_world: &mut bevy_ecs::world::World) {
-    // Fall back to env var so PIE runs can also be toggled from the shell.
-    let env_on = std::env::var("UNREAL_RUST_MASS_TIMING").ok().as_deref() == Some("1");
-    if !env_on && !DECISION_LOG_ENABLED.load(Ordering::Relaxed) {
+    // Toggled via `UNREAL_RUST_MASS_TIMING=1` — same env var that enables
+    // the main timing output, so a single toggle controls both logs.
+    if std::env::var("UNREAL_RUST_MASS_TIMING").ok().as_deref() != Some("1") {
         return;
     }
     let calls = DECISION_CALLS.load(Ordering::Relaxed);
