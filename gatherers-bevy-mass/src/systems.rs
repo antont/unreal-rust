@@ -283,7 +283,7 @@ fn log_decision_counters(_world: &mut bevy_ecs::world::World) {
     }
     let calls = DECISION_CALLS.load(Ordering::Relaxed);
     if calls == 0 { return; }
-    eprintln!(
+    log::info!(
         "[decision-perf] calls={} hits_seen={} ants_seen={} matched={} pickups={} drops={} no_actions={}",
         calls,
         DECISION_HITS_SEEN.load(Ordering::Relaxed),

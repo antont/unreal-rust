@@ -1,6 +1,6 @@
 # Sim cost scales superlinearly with entity count
 
-## Status: Open — baseline measured, root-cause analysis pending
+## Status: Open — slope owner identified (`ant_collision_prepass`), fix TBD
 
 Relates to task #163 (scale sweep).
 
@@ -29,6 +29,30 @@ warmup ticks, with the same 4× food:ant ratio as the single-scale
 Each 2× step in ant count produces roughly 3.7× growth in p50 — very
 close to quadratic.
 
+## Per-system breakdown (2026-04-21, after routing `[mass-perf]` to UE log)
+
+With `UNREAL_RUST_MASS_TIMING=1`, averages across 120 measured ticks
+(20 warmup skipped), same sweep:
+
+| ants | prepass | decision | mutations | carry | bounce | cooldown | total |
+|-----:|--------:|---------:|----------:|------:|-------:|---------:|------:|
+| 1000 |  0.786  |  0.007   |  0.000    | 0.001 | 0.005  | 0.001    | 0.799 |
+| 2000 |  2.859  |  0.018   |  0.000    | 0.003 | 0.011  | 0.002    | 2.892 |
+| 4000 | 11.052  |  0.046   |  0.001    | 0.019 | 0.026  | 0.005    |11.148 |
+| 8000 | 40.810  |  0.120   |  0.002    | 0.086 | 0.064  | 0.011    |41.093 |
+
+All times in ms. `ant_collision_prepass` owns **99.3%** of the cost at
+every scale and its 2× ratios are 3.64× / 3.87× / 3.69× — matching the
+overall slope exactly. Every other system stays well under 0.15 ms even
+at 8k ants.
+
+`ant_collision_prepass` body (`gatherers-bevy-mass/src/systems.rs:169`)
+is a single loop over cooldown-free ants calling
+`spatial.call("food_pickup", &prev, &curr)` per ant. Each call goes
+through `ExecuteGridHashSpatialQuery` (`RustMassBevySubsystem.h:265`).
+The slope therefore lives in the grid query itself, not in the Rust
+iteration or any other system.
+
 ## Interpretation
 
 The fixed 4× food:ant ratio means doubling ants also doubles food, so
@@ -37,21 +61,22 @@ each step effectively does pairwise ant × food spatial work inside the
 ratio, so a near-quadratic slope is consistent with the spatial-query
 layer returning O(density) candidates per ant.
 
-Two hypotheses worth testing before any fix:
+Hypothesis 2 (specific system owns the slope) is now confirmed:
+`ant_collision_prepass` — a per-ant `food_pickup` spatial query —
+carries effectively all the growth. The per-ant loop is O(ants), so
+the superlinear term lives inside each query call: the grid returns
+O(density) candidates, and density rises linearly with food count at
+the fixed 4× ratio. ants × density → quadratic.
 
-1. **Density, not cardinality, drives the slope.** A constant-food
-   sweep (e.g. food=4000 at every ant count) would decouple the two
-   axes: if the growth slope flattens to linear, density is the
-   problem and we should look at GridHash cell size / query radius
-   rather than the per-system algorithm.
-2. **A specific system scales badly.** `ant_collision_prepass` and
-   `ant_food_decision` both touch ants × (food-in-radius); a
-   per-system breakdown at each scale (via the existing
-   `record_mass_system_time` / `drain_mass_system_samples`
-   infrastructure) would pinpoint which system owns the slope.
-   Currently `[mass-perf]` goes through `eprintln!`, which UE on Mac
-   loses when the editor daemonizes — getting this breakdown into
-   the UE log needs a small FFI.
+Next step — isolate density vs cardinality. A constant-food sweep
+(e.g. food=4000 at every ant count) would decouple them:
+  - flat slope → density inside each query dominates. Fix by tuning
+    cell size / query radius, or filtering candidates earlier inside
+    `ExecuteGridHashSpatialQuery`.
+  - still superlinear → something inside the grid call is O(ants) or
+    worse independently of density (e.g. the candidate-list scan or
+    `EntityToIndex` lookup). Reach for `GridHashCounters` at each
+    scale before changing anything.
 
 Task #162 (vis pipeline) is a separate, larger cost at scale (12 s
 full Tick at 10k vs 42 ms sim at 8k).

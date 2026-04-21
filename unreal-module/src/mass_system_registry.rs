@@ -285,7 +285,7 @@ pub unsafe extern "C" fn mass_frame_dispatch(
                     }
                 }
                 buf.push_str(&format!(" total={:.3}ms", (grand_total as f64) / 1_000_000.0));
-                eprintln!("{}", buf);
+                log::info!("{}", buf);
             }
         }
 
