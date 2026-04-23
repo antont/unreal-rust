@@ -72,10 +72,22 @@ pub mod prelude {
     // In Unreal mode it generates chunk-based dispatch + C++ wrappers.
     pub use unreal_api_derive::mass_system;
 
-    // component attribute macro — defines a Bevy Component with automatic
-    // Unreal MassFragment integration. Replaces mass_fragment!/mass_tag! for
-    // game-authored types.
+    // component attribute macro — legacy; prefer #[derive(Component, MassFragment)]
+    // + #[repr(C)] for data fragments, or #[derive(Component, MassFragment)] alone
+    // for tags (unit structs). The attribute form still works and expands to the
+    // same registration.
     pub use unreal_api_derive::component;
+
+    // MassFragment derive — opt-in UE chunk-memory backing.
+    // - On data structs with #[repr(C)]: emits MassFragment + ChunkBacked +
+    //   inventory registration for C++ discovery.
+    // - On unit/empty structs: auto-detected as tag.
+    // - All emitted code is #[cfg(feature = "unreal")]-gated, so this derive
+    //   is a no-op in pure-Bevy builds.
+    // - cpp_type defaults to "F" + BEVY_MASS_CPP_PREFIX + struct_name + suffix
+    //   (suffix = "Fragment" or "Tag"); override with #[mass(cpp_type = "...")].
+    // - #[mass(group = "...")] on a tag emits `impl T { pub const ENTITY_GROUP: &str = "..." }`.
+    pub use unreal_api_derive::MassFragment;
 
     // In Unreal mode, re-export Unreal-specific query types
     #[cfg(feature = "unreal")]
@@ -129,8 +141,7 @@ macro_rules! mass_fragment {
         $(#[$meta])*
         $vis struct $name { $($body)* }
 
-        #[cfg(feature = "unreal")]
-        impl unreal_api::mass::ChunkBacked for $name {}
+        // ChunkBacked impl comes from the MassFragment derive now.
     };
     (cpp_type = $cpp_type:literal, existing, $(#[$meta:meta])* $vis:vis struct $name:ident { $($body:tt)* }) => {
         #[cfg_attr(feature = "unreal", derive(unreal_api::MassFragment))]
@@ -140,8 +151,7 @@ macro_rules! mass_fragment {
         $(#[$meta])*
         $vis struct $name { $($body)* }
 
-        #[cfg(feature = "unreal")]
-        impl unreal_api::mass::ChunkBacked for $name {}
+        // ChunkBacked impl comes from the MassFragment derive now.
     };
     (cpp_type = $cpp_type:literal, $(#[$meta:meta])* $vis:vis struct $name:ident { $($body:tt)* }) => {
         #[cfg_attr(feature = "unreal", derive(unreal_api::MassFragment))]
@@ -151,8 +161,7 @@ macro_rules! mass_fragment {
         $(#[$meta])*
         $vis struct $name { $($body)* }
 
-        #[cfg(feature = "unreal")]
-        impl unreal_api::mass::ChunkBacked for $name {}
+        // ChunkBacked impl comes from the MassFragment derive now.
     };
 }
 
@@ -175,8 +184,7 @@ macro_rules! mass_tag {
         $(#[$meta])*
         $vis struct $name;
 
-        #[cfg(feature = "unreal")]
-        impl unreal_api::mass::ChunkBacked for $name {}
+        // ChunkBacked impl comes from the MassFragment derive now.
     };
     (cpp_type = $cpp_type:literal, existing, $(#[$meta:meta])* $vis:vis struct $name:ident;) => {
         #[cfg_attr(feature = "unreal", derive(unreal_api::MassFragment))]
@@ -185,8 +193,7 @@ macro_rules! mass_tag {
         $(#[$meta])*
         $vis struct $name;
 
-        #[cfg(feature = "unreal")]
-        impl unreal_api::mass::ChunkBacked for $name {}
+        // ChunkBacked impl comes from the MassFragment derive now.
     };
     (cpp_type = $cpp_type:literal, group = $group:literal, $(#[$meta:meta])* $vis:vis struct $name:ident;) => {
         #[cfg_attr(feature = "unreal", derive(unreal_api::MassFragment))]
@@ -195,8 +202,7 @@ macro_rules! mass_tag {
         $(#[$meta])*
         $vis struct $name;
 
-        #[cfg(feature = "unreal")]
-        impl unreal_api::mass::ChunkBacked for $name {}
+        // ChunkBacked impl comes from the MassFragment derive now.
 
         impl $name {
             /// Entity group name for `MassEntityMap` lookup.
@@ -210,8 +216,7 @@ macro_rules! mass_tag {
         $(#[$meta])*
         $vis struct $name;
 
-        #[cfg(feature = "unreal")]
-        impl unreal_api::mass::ChunkBacked for $name {}
+        // ChunkBacked impl comes from the MassFragment derive now.
     };
 }
 

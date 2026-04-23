@@ -1,4 +1,4 @@
-use bevy_mass::prelude::{Component, Entity, DVec3, Resource, component};
+use bevy_mass::prelude::{Component, Entity, DVec3, Resource, MassFragment};
 use bevy_mass::movement::PrevTranslationLike;
 use bevy_ecs::message::Message;
 use std::marker::PhantomData;
@@ -10,19 +10,20 @@ pub use bevy_mass::components::{Transform, Velocity, DesiredMovement, CodeDriven
 // Tags
 // ---------------------------------------------------------------------------
 
-#[component]
+#[derive(Component, MassFragment, Clone, Copy, Debug)]
 pub struct Food;
 
-#[component(group = "ants")]
+#[derive(Component, MassFragment, Clone, Copy, Debug)]
+#[cfg_attr(feature = "unreal", mass(group = "ants"))]
 pub struct Ant;
 
 // ---------------------------------------------------------------------------
 // Data components
 // ---------------------------------------------------------------------------
 
-#[component]
-#[derive(Default)]
 /// Previous-frame translation, used for spatial sweep queries.
+#[repr(C)]
+#[derive(Component, MassFragment, Clone, Copy, Debug, Default)]
 pub struct PreviousTranslation {
     pub value: DVec3,
 }
@@ -40,8 +41,9 @@ pub struct Cooldown {
     pub remaining_seconds: f32,
 }
 
-#[component]
 /// Index of carried food item (-1 = not carrying).
+#[repr(C)]
+#[derive(Component, MassFragment, Clone, Copy, Debug)]
 pub struct Carrying {
     pub food_index: i32,
 }
@@ -52,8 +54,9 @@ impl Default for Carrying {
     }
 }
 
-#[component]
 /// Per-entity behavior tuning (turn jitter, RNG state).
+#[repr(C)]
+#[derive(Component, MassFragment, Clone, Copy, Debug)]
 pub struct Behavior {
     pub turn_jitter_radians: f32,
     pub random_seed: i32,
@@ -68,8 +71,9 @@ impl Default for Behavior {
     }
 }
 
-#[component]
 /// Food entity fragment. Position is in FTransformFragment (shared with vis system).
+#[repr(C)]
+#[derive(Component, MassFragment, Clone, Copy, Debug)]
 pub struct FoodState {
     pub is_loose: bool,
 }
