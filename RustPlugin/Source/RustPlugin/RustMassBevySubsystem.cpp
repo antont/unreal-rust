@@ -725,6 +725,7 @@ bool URustMassBevySubsystem::EnsureProcessorPipelines(UMassEntitySubsystem& Mass
 
 void URustMassBevySubsystem::RunSimulationProcessorStep(float SimulatedDeltaTime)
 {
+	TRACE_CPUPROFILER_EVENT_SCOPE(RustMass_SimStep);
 	if (!HasManagedSimulation())
 	{
 		return;
@@ -754,7 +755,10 @@ void URustMassBevySubsystem::RunSimulationProcessorStep(float SimulatedDeltaTime
 
 	FMassEntityManager& EntityManager = MassEntitySubsystem->GetMutableEntityManager();
 	FMassProcessingContext SimulationContext(EntityManager, SimulatedDeltaTime);
-	UE::Mass::Executor::Run(SimulationProcessorPipeline, SimulationContext);
+	{
+		TRACE_CPUPROFILER_EVENT_SCOPE(RustMass_SimPipelineRun);
+		UE::Mass::Executor::Run(SimulationProcessorPipeline, SimulationContext);
+	}
 
 	// Clear after dispatch
 	for (int32 i = 0; i < RustMassSpatialQuery::MaxQueries; ++i)
@@ -1067,6 +1071,7 @@ void URustMassBevySubsystem::ClearGridHashForGroup(FCollisionGroupEntry& Group)
 
 void URustMassBevySubsystem::ApplyFoodEvents()
 {
+	TRACE_CPUPROFILER_EVENT_SCOPE(RustMass_ApplyFoodEvents);
 	if (CollisionGroups.Num() == 0) return;
 
 	FRustPluginModule& Module = FModuleManager::GetModuleChecked<FRustPluginModule>("RustPlugin");
@@ -1211,6 +1216,7 @@ void URustMassBevySubsystem::TryAutoInitFromRustDefaults()
 
 void URustMassBevySubsystem::Tick(float DeltaTime)
 {
+	TRACE_CPUPROFILER_EVENT_SCOPE(RustMass_Tick);
 	Super::Tick(DeltaTime);
 
 	if (!HasManagedSimulation())
@@ -1255,6 +1261,7 @@ void URustMassBevySubsystem::Tick(float DeltaTime)
 	// Run visualization pipeline (Representation only) after simulation updates transforms
 	if (VisProcessor)
 	{
+		TRACE_CPUPROFILER_EVENT_SCOPE(RustMass_VisPipeline);
 		UWorld* World = GetWorld();
 		UMassEntitySubsystem* MassEntitySubsystem = World ? World->GetSubsystem<UMassEntitySubsystem>() : nullptr;
 		if (MassEntitySubsystem)
