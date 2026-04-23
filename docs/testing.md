@@ -88,6 +88,37 @@ The filter in `RunTests` is a prefix match:
 
 C++ test source: `RustPlugin/Source/RustPluginTests/Private/RustMassGatherers.spec.cpp`
 
+### PIE perf tests (full engine frame cost)
+
+Unlike the other `[perf]` / `[scale-sweep]` tests — which call `Subsystem->Tick()` or `RunSimulationProcessorsForTesting()` directly and therefore bypass `FEngineLoop::Tick` — the PIE perf tests run inside a real Play-In-Editor session. Each measured frame includes render, Slate, actor ticks, other Mass subsystems, and the global world tick. These are the only automation tests that answer "what does a real editor frame cost at N ants?"
+
+Diagnostic-only: no pass/fail on frame times. Results land in the UE log as `[pie-perf]` lines and in the utrace bracketed by `PIEPerf: Begin/End <scenario>` bookmarks.
+
+```bash
+# Run both PIE scenarios (1k and 10k ants) with trace capture
+"/Users/Shared/Epic Games/UE_5.7/Engine/Binaries/Mac/UnrealEditor" \
+  "/Users/tonialatalo/src/unreal-rust/example/RustExample/RustExample.uproject" \
+  -trace=cpu,frame,bookmark \
+  -ExecCmds="Automation RunTests supplemental.RustPlugin.Gatherers.PIE;Quit" \
+  -stdout -FullStdOutLogOutput
+
+# Read the per-scenario summary lines
+grep "\[pie-perf\]" \
+  "/Users/tonialatalo/Library/Logs/Unreal Engine/RustExampleEditor/RustExample.log"
+```
+
+Traces captured with `-trace` are written to the UnrealTraceServer store at `~/UnrealEngine/UnrealTrace/Store/001/*.utrace`. Open the newest one in `UnrealInsights.app` to see `PIEPerf: Begin/End` bookmarks alongside RenderThread / GameThread / MassSimulation scopes and the five `RustMass_*` CPU scopes inside the subsystem.
+
+The `-tracefile=<path>` flag often fails on Mac when Unreal Insights is already running (the trace server auto-connects via local socket instead); the store-written trace is the authoritative one.
+
+Tests:
+- `supplemental.RustPlugin.Gatherers.PIE.FrameCost1k` — 1k ants, 4k food
+- `supplemental.RustPlugin.Gatherers.PIE.FrameCost10k` — 10k ants, 40k food
+
+Both reuse `/Game/Gatherers/GatherersBevyMass` and re-initialize the sim from the test side (`ResetSimulation` + `InitializeSimulation`) after PIE starts, so there are no test-only map assets to maintain.
+
+Test source: `RustPlugin/Source/RustPluginTests/Private/RustMassGatherersPIE.spec.cpp`
+
 ### Rust-authored UE tests
 
 Tests authored in Rust that run inside the UE editor with full Mass Entity + physics support.
