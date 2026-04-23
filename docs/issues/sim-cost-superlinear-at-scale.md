@@ -1,8 +1,44 @@
 # Sim cost scales superlinearly with entity count
 
-## Status: Open — slope owner identified (`ant_collision_prepass`), fix TBD
+## Status: Closed — not pursuing; 1k target is adequate
+
+Slope owner is `ant_collision_prepass` (per-ant `food_pickup` GridHash
+query). No further work planned: the project target is ≤1k ants, where
+the full editor frame hits the 60 Hz v-sync cap (16.67 ms).
+
+The PIE breakdown below also overturned the earlier "vis pipeline at
+scale" concern (#162): at 10k the frame is 76% Rust sim (inside
+`ant_collision_prepass`), not vis. #162 is therefore closed too.
 
 Relates to task #163 (scale sweep).
+
+## PIE breakdown at 10k (2026-04-23, Apple M3 Max)
+
+From `supplemental.RustPlugin.Gatherers.PIE.FrameCost10k`, 65 measured
+frames inside the `PIEPerf: Begin 10k` → `End 10k` window:
+
+| Scope                     | ms/frame | Share of ~86 ms frame |
+|---------------------------|---------:|----------------------:|
+| RustMass_Tick (incl)      |     67.2 |                   78% |
+| └ RustMass_SimStep        |     65.3 |                   76% |
+| └ RustMass_VisPipeline    |      1.7 |                    2% |
+| └ RustMass_ApplyFoodEvents|      0.2 |                  0.3% |
+| MassUpdateISMProcessor    |      1.0 |                  1.2% |
+| Other (render/Slate/...)  |    ~18.8 |                   22% |
+
+`RustMassScheduleCoordinator_1` (sim dispatch) has Excl=Incl=65 ms —
+meaning the entire SimStep cost sits in untraced Rust work, which the
+`[mass-perf]` logs attribute to 99% `ant_collision_prepass`. Vis is a
+rounding error at this scale.
+
+## Decision
+
+At the 1k design target, the full editor frame is 16.67 ms (60 Hz cap),
+`RustMass_Tick` is ~1 ms, and there is no perf problem. Investigating
+further scaling (constant-food density sweep, grid-cell tuning, etc.)
+is out of scope.
+
+## Historical data (kept for reference)
 
 ## Summary
 

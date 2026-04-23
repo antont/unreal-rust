@@ -119,6 +119,23 @@ Both reuse `/Game/Gatherers/GatherersBevyMass` and re-initialize the sim from th
 
 Test source: `RustPlugin/Source/RustPluginTests/Private/RustMassGatherersPIE.spec.cpp`
 
+#### Exporting aggregate timer data from Unreal Insights
+
+The `[pie-perf]` line gives per-frame wall times; the utrace gives per-scope breakdown. For offline analysis (grep/spreadsheet/diffing between runs) you can export the **Timers** panel to CSV:
+
+1. Open the utrace in `UnrealInsights.app`.
+2. (Optional) Select a frame range in the Frames track to scope the aggregates. Without a selection, timers aggregate the whole trace.
+3. Make sure the Timers panel search box is **empty** — a filter there will silently restrict the export.
+4. Right-click any row in the Timers panel → **Export → Export to File…** (NOT the *Timing Events* panel, which dumps raw per-event rows with unresolved IDs).
+
+Output is a UTF-16 CSV with columns `Name,Count,Incl,Excl`; times are in **seconds**. Convert to UTF-8 for grepping:
+
+```bash
+iconv -f UTF-16 -t UTF-8 TimerStats.csv | grep -E "RustMass_|RustMassDynamicProcessor|RustMassScheduleCoordinator"
+```
+
+`RustMassScheduleCoordinator_1` holds the whole dispatched Rust sim cost; `RustMassDynamicProcessor_N` rows are the per-system chunk-pointer cache rebuild (cache-only mode — the actual system work happens inside the coordinator).
+
 ### Rust-authored UE tests
 
 Tests authored in Rust that run inside the UE editor with full Mass Entity + physics support.
