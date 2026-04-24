@@ -1,5 +1,5 @@
 #[cfg(not(feature = "unreal"))]
-use crate::components::{AntFoodHit, FoodMutation, Transform};
+use crate::components::{AntFoodHit, Food, FoodMutation, Transform};
 use crate::components::{Behavior, Carrying, Cooldown, DesiredMovement, FoodEncounter};
 pub use crate::components::{
     DECISION_DROP, DECISION_NO_ACTION, DECISION_PICK_UP, FoodDecisionCode,
@@ -7,9 +7,11 @@ pub use crate::components::{
 #[cfg(not(feature = "unreal"))]
 use bevy_ecs::message::{MessageReader, MessageWriter};
 #[cfg(not(feature = "unreal"))]
-use bevy_ecs::prelude::Commands;
+use bevy_ecs::prelude::{Commands, Res};
 #[cfg(not(feature = "unreal"))]
 use bevy_mass::prelude::Query;
+#[cfg(not(feature = "unreal"))]
+use bevy_mass::prelude::EntityIndex;
 use glam::DVec3;
 
 /// Pickup separation distance (matches C++ GatherersMassPickupSeparationDistance)
@@ -39,7 +41,7 @@ pub fn ant_food_decision(
         return DECISION_NO_ACTION;
     }
 
-    let is_carrying = carrying.food_index >= 0;
+    let is_carrying = carrying.is_carrying();
 
     match encounter {
         Some(enc) if is_carrying => {
@@ -136,6 +138,7 @@ pub fn food_decision_system(
         &mut Carrying,
         &mut Behavior,
     )>,
+    food_entities: Res<EntityIndex<Food>>,
     mut commands: Commands,
 ) {
     for hit in hits.read() {
@@ -166,12 +169,20 @@ pub fn food_decision_system(
 
         if decision != DECISION_NO_ACTION {
             commands.entity(hit.hitter_entity).insert(cd);
+            // On DROP the mutated food is the one previously carried
+            // (old_food_index) — not the one just encountered. Resolve its
+            // entity via the spawn-order index.
+            let (food_index, food_entity) = if decision == DECISION_DROP {
+                let entity = food_entities
+                    .get(old_food_index as usize)
+                    .unwrap_or(hit.hittable_entity);
+                (old_food_index, entity)
+            } else {
+                (hit.hittable_index, hit.hittable_entity)
+            };
             food_mutations.write(FoodMutation {
-                food_index: if decision == DECISION_DROP {
-                    old_food_index
-                } else {
-                    hit.hittable_index
-                },
+                food_index,
+                food_entity,
                 decision,
                 drop_position: pos_before,
             });
@@ -408,7 +419,7 @@ mod tests {
             Some(&food_0),
         );
         assert_eq!(result, DECISION_PICK_UP);
-        assert!(carry.food_index >= 0, "ant should be carrying");
+        assert!(carry.is_carrying(), "ant should be carrying");
 
         // Frame 2: ant encounters food_1 nearby — should NOT drop immediately
         let food_1 = FoodEncounter {

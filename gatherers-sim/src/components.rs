@@ -42,6 +42,11 @@ pub struct Cooldown {
 }
 
 /// Index of carried food item (-1 = not carrying).
+///
+/// Stays `i32` because this fragment is `#[repr(C)]` with a matching C++
+/// layout — no `Entity` equivalent on the C++ side. Game code should
+/// prefer `is_carrying()` and `carried_entity()` over reading
+/// `food_index` directly.
 #[repr(C)]
 #[derive(Component, MassFragment, Clone, Copy, Debug)]
 pub struct Carrying {
@@ -51,6 +56,13 @@ pub struct Carrying {
 impl Default for Carrying {
     fn default() -> Self {
         Self { food_index: -1 }
+    }
+}
+
+impl Carrying {
+    /// Idiomatic check — reads better than `carry.food_index >= 0`.
+    pub fn is_carrying(&self) -> bool {
+        self.food_index >= 0
     }
 }
 
@@ -118,19 +130,34 @@ pub const DECISION_DROP: FoodDecisionCode = 2;
 /// A collision between a hittable entity and a hitter entity.
 /// Generic over marker types for type safety (matching original gatherers).
 ///
-/// Carries the hittable's index (not entity) because in Unreal mode food lives
-/// in Mass Entity chunks without Bevy entities.
+/// Carries both the hittable's `Entity` (for idiomatic Bevy-style lookup)
+/// and its chunk-slot `i32` index (still needed to construct
+/// `FoodEncounter`, whose `food_index` field is `#[repr(C)]` and fed to
+/// the pure decision function). In Unreal mode the Entity is a shadow
+/// Bevy entity resolved via `MassEntityMap` at the spatial-query boundary.
 #[derive(Debug, Clone, Message)]
 pub struct HitEvent<Hittable: 'static, Hitter: 'static> {
     pub hittable_index: i32,
+    pub hittable_entity: Entity,
     pub hitter_entity: Entity,
     pub encounter_position: DVec3,
     _phantom: PhantomData<(Hittable, Hitter)>,
 }
 
 impl<H: 'static, T: 'static> HitEvent<H, T> {
-    pub fn new(hittable_index: i32, hitter_entity: Entity, encounter_position: DVec3) -> Self {
-        Self { hittable_index, hitter_entity, encounter_position, _phantom: PhantomData }
+    pub fn new(
+        hittable_index: i32,
+        hittable_entity: Entity,
+        hitter_entity: Entity,
+        encounter_position: DVec3,
+    ) -> Self {
+        Self {
+            hittable_index,
+            hittable_entity,
+            hitter_entity,
+            encounter_position,
+            _phantom: PhantomData,
+        }
     }
 }
 
@@ -139,9 +166,14 @@ pub type AntFoodHit = HitEvent<Food, Ant>;
 
 /// Food-side mutation produced by the decision system, consumed by
 /// a mode-specific apply system that can access food data.
+///
+/// Carries both `food_entity` (idiomatic lookup) and `food_index`
+/// (chunk-slot, still needed by the FFI `FoodDropEvents`/`FoodPickupEvents`
+/// payloads on the C++ side).
 #[derive(Debug, Clone, Message)]
 pub struct FoodMutation {
     pub food_index: i32,
+    pub food_entity: Entity,
     pub decision: FoodDecisionCode,
     pub drop_position: DVec3,
 }

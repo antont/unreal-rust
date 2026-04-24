@@ -175,15 +175,15 @@ fn collision_prepass(
     food_entities: Res<EntityIndex<Food>>,
     mut hits: MessageWriter<AntFoodHit>,
 ) {
-    // Snapshot loose food positions for proximity search
-    let loose_food: Vec<(i32, DVec3)> = food_entities
+    // Snapshot loose food (index, entity, position) for proximity search.
+    let loose_food: Vec<(i32, Entity, DVec3)> = food_entities
         .entities
         .iter()
         .enumerate()
         .filter_map(|(idx, &entity)| {
             foods.get(entity).ok().and_then(|(f, sim_t)| {
                 if f.is_loose {
-                    Some((idx as i32, sim_t.translation))
+                    Some((idx as i32, entity, sim_t.translation))
                 } else {
                     None
                 }
@@ -192,17 +192,17 @@ fn collision_prepass(
         .collect();
 
     for (ant_entity, sim_t) in &ants {
-        if let Some(&(food_idx, food_pos)) = loose_food
+        if let Some(&(food_idx, food_entity, food_pos)) = loose_food
             .iter()
-            .filter(|(_, fp)| (sim_t.translation - *fp).length_squared() < PICKUP_RADIUS * PICKUP_RADIUS)
-            .min_by(|(_, a), (_, b)| {
+            .filter(|(_, _, fp)| (sim_t.translation - *fp).length_squared() < PICKUP_RADIUS * PICKUP_RADIUS)
+            .min_by(|(_, _, a), (_, _, b)| {
                 (sim_t.translation - *a)
                     .length_squared()
                     .partial_cmp(&(sim_t.translation - *b).length_squared())
                     .unwrap()
             })
         {
-            hits.write(AntFoodHit::new(food_idx, ant_entity, food_pos));
+            hits.write(AntFoodHit::new(food_idx, food_entity, ant_entity, food_pos));
         }
     }
 }
@@ -247,7 +247,7 @@ fn sync_food_transforms(
     // Build a map: food_index → ant position (for carried food)
     let mut carried_positions: Vec<Option<DVec3>> = vec![None; food_entities.entities.len()];
     for (sim_t, carry) in &ants {
-        if carry.food_index >= 0 && (carry.food_index as usize) < carried_positions.len() {
+        if carry.is_carrying() && (carry.food_index as usize) < carried_positions.len() {
             carried_positions[carry.food_index as usize] = Some(sim_t.translation);
         }
     }

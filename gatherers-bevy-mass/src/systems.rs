@@ -169,12 +169,20 @@ inventory::submit!(unreal_api::mass::MassExternBinding {
 fn ant_collision_prepass(
     ants: Query<(Entity, &Transform, &PreviousTranslation), (With<Ant>, Without<Cooldown>)>,
     spatial: Res<SpatialQuery>,
+    entity_map: Res<unreal_api::mass::MassEntityMap>,
     mut hits: MessageWriter<AntFoodHit>,
 ) {
     for (entity, transform, prev) in &mut ants {
         if let Some(hit) = spatial.call("food_pickup", &prev.value, &transform.translation) {
+            // Resolve chunk-slot index to a shadow Bevy Entity so downstream
+            // systems can use Entity-based lookups. Missing entries
+            // (shouldn't happen) fall through to `Entity::PLACEHOLDER`.
+            let food_entity = entity_map
+                .get("food", hit.entity_index as usize)
+                .unwrap_or(bevy_ecs::entity::Entity::PLACEHOLDER);
             hits.write(AntFoodHit::new(
                 hit.entity_index,
+                food_entity,
                 entity,
                 hit.position,
             ));
@@ -194,6 +202,7 @@ fn ant_food_decision(
         (With<Ant>, Without<Cooldown>),
     >,
     mut hits: MessageReader<AntFoodHit>,
+    entity_map: Res<unreal_api::mass::MassEntityMap>,
     mut food_mutations: MessageWriter<FoodMutation>,
     mut commands: Commands,
 ) {
@@ -202,12 +211,12 @@ fn ant_food_decision(
     // Build entity → hit lookup from messages (read once, lookup per entity)
     let hit_map: HashMap<bevy_ecs::entity::Entity, _> = hits.read()
         .inspect(|_| { DECISION_HITS_SEEN.fetch_add(1, Ordering::Relaxed); })
-        .map(|h| (h.hitter_entity, (h.hittable_index, h.encounter_position)))
+        .map(|h| (h.hitter_entity, (h.hittable_index, h.hittable_entity, h.encounter_position)))
         .collect();
 
     for (entity, transform, mut movement, mut carry, mut behavior) in &mut ants {
         DECISION_ANTS_SEEN.fetch_add(1, Ordering::Relaxed);
-        let Some(&(hittable_index, encounter_position)) = hit_map.get(&entity) else {
+        let Some(&(hittable_index, hittable_entity, encounter_position)) = hit_map.get(&entity) else {
             continue;
         };
         DECISION_MATCHED.fetch_add(1, Ordering::Relaxed);
@@ -236,8 +245,20 @@ fn ant_food_decision(
 
         if decision != DECISION_NO_ACTION {
             commands.entity(entity).insert(cd);
+            // On DROP the mutated food is the one previously carried — not
+            // the one just encountered. Resolve its shadow entity via
+            // `MassEntityMap` from the chunk-slot index.
+            let (food_index, food_entity) = if decision == DECISION_DROP {
+                let ent = entity_map
+                    .get("food", old_food_index as usize)
+                    .unwrap_or(hittable_entity);
+                (old_food_index, ent)
+            } else {
+                (hittable_index, hittable_entity)
+            };
             food_mutations.write(FoodMutation {
-                food_index: if decision == DECISION_DROP { old_food_index } else { hittable_index },
+                food_index,
+                food_entity,
                 decision,
                 drop_position: pos_before,
             });
@@ -335,7 +356,7 @@ fn carried_food_tracking(
     food_transforms: QueryAll<&mut Transform, With<Food>>,
 ) {
     for (transform, carry) in &mut ants {
-        if carry.food_index >= 0 {
+        if carry.is_carrying() {
             if let Some(food_tf) = food_transforms.get_mut(carry.food_index as usize) {
                 food_tf.translation = transform.translation + DVec3::new(0.0, 0.0, 15.0);
             }
@@ -376,6 +397,7 @@ mod tests {
 
         let mutation = FoodMutation {
             food_index: 0,
+            food_entity: bevy_ecs::entity::Entity::PLACEHOLDER,
             decision: DECISION_PICK_UP,
             drop_position: DVec3::ZERO,
         };
@@ -406,6 +428,7 @@ mod tests {
         let drop_pos = DVec3::new(200.0, 100.0, 0.0);
         let mutation = FoodMutation {
             food_index: 0,
+            food_entity: bevy_ecs::entity::Entity::PLACEHOLDER,
             decision: DECISION_DROP,
             drop_position: drop_pos,
         };

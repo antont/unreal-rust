@@ -134,7 +134,7 @@ fn food_pickup(ctx: &TestCtx) {
     ctx.step(0.016, 20);
 
     let carry = ctx.read::<Carrying>("ants", 0).unwrap();
-    assert!(carry.food_index >= 0,
+    assert!(carry.is_carrying(),
         "ant should have picked up food: food_index={}", carry.food_index);
     assert_eq!(carry.food_index, 0,
         "carried food index should be 0");
@@ -211,12 +211,12 @@ fn food_pickup_multi_chunk(ctx: &TestCtx) {
     let late_carry = ctx.read::<Carrying>("ants", LATE_ANT).unwrap();
 
     assert!(
-        early_carry.food_index >= 0,
+        early_carry.is_carrying(),
         "ant {EARLY_ANT} (early chunk) should have picked up food: got {}",
         early_carry.food_index,
     );
     assert!(
-        late_carry.food_index >= 0,
+        late_carry.is_carrying(),
         "ant {LATE_ANT} (late chunk) should have picked up food: got {}. \
          If only the early-chunk ant picks up, the #[mass_system] macro is \
          draining MessageReader on the first chunk call and leaving later \
@@ -296,7 +296,7 @@ fn cooldown_recovery(ctx: &TestCtx) {
     let mut carrying_count = 0;
     for i in 0..10u32 {
         let carry = ctx.read::<Carrying>("ants", i).unwrap();
-        if carry.food_index >= 0 {
+        if carry.is_carrying() {
             carrying_count += 1;
         }
     }
@@ -355,7 +355,7 @@ fn cooldown_recovery(ctx: &TestCtx) {
     let mut failed_ants: Vec<String> = Vec::new();
     for ant_idx in 0..place_count {
         let carry = ctx.read::<Carrying>("ants", ant_idx as u32).unwrap();
-        if carry.food_index >= 0 {
+        if carry.is_carrying() {
             picked_up += 1;
         } else {
             let t = ctx.read::<Transform>("ants", ant_idx as u32).unwrap();
@@ -411,7 +411,7 @@ fn cooldown_cycle(ctx: &TestCtx) {
     ctx.step(0.016, 10);
 
     let carry1 = ctx.read::<Carrying>("ants", 0).unwrap();
-    assert!(carry1.food_index >= 0,
+    assert!(carry1.is_carrying(),
         "Phase 1: ant should pick up food after 10 steps: food_index={}",
         carry1.food_index);
 
@@ -447,7 +447,7 @@ fn cooldown_cycle(ctx: &TestCtx) {
             ctx.step(0.016, 10);
 
             let carry3 = ctx.read::<Carrying>("ants", 0).unwrap();
-            assert!(carry3.food_index >= 0,
+            assert!(carry3.is_carrying(),
                 "Phase 3: ant should pick up food again after cooldown: food_index={} \
                  (if -1, cooldown may be stuck)",
                 carry3.food_index);
