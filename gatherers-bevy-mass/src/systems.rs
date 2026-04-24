@@ -165,7 +165,7 @@ inventory::submit!(unreal_api::mass::MassExternBinding {
 // emit HitEvent messages (matching original gatherers CollisionPlugin pattern)
 // ---------------------------------------------------------------------------
 
-#[mass_system(order = 20)]
+#[mass_system]
 fn ant_collision_prepass(
     ants: Query<(Entity, &Transform, &PreviousTranslation), (With<Ant>, Without<Cooldown>)>,
     spatial: Res<SpatialQuery>,
@@ -195,7 +195,7 @@ fn ant_collision_prepass(
 // function, inserts Cooldown, emits FoodMutation messages
 // ---------------------------------------------------------------------------
 
-#[mass_system(order = 30)]
+#[mass_system]
 fn ant_food_decision(
     mut ants: Query<
         (Entity, &Transform, &mut DesiredMovement, &mut Carrying, &mut Behavior),
@@ -326,7 +326,7 @@ inventory::submit!(unreal_api::mass::MassDispatchHook {
 // System 3b: Apply food mutations — reads FoodMutation messages, updates food
 // ---------------------------------------------------------------------------
 
-#[mass_system(order = 35)]
+#[mass_system]
 fn apply_food_mutations(
     mut mutations: MessageReader<FoodMutation>,
     foods: QueryAll<&mut FoodState, With<Food>>,
@@ -350,7 +350,7 @@ fn apply_food_mutations(
 // System 4: Carried food tracking — update food position to follow carrying ant
 // ---------------------------------------------------------------------------
 
-#[mass_system(order = 45)]
+#[mass_system]
 fn carried_food_tracking(
     ants: Query<(&Transform, &Carrying), With<Ant>>,
     food_transforms: QueryAll<&mut Transform, With<Food>>,

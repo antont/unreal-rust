@@ -68,8 +68,11 @@ pub fn mass_system(
     item: proc_macro::TokenStream,
 ) -> proc_macro::TokenStream {
     let func: syn::ItemFn = syn::parse(item).unwrap();
+    // order defaults to sentinel u32::MAX when absent; resolved at plugin init
+    // via `MassScheduleOrder` registration. Entries without an explicit order
+    // and without a schedule entry will sort to the end.
     let parsed = mass_system::parse_mass_system_attr_full(attr.into())
-        .unwrap_or(mass_system::MassSystemAttr { order: 0, entity_group: None });
+        .unwrap_or(mass_system::MassSystemAttr { order: u32::MAX, entity_group: None });
     match mass_system::mass_system_impl(&func, parsed.order, parsed.entity_group.as_deref()) {
         Ok(tokens) => tokens.into(),
         Err(err) => err.to_compile_error().into(),

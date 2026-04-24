@@ -4,9 +4,10 @@ use unreal_api::ffi::{MassFragmentRequirement, MassSystemDescriptor, Utf8Str};
 use unreal_api::mass::{
     MassBevySystemRegistration, MassEntityMap, MassSchedule,
     MassSystemRegistration, MassSystemStage,
-    registered_bevy_mass_systems, registered_dispatch_hooks, registered_mass_systems,
-    registered_sim_inits, registered_visualizer_groups, registered_spatial_query_configs,
-    registered_sim_defaults,
+    effective_order, registered_bevy_mass_systems, registered_dispatch_hooks,
+    registered_mass_systems, registered_sim_inits, registered_visualizer_groups,
+    registered_spatial_query_configs, registered_sim_defaults,
+    resolved_schedule_orders,
 };
 use bevy_mass::SpatialQuery;
 
@@ -77,11 +78,17 @@ pub unsafe extern "C" fn get_mass_system_descriptor(
     };
     cache.0.push(boxed);
 
+    // Apply schedule-order overrides: when a system omitted `order = N`,
+    // its declared value is `u32::MAX` and we resolve it from any
+    // registered `MassScheduleOrder`. Explicit `order = N` wins.
+    let overrides = resolved_schedule_orders();
+    let resolved = effective_order(registration.name, registration.order, &overrides);
+
     unsafe {
         (*out) = MassSystemDescriptor {
             name: Utf8Str::from(registration.name),
             num_requirements: requirements_len as u32,
-            order: registration.order,
+            order: resolved,
             requirements: requirements_ptr,
             execute_fn: registration.execute_fn,
         };
@@ -127,9 +134,13 @@ pub fn build_bevy_schedule() -> MassSchedule {
     let mut regs: Vec<&MassBevySystemRegistration> =
         registered_bevy_mass_systems().into_iter().collect();
 
-    // Sort by execution order so stages are assigned deterministically,
-    // regardless of inventory discovery order.
-    regs.sort_by_key(|r| r.order);
+    // Apply schedule-order overrides, then sort. Systems whose `order` was
+    // omitted (sentinel `u32::MAX`) get their number from any registered
+    // `MassScheduleOrder`; anything still at `u32::MAX` sorts last — that
+    // makes a missing entry loud (it runs after everything else instead of
+    // silently first).
+    let overrides = resolved_schedule_orders();
+    regs.sort_by_key(|r| effective_order(r.name, r.order, &overrides));
 
     // Sequential stage ordering: stage i runs after stage i-1
     for i in 1..regs.len() {

@@ -14,7 +14,7 @@
 //! ```ignore
 //! use bevy_mass::prelude::*;
 //!
-//! #[mass_system(order = 10)]
+//! #[mass_system]
 //! fn my_system(mut things: Query<&mut MyFragment>, time: Res<Time>) {
 //!     let dt = time.delta_secs();
 //!     for thing in &mut things {

@@ -1673,6 +1673,72 @@ pub fn registered_bevy_mass_systems() -> inventory::iter<MassBevySystemRegistrat
     inventory::iter::<MassBevySystemRegistration>
 }
 
+/// Plugin-declared system execution order.
+///
+/// Game code submits one of these per pipeline via `inventory::submit!`,
+/// listing `#[mass_system]` function names in the order they should run.
+/// The framework maps each name to a numeric `order` value with a fixed
+/// stride so both the Bevy schedule and the C++ processor pipeline agree
+/// on the sequence.
+///
+/// This is the Bevy-idiomatic replacement for sprinkling `order = N` on
+/// every `#[mass_system]` attribute. Systems whose name is not listed
+/// keep whatever `order` value they were declared with (defaulting to
+/// `u32::MAX` sentinel, i.e. "run last").
+pub struct MassScheduleOrder {
+    /// Ordered list of `#[mass_system]` function names, first runs first.
+    pub systems: &'static [&'static str],
+}
+
+inventory::collect!(MassScheduleOrder);
+
+/// Returns all registered schedule-order declarations.
+pub fn registered_schedule_orders() -> inventory::iter<MassScheduleOrder> {
+    inventory::iter::<MassScheduleOrder>
+}
+
+/// Stride between consecutive schedule entries. Gaps let late-added
+/// systems slot in without renumbering everything.
+const MASS_SCHEDULE_STRIDE: u32 = 10;
+
+/// Build `name → order` overrides from every registered `MassScheduleOrder`.
+///
+/// Multiple declarations are merged by appending — each declaration's
+/// internal sequence is preserved, and names from later declarations
+/// continue numbering past the tail of earlier ones. If the same name
+/// appears more than once, the first occurrence wins.
+pub fn resolved_schedule_orders() -> std::collections::HashMap<&'static str, u32> {
+    let mut map = std::collections::HashMap::new();
+    let mut next: u32 = MASS_SCHEDULE_STRIDE;
+    for decl in registered_schedule_orders() {
+        for name in decl.systems {
+            if !map.contains_key(*name) {
+                map.insert(*name, next);
+                next = next.saturating_add(MASS_SCHEDULE_STRIDE);
+            }
+        }
+    }
+    map
+}
+
+/// Resolve the effective execution order for a system.
+///
+/// Explicit `order = N` on `#[mass_system]` still wins (for backward
+/// compatibility and any edge cases). If the system was declared without
+/// an order (sentinel `u32::MAX`), we consult the schedule override map.
+/// Systems that appear in neither retain `u32::MAX`, which sorts them to
+/// the end of the pipeline and makes the omission visible.
+pub fn effective_order(
+    name: &str,
+    declared: u32,
+    overrides: &std::collections::HashMap<&'static str, u32>,
+) -> u32 {
+    if declared != u32::MAX {
+        return declared;
+    }
+    overrides.get(name).copied().unwrap_or(u32::MAX)
+}
+
 /// Pre/post-dispatch hooks for game-specific logic around `sched.run()`.
 ///
 /// `pre_dispatch` runs inside `catch_unwind`, before `sched.run()`.
@@ -2012,6 +2078,29 @@ mod tests {
 
     impl MassFragment for TestFragment {
         const CPP_TYPE_NAME: &'static str = "FTestFragment";
+    }
+
+    #[test]
+    fn effective_order_prefers_explicit_order() {
+        let mut map = std::collections::HashMap::new();
+        map.insert("foo", 99);
+        // Explicit `order = 42` on attr — not overridden by the schedule list.
+        assert_eq!(effective_order("foo", 42, &map), 42);
+    }
+
+    #[test]
+    fn effective_order_uses_override_when_sentinel() {
+        let mut map = std::collections::HashMap::new();
+        map.insert("foo", 20);
+        // Declared as `u32::MAX` (no explicit order) — resolved via the map.
+        assert_eq!(effective_order("foo", u32::MAX, &map), 20);
+    }
+
+    #[test]
+    fn effective_order_unknown_name_stays_sentinel() {
+        let map = std::collections::HashMap::new();
+        // Neither explicit nor in the schedule: stays at the end.
+        assert_eq!(effective_order("bar", u32::MAX, &map), u32::MAX);
     }
 
     #[test]

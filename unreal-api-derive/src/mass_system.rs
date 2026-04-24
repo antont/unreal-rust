@@ -483,7 +483,13 @@ pub struct MassSystemAttr {
     pub entity_group: Option<String>,
 }
 
-/// Parse `#[mass_system(order = N)]` or `#[mass_system(order = N, entity_group = "name")]`.
+/// Parse `#[mass_system]`, `#[mass_system(order = N)]`,
+/// `#[mass_system(entity_group = "name")]`, or both together.
+///
+/// Returns `None` only if the attribute is empty (callers default to the
+/// `u32::MAX` sentinel). When at least one recognised key is present, both
+/// fields are populated (possibly with `order = u32::MAX` if only
+/// `entity_group` was given).
 pub fn parse_mass_system_attr_full(attr: TokenStream) -> Option<MassSystemAttr> {
     if attr.is_empty() {
         return None;
@@ -497,8 +503,11 @@ pub fn parse_mass_system_attr_full(attr: TokenStream) -> Option<MassSystemAttr> 
     let parsed_single: syn::Result<syn::ExprAssign> = syn::parse2(attr.clone());
     if let Ok(assign) = parsed_single {
         parse_assignment(&assign, &mut order, &mut entity_group);
-        if let Some(ord) = order {
-            return Some(MassSystemAttr { order: ord, entity_group });
+        if order.is_some() || entity_group.is_some() {
+            return Some(MassSystemAttr {
+                order: order.unwrap_or(u32::MAX),
+                entity_group,
+            });
         }
     }
 
@@ -517,7 +526,14 @@ pub fn parse_mass_system_attr_full(attr: TokenStream) -> Option<MassSystemAttr> 
         }
     }
 
-    order.map(|ord| MassSystemAttr { order: ord, entity_group })
+    if order.is_some() || entity_group.is_some() {
+        Some(MassSystemAttr {
+            order: order.unwrap_or(u32::MAX),
+            entity_group,
+        })
+    } else {
+        None
+    }
 }
 
 fn parse_assignment(
@@ -2844,6 +2860,14 @@ mod tests {
         let parsed = parse_mass_system_attr_full(attr).unwrap();
         assert_eq!(parsed.order, 10);
         assert_eq!(parsed.entity_group, None);
+    }
+
+    #[test]
+    fn parse_entity_group_without_order_defaults_to_sentinel() {
+        let attr = quote! { entity_group = "ants" };
+        let parsed = parse_mass_system_attr_full(attr).unwrap();
+        assert_eq!(parsed.order, u32::MAX);
+        assert_eq!(parsed.entity_group.as_deref(), Some("ants"));
     }
 
     // -----------------------------------------------------------------------
