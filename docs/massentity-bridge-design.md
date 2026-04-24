@@ -40,7 +40,7 @@ User's Rust system functions (standard Bevy syntax)
 
 3. **C++ configures queries** from the requirement list. Each requirement specifies the C++ fragment type name, access mode (read/write), whether it's a tag, and query scope (primary or global).
 
-4. **Bevy schedule is built** from registered systems, ordered by the `order` attribute on `#[mass_system(order = N)]`.
+4. **Bevy schedule is built** from registered systems. Execution order comes from a plugin-level `MassScheduleOrder` inventory submission that lists system names in order; the framework resolves that to numeric order values (stride 10) that both the Bevy schedule and the C++ processor pipeline respect. Explicit `order = N` on `#[mass_system]` is still honored for legacy cases.
 
 ### Every frame
 
@@ -53,7 +53,7 @@ User's Rust system functions (standard Bevy syntax)
 ### Example system (dual-mode)
 
 ```rust
-#[mass_system(order = 50)]
+#[mass_system]
 pub fn entity_boundary_reflect(
     transforms: Query<&Transform>,
     mut movements: Query<&mut DesiredMovement>,
@@ -74,7 +74,7 @@ pub fn entity_boundary_reflect(
 ### Example with QueryAll (index-based global access)
 
 ```rust
-#[mass_system(order = 45)]
+#[mass_system]
 fn carried_food_tracking(
     ants: Query<(&Transform, &Carrying), With<Ant>>,
     food_transforms: QueryAll<&mut Transform, With<Food>>,
