@@ -163,11 +163,9 @@ inventory::submit!(unreal_api::mass::MassExternBinding {
 #[mass_system]
 fn ant_collision_prepass(
     ants: Query<(Entity, &Transform, &PreviousTranslation), (With<Ant>, Without<Cooldown>)>,
-    spatial: Res<SpatialQuery>,
-    entity_map: Res<unreal_api::mass::MassEntityMap>,
+    spatial: SpatialQueries,
     mut hits: MessageWriter<AntFoodHit>,
 ) {
-    let spatial = spatial.with_map(&entity_map);
     for (entity, transform, prev) in &mut ants {
         if let Some(hit) = spatial.call("food_pickup", &prev.value, &transform.translation) {
             hits.write(AntFoodHit::new(

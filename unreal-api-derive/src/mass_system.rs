@@ -886,6 +886,12 @@ pub fn mass_system_impl(func: &ItemFn, order: u32, entity_group: Option<&str>) -
                             }
                         }
                     }
+                    // SpatialQueries: pass by shared reference so the wrapper's
+                    // SystemParam value isn't moved on the first chunk-loop iteration.
+                    if seg.ident == "SpatialQueries" {
+                        let ty = &pat_type.ty;
+                        return quote! { #param_name: &#ty };
+                    }
                 }
             }
 
@@ -1246,7 +1252,8 @@ pub fn mass_system_impl(func: &ItemFn, order: u32, entity_group: Option<&str>) -
             // Commands: use reborrow(). MessageWriter: pass &mut (writes accumulate
             // correctly). MessageReader: pass &mut to a per-chunk MessageReplay (the
             // real reader was drained once into a Vec before the loop, see
-            // message_reader_pre_loop_stmts).
+            // message_reader_pre_loop_stmts). SpatialQueries: pass by shared ref
+            // (its methods all take `&self`).
             if let Type::Path(type_path) = &*pat_type.ty {
                 if let Some(seg) = type_path.path.segments.last() {
                     if seg.ident == "Commands" {
@@ -1258,6 +1265,9 @@ pub fn mass_system_impl(func: &ItemFn, order: u32, entity_group: Option<&str>) -
                     if seg.ident == "MessageReader" {
                         let replay_name = format_ident!("__msg_replay_{}", param_name);
                         return quote! { &mut #replay_name };
+                    }
+                    if seg.ident == "SpatialQueries" {
+                        return quote! { &#param_name };
                     }
                 }
             }

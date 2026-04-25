@@ -64,8 +64,10 @@ pub mod prelude {
     #[cfg(feature = "unreal")]
     pub use crate::query_all::QueryAll;
 
-    // Spatial query facade
-    pub use crate::spatial_query::{SpatialQuery, SpatialHit};
+    // Spatial query facade. `SpatialQueries` is the game-facing
+    // `SystemParam` that hides the `MassEntityMap` borrow; `SpatialQuery`
+    // is the underlying resource used by the frame dispatcher.
+    pub use crate::spatial_query::{SpatialQueries, SpatialQuery, SpatialHit};
 
     // mass_system attribute macro — available unconditionally.
     // In Bevy mode it's a no-op (passes through the original function).
@@ -106,7 +108,7 @@ pub use query::BevyQuery;
 pub use components::{Transform, Velocity, DesiredMovement, CodeDrivenMovementTag};
 pub use movement::{TransformLike, PrevTranslationLike, DesiredMovementLike, MovementPlugin};
 pub use query_all::EntityIndex;
-pub use spatial_query::{SpatialQuery, SpatialHit};
+pub use spatial_query::{SpatialQueries, SpatialQuery, SpatialHit};
 pub use unreal_api_derive::component;
 
 /// Define a MassFragment struct with correct attributes for both Bevy and Unreal modes.

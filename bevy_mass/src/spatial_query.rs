@@ -1,16 +1,15 @@
 //! Spatial query facade — wraps UE's `MassSpatialQueries` in Unreal mode.
 //!
-//! Game systems resolve each hit to a shadow `Entity` without touching
-//! `MassEntityMap` directly. Typical usage:
+//! Game systems take a single `SpatialQueries` `SystemParam` and call
+//! `.call(name, prev, curr)` — the `MassEntityMap` borrow is stitched in
+//! internally, so game code never names it. Typical usage:
 //!
 //! ```ignore
 //! fn ant_collision_prepass(
 //!     ants: Query<(Entity, &Transform, &PreviousTranslation), With<Ant>>,
-//!     spatial: Res<SpatialQuery>,
-//!     entity_map: Res<MassEntityMap>,
+//!     spatial: SpatialQueries,
 //!     mut hits: MessageWriter<AntFoodHit>,
 //! ) {
-//!     let spatial = spatial.with_map(&entity_map);
 //!     for (entity, t, prev) in &ants {
 //!         if let Some(hit) = spatial.call("food_pickup", &prev.value, &t.translation) {
 //!             hits.write(AntFoodHit::new(hit.entity_index, hit.entity, entity, hit.position));
@@ -19,9 +18,13 @@
 //! }
 //! ```
 //!
-//! In Bevy mode, `SpatialQuery` is not needed — collision detection uses direct
-//! Bevy queries instead. The type is still available (as an empty resource) so
-//! that code referencing it compiles in both modes, but it has no functionality.
+//! The lower-level `SpatialQuery` resource + `with_map()` helper is still
+//! public so the frame-dispatch code in `unreal-module` can install
+//! per-frame sweep callbacks.
+//!
+//! In Bevy mode, `SpatialQuery` / `SpatialQueries` are stubs — collision
+//! detection uses direct Bevy queries instead. The types exist so code
+//! referencing them compiles in both modes.
 
 use glam::DVec3;
 
@@ -72,6 +75,21 @@ mod bevy_impl {
     }
 
     impl<'a> SpatialQueryWithMap<'a> {
+        pub fn call(&self, _name: &str, _prev: &DVec3, _curr: &DVec3) -> Option<SpatialHit> {
+            None
+        }
+    }
+
+    /// Stub `SystemParam` — mirrors the Unreal-mode signature so systems
+    /// using `SpatialQueries` compile cleanly in Bevy mode. Always yields
+    /// `None` from `call`. The `Local` anchor gives the derive a real
+    /// param to work with (empty SystemParam structs aren't supported).
+    #[derive(bevy_ecs::system::SystemParam)]
+    pub struct SpatialQueries<'s> {
+        _anchor: bevy_ecs::system::Local<'s, ()>,
+    }
+
+    impl<'s> SpatialQueries<'s> {
         pub fn call(&self, _name: &str, _prev: &DVec3, _curr: &DVec3) -> Option<SpatialHit> {
             None
         }
@@ -195,9 +213,28 @@ mod unreal_impl {
             );
         }
     }
+
+    /// Idiomatic `SystemParam` facade that bundles `Res<SpatialQuery>` +
+    /// `Res<MassEntityMap>` behind a single `spatial: SpatialQueries`
+    /// parameter. Game systems never have to name `MassEntityMap` —
+    /// `call()` stitches the borrow in internally and returns a
+    /// fully-resolved `SpatialHit`.
+    #[derive(bevy_ecs::system::SystemParam)]
+    pub struct SpatialQueries<'w> {
+        spatial: bevy_ecs::system::Res<'w, SpatialQuery>,
+        map: bevy_ecs::system::Res<'w, MassEntityMap>,
+    }
+
+    impl<'w> SpatialQueries<'w> {
+        /// Perform the named spatial query. See
+        /// [`SpatialQueryWithMap::call`] for the full contract.
+        pub fn call(&self, name: &str, prev: &DVec3, curr: &DVec3) -> Option<SpatialHit> {
+            self.spatial.with_map(&self.map).call(name, prev, curr)
+        }
+    }
 }
 
 #[cfg(not(feature = "unreal"))]
-pub use bevy_impl::{SpatialQuery, SpatialQueryWithMap};
+pub use bevy_impl::{SpatialQueries, SpatialQuery, SpatialQueryWithMap};
 #[cfg(feature = "unreal")]
-pub use unreal_impl::{SpatialQuery, SpatialQueryWithMap};
+pub use unreal_impl::{SpatialQueries, SpatialQuery, SpatialQueryWithMap};
