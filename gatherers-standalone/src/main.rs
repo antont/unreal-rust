@@ -212,18 +212,14 @@ fn collision_prepass(
 fn apply_food_mutations(
     mut mutations: MessageReader<FoodMutation>,
     mut foods: Query<(&mut FoodState, &mut SimTransform), With<FoodMarker>>,
-    food_entities: Res<EntityIndex<Food>>,
 ) {
     for mutation in mutations.read() {
-        let idx = mutation.food_index as usize;
-        if idx < food_entities.entities.len() {
-            if let Ok((mut food, mut sim_t)) = foods.get_mut(food_entities.entities[idx]) {
-                if mutation.decision == DECISION_PICK_UP {
-                    food.is_loose = false;
-                } else if mutation.decision == DECISION_DROP {
-                    food.is_loose = true;
-                    sim_t.translation = mutation.drop_position;
-                }
+        if let Ok((mut food, mut sim_t)) = foods.get_mut(mutation.food_entity) {
+            if mutation.decision == DECISION_PICK_UP {
+                food.is_loose = false;
+            } else if mutation.decision == DECISION_DROP {
+                food.is_loose = true;
+                sim_t.translation = mutation.drop_position;
             }
         }
     }

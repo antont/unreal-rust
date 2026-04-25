@@ -183,12 +183,11 @@ pub type AntFoodHit = HitEvent<Food, Ant>;
 /// Food-side mutation produced by the decision system, consumed by
 /// a mode-specific apply system that can access food data.
 ///
-/// Carries both `food_entity` (idiomatic lookup) and `food_index`
-/// (chunk-slot, still needed by the FFI `FoodDropEvents`/`FoodPickupEvents`
-/// payloads on the C++ side).
+/// Carries `food_entity` (idiomatic lookup). The apply system resolves
+/// this to a chunk-slot index via `Res<EntityIndex<Food>>` for the FFI
+/// `FoodDropEvents` / `FoodPickupEvents` payloads that C++ consumes.
 #[derive(Debug, Clone, Message)]
 pub struct FoodMutation {
-    pub food_index: i32,
     pub food_entity: Entity,
     pub decision: FoodDecisionCode,
     pub drop_position: DVec3,

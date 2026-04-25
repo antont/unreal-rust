@@ -239,17 +239,32 @@ inventory::submit!(unreal_api::mass::MassDispatchHook {
 fn apply_food_mutations(
     mut mutations: MessageReader<FoodMutation>,
     foods: QueryAll<&mut FoodState, With<Food>>,
+    food_entities: Res<EntityIndex<Food>>,
     mut drop_events: ResMut<FoodDropEvents>,
     mut pickup_events: ResMut<FoodPickupEvents>,
 ) {
+    // Reverse-lookup Entity -> chunk-slot index, needed by the FFI payloads
+    // (`FoodDropEvents` / `FoodPickupEvents`) that carry `i32` indices.
+    // Built once per call; food counts are small (hundreds).
+    let entity_to_index: std::collections::HashMap<Entity, usize> = food_entities
+        .entities
+        .iter()
+        .enumerate()
+        .map(|(i, e)| (*e, i))
+        .collect();
+
     for mutation in mutations.read() {
-        if let Some(food) = foods.get_mut(mutation.food_index as usize) {
+        let Some(&idx) = entity_to_index.get(&mutation.food_entity) else {
+            continue;
+        };
+        if let Some(food) = foods.get_mut(idx) {
+            let i32_idx = idx as i32;
             if mutation.decision == DECISION_PICK_UP {
                 food.is_loose = false;
-                pickup_events.push(mutation.food_index);
+                pickup_events.push(i32_idx);
             } else if mutation.decision == DECISION_DROP {
                 food.is_loose = true;
-                drop_events.push(mutation.food_index, mutation.drop_position);
+                drop_events.push(i32_idx, mutation.drop_position);
             }
         }
     }
@@ -305,14 +320,15 @@ mod tests {
         };
 
         let mutation = FoodMutation {
-            food_index: 0,
             food_entity: bevy_ecs::entity::Entity::PLACEHOLDER,
             decision: DECISION_PICK_UP,
             drop_position: DVec3::ZERO,
         };
 
-        // Simulate what the system does: apply mutation directly
-        if let Some(food) = food_q.get_mut(mutation.food_index as usize) {
+        // Simulate what the system does: apply mutation directly.
+        // (Real system resolves food_entity via Res<EntityIndex<Food>>; here
+        // we skip that and apply to index 0 directly.)
+        if let Some(food) = food_q.get_mut(0) {
             if mutation.decision == DECISION_PICK_UP {
                 food.is_loose = false;
             }
@@ -336,13 +352,12 @@ mod tests {
 
         let drop_pos = DVec3::new(200.0, 100.0, 0.0);
         let mutation = FoodMutation {
-            food_index: 0,
             food_entity: bevy_ecs::entity::Entity::PLACEHOLDER,
             decision: DECISION_DROP,
             drop_position: drop_pos,
         };
 
-        if let Some(food) = food_q.get_mut(mutation.food_index as usize) {
+        if let Some(food) = food_q.get_mut(0) {
             if mutation.decision == DECISION_DROP {
                 food.is_loose = true;
             }

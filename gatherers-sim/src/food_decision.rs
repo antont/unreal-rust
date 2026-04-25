@@ -160,7 +160,6 @@ pub fn food_decision_system(
         // runs — a DROP clears `food_index` to -1, so the lookup must happen
         // while the old value is still there.
         let carried_before = carry.carried_entity(&food_entities);
-        let old_food_index = carry.food_index;
         let pos_before = transform.translation;
         let mut cd = Cooldown { remaining_seconds: 0.0 };
         let encounter = FoodEncounter {
@@ -188,13 +187,12 @@ pub fn food_decision_system(
             // On DROP the mutated food is the one previously carried —
             // `carried_before` was captured above before the decision
             // cleared `Carrying.food_index`.
-            let (food_index, food_entity) = if decision == DECISION_DROP {
-                (old_food_index, carried_before.unwrap_or(hittable_entity))
+            let food_entity = if decision == DECISION_DROP {
+                carried_before.unwrap_or(hittable_entity)
             } else {
-                (hittable_index, hittable_entity)
+                hittable_entity
             };
             food_mutations.write(FoodMutation {
-                food_index,
                 food_entity,
                 decision,
                 drop_position: pos_before,
