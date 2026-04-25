@@ -1818,6 +1818,25 @@ pub fn registered_entity_index_populations()
     inventory::iter::<MassEntityIndexRegistration>
 }
 
+/// Registration for spawn-time insertion of pure-Rust shadow components
+/// onto every shadow `Entity` in an `entity_group`. Used for components
+/// that don't live in chunk memory but need a default value per entity
+/// (e.g. `Carrying`, `Cooldown`).
+///
+/// Game crates submit these via `inventory::submit!`. `mass_init_simulation`
+/// iterates and calls `insert_fn` for each shadow Entity in the group.
+pub struct MassShadowComponentDefault {
+    pub entity_group: &'static str,
+    pub insert_fn: fn(&mut bevy_ecs::world::World, bevy_ecs::entity::Entity),
+}
+
+inventory::collect!(MassShadowComponentDefault);
+
+pub fn registered_shadow_component_defaults()
+    -> inventory::iter<MassShadowComponentDefault> {
+    inventory::iter::<MassShadowComponentDefault>
+}
+
 // ---------------------------------------------------------------------------
 // Per-system timing (opt-in)
 // ---------------------------------------------------------------------------

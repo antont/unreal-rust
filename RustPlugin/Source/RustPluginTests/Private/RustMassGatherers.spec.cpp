@@ -239,10 +239,9 @@ bool FGatherersBevyMassFoodPickupTest::RunTest(const FString& Parameters)
 			T.GetMutableTransform().SetTranslation(FoodPos);
 			FGatherersPreviousTranslationFragment& Prev = AntView.GetFragmentData<FGatherersPreviousTranslationFragment>();
 			Prev.Value = FoodPos;
-			FGatherersCarryingFragment& Carry = AntView.GetFragmentData<FGatherersCarryingFragment>();
-			Carry.FoodIndex = -1;
-			// Cooldown is now a pure-Bevy component (not a MassFragment).
-			// Ants spawn without Cooldown, so no setup needed here.
+			// Carrying is now a pure-Bevy shadow component (not a MassFragment).
+			// Default is Carrying(None), inserted at mass_init_simulation time.
+			// Cooldown is also pure-Bevy; ants spawn without either, so no setup needed.
 		}
 	}
 
@@ -259,28 +258,28 @@ bool FGatherersBevyMassFoodPickupTest::RunTest(const FString& Parameters)
 		Subsystem->RunSimulationProcessorsForTesting(0.016f);
 	}
 
-	// Verify the ant picked up food
+	// Verify the ant picked up food. `Carrying` is now a pure-Bevy shadow
+	// component (no MassFragment), so we observe pickup via the food's
+	// `bIsLoose` flag + the decision-counter FFI instead of reading the chunk.
 	if (AntEntities->Num() > 0 && FoodEntities->Num() > 0)
 	{
-		const FMassEntityHandle AntEntity = (*AntEntities)[0];
 		const FMassEntityHandle FoodEntity = (*FoodEntities)[0];
 
-		if (EntityManager.IsEntityValid(AntEntity) && EntityManager.IsEntityValid(FoodEntity))
+		if (EntityManager.IsEntityValid(FoodEntity))
 		{
-			FMassEntityView AntView(EntityManager, AntEntity);
-			const FGatherersCarryingFragment& Carry = AntView.GetFragmentData<FGatherersCarryingFragment>();
-
 			FMassEntityView FoodView(EntityManager, FoodEntity);
 			const FGatherersFoodStateFragment& Food = FoodView.GetFragmentData<FGatherersFoodStateFragment>();
 
-			TestTrue(TEXT("Ant should have picked up food"), Carry.FoodIndex >= 0);
-			if (Carry.FoodIndex >= 0)
+			TestFalse(TEXT("Picked-up food should not be loose"), Food.bIsLoose);
+
+			FRustPluginModule& RustModule = FModuleManager::GetModuleChecked<FRustPluginModule>("RustPlugin");
+			DecisionCounters D = {};
+			if (RustModule.Plugin.Rust.get_decision_counters.IsSome())
 			{
-				TestEqual(TEXT("Carried food index should be 0"), Carry.FoodIndex, 0);
-				TestFalse(TEXT("Picked-up food should not be loose"), Food.bIsLoose);
-				// Cooldown is now a pure-Bevy component on shadow entities,
-				// not readable from C++ via GetFragmentData.
+				RustModule.Plugin.Rust.get_decision_counters.Unwrap()(&D);
 			}
+			TestTrue(TEXT("Decision system should have recorded at least one pickup"),
+				D.pickups >= 1);
 		}
 	}
 
@@ -681,56 +680,14 @@ bool FGatherersBevyMassPickupDensityTest::RunTest(const FString& Parameters)
 		RustModule.Plugin.Rust.reset_decision_counters.Unwrap()();
 	}
 
-	UMassEntitySubsystem* MassEntitySubsystem = World->GetSubsystem<UMassEntitySubsystem>();
-	FMassEntityManager& EntityManager = MassEntitySubsystem->GetMutableEntityManager();
-	const TArray<FMassEntityHandle>* AntEntities = Subsystem->GetGroupEntities(TEXT("ants"));
-
-	// Per-ant previous-frame carrying index, for transition detection.
-	TArray<int32> PrevCarrying;
-	PrevCarrying.Init(-1, AntCount);
-
-	// Total pickup + drop transitions across the whole run.
-	int64 TotalPickups = 0;
-	int64 TotalDrops = 0;
-	int32 MaxCarryingSeen = 0;
-
-	// Count ants that never picked up anything across the entire run
-	// (to answer "do ants just pass through food?").
-	TArray<int32> PickupsPerAnt;
-	PickupsPerAnt.Init(0, AntCount);
-
-	// Run ~2 seconds of sim at 60 Hz, sampling state after every step.
+	// Run ~2 seconds of sim at 60 Hz. `Carrying` is now a pure-Bevy shadow
+	// component, so we no longer inspect per-ant carrying indices here;
+	// pickup/drop counts come from the decision-counter FFI.
 	const int32 NumSteps = 120;
 	const float Dt = 1.0f / 60.0f;
 	for (int32 Step = 0; Step < NumSteps; ++Step)
 	{
 		Subsystem->RunSimulationProcessorsForTesting(Dt);
-
-		int32 CarryingThisStep = 0;
-		if (AntEntities)
-		{
-			for (int32 i = 0; i < AntEntities->Num(); ++i)
-			{
-				const FMassEntityHandle H = (*AntEntities)[i];
-				if (!EntityManager.IsEntityValid(H)) continue;
-				FMassEntityView V(EntityManager, H);
-				const FGatherersCarryingFragment& Carry = V.GetFragmentData<FGatherersCarryingFragment>();
-				const int32 Now = Carry.FoodIndex;
-				const int32 Prev = PrevCarrying[i];
-				if (Prev < 0 && Now >= 0)
-				{
-					++TotalPickups;
-					++PickupsPerAnt[i];
-				}
-				else if (Prev >= 0 && Now < 0)
-				{
-					++TotalDrops;
-				}
-				PrevCarrying[i] = Now;
-				if (Now >= 0) ++CarryingThisStep;
-			}
-		}
-		MaxCarryingSeen = FMath::Max(MaxCarryingSeen, CarryingThisStep);
 	}
 
 	const URustMassBevySubsystem::FGridHashCounters C = URustMassBevySubsystem::GetGridHashCounters();
@@ -741,29 +698,17 @@ bool FGatherersBevyMassPickupDensityTest::RunTest(const FString& Parameters)
 		RustModule.Plugin.Rust.get_decision_counters.Unwrap()(&D);
 	}
 
-	int32 CarryingCount = 0;
-	int32 AntsWithAnyPickup = 0;
-	for (int32 i = 0; i < AntCount; ++i)
-	{
-		if (PrevCarrying[i] >= 0) ++CarryingCount;
-		if (PickupsPerAnt[i] > 0) ++AntsWithAnyPickup;
-	}
-
 	const double AvgCands = C.Calls > 0 ? (double)C.Candidates / (double)C.Calls : 0.0;
-	const double PickupsPerEncounter = C.EncountersWithin > 0
-		? (double)TotalPickups / (double)C.EncountersWithin : 0.0;
 
 	AddInfo(FString::Printf(
-		TEXT("[PickupDensity] steps=%d ants=%d food=%d | calls=%llu cands=%llu(avg=%.2f) within=%llu returned=%llu | pickups=%lld drops=%lld | ants_with_any_pickup=%d/%d max_carrying=%d carrying_now=%d | pickups_per_returned=%.3f"),
+		TEXT("[PickupDensity] steps=%d ants=%d food=%d | calls=%llu cands=%llu(avg=%.2f) within=%llu returned=%llu | pickups=%llu drops=%llu | pickups_per_returned=%.3f"),
 		NumSteps, AntCount, FoodCount,
 		(unsigned long long)C.Calls,
 		(unsigned long long)C.Candidates, AvgCands,
 		(unsigned long long)C.EncountersWithin,
 		(unsigned long long)C.EncountersReturned,
-		(long long)TotalPickups, (long long)TotalDrops,
-		AntsWithAnyPickup, AntCount,
-		MaxCarryingSeen, CarryingCount,
-		C.EncountersReturned > 0 ? (double)TotalPickups / (double)C.EncountersReturned : 0.0));
+		(unsigned long long)D.pickups, (unsigned long long)D.drops,
+		C.EncountersReturned > 0 ? (double)D.pickups / (double)C.EncountersReturned : 0.0));
 
 	AddInfo(FString::Printf(
 		TEXT("[PickupDensity] decision-fn: calls=%llu hits_seen=%llu ants_iterated=%llu matched=%llu pickups=%llu drops=%llu no_actions=%llu"),
@@ -833,26 +778,30 @@ bool FGatherersBevyMassCarriedFoodTrackingTest::RunTest(const FString& Parameter
 	const FMassEntityHandle AntEntity = (*AntEntities)[0];
 	const FMassEntityHandle FoodEntity = (*FoodEntities)[0];
 
-	// Set up: ant is carrying food index 0, at a known position
-	const FVector AntPos(100.0, 200.0, 50.0);
-	{
-		FMassEntityView AntView(EntityManager, AntEntity);
-		AntView.GetFragmentData<FTransformFragment>().GetMutableTransform().SetTranslation(AntPos);
-		AntView.GetFragmentData<FGatherersCarryingFragment>().FoodIndex = 0;
-
-		// Set desired movement so UE's movement processor runs (ant will move slightly)
-		AntView.GetFragmentData<FMassDesiredMovementFragment>().DesiredVelocity = FVector(10.0, 0.0, 0.0);
-	}
-
-	// Place food far away — it should snap to ant after sim step
+	// `Carrying` is now a pure-Bevy shadow component (no MassFragment), so we
+	// can't flip `FoodIndex = 0` directly from C++. Instead we stage the ant
+	// on top of the food and let the normal collision/decision pipeline pick
+	// it up. The grid-hash spatial index is populated from food positions at
+	// init time, so we must NOT move the food here — move only the ant to
+	// match the food's existing position (same pattern as BevyMassFoodPickup).
+	FVector FoodStartPos;
 	{
 		FMassEntityView FoodView(EntityManager, FoodEntity);
-		FoodView.GetFragmentData<FTransformFragment>().GetMutableTransform().SetTranslation(FVector(-999.0, -999.0, 0.0));
-		FoodView.GetFragmentData<FGatherersFoodStateFragment>().bIsLoose = false;
+		FoodStartPos = FoodView.GetFragmentData<FTransformFragment>().GetTransform().GetTranslation();
+	}
+	{
+		FMassEntityView AntView(EntityManager, AntEntity);
+		AntView.GetFragmentData<FTransformFragment>().GetMutableTransform().SetTranslation(FoodStartPos);
+		AntView.GetFragmentData<FGatherersPreviousTranslationFragment>().Value = FoodStartPos;
 	}
 
-	// Run one simulation step — carried_food_tracking should move food to ant
-	Subsystem->RunSimulationProcessorsForTesting(0.016f);
+	// Run a batch of simulation steps so the collision prepass + decision system
+	// register a pickup and carried_food_tracking starts moving the food.
+	// Matches the BevyMassFoodPickup test (20 steps at 60 Hz).
+	for (int32 Step = 0; Step < 20; ++Step)
+	{
+		Subsystem->RunSimulationProcessorsForTesting(0.016f);
+	}
 
 	// Read positions after sim
 	FMassEntityView AntView(EntityManager, AntEntity);
@@ -865,7 +814,7 @@ bool FGatherersBevyMassCarriedFoodTrackingTest::RunTest(const FString& Parameter
 		AntPosAfter.X, AntPosAfter.Y, AntPosAfter.Z,
 		FoodPosAfter.X, FoodPosAfter.Y, FoodPosAfter.Z);
 
-	// Food X/Y should be near ant X/Y (within tolerance for one frame of movement)
+	// Food X/Y should be near ant X/Y (within tolerance for a few frames of movement).
 	const double DeltaXY = FMath::Sqrt(
 		FMath::Square(FoodPosAfter.X - AntPosAfter.X) +
 		FMath::Square(FoodPosAfter.Y - AntPosAfter.Y));
@@ -875,9 +824,15 @@ bool FGatherersBevyMassCarriedFoodTrackingTest::RunTest(const FString& Parameter
 	TestTrue(TEXT("Carried food Z should be above ant"),
 		FoodPosAfter.Z > AntPosAfter.Z);
 
-	// Food should NOT be at its original position
-	TestTrue(TEXT("Food should have moved from original position"),
-		FMath::Abs(FoodPosAfter.X - (-999.0)) > 100.0);
+	// Verify a pickup actually happened — otherwise the XY-near-ant assertion
+	// could pass trivially if the food just sits at its spawn position.
+	FRustPluginModule& RustModule = FModuleManager::GetModuleChecked<FRustPluginModule>("RustPlugin");
+	DecisionCounters D = {};
+	if (RustModule.Plugin.Rust.get_decision_counters.IsSome())
+	{
+		RustModule.Plugin.Rust.get_decision_counters.Unwrap()(&D);
+	}
+	TestTrue(TEXT("Decision system should have recorded a pickup"), D.pickups >= 1);
 
 	Subsystem->ResetSimulation();
 	return true;

@@ -238,30 +238,29 @@ fn sync_ant_transforms(mut ants: Query<(&SimTransform, &mut Transform), With<Ant
 
 fn sync_food_transforms(
     ants: Query<(&SimTransform, &Carrying), With<AntMarker>>,
-    mut foods: Query<(&SimTransform, &mut Transform), With<FoodMarker>>,
-    food_entities: Res<EntityIndex<Food>>,
+    mut foods: Query<(Entity, &SimTransform, &mut Transform), With<FoodMarker>>,
 ) {
-    // Build a map: food_index → ant position (for carried food)
-    let mut carried_positions: Vec<Option<DVec3>> = vec![None; food_entities.entities.len()];
+    // Build: food Entity → ant position (for carried food). `Carrying` now
+    // holds `Option<Entity>` directly, so the lookup is Entity-keyed.
+    let mut carried_positions: std::collections::HashMap<Entity, DVec3> =
+        std::collections::HashMap::new();
     for (sim_t, carry) in &ants {
-        if carry.is_carrying() && (carry.food_index as usize) < carried_positions.len() {
-            carried_positions[carry.food_index as usize] = Some(sim_t.translation);
+        if let Some(food_entity) = carry.entity() {
+            carried_positions.insert(food_entity, sim_t.translation);
         }
     }
 
-    for (idx, &entity) in food_entities.entities.iter().enumerate() {
-        if let Ok((sim_t, mut transform)) = foods.get_mut(entity) {
-            if let Some(ant_pos) = carried_positions[idx] {
-                // Carried: follow the ant, rendered above it
-                transform.translation.x = ant_pos.x as f32 * SIM_TO_SCREEN;
-                transform.translation.y = ant_pos.y as f32 * SIM_TO_SCREEN;
-                transform.translation.z = Z_ANT + 1.0;
-            } else {
-                // Loose food: sync render transform from sim position
-                transform.translation.x = sim_t.translation.x as f32 * SIM_TO_SCREEN;
-                transform.translation.y = sim_t.translation.y as f32 * SIM_TO_SCREEN;
-                transform.translation.z = Z_FOOD;
-            }
+    for (food_entity, sim_t, mut transform) in &mut foods {
+        if let Some(ant_pos) = carried_positions.get(&food_entity) {
+            // Carried: follow the ant, rendered above it
+            transform.translation.x = ant_pos.x as f32 * SIM_TO_SCREEN;
+            transform.translation.y = ant_pos.y as f32 * SIM_TO_SCREEN;
+            transform.translation.z = Z_ANT + 1.0;
+        } else {
+            // Loose food: sync render transform from sim position
+            transform.translation.x = sim_t.translation.x as f32 * SIM_TO_SCREEN;
+            transform.translation.y = sim_t.translation.y as f32 * SIM_TO_SCREEN;
+            transform.translation.z = Z_FOOD;
         }
     }
 }

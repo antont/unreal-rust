@@ -1,4 +1,4 @@
-use bevy_mass::prelude::{Component, Entity, DVec3, EntityIndex, Resource, MassFragment};
+use bevy_mass::prelude::{Component, Entity, DVec3, Resource, MassFragment};
 use bevy_mass::movement::PrevTranslationLike;
 use bevy_ecs::message::Message;
 use std::marker::PhantomData;
@@ -42,43 +42,23 @@ pub struct Cooldown {
     pub remaining_seconds: f32,
 }
 
-/// Index of carried food item (-1 = not carrying).
-///
-/// Stays `i32` because this fragment is `#[repr(C)]` with a matching C++
-/// layout — no `Entity` equivalent on the C++ side. Game code should
-/// prefer `is_carrying()` and `carried_entity()` over reading
-/// `food_index` directly.
-#[repr(C)]
-#[derive(Component, MassFragment, Clone, Copy, Debug)]
-pub struct Carrying {
-    pub food_index: i32,
-}
-
-impl Default for Carrying {
-    fn default() -> Self {
-        Self { food_index: -1 }
-    }
-}
+/// The food entity currently carried (if any). Pure-Bevy shadow component —
+/// lives on shadow entities in UE mode, not in chunk memory. C++ has no
+/// awareness of `Carrying`; all carrying logic runs Rust-side, and the
+/// food-follow-ant positioning in `carried_food_tracking` reads this
+/// component directly.
+#[derive(Component, Clone, Copy, Debug, Default)]
+pub struct Carrying(pub Option<Entity>);
 
 impl Carrying {
-    /// Idiomatic check — reads better than `carry.food_index >= 0`.
+    /// Idiomatic check — reads better than pattern-matching on the field.
     pub fn is_carrying(&self) -> bool {
-        self.food_index >= 0
+        self.0.is_some()
     }
 
-    /// Resolve the carried food's `Entity` via the shared food index.
-    /// Returns `None` if not carrying or the index is out of range.
-    ///
-    /// Takes `&EntityIndex<Food>` directly — works identically in both
-    /// backends: standalone Bevy populates the resource at spawn time,
-    /// UE mode populates it at `mass_init_simulation` via the
-    /// `MassEntityIndexRegistration` emitted by `#[mass(group = "food")]`
-    /// on the `Food` tag.
-    pub fn carried_entity(&self, foods: &EntityIndex<Food>) -> Option<Entity> {
-        if self.food_index < 0 {
-            return None;
-        }
-        foods.get(self.food_index as usize)
+    /// The currently-carried food `Entity`, if any.
+    pub fn entity(&self) -> Option<Entity> {
+        self.0
     }
 }
 
@@ -275,13 +255,6 @@ mod tests {
     }
 
     #[test]
-    fn carrying_layout() {
-        assert_eq!(mem::size_of::<Carrying>(), 4);
-        assert_eq!(mem::align_of::<Carrying>(), 4);
-        assert_eq!(mem::offset_of!(Carrying, food_index), 0);
-    }
-
-    #[test]
     fn behavior_layout() {
         assert_eq!(mem::size_of::<Behavior>(), 8);
         assert_eq!(mem::align_of::<Behavior>(), 4);
@@ -298,7 +271,8 @@ mod tests {
     #[test]
     fn carrying_default() {
         let c = Carrying::default();
-        assert_eq!(c.food_index, -1);
+        assert!(!c.is_carrying());
+        assert_eq!(c.entity(), None);
     }
 
     #[test]

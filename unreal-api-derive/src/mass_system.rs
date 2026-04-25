@@ -299,8 +299,11 @@ fn extract_passthrough_params(
                 return None;
             }
 
-            // Everything else (BevyQuery, Commands, etc.) passes through
-            Some(quote! { #arg })
+            // Everything else (BevyQuery, Commands, etc.) passes through.
+            // Strip `#[bevy]` so the synthesized wrapper's signature is valid Rust.
+            let mut cleaned = pat_type.clone();
+            cleaned.attrs.retain(|a| !a.path.is_ident("bevy"));
+            Some(quote! { #cleaned })
         })
         .collect()
 }
@@ -1227,7 +1230,22 @@ pub fn mass_system_impl(func: &ItemFn, order: u32, entity_group: Option<&str>) -
                 Pat::Ident(pat_ident) => &pat_ident.ident,
                 _ => return quote! {},
             };
+            // `#[bevy] Query<...>` passthrough is rewritten to
+            // `bevy_ecs::system::Query<...>` earlier (multi-segment path). The
+            // primary query facade uses a single-segment `Query` identifier.
+            // We need to call `.reborrow()` on bevy passthrough queries so the
+            // chunk loop can invoke the inner fn without moving the value.
             if let Type::Path(type_path) = &*pat_type.ty {
+                let is_multi_seg_bevy_query = type_path.path.segments.len() > 1
+                    && type_path
+                        .path
+                        .segments
+                        .last()
+                        .map(|s| s.ident == "Query")
+                        .unwrap_or(false);
+                if is_multi_seg_bevy_query {
+                    return quote! { #param_name.reborrow() };
+                }
                 if let Some(seg) = type_path.path.segments.last() {
                     if seg.ident == "MassQuery" || seg.ident == "MassQueryAll" || seg.ident == "Query" {
                         // Both single and tuple query params: pass the local variable

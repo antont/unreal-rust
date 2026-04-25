@@ -5,7 +5,7 @@ use unreal_api::mass::{
     MassBevySystemRegistration, MassEntityMap, MassSchedule,
     MassSystemRegistration, MassSystemStage,
     effective_order, registered_bevy_mass_systems, registered_dispatch_hooks,
-    registered_entity_index_populations,
+    registered_entity_index_populations, registered_shadow_component_defaults,
     registered_mass_systems, registered_sim_inits, registered_visualizer_groups,
     registered_spatial_query_configs, registered_sim_defaults,
     resolved_schedule_orders,
@@ -455,6 +455,23 @@ pub unsafe extern "C" fn mass_init_simulation(
                         .map(|s| s.to_vec());
                     if let Some(entities) = entities_opt {
                         (reg.populate_fn)(world, &entities);
+                    }
+                }
+
+                // Insert pure-Rust shadow components (e.g. `Carrying`,
+                // `Cooldown`) with default values on every shadow Entity
+                // in the declared groups. Unlike `EntityIndex`, these are
+                // per-entity inserts — the registration holds a function
+                // pointer that calls `world.entity_mut(e).insert(Default)`.
+                for reg in registered_shadow_component_defaults() {
+                    let entities_opt = world
+                        .resource::<MassEntityMap>()
+                        .group(reg.entity_group)
+                        .map(|s| s.to_vec());
+                    if let Some(entities) = entities_opt {
+                        for e in entities {
+                            (reg.insert_fn)(world, e);
+                        }
                     }
                 }
             }

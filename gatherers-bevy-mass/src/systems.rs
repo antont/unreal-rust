@@ -148,6 +148,17 @@ inventory::submit!(unreal_api::mass::MassDispatchHook {
     post_dispatch: drain_food_events,
 });
 
+// `Carrying` is a pure-Rust shadow component (not a `MassFragment`). Declare a
+// spawn-time default so every ant has `Carrying::default()` attached at
+// `mass_init_simulation` — mirrors the pattern C++ uses for chunk-backed
+// fragments that declare a default in their `FGatherers*::Default()`.
+inventory::submit!(unreal_api::mass::MassShadowComponentDefault {
+    entity_group: Ant::ENTITY_GROUP,
+    insert_fn: |world, entity| {
+        world.entity_mut(entity).insert(Carrying::default());
+    },
+});
+
 inventory::submit!(unreal_api::mass::MassExternBinding {
     get_food_drop_events: Some(get_food_drop_events),
     get_food_pickup_events: Some(get_food_pickup_events),
@@ -276,14 +287,28 @@ fn apply_food_mutations(
 
 #[mass_system]
 fn carried_food_tracking(
-    ants: Query<(&Transform, &Carrying), With<Ant>>,
+    ants: Query<(Entity, &Transform), With<Ant>>,
+    #[bevy] mut carry_q: bevy_ecs::prelude::Query<&Carrying>,
     food_transforms: QueryAll<&mut Transform, With<Food>>,
+    food_entities: Res<EntityIndex<Food>>,
 ) {
-    for (transform, carry) in &mut ants {
-        if carry.is_carrying() {
-            if let Some(food_tf) = food_transforms.get_mut(carry.food_index as usize) {
-                food_tf.translation = transform.translation + DVec3::new(0.0, 0.0, 15.0);
-            }
+    // `Carrying` is a pure-Rust shadow component (not in chunk memory), so it's
+    // fetched via the `#[bevy]` secondary query keyed by Entity. The food side
+    // still lives in chunk memory — resolve the carried food's Entity to a
+    // chunk-slot index via the `EntityIndex<Food>` reverse lookup.
+    let entity_to_index: std::collections::HashMap<Entity, usize> = food_entities
+        .entities
+        .iter()
+        .enumerate()
+        .map(|(i, e)| (*e, i))
+        .collect();
+
+    for (entity, transform) in &mut ants {
+        let Ok(carry) = carry_q.get(entity) else { continue };
+        let Some(food_entity) = carry.entity() else { continue };
+        let Some(&idx) = entity_to_index.get(&food_entity) else { continue };
+        if let Some(food_tf) = food_transforms.get_mut(idx) {
+            food_tf.translation = transform.translation + DVec3::new(0.0, 0.0, 15.0);
         }
     }
 }
