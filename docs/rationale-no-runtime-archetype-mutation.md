@@ -12,8 +12,8 @@ Adding/removing MassFragments from entities at runtime, which would move them be
 
 **Existing patterns cover real needs:**
 
-- **Shadow Bevy entities** for lightweight state with add/remove semantics (proven with Cooldown — supports `Without<Cooldown>` filters, Commands insert/remove, pure-Bevy scheduling)
-- **Enum/flag fields** inside existing fragments for state visible to C++ (e.g. `Carrying.food_index == -1` means "not carrying", `Behavior` enum fields for mode switches)
+- **Shadow Bevy entities** for lightweight state with add/remove semantics (proven with `Cooldown` and `Carrying` — supports `Without<T>` filters, `Commands` insert/remove, `Option<Entity>` handles, pure-Bevy scheduling)
+- **Enum/flag fields** inside existing fragments for state visible to C++ (e.g. `FoodState.is_loose`, `Behavior` enum fields for mode switches)
 
 These two patterns handle every use case we've encountered without archetype mutation.
 
