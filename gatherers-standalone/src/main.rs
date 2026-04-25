@@ -3,7 +3,7 @@ use bevy::render::view::screenshot::{save_to_disk, Screenshot};
 use bevy_mass::{MovementPlugin, EntityIndex};
 use gatherers_sim::components::{
     Transform as SimTransform, PreviousTranslation, DesiredMovement,
-    Cooldown, Carrying, Behavior, FoodState, Food,
+    Cooldown, Carrying, Behavior, FoodState, Food, Ant,
     AntFoodHit, FoodMutation,
 };
 use gatherers_sim::food_decision::{food_decision_system, DECISION_PICK_UP, DECISION_DROP};
@@ -142,6 +142,7 @@ fn spawn_entities(mut commands: Commands, size: Res<SimSize>) {
         // This matches the idiomatic Bevy pattern from the original gatherers.
         commands.spawn((
             AntMarker,
+            Ant,
             SimTransform::from_translation(spawn_pos),
             PreviousTranslation { value: spawn_pos },
             DesiredMovement::new(DVec3::new(angle.cos(), angle.sin(), 0.0), 100.0),

@@ -1,4 +1,4 @@
-use bevy_mass::prelude::{Component, Entity, DVec3, Resource, MassFragment};
+use bevy_mass::prelude::{Component, Entity, DVec3, EntityIndex, Resource, MassFragment};
 use bevy_mass::movement::PrevTranslationLike;
 use bevy_ecs::message::Message;
 use std::marker::PhantomData;
@@ -11,6 +11,7 @@ pub use bevy_mass::components::{Transform, Velocity, DesiredMovement, CodeDriven
 // ---------------------------------------------------------------------------
 
 #[derive(Component, MassFragment, Clone, Copy, Debug)]
+#[cfg_attr(feature = "unreal", mass(group = "food"))]
 pub struct Food;
 
 #[derive(Component, MassFragment, Clone, Copy, Debug)]
@@ -65,21 +66,19 @@ impl Carrying {
         self.food_index >= 0
     }
 
-    /// Resolve the carried food's shadow Bevy `Entity` via `MassEntityMap`.
+    /// Resolve the carried food's `Entity` via the shared food index.
     /// Returns `None` if not carrying or the index is out of range.
     ///
-    /// The food-group name (`"food"`) is semantic to `Carrying` itself —
-    /// the same fragment can't legally carry anything else — so hard-coding
-    /// it here keeps the group string off every game-code call site.
-    #[cfg(feature = "unreal")]
-    pub fn carried_entity(
-        &self,
-        map: &unreal_api::mass::MassEntityMap,
-    ) -> Option<Entity> {
+    /// Takes `&EntityIndex<Food>` directly — works identically in both
+    /// backends: standalone Bevy populates the resource at spawn time,
+    /// UE mode populates it at `mass_init_simulation` via the
+    /// `MassEntityIndexRegistration` emitted by `#[mass(group = "food")]`
+    /// on the `Food` tag.
+    pub fn carried_entity(&self, foods: &EntityIndex<Food>) -> Option<Entity> {
         if self.food_index < 0 {
             return None;
         }
-        map.get("food", self.food_index as usize)
+        foods.get(self.food_index as usize)
     }
 }
 

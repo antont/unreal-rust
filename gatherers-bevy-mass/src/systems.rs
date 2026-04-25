@@ -31,17 +31,13 @@
 #[allow(unused_imports)] // Some items used only by #[mass_system] macro expansion
 use bevy_mass::prelude::*;
 use crate::components::{
-    Transform, PreviousTranslation, DesiredMovement, Cooldown, Carrying, Behavior,
-    FoodState, Food, Ant,
-    FoodEncounter,
+    Transform, PreviousTranslation, Cooldown, Carrying, FoodState, Food, Ant,
 };
-use gatherers_sim::components::{AntFoodHit, FoodMutation, FoodDropEvents, FoodPickupEvents};
+use gatherers_sim::components::{
+    AntFoodHit, FoodMutation, FoodDropEvents, FoodPickupEvents,
+};
+use gatherers_sim::food_decision::{DECISION_PICK_UP, DECISION_DROP};
 use bevy_ecs::message::{MessageReader, MessageWriter};
-use gatherers_sim::food_decision::{
-    ant_food_decision as ant_food_decision_fn,
-    DECISION_NO_ACTION, DECISION_PICK_UP, DECISION_DROP,
-};
-use std::collections::HashMap;
 
 // Re-export facade systems from gatherers-sim (the single source of truth).
 // Movement application (pos += vel * dt) is handled by C++ UMassApplyMovementProcessor
@@ -50,6 +46,11 @@ pub use gatherers_sim::movement::{
     entity_cooldown, entity_boundary_reflect,
     SIM_BOUNDS_MIN, SIM_BOUNDS_MAX,
 };
+
+// Re-export the shared food-decision system (authored in `gatherers-sim`).
+// Both standalone Bevy and UE mode run this same system — the `#[mass_system]`
+// macro rewrites chunk access for UE at compile time.
+pub use gatherers_sim::food_decision::food_decision_system;
 
 // Re-export helpers used by tests and other systems.
 pub use gatherers_sim::movement::reflect_velocity;
@@ -75,19 +76,13 @@ static FOOD_PICKUP_CACHE: std::sync::Mutex<Vec<i32>> =
     std::sync::Mutex::new(Vec::new());
 
 // ---------------------------------------------------------------------------
-// Decision-outcome diagnostic counters (exposed via FFI to automation tests).
-// Counts every invocation of ant_food_decision_fn inside the UE `ant_food_decision`
-// system so we can see how returned encounters split into pickup/drop/no-action.
+// Decision-outcome diagnostic counters — storage and per-event bumps live in
+// `gatherers_sim::diagnostics` so the shared decision system can call the
+// facade uniformly (`unreal_diag` feature on the sim crate gates the real
+// `AtomicU64` storage; otherwise the facade is a set of no-op inlines).
+// UE automation tests still read counters via the FFI accessors defined
+// below — we just route them through the shared snapshot/reset API.
 // ---------------------------------------------------------------------------
-
-use std::sync::atomic::{AtomicU64, Ordering};
-static DECISION_CALLS: AtomicU64 = AtomicU64::new(0);
-static DECISION_HITS_SEEN: AtomicU64 = AtomicU64::new(0);
-static DECISION_ANTS_SEEN: AtomicU64 = AtomicU64::new(0);
-static DECISION_MATCHED: AtomicU64 = AtomicU64::new(0);
-static DECISION_PICKUPS: AtomicU64 = AtomicU64::new(0);
-static DECISION_DROPS: AtomicU64 = AtomicU64::new(0);
-static DECISION_NO_ACTIONS: AtomicU64 = AtomicU64::new(0);
 
 fn clear_food_event_caches(_world: &mut bevy_ecs::world::World) {
     FOOD_DROP_CACHE.lock().unwrap().0.clear();
@@ -186,108 +181,34 @@ fn ant_collision_prepass(
 }
 
 // ---------------------------------------------------------------------------
-// System 3: Food decision — reads HitEvent messages, calls shared decision
-// function, inserts Cooldown, emits FoodMutation messages
+// System 3: Food decision — authored in `gatherers_sim::food_decision`
+// (`food_decision_system`) and re-exported at the top of this file. Runs in
+// both standalone Bevy and UE mode; the `#[mass_system]` macro rewrites chunk
+// access for UE at compile time.
 // ---------------------------------------------------------------------------
 
-#[mass_system]
-fn ant_food_decision(
-    mut ants: Query<
-        (Entity, &Transform, &mut DesiredMovement, &mut Carrying, &mut Behavior),
-        (With<Ant>, Without<Cooldown>),
-    >,
-    mut hits: MessageReader<AntFoodHit>,
-    entity_map: Res<unreal_api::mass::MassEntityMap>,
-    mut food_mutations: MessageWriter<FoodMutation>,
-    mut commands: Commands,
-) {
-    DECISION_CALLS.fetch_add(1, Ordering::Relaxed);
-
-    // Build entity → hit lookup from messages (read once, lookup per entity)
-    let hit_map: HashMap<bevy_ecs::entity::Entity, _> = hits.read()
-        .inspect(|_| { DECISION_HITS_SEEN.fetch_add(1, Ordering::Relaxed); })
-        .map(|h| (h.hitter_entity, (h.hittable_index, h.hittable_entity, h.encounter_position)))
-        .collect();
-
-    for (entity, transform, mut movement, mut carry, mut behavior) in &mut ants {
-        DECISION_ANTS_SEEN.fetch_add(1, Ordering::Relaxed);
-        let Some(&(hittable_index, hittable_entity, encounter_position)) = hit_map.get(&entity) else {
-            continue;
-        };
-        DECISION_MATCHED.fetch_add(1, Ordering::Relaxed);
-
-        // Resolve the currently-carried food's Entity *before* the
-        // decision runs — a DROP clears `food_index` to -1, so the
-        // lookup must happen while the old value is still there.
-        let carried_before = carry.carried_entity(&entity_map);
-        let old_food_index = carry.food_index;
-        let pos_before = transform.translation;
-        // Use a local copy — Rust does not write transforms in Unreal mode;
-        // C++ handles all position updates.
-        let mut pos_scratch = transform.translation;
-        let mut cd = Cooldown { remaining_seconds: 0.0 };
-        let encounter = FoodEncounter {
-            food_index: hittable_index,
-            encounter_position,
-        };
-
-        let decision = ant_food_decision_fn(
-            &mut pos_scratch, &mut movement, &mut cd, &mut carry, &mut behavior,
-            Some(&encounter),
-        );
-
-        match decision {
-            DECISION_PICK_UP => { DECISION_PICKUPS.fetch_add(1, Ordering::Relaxed); }
-            DECISION_DROP => { DECISION_DROPS.fetch_add(1, Ordering::Relaxed); }
-            _ => { DECISION_NO_ACTIONS.fetch_add(1, Ordering::Relaxed); }
-        }
-
-        if decision != DECISION_NO_ACTION {
-            commands.entity(entity).insert(cd);
-            // On DROP the mutated food is the one previously carried — not
-            // the one just encountered. `carried_before` was captured
-            // above, before the decision fn cleared `Carrying.food_index`.
-            let (food_index, food_entity) = if decision == DECISION_DROP {
-                (old_food_index, carried_before.unwrap_or(hittable_entity))
-            } else {
-                (hittable_index, hittable_entity)
-            };
-            food_mutations.write(FoodMutation {
-                food_index,
-                food_entity,
-                decision,
-                drop_position: pos_before,
-            });
-        }
-    }
-}
-
-/// Read decision-outcome diagnostic counters. Populated inside `ant_food_decision`
-/// each frame; tests read these via the loader's `RustBindings.get_decision_counters`
-/// (registered through `MassExternBinding` below) so they hit the same dylib
-/// instance as the running sim.
+/// Read decision-outcome diagnostic counters. Backed by `AtomicU64`s in
+/// `gatherers_sim::diagnostics` — populated inside `food_decision_system`
+/// each frame. Tests call through the loader's `RustBindings.get_decision_counters`
+/// (registered via `MassExternBinding` below) so reads hit the same dylib
+/// instance that's running the sim.
 pub unsafe extern "C" fn get_decision_counters(out: *mut unreal_ffi::DecisionCounters) {
     if out.is_null() { return; }
+    let s = gatherers_sim::diagnostics::snapshot();
     unsafe {
-        (*out).calls = DECISION_CALLS.load(Ordering::Relaxed);
-        (*out).hits_seen = DECISION_HITS_SEEN.load(Ordering::Relaxed);
-        (*out).ants_seen = DECISION_ANTS_SEEN.load(Ordering::Relaxed);
-        (*out).matched = DECISION_MATCHED.load(Ordering::Relaxed);
-        (*out).pickups = DECISION_PICKUPS.load(Ordering::Relaxed);
-        (*out).drops = DECISION_DROPS.load(Ordering::Relaxed);
-        (*out).no_actions = DECISION_NO_ACTIONS.load(Ordering::Relaxed);
+        (*out).calls = s.calls;
+        (*out).hits_seen = s.hits_seen;
+        (*out).ants_seen = s.ants_seen;
+        (*out).matched = s.matched;
+        (*out).pickups = s.pickups;
+        (*out).drops = s.drops;
+        (*out).no_actions = s.no_actions;
     }
 }
 
 /// Reset decision counters to zero.
 pub unsafe extern "C" fn reset_decision_counters() {
-    DECISION_CALLS.store(0, Ordering::Relaxed);
-    DECISION_HITS_SEEN.store(0, Ordering::Relaxed);
-    DECISION_ANTS_SEEN.store(0, Ordering::Relaxed);
-    DECISION_MATCHED.store(0, Ordering::Relaxed);
-    DECISION_PICKUPS.store(0, Ordering::Relaxed);
-    DECISION_DROPS.store(0, Ordering::Relaxed);
-    DECISION_NO_ACTIONS.store(0, Ordering::Relaxed);
+    gatherers_sim::diagnostics::reset();
 }
 
 /// Log decision counters once per frame when enabled + reset. Runs as a
@@ -298,19 +219,13 @@ fn log_decision_counters(_world: &mut bevy_ecs::world::World) {
     if std::env::var("UNREAL_RUST_MASS_TIMING").ok().as_deref() != Some("1") {
         return;
     }
-    let calls = DECISION_CALLS.load(Ordering::Relaxed);
-    if calls == 0 { return; }
+    let s = gatherers_sim::diagnostics::snapshot();
+    if s.calls == 0 { return; }
     log::info!(
         "[decision-perf] calls={} hits_seen={} ants_seen={} matched={} pickups={} drops={} no_actions={}",
-        calls,
-        DECISION_HITS_SEEN.load(Ordering::Relaxed),
-        DECISION_ANTS_SEEN.load(Ordering::Relaxed),
-        DECISION_MATCHED.load(Ordering::Relaxed),
-        DECISION_PICKUPS.load(Ordering::Relaxed),
-        DECISION_DROPS.load(Ordering::Relaxed),
-        DECISION_NO_ACTIONS.load(Ordering::Relaxed),
+        s.calls, s.hits_seen, s.ants_seen, s.matched, s.pickups, s.drops, s.no_actions,
     );
-    unsafe { reset_decision_counters(); }
+    gatherers_sim::diagnostics::reset();
 }
 
 inventory::submit!(unreal_api::mass::MassDispatchHook {

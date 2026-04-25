@@ -99,6 +99,6 @@ pub fn init_simulation(params: &MassInitSimulationParams) -> Vec<(String, Vec<Ma
 
     vec![
         (Ant::ENTITY_GROUP.to_string(), ant_handles),
-        ("food".to_string(), food_handles),
+        (Food::ENTITY_GROUP.to_string(), food_handles),
     ]
 }

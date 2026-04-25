@@ -1,18 +1,14 @@
-#[cfg(not(feature = "unreal"))]
-use crate::components::{AntFoodHit, Food, FoodMutation, Transform};
-use crate::components::{Behavior, Carrying, Cooldown, DesiredMovement, FoodEncounter};
+use crate::components::{
+    Ant, AntFoodHit, Behavior, Carrying, Cooldown, DesiredMovement, Food, FoodEncounter,
+    FoodMutation, Transform,
+};
 pub use crate::components::{
     DECISION_DROP, DECISION_NO_ACTION, DECISION_PICK_UP, FoodDecisionCode,
 };
-#[cfg(not(feature = "unreal"))]
 use bevy_ecs::message::{MessageReader, MessageWriter};
-#[cfg(not(feature = "unreal"))]
-use bevy_ecs::prelude::{Commands, Res};
-#[cfg(not(feature = "unreal"))]
-use bevy_mass::prelude::Query;
-#[cfg(not(feature = "unreal"))]
-use bevy_mass::prelude::EntityIndex;
+use bevy_mass::prelude::*;
 use glam::DVec3;
+use std::collections::HashMap;
 
 /// Pickup separation distance (matches C++ GatherersMassPickupSeparationDistance)
 pub const PICKUP_SEPARATION_DISTANCE: f32 = 50.0;
@@ -121,41 +117,55 @@ fn compute_ant_retarget_direction(direction: DVec3, jitter_radians: f32) -> DVec
 }
 
 // ---------------------------------------------------------------------------
-// Shared food decision system (standalone Bevy mode)
+// Shared food decision system — used by both standalone Bevy and Unreal modes.
 //
 // Reads HitEvent messages from the collision prepass, calls the pure decision
 // function, inserts Cooldown, and emits FoodMutation messages for the
-// mode-specific apply system.
+// mode-specific apply system. `#[mass_system]` handles backend rewriting;
+// `Res<EntityIndex<Food>>` is populated by the standalone spawn path in Bevy
+// mode and by `MassEntityIndexRegistration` at `mass_init_simulation` in UE
+// mode (emitted from `#[mass(group = "food")]` on the `Food` tag).
 // ---------------------------------------------------------------------------
 
-#[cfg(not(feature = "unreal"))]
+#[mass_system]
 pub fn food_decision_system(
+    mut ants: Query<
+        (Entity, &mut Transform, &mut DesiredMovement, &mut Carrying, &mut Behavior),
+        (With<Ant>, Without<Cooldown>),
+    >,
     mut hits: MessageReader<AntFoodHit>,
-    mut food_mutations: MessageWriter<FoodMutation>,
-    mut ants: Query<(
-        &mut Transform,
-        &mut DesiredMovement,
-        &mut Carrying,
-        &mut Behavior,
-    )>,
     food_entities: Res<EntityIndex<Food>>,
+    mut food_mutations: MessageWriter<FoodMutation>,
     mut commands: Commands,
 ) {
-    for hit in hits.read() {
-        let Ok((mut transform, mut movement, mut carry, mut behavior)) =
-            ants.get_mut(hit.hitter_entity)
+    crate::diagnostics::decision_call();
+
+    // Build entity → hit lookup from messages (read once, lookup per entity).
+    // Iterating `ants` + using a hit map works uniformly under `#[mass_system]`
+    // in UE mode (chunk iteration) and in Bevy mode (archetype iteration).
+    let hit_map: HashMap<Entity, (i32, Entity, DVec3)> = hits
+        .read()
+        .inspect(|_| crate::diagnostics::decision_hit_seen())
+        .map(|h| (h.hitter_entity, (h.hittable_index, h.hittable_entity, h.encounter_position)))
+        .collect();
+
+    for (entity, mut transform, mut movement, mut carry, mut behavior) in &mut ants {
+        let Some(&(hittable_index, hittable_entity, encounter_position)) = hit_map.get(&entity)
         else {
             continue;
         };
+        crate::diagnostics::decision_matched();
 
+        // Resolve the currently-carried food's Entity *before* the decision
+        // runs — a DROP clears `food_index` to -1, so the lookup must happen
+        // while the old value is still there.
+        let carried_before = carry.carried_entity(&food_entities);
         let old_food_index = carry.food_index;
         let pos_before = transform.translation;
-        let mut cd = Cooldown {
-            remaining_seconds: 0.0,
-        };
+        let mut cd = Cooldown { remaining_seconds: 0.0 };
         let encounter = FoodEncounter {
-            food_index: hit.hittable_index,
-            encounter_position: hit.encounter_position,
+            food_index: hittable_index,
+            encounter_position,
         };
 
         let decision = ant_food_decision(
@@ -167,18 +177,21 @@ pub fn food_decision_system(
             Some(&encounter),
         );
 
+        match decision {
+            DECISION_PICK_UP => crate::diagnostics::decision_pickup(),
+            DECISION_DROP => crate::diagnostics::decision_drop(),
+            _ => crate::diagnostics::decision_no_action(),
+        }
+
         if decision != DECISION_NO_ACTION {
-            commands.entity(hit.hitter_entity).insert(cd);
-            // On DROP the mutated food is the one previously carried
-            // (old_food_index) — not the one just encountered. Resolve its
-            // entity via the spawn-order index.
+            commands.entity(entity).insert(cd);
+            // On DROP the mutated food is the one previously carried —
+            // `carried_before` was captured above before the decision
+            // cleared `Carrying.food_index`.
             let (food_index, food_entity) = if decision == DECISION_DROP {
-                let entity = food_entities
-                    .get(old_food_index as usize)
-                    .unwrap_or(hit.hittable_entity);
-                (old_food_index, entity)
+                (old_food_index, carried_before.unwrap_or(hittable_entity))
             } else {
-                (hit.hittable_index, hit.hittable_entity)
+                (hittable_index, hittable_entity)
             };
             food_mutations.write(FoodMutation {
                 food_index,

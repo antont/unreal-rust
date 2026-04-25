@@ -5,6 +5,7 @@ use unreal_api::mass::{
     MassBevySystemRegistration, MassEntityMap, MassSchedule,
     MassSystemRegistration, MassSystemStage,
     effective_order, registered_bevy_mass_systems, registered_dispatch_hooks,
+    registered_entity_index_populations,
     registered_mass_systems, registered_sim_inits, registered_visualizer_groups,
     registered_spatial_query_configs, registered_sim_defaults,
     resolved_schedule_orders,
@@ -397,7 +398,23 @@ pub unsafe extern "C" fn mass_init_simulation(
                         .collect();
                     entity_map.insert_group(name, entities);
                 }
-                *sched.world_mut().resource_mut::<MassEntityMap>() = entity_map;
+                let world = sched.world_mut();
+                *world.resource_mut::<MassEntityMap>() = entity_map;
+
+                // Populate `EntityIndex<Tag>` resources for each tag that
+                // declared `#[mass(group = "...")]`. This lets game systems
+                // take `Res<EntityIndex<Food>>` uniformly in both backends —
+                // the group-string lookup is resolved here, once, and the
+                // resource exposes an Entity-by-index API from then on.
+                for reg in registered_entity_index_populations() {
+                    let entities_opt = world
+                        .resource::<MassEntityMap>()
+                        .group(reg.entity_group)
+                        .map(|s| s.to_vec());
+                    if let Some(entities) = entities_opt {
+                        (reg.populate_fn)(world, &entities);
+                    }
+                }
             }
         }
     }));

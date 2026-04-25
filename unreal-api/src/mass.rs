@@ -1757,6 +1757,25 @@ pub fn registered_dispatch_hooks() -> inventory::iter<MassDispatchHook> {
     inventory::iter::<MassDispatchHook>
 }
 
+/// Registration that lets `mass_init_simulation` populate an
+/// `EntityIndex<Tag>` resource from a `MassEntityMap` group.
+///
+/// Emitted by `#[derive(MassFragment)]` when `#[mass(group = "...")]`
+/// is present. One entry per tag type; the `populate_fn` is generated
+/// to insert `EntityIndex::<Tag>` into the world with the supplied
+/// entity slice.
+pub struct MassEntityIndexRegistration {
+    pub entity_group: &'static str,
+    pub populate_fn: fn(&mut bevy_ecs::world::World, &[bevy_ecs::entity::Entity]),
+}
+
+inventory::collect!(MassEntityIndexRegistration);
+
+pub fn registered_entity_index_populations()
+    -> inventory::iter<MassEntityIndexRegistration> {
+    inventory::iter::<MassEntityIndexRegistration>
+}
+
 // ---------------------------------------------------------------------------
 // Per-system timing (opt-in)
 // ---------------------------------------------------------------------------

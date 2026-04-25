@@ -18,7 +18,7 @@ inventory::submit!(unreal_api::mass::MassSimInitRegistration {
 inventory::submit!(unreal_api::mass::MassScheduleOrder {
     systems: &[
         "ant_collision_prepass",
-        "ant_food_decision",
+        "food_decision_system",
         "apply_food_mutations",
         "entity_cooldown",
         "carried_food_tracking",

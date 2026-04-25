@@ -229,6 +229,39 @@ pub fn mass_fragment_derive(ast: &DeriveInput) -> syn::Result<TokenStream> {
         quote! {}
     };
 
+    // In UE mode, a group-bearing tag also registers an `EntityIndex<Tag>`
+    // population callback. `mass_init_simulation` iterates these and copies
+    // the MassEntityMap group slice into a freshly-inserted
+    // `EntityIndex<#name>` resource, so game systems can take
+    // `Res<EntityIndex<#name>>` without caring about the map.
+    let entity_index_reg_static_name = quote::format_ident!(
+        "__mass_entity_index_reg_{}", name
+    );
+    let entity_index_block = if let Some(group) = &group {
+        quote! {
+            #[cfg(feature = "unreal")]
+            const _: () = {
+                #[allow(non_upper_case_globals)]
+                static #entity_index_reg_static_name: () = {
+                    ::unreal_api::inventory::submit! {
+                        ::unreal_api::mass::MassEntityIndexRegistration {
+                            entity_group: #group,
+                            populate_fn: |world, entities| {
+                                world.insert_resource(
+                                    ::bevy_mass::prelude::EntityIndex::<#name>::new(
+                                        entities.to_vec(),
+                                    ),
+                                );
+                            },
+                        }
+                    }
+                };
+            };
+        }
+    } else {
+        quote! {}
+    };
+
     // All the MassFragment / ChunkBacked / inventory registration code is
     // feature-gated so `#[derive(MassFragment)]` is a no-op in pure-Bevy
     // builds. Game code can write the derive unconditionally without
@@ -269,6 +302,7 @@ pub fn mass_fragment_derive(ast: &DeriveInput) -> syn::Result<TokenStream> {
     Ok(quote! {
         #unreal_block
         #group_impl
+        #entity_index_block
     })
 }
 

@@ -18,5 +18,5 @@ bevy_mass = { path = "../bevy_mass", default-features = false, features = ["unre
 inventory = "0.3"
 bevy_ecs = "0.18"
 glam = "0.29"
-gatherers-sim = { path = "../gatherers-sim", default-features = false, features = ["unreal"] }
+gatherers-sim = { path = "../gatherers-sim", default-features = false, features = ["unreal", "unreal_diag"] }
 log = "0.4"
