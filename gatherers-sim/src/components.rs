@@ -64,6 +64,23 @@ impl Carrying {
     pub fn is_carrying(&self) -> bool {
         self.food_index >= 0
     }
+
+    /// Resolve the carried food's shadow Bevy `Entity` via `MassEntityMap`.
+    /// Returns `None` if not carrying or the index is out of range.
+    ///
+    /// The food-group name (`"food"`) is semantic to `Carrying` itself —
+    /// the same fragment can't legally carry anything else — so hard-coding
+    /// it here keeps the group string off every game-code call site.
+    #[cfg(feature = "unreal")]
+    pub fn carried_entity(
+        &self,
+        map: &unreal_api::mass::MassEntityMap,
+    ) -> Option<Entity> {
+        if self.food_index < 0 {
+            return None;
+        }
+        map.get("food", self.food_index as usize)
+    }
 }
 
 /// Per-entity behavior tuning (turn jitter, RNG state).

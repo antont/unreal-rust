@@ -172,17 +172,12 @@ fn ant_collision_prepass(
     entity_map: Res<unreal_api::mass::MassEntityMap>,
     mut hits: MessageWriter<AntFoodHit>,
 ) {
+    let spatial = spatial.with_map(&entity_map);
     for (entity, transform, prev) in &mut ants {
         if let Some(hit) = spatial.call("food_pickup", &prev.value, &transform.translation) {
-            // Resolve chunk-slot index to a shadow Bevy Entity so downstream
-            // systems can use Entity-based lookups. Missing entries
-            // (shouldn't happen) fall through to `Entity::PLACEHOLDER`.
-            let food_entity = entity_map
-                .get("food", hit.entity_index as usize)
-                .unwrap_or(bevy_ecs::entity::Entity::PLACEHOLDER);
             hits.write(AntFoodHit::new(
                 hit.entity_index,
-                food_entity,
+                hit.entity,
                 entity,
                 hit.position,
             ));
@@ -221,6 +216,10 @@ fn ant_food_decision(
         };
         DECISION_MATCHED.fetch_add(1, Ordering::Relaxed);
 
+        // Resolve the currently-carried food's Entity *before* the
+        // decision runs — a DROP clears `food_index` to -1, so the
+        // lookup must happen while the old value is still there.
+        let carried_before = carry.carried_entity(&entity_map);
         let old_food_index = carry.food_index;
         let pos_before = transform.translation;
         // Use a local copy — Rust does not write transforms in Unreal mode;
@@ -246,13 +245,10 @@ fn ant_food_decision(
         if decision != DECISION_NO_ACTION {
             commands.entity(entity).insert(cd);
             // On DROP the mutated food is the one previously carried — not
-            // the one just encountered. Resolve its shadow entity via
-            // `MassEntityMap` from the chunk-slot index.
+            // the one just encountered. `carried_before` was captured
+            // above, before the decision fn cleared `Carrying.food_index`.
             let (food_index, food_entity) = if decision == DECISION_DROP {
-                let ent = entity_map
-                    .get("food", old_food_index as usize)
-                    .unwrap_or(hittable_entity);
-                (old_food_index, ent)
+                (old_food_index, carried_before.unwrap_or(hittable_entity))
             } else {
                 (hittable_index, hittable_entity)
             };
