@@ -10,6 +10,7 @@
 use glam::DVec3;
 use unreal_api::mass::{MassTestRegistration, TestCtx};
 use crate::components::{Transform, PreviousTranslation, DesiredMovement, FoodState, Carrying};
+use gatherers_sim::components::Cooldown;
 
 // ---------------------------------------------------------------------------
 // SpawnAndSimulate — basic lifecycle test
@@ -529,4 +530,51 @@ fn integration(ctx: &TestCtx) {
     assert!(!ctx.has_managed_sim(), "sim should be inactive after reset");
     assert_eq!(ctx.entity_count("ants"), 0, "ant count should be 0 after reset");
     assert_eq!(ctx.entity_count("food"), 0, "food count should be 0 after reset");
+}
+
+// ---------------------------------------------------------------------------
+// BevyShadowAccess — smoke-test TestCtx's shadow-world accessors against
+// Cooldown (already a shadow component), so later shadow-only components
+// (like the new Carrying) can rely on the same API.
+// ---------------------------------------------------------------------------
+
+inventory::submit!(MassTestRegistration {
+    name: "BevyShadowAccess",
+    test_fn: bevy_shadow_access,
+});
+
+fn bevy_shadow_access(ctx: &TestCtx) {
+    ctx.init_sim(
+        &[("ants", 3), ("food", 1)],
+        [-100.0, -100.0, 0.0],
+        [100.0, 100.0, 100.0],
+        1,
+    );
+
+    // Fresh ants have no Cooldown — `bevy_get` must return None.
+    assert!(
+        ctx.bevy_get::<Cooldown>("ants", 0).is_none(),
+        "ant 0 should have no Cooldown at spawn"
+    );
+
+    // Insert a Cooldown on ant 1 via the shadow API.
+    ctx.bevy_insert("ants", 1, Cooldown { remaining_seconds: 1.25 });
+
+    // Read it back — must round-trip.
+    let cd = ctx.bevy_get::<Cooldown>("ants", 1).expect("ant 1 should have Cooldown after insert");
+    assert!(
+        (cd.remaining_seconds - 1.25).abs() < 1e-6,
+        "round-trip failed: expected 1.25, got {}",
+        cd.remaining_seconds
+    );
+
+    // Other ants are unaffected.
+    assert!(ctx.bevy_get::<Cooldown>("ants", 0).is_none(), "ant 0 should still have no Cooldown");
+    assert!(ctx.bevy_get::<Cooldown>("ants", 2).is_none(), "ant 2 should still have no Cooldown");
+
+    // `bevy_entity` resolves group+index to a real Entity.
+    let e = ctx.bevy_entity("ants", 0);
+    assert!(e != bevy_ecs::entity::Entity::PLACEHOLDER, "bevy_entity must resolve a real Entity");
+
+    ctx.reset();
 }

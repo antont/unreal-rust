@@ -175,6 +175,48 @@ pub fn init_global_schedule() {
     if guard.is_none() {
         *guard = Some(SyncMassSchedule(build_bevy_schedule()));
     }
+    drop(guard);
+
+    // Register shadow-world accessors so `TestCtx::bevy_get/insert/entity` can
+    // reach the global schedule without needing new FFI callbacks. OnceLock
+    // inside `unreal-api` makes this idempotent across hot-reloads.
+    unreal_api::mass::register_shadow_world_accessors(
+        shadow_world_read,
+        shadow_world_write,
+    );
+}
+
+fn shadow_world_read(
+    visit: &mut dyn FnMut(&unreal_api::ecs::world::World, &MassEntityMap),
+) -> bool {
+    let Ok(guard) = MASS_SCHEDULE.lock() else {
+        return false;
+    };
+    let Some(wrapper) = guard.as_ref() else {
+        return false;
+    };
+    let world = wrapper.0.world();
+    let map = world.resource::<MassEntityMap>();
+    visit(world, map);
+    true
+}
+
+fn shadow_world_write(
+    visit: &mut dyn FnMut(&mut unreal_api::ecs::world::World, &MassEntityMap),
+) -> bool {
+    let Ok(mut guard) = MASS_SCHEDULE.lock() else {
+        return false;
+    };
+    let Some(wrapper) = guard.as_mut() else {
+        return false;
+    };
+    let world = wrapper.0.world_mut();
+    // Clone the map so the caller gets `&map` alongside `&mut world`. The
+    // map only changes at init/reset time, so a short-lived clone during
+    // tests is fine.
+    let map = world.resource::<MassEntityMap>().clone();
+    visit(world, &map);
+    true
 }
 
 /// Reset the global Bevy schedule, allowing it to be rebuilt on next init.

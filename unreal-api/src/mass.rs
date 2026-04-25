@@ -283,13 +283,55 @@ impl MassSchedule {
 // Shadow Bevy entity map
 // ---------------------------------------------------------------------------
 
+// ---------------------------------------------------------------------------
+// Shadow-world accessor hooks (set by `unreal-module` at init time).
+//
+// `TestCtx::bevy_get` / `bevy_insert` / `bevy_entity` need to reach the global
+// `MASS_SCHEDULE` that lives in `unreal-module`. Rather than pull that
+// dependency up the graph, `unreal-module` registers function pointers here
+// and `TestCtx` dispatches through them. Pure Rust — no FFI.
+// ---------------------------------------------------------------------------
+
+/// Visit the shadow Bevy world read-only. Returns `true` if the world is
+/// available, else `false`. Set by `unreal-module::init_global_schedule`.
+pub type ShadowWorldReadFn = fn(
+    &mut dyn FnMut(&bevy_ecs::world::World, &MassEntityMap),
+) -> bool;
+
+/// Visit the shadow Bevy world mutably. Returns `true` if the world is
+/// available, else `false`. Set by `unreal-module::init_global_schedule`.
+pub type ShadowWorldWriteFn = fn(
+    &mut dyn FnMut(&mut bevy_ecs::world::World, &MassEntityMap),
+) -> bool;
+
+static SHADOW_WORLD_READ: std::sync::OnceLock<ShadowWorldReadFn> = std::sync::OnceLock::new();
+static SHADOW_WORLD_WRITE: std::sync::OnceLock<ShadowWorldWriteFn> = std::sync::OnceLock::new();
+
+/// Register shadow-world accessors. Called once by `unreal-module` at init.
+/// Subsequent calls are no-ops (OnceLock).
+pub fn register_shadow_world_accessors(
+    read_fn: ShadowWorldReadFn,
+    write_fn: ShadowWorldWriteFn,
+) {
+    let _ = SHADOW_WORLD_READ.set(read_fn);
+    let _ = SHADOW_WORLD_WRITE.set(write_fn);
+}
+
+pub(crate) fn shadow_world_read_fn() -> Option<ShadowWorldReadFn> {
+    SHADOW_WORLD_READ.get().copied()
+}
+
+pub(crate) fn shadow_world_write_fn() -> Option<ShadowWorldWriteFn> {
+    SHADOW_WORLD_WRITE.get().copied()
+}
+
 /// Maps Mass Entity groups to shadow Bevy entities.
 ///
 /// Each named group (e.g., "ants", "food") has a `Vec<Entity>` indexed by
 /// spawn order. Shadow entities live in the Bevy World alongside the
 /// MassFragment chunk data, allowing pure-Bevy components (like Cooldown)
 /// to be attached to entities that also have zero-copy chunk fragments.
-#[derive(bevy_ecs::prelude::Resource, Default)]
+#[derive(bevy_ecs::prelude::Resource, Default, Clone)]
 pub struct MassEntityMap {
     groups: std::collections::HashMap<String, Vec<bevy_ecs::entity::Entity>>,
 }
@@ -2081,6 +2123,91 @@ impl TestCtx {
             )
         };
         assert_eq!(ok, 1, "Failed to write fragment {} for {}/{}", T::CPP_TYPE_NAME, group, index);
+    }
+
+    // ---- Shadow-world (pure-Bevy component) accessors ---------------------
+    //
+    // These route through `register_shadow_world_accessors`, which
+    // `unreal-module` sets at init. The shadow world is the Bevy `World`
+    // inside `MASS_SCHEDULE` — same world the mass systems run against, so
+    // insertions here are visible to the next dispatch.
+
+    /// Resolve a shadow Bevy `Entity` for an entity in a group. Returns
+    /// `Entity::PLACEHOLDER` if the group or index is unknown.
+    pub fn bevy_entity(&self, group: &str, index: u32) -> bevy_ecs::entity::Entity {
+        let Some(read) = shadow_world_read_fn() else {
+            return bevy_ecs::entity::Entity::PLACEHOLDER;
+        };
+        let mut out = bevy_ecs::entity::Entity::PLACEHOLDER;
+        let mut visit = |_world: &bevy_ecs::world::World, map: &MassEntityMap| {
+            out = map
+                .get(group, index as usize)
+                .unwrap_or(bevy_ecs::entity::Entity::PLACEHOLDER);
+        };
+        read(&mut visit);
+        out
+    }
+
+    /// Read a pure-Bevy component from the shadow entity at `(group, index)`.
+    /// Returns `None` if the entity or component is missing.
+    pub fn bevy_get<T: bevy_ecs::component::Component + Clone>(
+        &self,
+        group: &str,
+        index: u32,
+    ) -> Option<T> {
+        let read = shadow_world_read_fn()?;
+        let mut out: Option<T> = None;
+        let mut visit = |world: &bevy_ecs::world::World, map: &MassEntityMap| {
+            if let Some(entity) = map.get(group, index as usize) {
+                out = world.get::<T>(entity).cloned();
+            }
+        };
+        read(&mut visit);
+        out
+    }
+
+    /// Insert or overwrite a pure-Bevy component on the shadow entity at
+    /// `(group, index)`. Panics if the shadow world is unavailable or the
+    /// entity index is out of range — a missing entity in a test is a bug,
+    /// not a silent pass.
+    pub fn bevy_insert<T: bevy_ecs::component::Component>(
+        &self,
+        group: &str,
+        index: u32,
+        value: T,
+    ) {
+        let write = shadow_world_write_fn()
+            .expect("bevy_insert: shadow-world accessor not registered (unreal-module must init)");
+        let mut value_opt: Option<T> = Some(value);
+        let mut visit = |world: &mut bevy_ecs::world::World, map: &MassEntityMap| {
+            let Some(entity) = map.get(group, index as usize) else {
+                return;
+            };
+            if let Some(v) = value_opt.take() {
+                world.entity_mut(entity).insert(v);
+            }
+        };
+        let ok = write(&mut visit);
+        assert!(ok, "bevy_insert: shadow world unavailable");
+        assert!(
+            value_opt.is_none(),
+            "bevy_insert: shadow entity {}/{} not found",
+            group, index
+        );
+    }
+
+    /// Remove a pure-Bevy component from the shadow entity at `(group, index)`.
+    /// No-op if the entity or component is missing.
+    pub fn bevy_remove<T: bevy_ecs::component::Component>(&self, group: &str, index: u32) {
+        let Some(write) = shadow_world_write_fn() else {
+            return;
+        };
+        let mut visit = |world: &mut bevy_ecs::world::World, map: &MassEntityMap| {
+            if let Some(entity) = map.get(group, index as usize) {
+                world.entity_mut(entity).remove::<T>();
+            }
+        };
+        let _ = write(&mut visit);
     }
 }
 
