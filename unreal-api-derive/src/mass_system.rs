@@ -299,8 +299,11 @@ fn extract_passthrough_params(
                 return None;
             }
 
-            // Everything else (BevyQuery, Commands, etc.) passes through
-            Some(quote! { #arg })
+            // Everything else (BevyQuery, Commands, etc.) passes through.
+            // Strip `#[bevy]` so the synthesized wrapper's signature is valid Rust.
+            let mut cleaned = pat_type.clone();
+            cleaned.attrs.retain(|a| !a.path.is_ident("bevy"));
+            Some(quote! { #cleaned })
         })
         .collect()
 }
@@ -483,7 +486,13 @@ pub struct MassSystemAttr {
     pub entity_group: Option<String>,
 }
 
-/// Parse `#[mass_system(order = N)]` or `#[mass_system(order = N, entity_group = "name")]`.
+/// Parse `#[mass_system]`, `#[mass_system(order = N)]`,
+/// `#[mass_system(entity_group = "name")]`, or both together.
+///
+/// Returns `None` only if the attribute is empty (callers default to the
+/// `u32::MAX` sentinel). When at least one recognised key is present, both
+/// fields are populated (possibly with `order = u32::MAX` if only
+/// `entity_group` was given).
 pub fn parse_mass_system_attr_full(attr: TokenStream) -> Option<MassSystemAttr> {
     if attr.is_empty() {
         return None;
@@ -497,8 +506,11 @@ pub fn parse_mass_system_attr_full(attr: TokenStream) -> Option<MassSystemAttr> 
     let parsed_single: syn::Result<syn::ExprAssign> = syn::parse2(attr.clone());
     if let Ok(assign) = parsed_single {
         parse_assignment(&assign, &mut order, &mut entity_group);
-        if let Some(ord) = order {
-            return Some(MassSystemAttr { order: ord, entity_group });
+        if order.is_some() || entity_group.is_some() {
+            return Some(MassSystemAttr {
+                order: order.unwrap_or(u32::MAX),
+                entity_group,
+            });
         }
     }
 
@@ -517,7 +529,14 @@ pub fn parse_mass_system_attr_full(attr: TokenStream) -> Option<MassSystemAttr> 
         }
     }
 
-    order.map(|ord| MassSystemAttr { order: ord, entity_group })
+    if order.is_some() || entity_group.is_some() {
+        Some(MassSystemAttr {
+            order: order.unwrap_or(u32::MAX),
+            entity_group,
+        })
+    } else {
+        None
+    }
 }
 
 fn parse_assignment(
@@ -870,6 +889,12 @@ pub fn mass_system_impl(func: &ItemFn, order: u32, entity_group: Option<&str>) -
                             }
                         }
                     }
+                    // SpatialQueries: pass by shared reference so the wrapper's
+                    // SystemParam value isn't moved on the first chunk-loop iteration.
+                    if seg.ident == "SpatialQueries" {
+                        let ty = &pat_type.ty;
+                        return quote! { #param_name: &#ty };
+                    }
                 }
             }
 
@@ -1205,7 +1230,22 @@ pub fn mass_system_impl(func: &ItemFn, order: u32, entity_group: Option<&str>) -
                 Pat::Ident(pat_ident) => &pat_ident.ident,
                 _ => return quote! {},
             };
+            // `#[bevy] Query<...>` passthrough is rewritten to
+            // `bevy_ecs::system::Query<...>` earlier (multi-segment path). The
+            // primary query facade uses a single-segment `Query` identifier.
+            // We need to call `.reborrow()` on bevy passthrough queries so the
+            // chunk loop can invoke the inner fn without moving the value.
             if let Type::Path(type_path) = &*pat_type.ty {
+                let is_multi_seg_bevy_query = type_path.path.segments.len() > 1
+                    && type_path
+                        .path
+                        .segments
+                        .last()
+                        .map(|s| s.ident == "Query")
+                        .unwrap_or(false);
+                if is_multi_seg_bevy_query {
+                    return quote! { #param_name.reborrow() };
+                }
                 if let Some(seg) = type_path.path.segments.last() {
                     if seg.ident == "MassQuery" || seg.ident == "MassQueryAll" || seg.ident == "Query" {
                         // Both single and tuple query params: pass the local variable
@@ -1230,7 +1270,8 @@ pub fn mass_system_impl(func: &ItemFn, order: u32, entity_group: Option<&str>) -
             // Commands: use reborrow(). MessageWriter: pass &mut (writes accumulate
             // correctly). MessageReader: pass &mut to a per-chunk MessageReplay (the
             // real reader was drained once into a Vec before the loop, see
-            // message_reader_pre_loop_stmts).
+            // message_reader_pre_loop_stmts). SpatialQueries: pass by shared ref
+            // (its methods all take `&self`).
             if let Type::Path(type_path) = &*pat_type.ty {
                 if let Some(seg) = type_path.path.segments.last() {
                     if seg.ident == "Commands" {
@@ -1242,6 +1283,9 @@ pub fn mass_system_impl(func: &ItemFn, order: u32, entity_group: Option<&str>) -
                     if seg.ident == "MessageReader" {
                         let replay_name = format_ident!("__msg_replay_{}", param_name);
                         return quote! { &mut #replay_name };
+                    }
+                    if seg.ident == "SpatialQueries" {
+                        return quote! { &#param_name };
                     }
                 }
             }
@@ -2844,6 +2888,14 @@ mod tests {
         let parsed = parse_mass_system_attr_full(attr).unwrap();
         assert_eq!(parsed.order, 10);
         assert_eq!(parsed.entity_group, None);
+    }
+
+    #[test]
+    fn parse_entity_group_without_order_defaults_to_sentinel() {
+        let attr = quote! { entity_group = "ants" };
+        let parsed = parse_mass_system_attr_full(attr).unwrap();
+        assert_eq!(parsed.order, u32::MAX);
+        assert_eq!(parsed.entity_group.as_deref(), Some("ants"));
     }
 
     // -----------------------------------------------------------------------

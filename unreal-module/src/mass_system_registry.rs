@@ -4,9 +4,11 @@ use unreal_api::ffi::{MassFragmentRequirement, MassSystemDescriptor, Utf8Str};
 use unreal_api::mass::{
     MassBevySystemRegistration, MassEntityMap, MassSchedule,
     MassSystemRegistration, MassSystemStage,
-    registered_bevy_mass_systems, registered_dispatch_hooks, registered_mass_systems,
-    registered_sim_inits, registered_visualizer_groups, registered_spatial_query_configs,
-    registered_sim_defaults,
+    effective_order, registered_bevy_mass_systems, registered_dispatch_hooks,
+    registered_entity_index_populations, registered_shadow_component_defaults,
+    registered_mass_systems, registered_sim_inits, registered_visualizer_groups,
+    registered_spatial_query_configs, registered_sim_defaults,
+    resolved_schedule_orders,
 };
 use bevy_mass::SpatialQuery;
 
@@ -77,11 +79,17 @@ pub unsafe extern "C" fn get_mass_system_descriptor(
     };
     cache.0.push(boxed);
 
+    // Apply schedule-order overrides: when a system omitted `order = N`,
+    // its declared value is `u32::MAX` and we resolve it from any
+    // registered `MassScheduleOrder`. Explicit `order = N` wins.
+    let overrides = resolved_schedule_orders();
+    let resolved = effective_order(registration.name, registration.order, &overrides);
+
     unsafe {
         (*out) = MassSystemDescriptor {
             name: Utf8Str::from(registration.name),
             num_requirements: requirements_len as u32,
-            order: registration.order,
+            order: resolved,
             requirements: requirements_ptr,
             execute_fn: registration.execute_fn,
         };
@@ -127,9 +135,13 @@ pub fn build_bevy_schedule() -> MassSchedule {
     let mut regs: Vec<&MassBevySystemRegistration> =
         registered_bevy_mass_systems().into_iter().collect();
 
-    // Sort by execution order so stages are assigned deterministically,
-    // regardless of inventory discovery order.
-    regs.sort_by_key(|r| r.order);
+    // Apply schedule-order overrides, then sort. Systems whose `order` was
+    // omitted (sentinel `u32::MAX`) get their number from any registered
+    // `MassScheduleOrder`; anything still at `u32::MAX` sorts last — that
+    // makes a missing entry loud (it runs after everything else instead of
+    // silently first).
+    let overrides = resolved_schedule_orders();
+    regs.sort_by_key(|r| effective_order(r.name, r.order, &overrides));
 
     // Sequential stage ordering: stage i runs after stage i-1
     for i in 1..regs.len() {
@@ -163,6 +175,48 @@ pub fn init_global_schedule() {
     if guard.is_none() {
         *guard = Some(SyncMassSchedule(build_bevy_schedule()));
     }
+    drop(guard);
+
+    // Register shadow-world accessors so `TestCtx::bevy_get/insert/entity` can
+    // reach the global schedule without needing new FFI callbacks. OnceLock
+    // inside `unreal-api` makes this idempotent across hot-reloads.
+    unreal_api::mass::register_shadow_world_accessors(
+        shadow_world_read,
+        shadow_world_write,
+    );
+}
+
+fn shadow_world_read(
+    visit: &mut dyn FnMut(&unreal_api::ecs::world::World, &MassEntityMap),
+) -> bool {
+    let Ok(guard) = MASS_SCHEDULE.lock() else {
+        return false;
+    };
+    let Some(wrapper) = guard.as_ref() else {
+        return false;
+    };
+    let world = wrapper.0.world();
+    let map = world.resource::<MassEntityMap>();
+    visit(world, map);
+    true
+}
+
+fn shadow_world_write(
+    visit: &mut dyn FnMut(&mut unreal_api::ecs::world::World, &MassEntityMap),
+) -> bool {
+    let Ok(mut guard) = MASS_SCHEDULE.lock() else {
+        return false;
+    };
+    let Some(wrapper) = guard.as_mut() else {
+        return false;
+    };
+    let world = wrapper.0.world_mut();
+    // Clone the map so the caller gets `&map` alongside `&mut world`. The
+    // map only changes at init/reset time, so a short-lived clone during
+    // tests is fine.
+    let map = world.resource::<MassEntityMap>().clone();
+    visit(world, &map);
+    true
 }
 
 /// Reset the global Bevy schedule, allowing it to be rebuilt on next init.
@@ -386,7 +440,40 @@ pub unsafe extern "C" fn mass_init_simulation(
                         .collect();
                     entity_map.insert_group(name, entities);
                 }
-                *sched.world_mut().resource_mut::<MassEntityMap>() = entity_map;
+                let world = sched.world_mut();
+                *world.resource_mut::<MassEntityMap>() = entity_map;
+
+                // Populate `EntityIndex<Tag>` resources for each tag that
+                // declared `#[mass(group = "...")]`. This lets game systems
+                // take `Res<EntityIndex<Food>>` uniformly in both backends —
+                // the group-string lookup is resolved here, once, and the
+                // resource exposes an Entity-by-index API from then on.
+                for reg in registered_entity_index_populations() {
+                    let entities_opt = world
+                        .resource::<MassEntityMap>()
+                        .group(reg.entity_group)
+                        .map(|s| s.to_vec());
+                    if let Some(entities) = entities_opt {
+                        (reg.populate_fn)(world, &entities);
+                    }
+                }
+
+                // Insert pure-Rust shadow components (e.g. `Carrying`,
+                // `Cooldown`) with default values on every shadow Entity
+                // in the declared groups. Unlike `EntityIndex`, these are
+                // per-entity inserts — the registration holds a function
+                // pointer that calls `world.entity_mut(e).insert(Default)`.
+                for reg in registered_shadow_component_defaults() {
+                    let entities_opt = world
+                        .resource::<MassEntityMap>()
+                        .group(reg.entity_group)
+                        .map(|s| s.to_vec());
+                    if let Some(entities) = entities_opt {
+                        for e in entities {
+                            (reg.insert_fn)(world, e);
+                        }
+                    }
+                }
             }
         }
     }));

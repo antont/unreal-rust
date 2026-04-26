@@ -54,3 +54,19 @@ Moved Transform, Velocity, DesiredMovement, and CodeDrivenMovementTag from `gath
 ## 14. Dead code cleanup: AntMassTag deleted
 
 `AntMassTag` was never used in any system, query, or entity archetype. Deleted from `gatherers-sim` and all re-exports.
+
+## 12. `#[derive(Component, MassFragment)]` replaces `#[component]`
+
+Game components declare chunk-backed fragments with vanilla-looking syntax plus an explicit opt-in: `#[repr(C)] #[derive(Component, MassFragment, Clone, Copy, Debug)] pub struct ...`. The `MassFragment` derive auto-detects tags (unit structs), resolves `cpp_type` from `BEVY_MASS_CPP_PREFIX` + struct name + "Fragment"/"Tag" suffix, emits `ChunkBacked` impl, and supports `#[mass(group = "...")]` for tag grouping. All emitted `unreal_api::mass::*` references are `#[cfg(feature = "unreal")]`-gated so the derive is a no-op in pure-Bevy builds. The `#[component]` attribute macro is retained but deprecated. Game code now reads as vanilla Bevy except for the `#[repr(C)]` line on chunk-backed fragments.
+
+## 9. Entity references in cross-archetype messages
+
+`HitEvent` and `FoodMutation` now carry the hittable's shadow Bevy `Entity` alongside the existing chunk-slot `i32` index. Translation happens once at the spatial-query boundary (UE: `MassEntityMap::get(group, idx)`; standalone: `EntityIndex<Food>` in scope). `Carrying::is_carrying()` helper replaces scattered `food_index >= 0` checks. Fragments stay `#[repr(C)]` with `i32` indices (matching the C++ layout — the design-doc constraint from `docs/todo/entity-references-in-messages.md`). Consumer systems can now look up cross-archetype entities through the normal Bevy `Query::get(entity)` interface instead of index-keyed lookups, when the const-if dispatch supports it on the primary query.
+
+## 16. `BevyQuery` removal (tracked with item 9)
+
+`BevyQuery` is now a deprecated re-export; game code uses the `#[bevy]` parameter attribute (or nothing — `QueryBackend::IS_CHUNK` const-if picks the right backend automatically). `QueryAll` retirement is partial: decision-system consumers kept using it as the index-based chunk-access facade until entity-keyed access lands on primary queries; one consumer (`carried_food_tracking`) migrated to `Query<&mut Transform>` via `MassEntityMap`/`EntityIndex` resolution.
+
+## 15. Bevy-style `.chain()` ordering
+
+Game systems no longer declare `#[mass_system(order = N)]`. Execution order comes from a plugin-level `MassScheduleOrder` inventory submission that lists the system names in order; the framework maps the list to numeric order values at plugin init (stride 10) and both the Bevy schedule and the C++ processor pipeline read the resolved value. `#[mass_system]` order is now optional (sentinel `u32::MAX`). Insert new systems at the right position in the list — no renumbering required. Standalone mode continues to use real Bevy `.chain()` in `app.add_systems(Update, (...).chain())`, which is already the idiomatic path there.

@@ -1,4 +1,4 @@
-use bevy_mass::prelude::{Component, Entity, DVec3, Resource, component};
+use bevy_mass::prelude::{Component, Entity, DVec3, Resource, MassFragment};
 use bevy_mass::movement::PrevTranslationLike;
 use bevy_ecs::message::Message;
 use std::marker::PhantomData;
@@ -10,19 +10,21 @@ pub use bevy_mass::components::{Transform, Velocity, DesiredMovement, CodeDriven
 // Tags
 // ---------------------------------------------------------------------------
 
-#[component]
+#[derive(Component, MassFragment, Clone, Copy, Debug)]
+#[cfg_attr(feature = "unreal", mass(group = "food"))]
 pub struct Food;
 
-#[component(group = "ants")]
+#[derive(Component, MassFragment, Clone, Copy, Debug)]
+#[cfg_attr(feature = "unreal", mass(group = "ants"))]
 pub struct Ant;
 
 // ---------------------------------------------------------------------------
 // Data components
 // ---------------------------------------------------------------------------
 
-#[component]
-#[derive(Default)]
 /// Previous-frame translation, used for spatial sweep queries.
+#[repr(C)]
+#[derive(Component, MassFragment, Clone, Copy, Debug, Default)]
 pub struct PreviousTranslation {
     pub value: DVec3,
 }
@@ -40,20 +42,29 @@ pub struct Cooldown {
     pub remaining_seconds: f32,
 }
 
-#[component]
-/// Index of carried food item (-1 = not carrying).
-pub struct Carrying {
-    pub food_index: i32,
-}
+/// The food entity currently carried (if any). Pure-Bevy shadow component —
+/// lives on shadow entities in UE mode, not in chunk memory. C++ has no
+/// awareness of `Carrying`; all carrying logic runs Rust-side, and the
+/// food-follow-ant positioning in `carried_food_tracking` reads this
+/// component directly.
+#[derive(Component, Clone, Copy, Debug, Default)]
+pub struct Carrying(pub Option<Entity>);
 
-impl Default for Carrying {
-    fn default() -> Self {
-        Self { food_index: -1 }
+impl Carrying {
+    /// Idiomatic check — reads better than pattern-matching on the field.
+    pub fn is_carrying(&self) -> bool {
+        self.0.is_some()
+    }
+
+    /// The currently-carried food `Entity`, if any.
+    pub fn entity(&self) -> Option<Entity> {
+        self.0
     }
 }
 
-#[component]
 /// Per-entity behavior tuning (turn jitter, RNG state).
+#[repr(C)]
+#[derive(Component, MassFragment, Clone, Copy, Debug)]
 pub struct Behavior {
     pub turn_jitter_radians: f32,
     pub random_seed: i32,
@@ -68,8 +79,9 @@ impl Default for Behavior {
     }
 }
 
-#[component]
 /// Food entity fragment. Position is in FTransformFragment (shared with vis system).
+#[repr(C)]
+#[derive(Component, MassFragment, Clone, Copy, Debug)]
 pub struct FoodState {
     pub is_loose: bool,
 }
@@ -114,19 +126,34 @@ pub const DECISION_DROP: FoodDecisionCode = 2;
 /// A collision between a hittable entity and a hitter entity.
 /// Generic over marker types for type safety (matching original gatherers).
 ///
-/// Carries the hittable's index (not entity) because in Unreal mode food lives
-/// in Mass Entity chunks without Bevy entities.
+/// Carries both the hittable's `Entity` (for idiomatic Bevy-style lookup)
+/// and its chunk-slot `i32` index (still needed to construct
+/// `FoodEncounter`, whose `food_index` field is `#[repr(C)]` and fed to
+/// the pure decision function). In Unreal mode the Entity is a shadow
+/// Bevy entity resolved via `MassEntityMap` at the spatial-query boundary.
 #[derive(Debug, Clone, Message)]
 pub struct HitEvent<Hittable: 'static, Hitter: 'static> {
     pub hittable_index: i32,
+    pub hittable_entity: Entity,
     pub hitter_entity: Entity,
     pub encounter_position: DVec3,
     _phantom: PhantomData<(Hittable, Hitter)>,
 }
 
 impl<H: 'static, T: 'static> HitEvent<H, T> {
-    pub fn new(hittable_index: i32, hitter_entity: Entity, encounter_position: DVec3) -> Self {
-        Self { hittable_index, hitter_entity, encounter_position, _phantom: PhantomData }
+    pub fn new(
+        hittable_index: i32,
+        hittable_entity: Entity,
+        hitter_entity: Entity,
+        encounter_position: DVec3,
+    ) -> Self {
+        Self {
+            hittable_index,
+            hittable_entity,
+            hitter_entity,
+            encounter_position,
+            _phantom: PhantomData,
+        }
     }
 }
 
@@ -135,9 +162,13 @@ pub type AntFoodHit = HitEvent<Food, Ant>;
 
 /// Food-side mutation produced by the decision system, consumed by
 /// a mode-specific apply system that can access food data.
+///
+/// Carries `food_entity` (idiomatic lookup). The apply system resolves
+/// this to a chunk-slot index via `Res<EntityIndex<Food>>` for the FFI
+/// `FoodDropEvents` / `FoodPickupEvents` payloads that C++ consumes.
 #[derive(Debug, Clone, Message)]
 pub struct FoodMutation {
-    pub food_index: i32,
+    pub food_entity: Entity,
     pub decision: FoodDecisionCode,
     pub drop_position: DVec3,
 }
@@ -224,13 +255,6 @@ mod tests {
     }
 
     #[test]
-    fn carrying_layout() {
-        assert_eq!(mem::size_of::<Carrying>(), 4);
-        assert_eq!(mem::align_of::<Carrying>(), 4);
-        assert_eq!(mem::offset_of!(Carrying, food_index), 0);
-    }
-
-    #[test]
     fn behavior_layout() {
         assert_eq!(mem::size_of::<Behavior>(), 8);
         assert_eq!(mem::align_of::<Behavior>(), 4);
@@ -247,7 +271,8 @@ mod tests {
     #[test]
     fn carrying_default() {
         let c = Carrying::default();
-        assert_eq!(c.food_index, -1);
+        assert!(!c.is_carrying());
+        assert_eq!(c.entity(), None);
     }
 
     #[test]

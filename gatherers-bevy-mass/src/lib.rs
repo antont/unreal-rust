@@ -8,6 +8,24 @@ inventory::submit!(unreal_api::mass::MassSimInitRegistration {
     init_fn: init::init_simulation,
 });
 
+// System execution order for the gatherers pipeline.
+//
+// This replaces `order = N` on every `#[mass_system]` — the framework
+// maps these names to numeric order values at plugin init time, and
+// both the Bevy schedule and the C++ processor pipeline respect the
+// result. Insert new systems at the right position; no need to
+// renumber anything.
+inventory::submit!(unreal_api::mass::MassScheduleOrder {
+    systems: &[
+        "ant_collision_prepass",
+        "food_decision_system",
+        "apply_food_mutations",
+        "entity_cooldown",
+        "carried_food_tracking",
+        "entity_boundary_reflect",
+    ],
+});
+
 // Collision group config: tells C++ where to find entity positions for
 // spatial-query collision ISMCs. Rendering uses native MassRepresentation.
 inventory::submit!(unreal_api::mass::MassVisualizerGroupRegistration {

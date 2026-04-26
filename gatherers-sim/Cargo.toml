@@ -7,6 +7,10 @@ edition.workspace = true
 default = ["bevy-backend"]
 bevy-backend = ["bevy_mass/bevy-backend"]
 unreal = ["bevy_mass/unreal", "dep:unreal-api"]
+# Enables real `AtomicU64` backing for the decision-outcome diagnostic
+# counters. Enabled by `gatherers-bevy-mass` so UE automation tests can
+# read them via FFI; stays off in standalone Bevy (counters are inert).
+unreal_diag = []
 
 [dependencies]
 bevy_mass = { path = "../bevy_mass", default-features = false }

@@ -27,7 +27,7 @@ pub struct Query<D, F = ()> {
 ///
 /// **Deprecated**: Use `#[bevy]` parameter attribute instead:
 /// ```ignore
-/// #[mass_system(order = 40)]
+/// #[mass_system]
 /// fn my_system(#[bevy] cooldowns: Query<(Entity, &mut Cooldown)>) { ... }
 /// ```
 #[deprecated(note = "Use #[bevy] parameter attribute on Query instead of BevyQuery")]

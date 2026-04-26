@@ -42,7 +42,6 @@ fn spawn_entities(
         .fragment::<PreviousTranslation>()
         .fragment::<DesiredMovement>()
         .fragment::<Velocity>()          // Internal — UE's UMassApplyMovementProcessor needs it
-        .fragment::<Carrying>()
         .fragment::<Behavior>()
         .tag::<Ant>()
         .tag::<CodeDrivenMovementTag>()  // Required by UE's UMassApplyMovementProcessor
@@ -59,9 +58,6 @@ fn spawn_entities(
             writer.set(&Behavior {
                 turn_jitter_radians: 0.0,
                 random_seed: random_seed + i as i32,
-            });
-            writer.set(&Carrying {
-                food_index: -1,
             });
         });
 
@@ -99,6 +95,6 @@ pub fn init_simulation(params: &MassInitSimulationParams) -> Vec<(String, Vec<Ma
 
     vec![
         (Ant::ENTITY_GROUP.to_string(), ant_handles),
-        ("food".to_string(), food_handles),
+        (Food::ENTITY_GROUP.to_string(), food_handles),
     ]
 }

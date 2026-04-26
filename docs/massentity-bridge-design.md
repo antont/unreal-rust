@@ -40,7 +40,7 @@ User's Rust system functions (standard Bevy syntax)
 
 3. **C++ configures queries** from the requirement list. Each requirement specifies the C++ fragment type name, access mode (read/write), whether it's a tag, and query scope (primary or global).
 
-4. **Bevy schedule is built** from registered systems, ordered by the `order` attribute on `#[mass_system(order = N)]`.
+4. **Bevy schedule is built** from registered systems. Execution order comes from a plugin-level `MassScheduleOrder` inventory submission that lists system names in order; the framework resolves that to numeric order values (stride 10) that both the Bevy schedule and the C++ processor pipeline respect. Explicit `order = N` on `#[mass_system]` is still honored for legacy cases.
 
 ### Every frame
 
@@ -53,7 +53,7 @@ User's Rust system functions (standard Bevy syntax)
 ### Example system (dual-mode)
 
 ```rust
-#[mass_system(order = 50)]
+#[mass_system]
 pub fn entity_boundary_reflect(
     transforms: Query<&Transform>,
     mut movements: Query<&mut DesiredMovement>,
@@ -71,25 +71,44 @@ pub fn entity_boundary_reflect(
 
 `#[mass_system]` works unconditionally — in Bevy mode it passes through the original function; in Unreal mode it rewrites to chunk-based iteration. No `#[cfg_attr]` needed.
 
-### Example with QueryAll (index-based global access)
+### Example: UE-bridge system producing hit events
+
+Game logic in `gatherers-sim` reads plain `MessageReader<AntFoodHit>` — no UE
+types visible. The UE bridge crate (`gatherers-bevy-mass`) holds the one
+system that touches UE-specific resources and produces those messages:
 
 ```rust
-#[mass_system(order = 45)]
-fn carried_food_tracking(
-    ants: Query<(&Transform, &Carrying), With<Ant>>,
-    food_transforms: QueryAll<&mut Transform, With<Food>>,
+#[mass_system]
+fn ant_collision_prepass(
+    ants: Query<(Entity, &Transform, &PreviousTranslation), (With<Ant>, Without<Cooldown>)>,
+    spatial: Res<SpatialQuery>,
+    entity_map: Res<MassEntityMap>,
+    mut hits: MessageWriter<AntFoodHit>,
 ) {
-    for (transform, carry) in &mut ants {
-        if carry.food_index >= 0 {
-            if let Some(food_tf) = food_transforms.get_mut(carry.food_index as usize) {
-                food_tf.translation = transform.translation + DVec3::new(0.0, 0.0, 15.0);
-            }
+    let spatial = spatial.with_map(&entity_map);
+    for (entity, transform, prev) in &mut ants {
+        if let Some(hit) = spatial.call("food_pickup", &prev.value, &transform.translation) {
+            hits.write(AntFoodHit::new(hit.entity_index, hit.entity, entity, hit.position));
         }
     }
 }
 ```
 
-`QueryAll` provides `get_mut(index)` across all entities of a type. In UE mode: zero-copy chunk access. In Bevy mode: `EntityIndex<Tag>` + Query lookup (macro-rewritten).
+`SpatialQuery::with_map(&MassEntityMap)` yields a short-lived helper whose
+`call()` returns `SpatialHit { entity_index, entity, position }` — the
+named query's `query_group` is looked up via inventory once, so game code
+never mentions the group string (`"food"`) or calls `entity_map.get(…)`.
+Downstream consumers (in `gatherers-sim`) see `AntFoodHit.hittable_entity`
+and use standard `Query::get(entity)` lookups — vanilla Bevy.
+
+When a chunk-backed FFI payload stores an `i32` index (e.g. the
+`FoodPickupEvents`/`FoodDropEvents` queues consumed by C++), the
+bridging system that drains those queues builds a one-shot
+`HashMap<Entity, usize>` from `Res<EntityIndex<Food>>` to map
+message entities back to indices. In-sim component state —
+including handles like `Carrying(Option<Entity>)` on shadow
+entities — uses `Entity` directly; the index only reappears at
+the FFI boundary.
 
 ## Query types
 
@@ -100,13 +119,14 @@ fn carried_food_tracking(
 | `Query<&T>` | `bevy_ecs::Query` | Chunk `&[T]` slice | Read-only per-entity iteration |
 | `Query<&mut T>` | `bevy_ecs::Query` | Chunk `&mut [T]` slice | Read-write per-entity iteration |
 | `Query<(Entity, &mut T, &U), (With<Tag>, Without<V>)>` | `bevy_ecs::Query` | Tuple facade struct + entity map | Multi-component with filters |
-| `QueryAll<&mut T, With<Tag>>` | `EntityIndex<Tag>` + `Query` via `QueryAllWrapper` | `MassQueryAllMut` (zero-copy chunks) | Index-based global access (`get_mut(i)`) |
+| `QueryAll<&mut T, With<Tag>>` | `EntityIndex<Tag>` + `Query` via `QueryAllWrapper` | `MassQueryAllMut` (zero-copy chunks) | Index-based global access (`get_mut(i)`). Use when you have an `i32` chunk-slot index (e.g. from a `#[repr(C)]` message payload); for Entity-keyed access on chunk-backed types, prefer `Query<&mut T>` with `entity_map.get(...)` |
 
-### UE-only types (use only in UE-specific code)
+### UE-only types (use only in UE-bridge code)
 
 | Type | Backing | Use case |
 |---|---|---|
-| `SpatialQuery` | Wraps `MassSpatialQueries` (C++ ISMC overlap, physics sweep, or MassNavigation grid hash — backend selected per query in `MassSpatialQueryConfigRegistration`) | Collision detection via `Res<SpatialQuery>` — returns `SpatialHit` with `DVec3` |
+| `SpatialQuery` | Wraps `MassSpatialQueries` (C++ ISMC overlap, physics sweep, or MassNavigation grid hash — backend selected per query in `MassSpatialQueryConfigRegistration`) | Collision detection via `Res<SpatialQuery>`. Call `.with_map(&entity_map).call(name, prev, curr)` → `Option<SpatialHit { entity_index, entity, position }>`; the query's target group is resolved via inventory so game code never mentions the group string |
+| `MassEntityMap` | C++ maintains per-group `Vec<Entity>` of shadow Bevy entities | Used implicitly by `SpatialQuery::with_map`. Systems only take `Res<MassEntityMap>` when they need to resolve group-indexed lookups; most game code reaches entities via `EntityIndex<Tag>` or shadow-component queries instead |
 
 Facade `Query` supports tuples with `Entity`, `With<Tag>`/`Without<T>` filters, and multiple mutable fragments. The `#[mass_system]` macro handles all backend-specific rewrites. Components that don't implement `MassFragment` (pure-Bevy components on shadow entities) are auto-detected via `QueryBackend::IS_CHUNK` and dispatched to Bevy entity storage — no annotation needed.
 
@@ -114,27 +134,42 @@ Facade `Query` supports tuples with `Entity`, `With<Tag>`/`Without<T>` filters, 
 
 ## Fragment definition
 
-### Game components — `#[component]` attribute
+### Game components — `#[derive(Component, MassFragment)]`
 
-Game-authored types use the `#[component]` attribute macro, which adds `#[repr(C)]`, `#[derive(Component, Clone, Copy, Debug)]`, and conditionally `#[derive(MassFragment)]` in UE mode. C++ USTRUCT names are auto-derived from `BEVY_MASS_CPP_PREFIX` (set in the game crate's `build.rs`) + struct name + UE-conventional suffix (`Fragment` for data, `Tag` for unit structs):
+Game-authored types use vanilla Bevy `#[derive(Component)]` alongside an
+explicit `MassFragment` opt-in. `#[repr(C)]` is required on data fragments
+(matching the C++ USTRUCT layout) and omitted on tags (unit structs).
+C++ USTRUCT names are auto-derived from `BEVY_MASS_CPP_PREFIX` (set in
+the game crate's `build.rs`) + struct name + UE-conventional suffix
+(`Fragment` for data, `Tag` for unit structs):
 
 ```rust
-#[component]
+#[repr(C)]
+#[derive(Component, MassFragment, Clone, Copy, Debug)]
 pub struct FoodState {
     pub is_loose: bool,
 }
 // → C++ name: FGatherersFoodStateFragment (auto-derived)
 
-#[component]
+#[derive(Component, MassFragment, Clone, Copy, Debug)]
 pub struct Food;
 // → C++ name: FGatherersFoodTag (auto-derived)
 
-#[component(group = "ants")]
+#[derive(Component, MassFragment, Clone, Copy, Debug)]
+#[cfg_attr(feature = "unreal", mass(group = "ants"))]
 pub struct Ant;
 // → C++ name: FGatherersAntTag (auto-derived, "group" sets entity archetype)
 ```
 
-No `cpp_type`, no UE jargon — game code looks like standard Bevy.
+No `cpp_type`, no UE jargon — game code reads as vanilla Bevy except for
+the `#[repr(C)]` line on chunk-backed data fragments. The `MassFragment`
+derive emits nothing in pure-Bevy builds (all chunk-registration tokens
+are `#[cfg(feature = "unreal")]`-gated).
+
+> The older `#[component]` attribute macro is deprecated; see
+> `docs/todo/component-derive-and-attribute-cleanup.md` for the removal
+> plan. Behavior is identical — the derive form just uses Bevy's real
+> `Component` derive instead of shadowing it.
 
 ### Engine types — `mass_fragment!` macro
 
@@ -165,7 +200,7 @@ If entities were dynamic (added/removed at runtime), the cache would need invali
 
 Game developers write only Rust. The infrastructure handles:
 
-- **Fragment definition**: `#[component]` generates C++ USTRUCT headers with auto-derived names
+- **Fragment definition**: `#[derive(Component, MassFragment)]` generates C++ USTRUCT headers with auto-derived names
 - **Entity spawning**: `EntityArchetype::new("food").fragment::<FoodState>().spawn(count, |i, writer| { ... })`
 - **System registration**: `#[mass_system]` registers with both C++ and Bevy
 - **Sim defaults**: `inventory::submit!(MassSimDefaults { ... })` configures entity counts, bounds, etc.
@@ -181,12 +216,12 @@ Game developers write only Rust. The infrastructure handles:
 | `unreal-ffi/src/lib.rs` | FFI types: `MassChunkData`, `MassFragmentSlice`, `MassGlobalChunkSlice` |
 | `unreal-api/src/mass.rs` | Rust query types, TestCtx, schedule, system registration |
 | `unreal-api-derive/src/mass_system.rs` | `#[mass_system]` proc macro: generates wrapper + Bevy system + registration |
-| `unreal-api-derive/src/mass_fragment.rs` | `#[derive(MassFragment)]` proc macro + C++ header codegen |
-| `unreal-api-derive/src/component_attr.rs` | `#[component]` attribute macro: auto-derives C++ names with Fragment/Tag suffixes |
+| `unreal-api-derive/src/mass_fragment.rs` | `#[derive(MassFragment)]` proc macro + C++ header codegen, auto-derives C++ names with Fragment/Tag suffixes |
+| `unreal-api-derive/src/component_attr.rs` | Deprecated `#[component]` attribute macro (kept for back-compat; to be removed, see `docs/todo/component-derive-and-attribute-cleanup.md`) |
 | `bevy_mass/src/` | Facade crate: `Query`, `QueryAll`, `MovementPlugin`, `SpatialQuery`, `EntityIndex`, `Time`, engine types (Transform, Velocity, DesiredMovement) |
 | `unreal-module/src/mass_system_registry.rs` | System discovery FFI, Bevy schedule management |
-| `gatherers-sim/src/` | Game simulation logic (movement, food decisions, component definitions) |
-| `gatherers-bevy-mass/src/` | Game systems (mostly portable) + spatial query integration + UE tests |
+| `gatherers-sim/src/` | Engine-agnostic game logic: component definitions, pure decision fn, movement, message types (`HitEvent`, `FoodMutation`). No UE types. Runs unmodified under standalone Bevy |
+| `gatherers-bevy-mass/src/` | UE bridge: the few systems that need UE-specific resources (`Res<SpatialQuery>`, `Res<MassEntityMap>`) to produce hit-event messages, plus UE-mode variants of the decision system. Also hosts UE-only tests |
 | `gatherers-standalone/src/` | Standalone Bevy app running the same simulation without Unreal |
 | `RustPlugin/Source/RustPlugin/RustMassDynamicProcessor.cpp` | C++ processor: caching, dispatch |
 | `RustPlugin/Source/RustPlugin/RustMassBevySubsystem.cpp` | C++ subsystem: entity management, fragment read/write |
