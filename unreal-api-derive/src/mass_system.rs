@@ -16,21 +16,6 @@ struct FragmentRef {
     is_mutable: bool,
     /// Index within the scope group (assigned during extraction).
     scope_index: usize,
-    /// True if this fragment is a shadow-fetch candidate — a primary-tuple
-    /// fragment that may be backed by a pure-Bevy shadow component rather
-    /// than chunk memory. The actual chunk-vs-shadow selection happens at
-    /// monomorphization via `QueryBackend::IS_CHUNK`; this field just marks
-    /// that shadow-fetch wiring should be emitted for the fragment.
-    ///
-    /// Set during the post-extraction classification pass for every
-    /// primary-tuple fragment (tuple mixing is the case shadow-fetch exists
-    /// to serve). Single-fragment primary queries are left at `false` — they
-    /// already use `DualQuery` dispatch which handles both backends.
-    is_shadow: bool,
-    /// Index into the global `all_shadow_fetch_types` list when
-    /// `is_shadow` is true. Lets emission reference the right
-    /// `__shadow_N: Query<...>` wrapper param. `None` otherwise.
-    shadow_index: Option<usize>,
 }
 
 /// What data the query accesses: single component or tuple of components.
@@ -172,55 +157,6 @@ fn extract_resource_params(func: &ItemFn) -> syn::Result<Vec<ResourceParam>> {
     Ok(params)
 }
 
-/// Classifies which primary-tuple fragments are shadow-fetch candidates.
-///
-/// Runs once per `mass_system_impl` invocation, after `extract_query_params`
-/// and before any emission. For every fragment in a primary tuple query,
-/// sets `is_shadow = true` and assigns a global `shadow_index` — a unique
-/// slot in the eventual `all_shadow_fetch_types` list (shared across tuples
-/// that touch the same type + mutability).
-///
-/// Shadow-fetch wiring lets a single primary tuple mix chunk-backed
-/// fragments with pure-Bevy shadow components. The actual chunk-vs-shadow
-/// selection happens at monomorphization via `<T as QueryBackend>::IS_CHUNK`
-/// — this pass just marks the candidates.
-///
-/// Single-fragment primary queries are left alone; they already dispatch
-/// through `DualQuery` which handles both backends natively.
-///
-/// Dedup key is `(type, mutability)` so a fragment that appears in two
-/// tuples only injects one wrapper `Query<&T>` / `Query<&mut T>` param.
-fn classify_shadow_fragments(params: &mut [QueryParam]) {
-    let mut seen: std::collections::HashMap<(String, bool), usize> =
-        std::collections::HashMap::new();
-
-    for p in params.iter_mut() {
-        if p.scope != QueryScope::Primary {
-            continue;
-        }
-        // Shadow fetch resolves `Entity → &[mut] T` via a wrapper Query. The
-        // chunk-loop needs `__chunk_entities` in scope to iterate per-entity —
-        // that's only set up when `needs_entity_map` is true (i.e. the tuple
-        // has `Entity` or a `Without<T>` filter). Tuples without either stay
-        // on the pure chunk-pointer path and can't mix shadow fragments.
-        let needs_entity_map = p.needs_entity_map();
-        if !needs_entity_map {
-            continue;
-        }
-        let QueryData::Tuple { fragments, .. } = &mut p.data else {
-            continue;
-        };
-        for frag in fragments.iter_mut() {
-            let type_tok = &frag.fragment_type;
-            let key = (quote!(#type_tok).to_string(), frag.is_mutable);
-            let next_idx = seen.len();
-            let idx = *seen.entry(key).or_insert(next_idx);
-            frag.is_shadow = true;
-            frag.shadow_index = Some(idx);
-        }
-    }
-}
-
 /// Parses a function signature and extracts MassQuery/MassQueryAll/Query parameters.
 /// Non-query params (like `dt: f32`) are treated as chunk-level data.
 fn extract_query_params(func: &ItemFn) -> syn::Result<Vec<QueryParam>> {
@@ -282,8 +218,6 @@ fn extract_query_params(func: &ItemFn) -> syn::Result<Vec<QueryParam>> {
                                 fragment_type,
                                 is_mutable,
                                 scope_index,
-                                is_shadow: false,
-                                shadow_index: None,
                             })
                         }
                         ParsedQueryData::Tuple { has_entity, fragments } => {
@@ -306,8 +240,6 @@ fn extract_query_params(func: &ItemFn) -> syn::Result<Vec<QueryParam>> {
                                         fragment_type,
                                         is_mutable,
                                         scope_index,
-                                        is_shadow: false,
-                                        shadow_index: None,
                                     }
                                 })
                                 .collect();
@@ -635,23 +567,7 @@ pub fn mass_system_impl(func: &ItemFn, order: u32, entity_group: Option<&str>) -
     let reg_name = format_ident!("__mass_system_reg_{}", func_name);
     let system_name_str = func_name.to_string();
 
-    let mut query_params = extract_query_params(func)?;
-
-    // ---- Shadow-fetch classification pass ----
-    //
-    // Every fragment in a primary tuple query is a shadow-fetch candidate.
-    // At emission time (Step 3+), each such fragment also gets an entry in
-    // the global `all_shadow_fetch_types` list (a wrapper `Query<&T>` /
-    // `Query<&mut T>` injected per-unique-type). Generated code then uses
-    // `<T as QueryBackend>::IS_CHUNK` const-if to pick chunk vs shadow
-    // source at monomorphization.
-    //
-    // Step 1 scope: mark the candidates and assign indices. No emission
-    // changes yet — the IS_CHUNK guard below still rejects mixed storage.
-    //
-    // Single-fragment primary queries are left untouched; they already use
-    // `DualQuery` dispatch which handles both backends natively.
-    classify_shadow_fragments(&mut query_params);
+    let query_params = extract_query_params(func)?;
 
     // Create a cleaned copy of the function with #[bevy] attrs stripped from params.
     // extract_query_params above needed the original attrs; everything below uses the cleaned version.
@@ -860,21 +776,31 @@ pub fn mass_system_impl(func: &ItemFn, order: u32, entity_group: Option<&str>) -
         .collect();
     let num_requirements = all_requirement_entries.len();
 
-    // Primary query fragments may freely mix chunk-backed and shadow-only
-    // storage. Each single-fragment query dispatches through its own
-    // `DualQuery` (chunk vs Bevy chosen via `QueryBackend::IS_CHUNK` const-if);
-    // each tuple-fragment uses the same const-if per-fragment at emission time,
-    // with shadow-only fragments fetched through an auto-synthesized
-    // `__shadow_N: Query<&T>` / `&mut T>` wrapper param.
-    //
-    // Previously this spot held a tuple-wide `const _: () = assert!(...)` that
-    // required every primary fragment to share one `IS_CHUNK` value. That rule
-    // predated per-fragment dispatch and forced authors to split mixed tuples
-    // into a primary tuple + a `#[bevy]` passthrough query — exactly the wart
-    // this refactor removes. `#[bevy]` stays for Commands / multi-world /
-    // non-entity-keyed cases, but plain chunk + shadow-component mixing no
-    // longer needs it.
-    let chunk_consistency_assert = quote! {};
+    // Compile-time guard: all primary query fragment types must have the same IS_CHUNK value.
+    // Mixing chunk-backed and Bevy-only fragments in one system's primary queries would cause
+    // the Bevy-only data to be re-iterated on every chunk iteration (double-mutation bug).
+    let primary_frag_types: Vec<&syn::Type> = query_params
+        .iter()
+        .filter(|p| p.scope == QueryScope::Primary)
+        .flat_map(|p| p.fragment_refs().into_iter().map(|f| &f.fragment_type))
+        .collect();
+    let chunk_consistency_assert = if primary_frag_types.len() >= 2 {
+        let first = &primary_frag_types[0];
+        let checks: Vec<TokenStream> = primary_frag_types[1..].iter().map(|t| {
+            quote! {
+                <#first as ::unreal_api::mass::QueryBackend>::IS_CHUNK
+                    == <#t as ::unreal_api::mass::QueryBackend>::IS_CHUNK
+            }
+        }).collect();
+        quote! {
+            const _: () = assert!(
+                #(#checks)&&*,
+                "mixed chunk-backed and Bevy-only fragments in one system's primary queries are not supported — split into separate #[mass_system] functions, one per storage kind"
+            );
+        }
+    } else {
+        quote! {}
+    };
 
     // Generate facade struct names for tuple queries
     let facade_names: std::collections::HashMap<String, (syn::Ident, syn::Ident)> = query_params
@@ -1277,40 +1203,17 @@ pub fn mass_system_impl(func: &ItemFn, order: u32, entity_group: Option<&str>) -
         })
         .collect();
 
-    // Find a primary fragment to determine chunk count. For single-fragment
-    // queries there's one candidate. For tuples we pick the *first
-    // chunk-backed* fragment at runtime via a const-if chain on
-    // `MaybeFragment::IS_FRAGMENT` — if the first fragment is shadow-only,
-    // its chunk resource is never populated (populate_primary_stmts filters
-    // by `IS_FRAGMENT`) and its count would be 0. With the const-if chain,
-    // monomorphization picks whichever fragment is chunk-backed.
-    //
-    // If *all* fragments are shadow-only the count is 0 and the fallback
-    // path runs (Bevy iteration with no chunk data) — correct behaviour.
+    // Find the first primary fragment to determine chunk count
     let primary_count_source = query_params
         .iter()
         .find(|p| p.scope == QueryScope::Primary)
         .map(|p| {
-            if p.is_tuple() {
-                let QueryData::Tuple { fragments, .. } = &p.data else { unreachable!() };
-                // Build a const-if chain: first IS_FRAGMENT fragment wins.
-                let mut chain = quote! { 0usize };
-                for (i, frag) in fragments.iter().enumerate().rev() {
-                    let res_name = format_ident!("__mass_{}_{}", p.param_name, i);
-                    let frag_type = &frag.fragment_type;
-                    chain = quote! {
-                        if <#frag_type as ::unreal_api::mass::MaybeFragment>::IS_FRAGMENT {
-                            #res_name.primary_chunk_count()
-                        } else {
-                            #chain
-                        }
-                    };
-                }
-                chain
+            let res_name = if p.is_tuple() {
+                format_ident!("__mass_{}_0", p.param_name)
             } else {
-                let res_name = format_ident!("__mass_{}", p.param_name);
-                quote! { #res_name.primary_chunk_count() }
-            }
+                format_ident!("__mass_{}", p.param_name)
+            };
+            quote! { #res_name.primary_chunk_count() }
         })
         .unwrap_or(quote! { 0 });
 
@@ -1642,54 +1545,6 @@ pub fn mass_system_impl(func: &ItemFn, order: u32, entity_group: Option<&str>) -
         }
     }
 
-    // Collect unique shadow-fetch types (and their mutability) across all primary
-    // tuple queries. `classify_shadow_fragments` (run right after extraction)
-    // populates `FragmentRef::shadow_index`, so this list is built by reading
-    // those indices back — dedup was done there.
-    //
-    // One `__shadow_N: Query<'_, '_, &T>` / `Query<'_, '_, &mut T>` wrapper
-    // param is injected per entry. At emission time (Step 4), per-fragment
-    // const-if on `QueryBackend::IS_CHUNK` picks chunk memory or shadow fetch.
-    // For chunk-backed fragments the wrapper query will be empty (Bevy side
-    // has no matching entities), so the fetch is dead code at monomorphization.
-    let mut all_shadow_fetch_types: Vec<(syn::Type, bool)> = Vec::new();
-    {
-        let mut by_index: std::collections::BTreeMap<usize, (syn::Type, bool)> =
-            std::collections::BTreeMap::new();
-        for p in &query_params {
-            if p.scope != QueryScope::Primary {
-                continue;
-            }
-            let QueryData::Tuple { fragments, .. } = &p.data else { continue };
-            for frag in fragments {
-                if let Some(idx) = frag.shadow_index {
-                    by_index
-                        .entry(idx)
-                        .or_insert_with(|| (frag.fragment_type.clone(), frag.is_mutable));
-                }
-            }
-        }
-        all_shadow_fetch_types = by_index.into_values().collect();
-    }
-
-    // Inject one wrapper-param per shadow-fetch slot — mirrors the `__without_N`
-    // pattern above. These queries flow through the existing reborrow machinery
-    // in `bevy_call_args` because their type path (`bevy_ecs::system::Query<…>`)
-    // is multi-segment, so they're treated the same as author-visible `#[bevy]`
-    // passthroughs.
-    for (idx, (ty, is_mut)) in all_shadow_fetch_types.iter().enumerate() {
-        let param_name = format_ident!("__shadow_{}", idx);
-        if *is_mut {
-            extra_bevy_params.push(quote! {
-                mut #param_name: ::bevy_ecs::system::Query<'_, '_, &mut #ty>
-            });
-        } else {
-            extra_bevy_params.push(quote! {
-                #param_name: ::bevy_ecs::system::Query<'_, '_, &#ty>
-            });
-        }
-    }
-
     // For each tuple query, generate the facade struct, iterator, and construction code
     let mut tuple_construct_stmts: Vec<TokenStream> = Vec::new();
 
@@ -1867,84 +1722,12 @@ pub fn mass_system_impl(func: &ItemFn, order: u32, entity_group: Option<&str>) -
             }
         });
 
-        // Whether any fragment in this tuple is a shadow-fetch candidate.
-        // (The classifier guarantees this is only true when `needs_entity_map`
-        // is set, so `__chunk_entities` is in scope.)
-        let has_shadow_frag = fragments.iter().any(|f| f.is_shadow);
-
-        // Build shadow pointer vecs per shadow fragment. We iterate
-        // `__chunk_entities` once per chunk and resolve each Entity to its
-        // shadow component via the wrapper `__shadow_N` query. For chunk-
-        // backed fragments, the const-if below picks the chunk slice instead
-        // — so we skip building the vec in that case (dead code eliminated
-        // at monomorphization).
-        let shadow_vec_stmts: Vec<TokenStream> = fragments.iter().enumerate().filter_map(|(i, frag)| {
-            let shadow_idx = frag.shadow_index?;
-            let vec_name = format_ident!("__shadow_ptrs_{}_{}", param_name, i);
-            let shadow_q = format_ident!("__shadow_{}", shadow_idx);
-            let frag_type = &frag.fragment_type;
-            if frag.is_mutable {
-                // For mutable shadow fetch we need to drop the borrow before
-                // building ptrs — bevy_ecs disallows aliased `&mut` borrows.
-                // Collect pointers into a Vec and then release the query borrow;
-                // the Vec of raw pointers remains valid for the frame because
-                // shadow entities are stable and the wrapper query borrows the
-                // world exclusively (ptrs into fragments aren't invalidated).
-                Some(quote! {
-                    let mut #vec_name: Vec<*mut #frag_type> = Vec::new();
-                    if !<#frag_type as ::unreal_api::mass::QueryBackend>::IS_CHUNK {
-                        for &__e in __chunk_entities.iter() {
-                            // `.into_inner()` yields `&mut T`; cast to raw ptr.
-                            let __ptr = #shadow_q.get_mut(__e)
-                                .map(|__m| __m.into_inner() as *mut #frag_type)
-                                .unwrap_or(::std::ptr::null_mut());
-                            #vec_name.push(__ptr);
-                        }
-                    }
-                })
-            } else {
-                Some(quote! {
-                    let mut #vec_name: Vec<*const #frag_type> = Vec::new();
-                    if !<#frag_type as ::unreal_api::mass::QueryBackend>::IS_CHUNK {
-                        for &__e in __chunk_entities.iter() {
-                            let __ptr = #shadow_q.get(__e)
-                                .map(|__r| __r as *const #frag_type)
-                                .unwrap_or(::std::ptr::null());
-                            #vec_name.push(__ptr);
-                        }
-                    }
-                })
-            }
-        }).collect();
-
         // --- Generate construction code for the Bevy wrapper ---
-        // Per fragment: const-if dispatch between chunk slice pointer and
-        // shadow vec pointer. For non-shadow (always chunk), emit the simple
-        // chunk path only.
         let construct_fields: Vec<TokenStream> = fragments.iter().enumerate().map(|(i, frag)| {
             let field_name = format_ident!("__p{}", i);
             let slice_name = format_ident!("__slice_{}_{}", param_name, i);
-            let frag_type = &frag.fragment_type;
-            if frag.is_shadow {
-                let vec_name = format_ident!("__shadow_ptrs_{}_{}", param_name, i);
-                if frag.is_mutable {
-                    quote! {
-                        #field_name: if <#frag_type as ::unreal_api::mass::QueryBackend>::IS_CHUNK {
-                            #slice_name.as_slice().as_ptr() as *mut _
-                        } else {
-                            #vec_name.as_ptr() as *mut _
-                        }
-                    }
-                } else {
-                    quote! {
-                        #field_name: if <#frag_type as ::unreal_api::mass::QueryBackend>::IS_CHUNK {
-                            #slice_name.as_slice().as_ptr()
-                        } else {
-                            #vec_name.as_ptr() as *const _
-                        }
-                    }
-                }
-            } else if frag.is_mutable {
+            if frag.is_mutable {
+                // MassQueryMut wraps &mut [T]; get raw pointer via as_slice + cast
                 quote! { #field_name: #slice_name.as_slice().as_ptr() as *mut _ }
             } else {
                 quote! { #field_name: #slice_name.as_slice().as_ptr() }
@@ -1984,26 +1767,16 @@ pub fn mass_system_impl(func: &ItemFn, order: u32, entity_group: Option<&str>) -
             quote! {}
         };
 
-        // Length source:
-        //  - If any fragment can be shadow, use `__chunk_entities.len()` (the
-        //    canonical per-chunk count when entity-map is active — safe
-        //    regardless of whether a given fragment is chunk-backed).
-        //  - Otherwise use `__slice_X_0.len()` (the pre-existing path).
-        let len_source = if has_shadow_frag {
-            quote! { __chunk_entities.len() }
-        } else {
-            let first_slice = format_ident!("__slice_{}_0", param_name);
-            quote! { #first_slice.len() }
-        };
+        // Length from first fragment slice
+        let first_slice = format_ident!("__slice_{}_0", param_name);
 
         tuple_construct_stmts.push(quote! {
             #filter_construct
-            #(#shadow_vec_stmts)*
             let mut #param_name = #struct_name {
                 #(#construct_fields,)*
                 #entity_construct
                 #filter_field_init
-                __len: #len_source,
+                __len: #first_slice.len(),
                 __phantom: ::std::marker::PhantomData,
             };
         });
@@ -2028,17 +1801,16 @@ pub fn mass_system_impl(func: &ItemFn, order: u32, entity_group: Option<&str>) -
             .flat_map(|p| p.filter_tags.iter())
             .next();
 
-        let group_lookup = if let Some(tag) = tag_type {
+        let group_expr = if let Some(tag) = tag_type {
             // Type-safe: derived from With<Tag> filter — Tag must have ENTITY_GROUP const
-            Some(quote! { <#tag>::ENTITY_GROUP })
+            quote! { <#tag>::ENTITY_GROUP }
         } else if let Some(group) = entity_group {
             // Fallback: explicit entity_group attribute
-            Some(quote! { #group })
+            quote! { #group }
         } else if has_single_primary || query_params.iter().any(|p| p.is_tuple() && p.scope == QueryScope::Primary) {
-            // Dual-mode with no tag: chunk path is dead at monomorphization for
-            // Bevy-only types. Bind an empty slice so emission stays valid and
-            // avoids an unreachable-call warning from a panic placeholder.
-            None
+            // Dual-mode: the chunk path is dead code for Bevy-only types (IS_CHUNK=false),
+            // so entity_group is unreachable. Use a panic placeholder.
+            quote! { panic!("unreachable: Bevy-only query has no entity group") }
         } else {
             return Err(syn::Error::new_spanned(
                 &func.sig.ident,
@@ -2047,16 +1819,9 @@ pub fn mass_system_impl(func: &ItemFn, order: u32, entity_group: Option<&str>) -
             ));
         };
 
-        if let Some(expr) = group_lookup {
-            quote! {
-                let __group_entities = __entity_map.group(#expr).unwrap_or(&[]);
-                let mut __entity_offset: usize = 0;
-            }
-        } else {
-            quote! {
-                let __group_entities: &[::unreal_api::ecs::entity::Entity] = &[];
-                let mut __entity_offset: usize = 0;
-            }
+        quote! {
+            let __group_entities = __entity_map.group(#group_expr).unwrap_or(&[]);
+            let mut __entity_offset: usize = 0;
         }
     } else {
         quote! {}
@@ -2623,284 +2388,6 @@ mod tests {
 
         let output = mass_system_impl(&func, 0, None).unwrap().to_string();
         assert!(output.contains("MassBevySystemRegistration"), "should register for Bevy scheduling");
-    }
-
-    // -----------------------------------------------------------------------
-    // Shadow-fetch classification — Step 1 of auto-lift-shadow-components
-    // -----------------------------------------------------------------------
-
-    #[test]
-    fn classify_marks_primary_tuple_fragments_as_shadow_candidates() {
-        // Mixed primary tuple: every fragment becomes a shadow candidate
-        // (actual chunk-vs-shadow dispatch decided at monomorphization).
-        let func: ItemFn = syn::parse2(quote! {
-            fn sys(
-                ants: Query<(Entity, &mut Transform, &mut Carrying), With<Ant>>,
-            ) {}
-        })
-        .unwrap();
-
-        let mut params = extract_query_params(&func).unwrap();
-        classify_shadow_fragments(&mut params);
-
-        let QueryData::Tuple { fragments, .. } = &params[0].data else {
-            panic!("expected tuple");
-        };
-        assert_eq!(fragments.len(), 2, "Transform + Carrying");
-        for frag in fragments {
-            assert!(frag.is_shadow, "every primary-tuple frag should be a shadow candidate");
-            assert!(frag.shadow_index.is_some(), "each should get an index");
-        }
-        // Distinct types → distinct indices
-        assert_ne!(fragments[0].shadow_index, fragments[1].shadow_index);
-    }
-
-    #[test]
-    fn classify_leaves_single_queries_untouched() {
-        // Single-fragment primary queries dispatch through DualQuery already —
-        // no shadow wiring needed.
-        let func: ItemFn = syn::parse2(quote! {
-            fn sys(ants: Query<&mut Carrying>) {}
-        })
-        .unwrap();
-
-        let mut params = extract_query_params(&func).unwrap();
-        classify_shadow_fragments(&mut params);
-
-        let QueryData::Single(frag) = &params[0].data else {
-            panic!("expected single");
-        };
-        assert!(!frag.is_shadow, "single-fragment queries are not shadow candidates");
-        assert!(frag.shadow_index.is_none());
-    }
-
-    #[test]
-    fn classify_leaves_global_queries_untouched() {
-        // Global (QueryAll) tuples are out of scope — they index by slot,
-        // not by Entity, so shadow-fetch doesn't apply.
-        let func: ItemFn = syn::parse2(quote! {
-            fn sys(
-                foods: QueryAll<&mut FoodState, With<Food>>,
-            ) {}
-        })
-        .unwrap();
-
-        let mut params = extract_query_params(&func).unwrap();
-        classify_shadow_fragments(&mut params);
-
-        let QueryData::Single(frag) = &params[0].data else {
-            panic!("QueryAll is single-fragment today");
-        };
-        assert!(!frag.is_shadow);
-    }
-
-    #[test]
-    fn classify_dedups_shared_type_across_tuples() {
-        // Two primary tuples that both touch `&mut Transform` should share
-        // one shadow index (so we inject one `__shadow_N: Query<&mut Transform>`
-        // wrapper param, not two).
-        let func: ItemFn = syn::parse2(quote! {
-            fn sys(
-                ants: Query<(Entity, &mut Transform), With<Ant>>,
-                foods: Query<(Entity, &mut Transform), With<Food>>,
-            ) {}
-        })
-        .unwrap();
-
-        let mut params = extract_query_params(&func).unwrap();
-        classify_shadow_fragments(&mut params);
-
-        let mut indices = Vec::new();
-        for p in &params {
-            let QueryData::Tuple { fragments, .. } = &p.data else { continue };
-            for f in fragments {
-                if let Some(i) = f.shadow_index {
-                    indices.push(i);
-                }
-            }
-        }
-        assert_eq!(indices.len(), 2, "two fragments classified");
-        assert_eq!(indices[0], indices[1], "same (type,mut) → same index");
-    }
-
-    #[test]
-    fn mixed_storage_primary_tuple_compiles_through_macro() {
-        // Step 2: the old tuple-wide IS_CHUNK `const _: () = assert!(...)` is
-        // gone. A primary tuple mixing chunk + shadow storage now flows
-        // through emission without a macro-side error. (Emission-side
-        // chunk-vs-shadow dispatch lands in Steps 3–4.)
-        let func: ItemFn = syn::parse2(quote! {
-            fn sys(
-                ants: Query<(Entity, &mut Transform, &mut Carrying), With<Ant>>,
-            ) {}
-        })
-        .unwrap();
-
-        let output = mass_system_impl(&func, 0, None).unwrap().to_string();
-        // The old guard emitted a tuple-wide equality assertion; ensure it's
-        // no longer present. (It was the only place the macro emitted
-        // `IS_CHUNK ==`, so string-matching is safe.)
-        assert!(
-            !output.contains("IS_CHUNK == <"),
-            "tuple-wide IS_CHUNK equality guard should be gone, got:\n{}",
-            output,
-        );
-    }
-
-    #[test]
-    fn mixed_tuple_injects_shadow_wrapper_param() {
-        // Step 3: for every distinct (type, mutability) in primary tuples,
-        // the Bevy wrapper gets a `__shadow_N: Query<'_, '_, &T>` /
-        // `&mut T>` parameter. Dispatch (chunk vs shadow) is const-if at
-        // monomorphization — which is Step 4. Here we just verify the
-        // param is present.
-        let func: ItemFn = syn::parse2(quote! {
-            fn sys(
-                ants: Query<(Entity, &mut Transform, &mut Carrying), With<Ant>>,
-            ) {}
-        })
-        .unwrap();
-
-        let output = mass_system_impl(&func, 0, None).unwrap().to_string();
-        assert!(
-            output.contains("__shadow_0"),
-            "expected __shadow_0 wrapper param in:\n{}",
-            output,
-        );
-        assert!(
-            output.contains("__shadow_1"),
-            "expected __shadow_1 wrapper param in:\n{}",
-            output,
-        );
-    }
-
-    #[test]
-    fn shadow_param_uses_mutable_query_for_mutable_fragment() {
-        // Sanity-check the emitted param type: `&mut Carrying` in the tuple
-        // → `Query<'_, '_, &mut Carrying>` wrapper param.
-        let func: ItemFn = syn::parse2(quote! {
-            fn sys(ants: Query<(Entity, &mut Carrying), With<Ant>>) {}
-        })
-        .unwrap();
-        let output = mass_system_impl(&func, 0, None).unwrap().to_string();
-        // Token streams lose spaces around `&`/`mut`; match loosely.
-        let compact: String = output.chars().filter(|c| !c.is_whitespace()).collect();
-        assert!(
-            compact.contains("mut__shadow_0:"),
-            "expected `mut __shadow_0: ...` in:\n{}",
-            output,
-        );
-        assert!(
-            compact.contains("Query<'_,'_,&mutCarrying>"),
-            "expected `&mut Carrying` in shadow query type, got:\n{}",
-            output,
-        );
-    }
-
-    #[test]
-    fn shadow_param_uses_readonly_query_for_shared_ref() {
-        let func: ItemFn = syn::parse2(quote! {
-            fn sys(ants: Query<(Entity, &Carrying), With<Ant>>) {}
-        })
-        .unwrap();
-        let output = mass_system_impl(&func, 0, None).unwrap().to_string();
-        let compact: String = output.chars().filter(|c| !c.is_whitespace()).collect();
-        assert!(
-            compact.contains("Query<'_,'_,&Carrying>"),
-            "expected `&Carrying` in shadow query type, got:\n{}",
-            output,
-        );
-        // Immutable: no leading `mut` on the param.
-        assert!(
-            !compact.contains("mut__shadow_0:"),
-            "immutable shadow param should not be `mut`",
-        );
-    }
-
-    #[test]
-    fn mixed_tuple_emits_shadow_pointer_vec_and_dispatch() {
-        // Step 4: mixed chunk+shadow primary tuple emits a `__shadow_ptrs_*`
-        // Vec for the shadow fragment plus const-if dispatch between the chunk
-        // slice pointer and the shadow pointer Vec inside the facade struct.
-        let func: ItemFn = syn::parse2(quote! {
-            fn sys(
-                ants: Query<(Entity, &mut Transform, &mut Carrying), With<Ant>>,
-            ) {}
-        })
-        .unwrap();
-        let output = mass_system_impl(&func, 0, None).unwrap().to_string();
-        let compact: String = output.chars().filter(|c| !c.is_whitespace()).collect();
-        // Shadow pointer Vec field is built per chunk for the shadow fragment (index 1).
-        assert!(
-            compact.contains("__shadow_ptrs_ants_1"),
-            "expected `__shadow_ptrs_ants_1` for shadow fragment slot, got:\n{}",
-            output,
-        );
-        // The pointer Vec is populated by calling `.get_mut(__e).map(|m| m.into_inner() ...)`.
-        assert!(
-            compact.contains("__shadow_1.get_mut"),
-            "expected shadow query fetch against __chunk_entities, got:\n{}",
-            output,
-        );
-        // The facade struct field for the shadow slot dispatches on IS_CHUNK.
-        assert!(
-            compact.contains("QueryBackend>::IS_CHUNK"),
-            "expected const-if dispatch on IS_CHUNK, got:\n{}",
-            output,
-        );
-        // The shadow query wrapper param is injected.
-        assert!(
-            compact.contains("mut__shadow_1:"),
-            "expected `mut __shadow_1: ...` wrapper param, got:\n{}",
-            output,
-        );
-        // The chunk slice for the chunk-backed fragment (slot 0) is still emitted.
-        assert!(
-            compact.contains("__slice_ants_0"),
-            "expected `__slice_ants_0` chunk slice binding, got:\n{}",
-            output,
-        );
-    }
-
-    #[test]
-    fn all_chunk_primary_tuple_still_compiles() {
-        // Regression: tuples of only chunk-backed fragments continue to work
-        // after dropping the guard.
-        let func: ItemFn = syn::parse2(quote! {
-            fn sys(
-                ants: Query<(Entity, &mut Transform, &mut DesiredMovement), With<Ant>>,
-            ) {}
-        })
-        .unwrap();
-        assert!(mass_system_impl(&func, 0, None).is_ok());
-    }
-
-    #[test]
-    fn classify_distinguishes_mutability() {
-        // `&Transform` and `&mut Transform` are distinct shadow slots —
-        // the generated wrapper param types differ.
-        let func: ItemFn = syn::parse2(quote! {
-            fn sys(
-                a: Query<(Entity, &Transform), With<A>>,
-                b: Query<(Entity, &mut Transform), With<B>>,
-            ) {}
-        })
-        .unwrap();
-
-        let mut params = extract_query_params(&func).unwrap();
-        classify_shadow_fragments(&mut params);
-
-        let mut idxs = Vec::new();
-        for p in &params {
-            let QueryData::Tuple { fragments, .. } = &p.data else { continue };
-            for f in fragments {
-                if let Some(i) = f.shadow_index {
-                    idxs.push((i, f.is_mutable));
-                }
-            }
-        }
-        assert_eq!(idxs.len(), 2);
-        assert_ne!(idxs[0].0, idxs[1].0, "distinct mutability → distinct indices");
     }
 
     #[test]
@@ -3513,11 +3000,9 @@ mod tests {
     }
 
     #[test]
-    fn entity_group_falls_back_to_empty_slice_for_dual_mode() {
-        // Dual-mode queries without entity_group emit an empty-slice fallback
-        // (chunk path is dead code for Bevy-only types at monomorphization).
-        // Using a panic placeholder triggers an unreachable-call warning on the
-        // macro call site, so we bind an empty slice instead.
+    fn entity_group_uses_panic_placeholder_for_dual_mode() {
+        // Dual-mode queries without entity_group get a panic placeholder
+        // (chunk path is dead code for Bevy-only types)
         let func: ItemFn = syn::parse2(quote! {
             fn my_system(
                 ants: MassQuery<(Entity, &mut Position), Without<Cooldown>>,
@@ -3528,17 +3013,7 @@ mod tests {
         let result = mass_system_impl(&func, 0, None);
         assert!(result.is_ok(), "dual-mode queries should not error without entity_group");
         let output = result.unwrap().to_string();
-        let normalized: String = output.split_whitespace().collect::<Vec<_>>().join(" ");
-        assert!(
-            normalized.contains("let __group_entities")
-                && normalized.contains("entity :: Entity] = & []"),
-            "should bind __group_entities to an empty slice, got: {}",
-            output,
-        );
-        assert!(
-            !output.contains("unreachable"),
-            "should NOT emit a panic placeholder (triggers unreachable-call warning)",
-        );
+        assert!(output.contains("unreachable"), "should contain panic placeholder");
     }
 
     // -----------------------------------------------------------------------
