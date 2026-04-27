@@ -128,6 +128,28 @@ Option 2 depends on upstream bevy_ecs changes and isn't ours to drive.
   - A new shadow component lands that would be naturally mixed into
     an existing chunk-backed tuple (not just a parallel lookup).
 
+## Follow-up: macro-expansion snapshot test
+
+If/when the explicit `#[shadow]` variant is revisited, pair it with a
+proc-macro snapshot test that mirrors the
+`food_decision_system` shape (tuple mixing chunk-backed + shadow
+fragments, with and without a secondary `#[bevy]` passthrough on the
+same component type). Assert the emitted wrapper signature doesn't
+declare duplicate `Query<&mut T>` params for any single `T` — that's
+the specific B0001-inducing shape the implicit variant fell into.
+
+Complements the schedule-build smoke test already in
+`gatherers-bevy-mass/src/lib.rs`
+(`schedule_builds_and_runs_without_conflicts`). That one catches the
+broad "does Bevy accept the emitted shape" question at game-crate
+test time; a macro snapshot would catch the same regression earlier
+(unit test on the derive crate, no game-crate link step) and diff
+cleanly in code review.
+
+Not worth doing preemptively — the smoke test already catches the
+runtime symptom, and there's currently no consumer for the explicit
+variant.
+
 ## References
 
 - Reverted commit: `ce9ba22 Revert "feat: auto-lift shadow components in primary query tuples"`
