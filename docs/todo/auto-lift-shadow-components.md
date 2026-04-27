@@ -1,16 +1,24 @@
-# Auto-lift shadow components into chunk-backed primary tuples
+# Implicit auto-lift of shadow components into chunk-backed primary tuples
 
-Attempted and reverted. This note captures what was tried, why it
-failed, and what a future attempt would need.
+Attempted and reverted. This note captures what the **implicit**
+flavour of auto-lift tried to do, why it failed, and what a future
+attempt — specifically an **explicit** marker-based variant — would
+need. The two variants are related in motivation but structurally
+different; don't mentally group them.
 
-## What was attempted
+## What was attempted (implicit variant)
 
 Let `#[mass_system]` authors write a primary `Query<(...)>` that mixes
 chunk-backed `MassFragment` components (e.g. `Transform`,
 `DesiredMovement`, `Behavior`) with pure-Rust shadow-only components
-(e.g. `Carrying`), and have the macro auto-synthesize the shadow-world
-fetch — removing the boilerplate of a separate `#[bevy]` passthrough
-`Query<&mut Carrying>` + `.get_mut(entity)` inside the loop body.
+(e.g. `Carrying`) **without any author annotation**, and have the
+macro auto-synthesize the shadow-world fetch — removing the boilerplate
+of a separate `#[bevy]` passthrough `Query<&mut Carrying>` +
+`.get_mut(entity)` inside the loop body.
+
+The "implicit" label matters: the macro had to guess, from syntax
+alone, which tuple slots referred to chunk-backed vs shadow-only
+components. That guess is what fails (see below).
 
 Target shape:
 
@@ -85,11 +93,14 @@ commit `1758f16`.
 
 Any one of these unlocks the pattern:
 
-1. **Author-visible marker inside the tuple**: e.g.
-   `Query<(Entity, &mut Transform, #[shadow] &mut Carrying, ...)>`.
-   The macro partitions at classification time by the explicit marker
-   — no guessing — and emits only the shadow wrappers it actually
-   needs. Small syntactic cost to the author; zero scheduler risk.
+1. **Explicit auto-lift via an author-visible marker inside the
+   tuple**: e.g. `Query<(Entity, &mut Transform,
+   #[shadow] &mut Carrying, ...)>`. The macro partitions at
+   classification time by the explicit marker — no guessing — and
+   emits only the shadow wrappers it actually needs. Small syntactic
+   cost to the author; zero scheduler risk. This is a **different
+   design from the reverted implicit variant**; the failure above
+   does not carry over.
 2. **A trait-based `IS_CHUNK` that Bevy's scheduler can see**
    (i.e., a const-generic `Query` or similar). Today Bevy's access
    graph is type-level only; adding const-level filtering is an
@@ -99,15 +110,19 @@ Any one of these unlocks the pattern:
    per system. Acceptable for a small handful of systems;
    self-documenting (reader sees "shadow lookup" at the call site).
 
-Option 1 is the realistic path. Option 3 is the current state.
+Option 1 (explicit auto-lift) is the realistic path if this is
+revisited. Option 3 is the current state.
 
 ## Why it's not worth re-attempting now
+
+Applies specifically to option 1 (explicit auto-lift via `#[shadow]`).
+Option 2 depends on upstream bevy_ecs changes and isn't ours to drive.
 
 - Only two consumers would benefit: `food_decision_system` and
   `carried_food_tracking`. Each would save ~4 lines.
 - The `#[bevy]` pattern is understood and documented; authors reading
   existing sim code see the shape immediately.
-- Implementing option 1 (author marker) is several hundred lines of
+- Implementing explicit auto-lift is still several hundred lines of
   macro work for a modest ergonomic win. Revisit only when either:
   - There are ≥5 systems paying the `#[bevy]` tax, **or**
   - A new shadow component lands that would be naturally mixed into
