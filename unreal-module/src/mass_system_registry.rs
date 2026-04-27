@@ -6,9 +6,9 @@ use unreal_api::mass::{
     MassSystemRegistration, MassSystemStage,
     effective_order, registered_bevy_mass_systems, registered_dispatch_hooks,
     registered_entity_index_populations, registered_shadow_component_defaults,
-    registered_mass_systems, registered_sim_inits, registered_visualizer_groups,
-    registered_spatial_query_configs, registered_sim_defaults,
-    resolved_schedule_orders,
+    registered_mass_systems, registered_sim_init_hooks, registered_sim_inits,
+    registered_visualizer_groups, registered_spatial_query_configs,
+    registered_sim_defaults, resolved_schedule_orders,
 };
 use bevy_mass::SpatialQuery;
 
@@ -473,6 +473,13 @@ pub unsafe extern "C" fn mass_init_simulation(
                             (reg.insert_fn)(world, e);
                         }
                     }
+                }
+
+                // Run per-simulation-init hooks (e.g. populate `SimBounds`
+                // resource from `params.bounds_min/max`). Game crates submit
+                // these via `inventory::submit!` of a `MassSimInitHook`.
+                for reg in registered_sim_init_hooks() {
+                    (reg.hook_fn)(world, params);
                 }
             }
         }

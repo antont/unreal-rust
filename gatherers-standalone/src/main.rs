@@ -2,7 +2,7 @@ use bevy::prelude::*;
 use bevy::render::view::screenshot::{save_to_disk, Screenshot};
 use bevy_mass::{MovementPlugin, EntityIndex};
 use gatherers_sim::components::{
-    Transform as SimTransform, PreviousTranslation, DesiredMovement,
+    Transform as SimTransform, PreviousTranslation, Velocity,
     Cooldown, Carrying, Behavior, FoodState, Food, Ant,
     AntFoodHit, FoodMutation,
 };
@@ -145,7 +145,7 @@ fn spawn_entities(mut commands: Commands, size: Res<SimSize>) {
             Ant,
             SimTransform::from_translation(spawn_pos),
             PreviousTranslation { value: spawn_pos },
-            DesiredMovement::new(DVec3::new(angle.cos(), angle.sin(), 0.0), 100.0),
+            Velocity::new(DVec3::new(angle.cos(), angle.sin(), 0.0), 100.0),
             Carrying::default(),
             Behavior {
                 turn_jitter_radians: std::f32::consts::FRAC_PI_2,
@@ -516,9 +516,13 @@ fn main() {
             ..default()
         }));
     }
-    app.add_plugins(MovementPlugin::<SimTransform, PreviousTranslation, DesiredMovement>::default())
+    app.add_plugins(MovementPlugin::<SimTransform, PreviousTranslation, Velocity>::default())
         .insert_resource(capture)
         .insert_resource(size)
+        .insert_resource(gatherers_sim::components::SimBounds {
+            min: DVec3::new(SIM_BOUNDS_MIN[0], SIM_BOUNDS_MIN[1], SIM_BOUNDS_MIN[2]),
+            max: DVec3::new(SIM_BOUNDS_MAX[0], SIM_BOUNDS_MAX[1], SIM_BOUNDS_MAX[2]),
+        })
         .init_resource::<FrameCounter>()
         .add_message::<AntFoodHit>()
         .add_message::<FoodMutation>();

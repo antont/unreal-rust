@@ -64,6 +64,27 @@ inventory::submit!(unreal_api::mass::MassSimDefaultsRegistration {
     random_seed: 42,
 });
 
+/// Populate `SimBounds` from the actual per-sim init params so
+/// `entity_boundary_reflect` reflects at the real PIE extents (typically
+/// ±5000) rather than the game-code default (±500). Runs during
+/// `mass_init_simulation` after entity groups are built.
+fn populate_sim_bounds(
+    world: &mut unreal_api::ecs::world::World,
+    params: &unreal_api::ffi::MassInitSimulationParams,
+) {
+    use bevy_mass::prelude::DVec3;
+    use gatherers_sim::components::SimBounds;
+    world.insert_resource(SimBounds {
+        min: DVec3::new(params.bounds_min[0], params.bounds_min[1], params.bounds_min[2]),
+        max: DVec3::new(params.bounds_max[0], params.bounds_max[1], params.bounds_max[2]),
+    });
+}
+
+inventory::submit!(unreal_api::mass::MassSimInitHook {
+    name: "gatherers_sim_bounds",
+    hook_fn: populate_sim_bounds,
+});
+
 #[cfg(test)]
 mod tests {
     #[test]
@@ -145,12 +166,13 @@ mod tests {
         // Resources that `unreal-module::build_bevy_schedule` + `init_simulation`
         // would insert at UE startup. Mirror them here so systems' `Res<T>` /
         // `ResMut<T>` params can resolve and the run reaches access analysis.
-        use gatherers_sim::components::{Food, FoodDropEvents, FoodPickupEvents};
+        use gatherers_sim::components::{Food, FoodDropEvents, FoodPickupEvents, SimBounds};
         use bevy_mass::EntityIndex;
         sched.world_mut().insert_resource(bevy_mass::SpatialQuery::default());
         sched.world_mut().insert_resource(FoodDropEvents::default());
         sched.world_mut().insert_resource(FoodPickupEvents::default());
         sched.world_mut().insert_resource(EntityIndex::<Food>::new(Vec::new()));
+        sched.world_mut().insert_resource(SimBounds::default());
 
         // Running the schedule forces Bevy to finalize access analysis.
         // B0001 (param conflicts) panics here. Empty-world runs are fine —

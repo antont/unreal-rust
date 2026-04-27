@@ -9,7 +9,7 @@
 
 use glam::DVec3;
 use unreal_api::mass::{MassTestRegistration, TestCtx};
-use crate::components::{Transform, PreviousTranslation, DesiredMovement, FoodState, Carrying};
+use crate::components::{Transform, PreviousTranslation, Velocity, FoodState, Carrying};
 use gatherers_sim::components::Cooldown;
 
 // ---------------------------------------------------------------------------
@@ -75,7 +75,7 @@ fn boundary_reflect(ctx: &TestCtx) {
     // Place ant at the boundary, moving outward
     ctx.write("ants", 0, &Transform::from_translation(DVec3::new(499.0, 0.0, 50.0)));
     ctx.write("ants", 0, &PreviousTranslation { value: DVec3::new(498.0, 0.0, 50.0) });
-    ctx.write("ants", 0, &DesiredMovement::new(DVec3::X, 200.0));
+    ctx.write("ants", 0, &Velocity::new(DVec3::X, 200.0));
 
     // Step enough for movement + boundary reflect.
     // speed=200, dt=0.016 → 3.2 units/step. Starting at x=499 moving +x,
@@ -83,14 +83,14 @@ fn boundary_reflect(ctx: &TestCtx) {
     ctx.step(0.016, 5);
 
     let t = ctx.read::<Transform>("ants", 0).unwrap();
-    let dm = ctx.read::<DesiredMovement>("ants", 0).unwrap();
+    let v = ctx.read::<Velocity>("ants", 0).unwrap();
 
     // After reflection, position should be clamped to bounds exactly
     assert!(t.translation.x <= 500.0,
         "ant x should be clamped to bounds max (500.0): x={}", t.translation.x);
     // Direction should have flipped to negative x
-    assert!(dm.direction().x < -0.5,
-        "ant direction should reflect strongly negative: dir_x={}", dm.direction().x);
+    assert!(v.direction().x < -0.5,
+        "ant direction should reflect strongly negative: dir_x={}", v.direction().x);
     // Ant should have moved away from boundary after reflecting
     assert!(t.translation.x < 499.0,
         "ant should have moved away from boundary after reflecting: x={}", t.translation.x);
@@ -341,17 +341,28 @@ fn cooldown_recovery(ctx: &TestCtx) {
         }
     }
 
-    // Place ants on top of loose food (as many as we can)
+    // Place ants slightly offset from food (well within the 15u pickup
+    // radius) with a small cross-food velocity. The offset + non-zero
+    // sweep segment makes the GridHash query robust — a zero-length
+    // degenerate segment at the food's XY can miss if the food's grid
+    // cell is stale from prior pickup/drop churn. Speed is small enough
+    // that the ant stays within pickup radius for the verification window.
+    // Also clear any stale `Cooldown` lingering from prior sim activity.
     let place_count = loose_food.len().min(10);
     for ant_idx in 0..place_count {
         let (_, food_pos) = loose_food[ant_idx];
-        ctx.write("ants", ant_idx as u32, &Transform::from_translation(food_pos));
-        ctx.write("ants", ant_idx as u32, &PreviousTranslation { value: food_pos - DVec3::new(1.0, 0.0, 0.0) });
+        let offset = DVec3::new(5.0, 0.0, 0.0);
+        let ant_pos = food_pos - offset;
+        ctx.write("ants", ant_idx as u32, &Transform::from_translation(ant_pos));
+        ctx.write("ants", ant_idx as u32, &PreviousTranslation { value: ant_pos - offset });
+        ctx.write("ants", ant_idx as u32, &Velocity::new(DVec3::X, 10.0));
         ctx.bevy_insert("ants", ant_idx as u32, Carrying::default());
+        ctx.bevy_remove::<Cooldown>("ants", ant_idx as u32);
     }
 
-    // Run enough steps for cooldown to expire and pickup to occur
-    // Cooldown ~0.5s = ~31 frames, then pickup on next encounter
+    // Run a short window. At 10 u/s the ant traverses ~9.6u across 60 frames —
+    // it passes through the food (5u ahead) within the first ~30 frames,
+    // so the swept segment crosses the food well before it drifts out of range.
     ctx.step(0.016, 60);
 
     // Check how many of the placed ants picked up food
@@ -363,14 +374,14 @@ fn cooldown_recovery(ctx: &TestCtx) {
             picked_up += 1;
         } else {
             let t = ctx.read::<Transform>("ants", ant_idx as u32).unwrap();
-            let dm = ctx.read::<DesiredMovement>("ants", ant_idx as u32).unwrap();
+            let v = ctx.read::<Velocity>("ants", ant_idx as u32).unwrap();
             let (food_idx, food_pos) = loose_food[ant_idx];
             let dist = t.translation.distance(food_pos);
             failed_ants.push(format!(
                 "ant[{ant_idx}]: pos=({:.1},{:.1},{:.1}) food[{food_idx}]=({:.1},{:.1},{:.1}) dist={dist:.1} speed={:.1} dir=({:.2},{:.2},{:.2})",
                 t.translation.x, t.translation.y, t.translation.z,
                 food_pos.x, food_pos.y, food_pos.z,
-                dm.speed(), dm.direction().x, dm.direction().y, dm.direction().z,
+                v.speed(), v.direction().x, v.direction().y, v.direction().z,
             ));
         }
     }
@@ -408,7 +419,7 @@ fn cooldown_cycle(ctx: &TestCtx) {
     // Place ant on food[0], moving toward it
     ctx.write("ants", 0, &Transform::from_translation(food0_pos));
     ctx.write("ants", 0, &PreviousTranslation { value: food0_pos - DVec3::new(5.0, 0.0, 0.0) });
-    ctx.write("ants", 0, &DesiredMovement::new(DVec3::X, 100.0));
+    ctx.write("ants", 0, &Velocity::new(DVec3::X, 100.0));
     ctx.bevy_insert("ants", 0, Carrying::default());
 
     // Step 1: pickup should happen within a few frames

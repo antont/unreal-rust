@@ -2,6 +2,7 @@
 
 #include "CoreMinimal.h"
 #include "MassEntityTypes.h"
+#include "Example/MassSimpleMovementTrait.h"
 #include "MassCommonFragments.h"
 #include "MassMovementFragments.h"
 #include "GatherersFragments.gen.generated.h"
@@ -21,7 +22,7 @@ struct FGatherersFoodTag : public FMassTag
 	GENERATED_BODY()
 };
 
-// FMassCodeDrivenMovementTag — existing UE type, layout verified:
+// FMassSimpleMovementTag — existing UE type, layout verified:
 
 USTRUCT()
 struct FGatherersBehaviorFragment : public FMassFragment
@@ -57,9 +58,6 @@ struct FGatherersPreviousTranslationFragment : public FMassFragment
 
 static_assert(offsetof(FGatherersPreviousTranslationFragment, Value) == 0, "Value at offset 0");
 static_assert(sizeof(FGatherersPreviousTranslationFragment) == 24, "FGatherersPreviousTranslationFragment size must be 24");
-
-// FMassDesiredMovementFragment — existing UE type, layout verified:
-static_assert(sizeof(FMassDesiredMovementFragment) == 80, "FMassDesiredMovementFragment size must be 80 for Rust interop");
 
 // FMassVelocityFragment — existing UE type, layout verified:
 static_assert(sizeof(FMassVelocityFragment) == 48, "FMassVelocityFragment size must be 48 for Rust interop");

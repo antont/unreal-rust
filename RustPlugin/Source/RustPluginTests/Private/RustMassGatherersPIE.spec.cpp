@@ -293,12 +293,12 @@ public:
 		if (SlowestIdx >= 0 && EntityManager.IsEntityValid((*AntEntities)[SlowestIdx]))
 		{
 			FMassEntityView View(EntityManager, (*AntEntities)[SlowestIdx]);
-			const FMassDesiredMovementFragment& DM = View.GetFragmentData<FMassDesiredMovementFragment>();
+			const FMassVelocityFragment& V = View.GetFragmentData<FMassVelocityFragment>();
 			const FVector Post = View.GetFragmentData<FTransformFragment>().GetTransform().GetTranslation();
 			Test->AddInfo(FString::Printf(
-				TEXT("[slow-ants] slowest post=(%.2f,%.2f,%.2f) desired_vel=(%.2f,%.2f,%.2f) speed=%.2f avg_speed=%.2f"),
+				TEXT("[slow-ants] slowest post=(%.2f,%.2f,%.2f) vel=(%.2f,%.2f,%.2f) speed=%.2f avg_speed=%.2f"),
 				Post.X, Post.Y, Post.Z,
-				DM.DesiredVelocity.X, DM.DesiredVelocity.Y, DM.DesiredVelocity.Z, DM.DesiredVelocity.Size(),
+				V.Value.X, V.Value.Y, V.Value.Z, V.Value.Size(),
 				MinObserved / FMath::Max(TotalTime, 1e-6)));
 		}
 

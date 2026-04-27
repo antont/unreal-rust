@@ -704,9 +704,11 @@ bool URustMassBevySubsystem::EnsureProcessorPipelines(UMassEntitySubsystem& Mass
 	PostMovementProcessor = NewObject<URustMassPostMovementProcessor>(this);
 	SimProcessors.Add(PostMovementProcessor);
 
-	// UE's native movement processor: reads DesiredMovement, writes Velocity + Transform.
-	// Requires FMassDesiredMovementFragment + FMassCodeDrivenMovementTag on entities.
-	NativeMovementProcessor = NewObject<UMassApplyMovementProcessor>(this);
+	// UE's simple movement processor: reads Velocity, writes Transform.
+	// Requires FMassVelocityFragment + FMassSimpleMovementTag on entities.
+	// Unlike UMassApplyMovementProcessor, this does NOT opt out on FMassOffLODTag —
+	// LOD-culled entities still move, so visualization LOD can't stall the sim.
+	NativeMovementProcessor = NewObject<UMassSimpleMovementProcessor>(this);
 	SimProcessors.Add(NativeMovementProcessor);
 
 	if (SimProcessors.Num() > 0)
