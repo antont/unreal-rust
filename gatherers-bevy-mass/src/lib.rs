@@ -8,6 +8,24 @@ inventory::submit!(unreal_api::mass::MassSimInitRegistration {
     init_fn: init::init_simulation,
 });
 
+// System execution order for the gatherers pipeline.
+//
+// This replaces `order = N` on every `#[mass_system]` — the framework
+// maps these names to numeric order values at plugin init time, and
+// both the Bevy schedule and the C++ processor pipeline respect the
+// result. Insert new systems at the right position; no need to
+// renumber anything.
+inventory::submit!(unreal_api::mass::MassScheduleOrder {
+    systems: &[
+        "ant_collision_prepass",
+        "food_decision_system",
+        "apply_food_mutations",
+        "entity_cooldown",
+        "carried_food_tracking",
+        "entity_boundary_reflect",
+    ],
+});
+
 // Collision group config: tells C++ where to find entity positions for
 // spatial-query collision ISMCs. Rendering uses native MassRepresentation.
 inventory::submit!(unreal_api::mass::MassVisualizerGroupRegistration {
@@ -84,6 +102,65 @@ mod tests {
         assert_eq!(c.filter_fragment_type, "FGatherersFoodStateFragment");
         assert_eq!(c.filter_bool_offset, 0); // is_loose is the only field in FoodState
         assert!(c.filter_bool_must_be);
+    }
+
+    /// Schedule-build smoke test.
+    ///
+    /// Constructs a `MassSchedule` from every `MassBevySystemRegistration` the
+    /// game crate submits (same code path as `unreal-module::build_bevy_schedule`)
+    /// and runs it once on an empty world. Bevy's access-conflict analysis runs
+    /// on the first `run`, so system-param conflicts like B0001 panic here
+    /// instead of first surfacing at UE runtime.
+    ///
+    /// Why this lives in the game crate and not `unreal-module`: `inventory`
+    /// items only show up in a binary that links the crate that submits them.
+    /// `unreal-module` doesn't depend on `gatherers-bevy-mass`, so a smoke test
+    /// there sees zero systems.
+    #[test]
+    fn schedule_builds_and_runs_without_conflicts() {
+        use unreal_api::ecs::schedule::IntoScheduleConfigs;
+        use unreal_api::mass::{
+            MassSchedule, MassSystemStage, effective_order,
+            registered_bevy_mass_systems, resolved_schedule_orders,
+        };
+
+        let mut sched = MassSchedule::new();
+        let mut regs: Vec<_> = registered_bevy_mass_systems().into_iter().collect();
+        let overrides = resolved_schedule_orders();
+        regs.sort_by_key(|r| effective_order(r.name, r.order, &overrides));
+
+        for i in 1..regs.len() {
+            sched.app_mut().configure_sets(
+                unreal_api::ecs::Update,
+                MassSystemStage(i as u32).after(MassSystemStage((i - 1) as u32)),
+            );
+        }
+
+        for (i, reg) in regs.iter().enumerate() {
+            (reg.init_resources)(sched.world_mut());
+            (reg.register_messages)(sched.app_mut());
+            (reg.add_to_app)(sched.app_mut(), MassSystemStage(i as u32));
+        }
+
+        // Resources that `unreal-module::build_bevy_schedule` + `init_simulation`
+        // would insert at UE startup. Mirror them here so systems' `Res<T>` /
+        // `ResMut<T>` params can resolve and the run reaches access analysis.
+        use gatherers_sim::components::{Food, FoodDropEvents, FoodPickupEvents};
+        use bevy_mass::EntityIndex;
+        sched.world_mut().insert_resource(bevy_mass::SpatialQuery::default());
+        sched.world_mut().insert_resource(FoodDropEvents::default());
+        sched.world_mut().insert_resource(FoodPickupEvents::default());
+        sched.world_mut().insert_resource(EntityIndex::<Food>::new(Vec::new()));
+
+        // Running the schedule forces Bevy to finalize access analysis.
+        // B0001 (param conflicts) panics here. Empty-world runs are fine —
+        // queries iterate zero entities, messages are empty.
+        sched.run();
+
+        assert!(
+            !regs.is_empty(),
+            "expected at least one Bevy-registered mass system"
+        );
     }
 
     #[test]

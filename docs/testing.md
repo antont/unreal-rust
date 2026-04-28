@@ -1,5 +1,39 @@
 # Testing
 
+## When Rust tests are not enough — run UE automation
+
+`cargo test` covers ~11,000 tests but does not build a real Bevy
+`App` with game-crate inventory items wired in. Some failure classes
+only surface when the full schedule is constructed at UE runtime:
+
+- Macro-emitted systems with conflicting `SystemParam` shapes
+  (Bevy error B0001).
+- Dispatch-order bugs that need the C++ coordinator to trigger.
+- FFI layout or null-pointer regressions in the loader chain.
+
+There's a game-crate smoke test
+(`gatherers-bevy-mass::tests::schedule_builds_and_runs_without_conflicts`)
+that builds the schedule from inventory and runs it once on an empty
+world, which catches B0001-class regressions at `cargo test` time.
+It still isn't a substitute for UE automation — it doesn't exercise
+real chunk memory, the coordinator, or hot-reload.
+
+**Required before committing any change to any of these:**
+
+- `unreal-api-derive/` (proc-macro crate; emission bugs surface only
+  in real schedules)
+- `unreal-api/src/mass.rs` (schedule / SystemParam / dispatch hooks)
+- `unreal-module/src/mass_system_registry.rs` (schedule build, hook
+  dispatch, reload plumbing)
+- `RustPlugin/Source/RustPlugin/RustMassDynamicProcessor.cpp` and the
+  coordinator
+- Any macro attribute that rewrites system signatures
+  (`#[mass_system]`, `#[component]`, `#[bevy]`)
+
+Run `cargo build --release -p unreal-rust-host` followed by the UE
+automation command below and grep for `EXIT CODE: 0` before opening
+a PR. Cost is ~90 seconds on top of the Rust suite.
+
 ## Rust tests (11,293 total)
 
 ```bash

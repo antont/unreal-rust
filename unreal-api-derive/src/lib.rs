@@ -1,7 +1,6 @@
 use syn::DeriveInput;
 
 mod component;
-mod component_attr;
 mod event;
 mod mass_fragment;
 mod mass_system;
@@ -68,8 +67,11 @@ pub fn mass_system(
     item: proc_macro::TokenStream,
 ) -> proc_macro::TokenStream {
     let func: syn::ItemFn = syn::parse(item).unwrap();
+    // order defaults to sentinel u32::MAX when absent; resolved at plugin init
+    // via `MassScheduleOrder` registration. Entries without an explicit order
+    // and without a schedule entry will sort to the end.
     let parsed = mass_system::parse_mass_system_attr_full(attr.into())
-        .unwrap_or(mass_system::MassSystemAttr { order: 0, entity_group: None });
+        .unwrap_or(mass_system::MassSystemAttr { order: u32::MAX, entity_group: None });
     match mass_system::mass_system_impl(&func, parsed.order, parsed.entity_group.as_deref()) {
         Ok(tokens) => tokens.into(),
         Err(err) => err.to_compile_error().into(),
@@ -89,40 +91,6 @@ pub fn mass_fragment_derive(input: proc_macro::TokenStream) -> proc_macro::Token
 pub fn uclass_derive(input: proc_macro::TokenStream) -> proc_macro::TokenStream {
     let ast: DeriveInput = syn::parse(input).unwrap();
     match uclass::uclass_derive(&ast) {
-        Ok(tokens) => tokens.into(),
-        Err(err) => err.to_compile_error().into(),
-    }
-}
-
-/// Attribute macro that defines a Bevy Component with automatic Unreal Mass Entity integration.
-///
-/// In Bevy mode: adds `#[repr(C)]`, `#[derive(Component, Clone, Copy, Debug)]`.
-/// In Unreal mode: additionally generates `MassFragment` registration and C++ codegen metadata.
-///
-/// Detects tags automatically: unit structs (`struct Foo;`) become MassTags,
-/// structs with fields become MassFragments.
-///
-/// ```ignore
-/// use bevy_mass::prelude::*;
-///
-/// #[component]
-/// pub struct FoodFragment {
-///     pub is_loose: bool,
-/// }
-///
-/// #[component(group = "ants")]
-/// pub struct AntTag;
-/// ```
-///
-/// The C++ type name is auto-derived from `BEVY_MASS_CPP_PREFIX` env var + struct name
-/// (e.g., prefix "Gatherers" + "FoodFragment" → "FGatherersFoodFragment").
-/// Override with `#[component(cpp_type = "FCustomName")]`.
-#[proc_macro_attribute]
-pub fn component(
-    attr: proc_macro::TokenStream,
-    item: proc_macro::TokenStream,
-) -> proc_macro::TokenStream {
-    match component_attr::component_impl(attr.into(), item.into()) {
         Ok(tokens) => tokens.into(),
         Err(err) => err.to_compile_error().into(),
     }

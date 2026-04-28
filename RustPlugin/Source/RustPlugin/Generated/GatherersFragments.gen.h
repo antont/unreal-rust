@@ -37,17 +37,6 @@ static_assert(offsetof(FGatherersBehaviorFragment, RandomSeed) == 4, "RandomSeed
 static_assert(sizeof(FGatherersBehaviorFragment) == 8, "FGatherersBehaviorFragment size must be 8");
 
 USTRUCT()
-struct FGatherersCarryingFragment : public FMassFragment
-{
-	GENERATED_BODY()
-
-	int32 FoodIndex = -1;
-};
-
-static_assert(offsetof(FGatherersCarryingFragment, FoodIndex) == 0, "FoodIndex at offset 0");
-static_assert(sizeof(FGatherersCarryingFragment) == 4, "FGatherersCarryingFragment size must be 4");
-
-USTRUCT()
 struct FGatherersFoodStateFragment : public FMassFragment
 {
 	GENERATED_BODY()

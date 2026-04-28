@@ -3,7 +3,7 @@ use bevy::render::view::screenshot::{save_to_disk, Screenshot};
 use bevy_mass::{MovementPlugin, EntityIndex};
 use gatherers_sim::components::{
     Transform as SimTransform, PreviousTranslation, DesiredMovement,
-    Cooldown, Carrying, Behavior, FoodState, Food,
+    Cooldown, Carrying, Behavior, FoodState, Food, Ant,
     AntFoodHit, FoodMutation,
 };
 use gatherers_sim::food_decision::{food_decision_system, DECISION_PICK_UP, DECISION_DROP};
@@ -142,6 +142,7 @@ fn spawn_entities(mut commands: Commands, size: Res<SimSize>) {
         // This matches the idiomatic Bevy pattern from the original gatherers.
         commands.spawn((
             AntMarker,
+            Ant,
             SimTransform::from_translation(spawn_pos),
             PreviousTranslation { value: spawn_pos },
             DesiredMovement::new(DVec3::new(angle.cos(), angle.sin(), 0.0), 100.0),
@@ -175,15 +176,15 @@ fn collision_prepass(
     food_entities: Res<EntityIndex<Food>>,
     mut hits: MessageWriter<AntFoodHit>,
 ) {
-    // Snapshot loose food positions for proximity search
-    let loose_food: Vec<(i32, DVec3)> = food_entities
+    // Snapshot loose food (index, entity, position) for proximity search.
+    let loose_food: Vec<(i32, Entity, DVec3)> = food_entities
         .entities
         .iter()
         .enumerate()
         .filter_map(|(idx, &entity)| {
             foods.get(entity).ok().and_then(|(f, sim_t)| {
                 if f.is_loose {
-                    Some((idx as i32, sim_t.translation))
+                    Some((idx as i32, entity, sim_t.translation))
                 } else {
                     None
                 }
@@ -192,17 +193,17 @@ fn collision_prepass(
         .collect();
 
     for (ant_entity, sim_t) in &ants {
-        if let Some(&(food_idx, food_pos)) = loose_food
+        if let Some(&(food_idx, food_entity, food_pos)) = loose_food
             .iter()
-            .filter(|(_, fp)| (sim_t.translation - *fp).length_squared() < PICKUP_RADIUS * PICKUP_RADIUS)
-            .min_by(|(_, a), (_, b)| {
+            .filter(|(_, _, fp)| (sim_t.translation - *fp).length_squared() < PICKUP_RADIUS * PICKUP_RADIUS)
+            .min_by(|(_, _, a), (_, _, b)| {
                 (sim_t.translation - *a)
                     .length_squared()
                     .partial_cmp(&(sim_t.translation - *b).length_squared())
                     .unwrap()
             })
         {
-            hits.write(AntFoodHit::new(food_idx, ant_entity, food_pos));
+            hits.write(AntFoodHit::new(food_idx, food_entity, ant_entity, food_pos));
         }
     }
 }
@@ -211,18 +212,14 @@ fn collision_prepass(
 fn apply_food_mutations(
     mut mutations: MessageReader<FoodMutation>,
     mut foods: Query<(&mut FoodState, &mut SimTransform), With<FoodMarker>>,
-    food_entities: Res<EntityIndex<Food>>,
 ) {
     for mutation in mutations.read() {
-        let idx = mutation.food_index as usize;
-        if idx < food_entities.entities.len() {
-            if let Ok((mut food, mut sim_t)) = foods.get_mut(food_entities.entities[idx]) {
-                if mutation.decision == DECISION_PICK_UP {
-                    food.is_loose = false;
-                } else if mutation.decision == DECISION_DROP {
-                    food.is_loose = true;
-                    sim_t.translation = mutation.drop_position;
-                }
+        if let Ok((mut food, mut sim_t)) = foods.get_mut(mutation.food_entity) {
+            if mutation.decision == DECISION_PICK_UP {
+                food.is_loose = false;
+            } else if mutation.decision == DECISION_DROP {
+                food.is_loose = true;
+                sim_t.translation = mutation.drop_position;
             }
         }
     }
@@ -241,30 +238,29 @@ fn sync_ant_transforms(mut ants: Query<(&SimTransform, &mut Transform), With<Ant
 
 fn sync_food_transforms(
     ants: Query<(&SimTransform, &Carrying), With<AntMarker>>,
-    mut foods: Query<(&SimTransform, &mut Transform), With<FoodMarker>>,
-    food_entities: Res<EntityIndex<Food>>,
+    mut foods: Query<(Entity, &SimTransform, &mut Transform), With<FoodMarker>>,
 ) {
-    // Build a map: food_index → ant position (for carried food)
-    let mut carried_positions: Vec<Option<DVec3>> = vec![None; food_entities.entities.len()];
+    // Build: food Entity → ant position (for carried food). `Carrying` now
+    // holds `Option<Entity>` directly, so the lookup is Entity-keyed.
+    let mut carried_positions: std::collections::HashMap<Entity, DVec3> =
+        std::collections::HashMap::new();
     for (sim_t, carry) in &ants {
-        if carry.food_index >= 0 && (carry.food_index as usize) < carried_positions.len() {
-            carried_positions[carry.food_index as usize] = Some(sim_t.translation);
+        if let Some(food_entity) = carry.entity() {
+            carried_positions.insert(food_entity, sim_t.translation);
         }
     }
 
-    for (idx, &entity) in food_entities.entities.iter().enumerate() {
-        if let Ok((sim_t, mut transform)) = foods.get_mut(entity) {
-            if let Some(ant_pos) = carried_positions[idx] {
-                // Carried: follow the ant, rendered above it
-                transform.translation.x = ant_pos.x as f32 * SIM_TO_SCREEN;
-                transform.translation.y = ant_pos.y as f32 * SIM_TO_SCREEN;
-                transform.translation.z = Z_ANT + 1.0;
-            } else {
-                // Loose food: sync render transform from sim position
-                transform.translation.x = sim_t.translation.x as f32 * SIM_TO_SCREEN;
-                transform.translation.y = sim_t.translation.y as f32 * SIM_TO_SCREEN;
-                transform.translation.z = Z_FOOD;
-            }
+    for (food_entity, sim_t, mut transform) in &mut foods {
+        if let Some(ant_pos) = carried_positions.get(&food_entity) {
+            // Carried: follow the ant, rendered above it
+            transform.translation.x = ant_pos.x as f32 * SIM_TO_SCREEN;
+            transform.translation.y = ant_pos.y as f32 * SIM_TO_SCREEN;
+            transform.translation.z = Z_ANT + 1.0;
+        } else {
+            // Loose food: sync render transform from sim position
+            transform.translation.x = sim_t.translation.x as f32 * SIM_TO_SCREEN;
+            transform.translation.y = sim_t.translation.y as f32 * SIM_TO_SCREEN;
+            transform.translation.z = Z_FOOD;
         }
     }
 }

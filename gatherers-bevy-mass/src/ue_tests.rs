@@ -10,6 +10,7 @@
 use glam::DVec3;
 use unreal_api::mass::{MassTestRegistration, TestCtx};
 use crate::components::{Transform, PreviousTranslation, DesiredMovement, FoodState, Carrying};
+use gatherers_sim::components::Cooldown;
 
 // ---------------------------------------------------------------------------
 // SpawnAndSimulate — basic lifecycle test
@@ -126,18 +127,19 @@ fn food_pickup(ctx: &TestCtx) {
 
     ctx.write("ants", 0, &Transform::from_translation(food_tf.translation));
     ctx.write("ants", 0, &PreviousTranslation { value: food_tf.translation });
-    ctx.write("ants", 0, &Carrying { food_index: -1 });
+    ctx.bevy_insert("ants", 0, Carrying::default());
     // Note: Cooldown is now a pure-Bevy component on shadow entities.
     // Ants without Cooldown are eligible for food interaction.
 
     // Run simulation — spatial query should detect overlap, food decision should pick up
     ctx.step(0.016, 20);
 
-    let carry = ctx.read::<Carrying>("ants", 0).unwrap();
-    assert!(carry.food_index >= 0,
-        "ant should have picked up food: food_index={}", carry.food_index);
-    assert_eq!(carry.food_index, 0,
-        "carried food index should be 0");
+    let food0_entity = ctx.bevy_entity("food", 0);
+    let carry = ctx.bevy_get::<Carrying>("ants", 0).unwrap();
+    assert!(carry.is_carrying(),
+        "ant should have picked up food: carry={:?}", carry.entity());
+    assert_eq!(carry.entity(), Some(food0_entity),
+        "carried food should be food[0]");
 
     let food_after = ctx.read::<FoodState>("food", 0).unwrap();
     assert!(!food_after.is_loose,
@@ -193,13 +195,13 @@ fn food_pickup_multi_chunk(ctx: &TestCtx) {
         &Transform::from_translation(early_food_tf.translation));
     ctx.write("ants", EARLY_ANT,
         &PreviousTranslation { value: early_food_tf.translation });
-    ctx.write("ants", EARLY_ANT, &Carrying { food_index: -1 });
+    ctx.bevy_insert("ants", EARLY_ANT, Carrying::default());
 
     ctx.write("ants", LATE_ANT,
         &Transform::from_translation(late_food_tf.translation));
     ctx.write("ants", LATE_ANT,
         &PreviousTranslation { value: late_food_tf.translation });
-    ctx.write("ants", LATE_ANT, &Carrying { food_index: -1 });
+    ctx.bevy_insert("ants", LATE_ANT, Carrying::default());
 
     // Same step count as FoodPickup so any difference is about chunk placement,
     // not time-to-pickup. With both ants parked on their food, a correct
@@ -207,21 +209,21 @@ fn food_pickup_multi_chunk(ctx: &TestCtx) {
     // ant idle forever (empty MessageReader on its chunk call).
     ctx.step(0.016, 20);
 
-    let early_carry = ctx.read::<Carrying>("ants", EARLY_ANT).unwrap();
-    let late_carry = ctx.read::<Carrying>("ants", LATE_ANT).unwrap();
+    let early_carry = ctx.bevy_get::<Carrying>("ants", EARLY_ANT).unwrap();
+    let late_carry = ctx.bevy_get::<Carrying>("ants", LATE_ANT).unwrap();
 
     assert!(
-        early_carry.food_index >= 0,
-        "ant {EARLY_ANT} (early chunk) should have picked up food: got {}",
-        early_carry.food_index,
+        early_carry.is_carrying(),
+        "ant {EARLY_ANT} (early chunk) should have picked up food: got {:?}",
+        early_carry.entity(),
     );
     assert!(
-        late_carry.food_index >= 0,
-        "ant {LATE_ANT} (late chunk) should have picked up food: got {}. \
+        late_carry.is_carrying(),
+        "ant {LATE_ANT} (late chunk) should have picked up food: got {:?}. \
          If only the early-chunk ant picks up, the #[mass_system] macro is \
          draining MessageReader on the first chunk call and leaving later \
          chunks with an empty message queue.",
-        late_carry.food_index,
+        late_carry.entity(),
     );
 
     ctx.reset();
@@ -250,7 +252,8 @@ fn food_drop(ctx: &TestCtx) {
 
     ctx.write("ants", 0, &Transform::from_translation(food1_tf.translation));
     ctx.write("ants", 0, &PreviousTranslation { value: food1_tf.translation });
-    ctx.write("ants", 0, &Carrying { food_index: 0 });
+    let food0_entity = ctx.bevy_entity("food", 0);
+    ctx.bevy_insert("ants", 0, Carrying(Some(food0_entity)));
     // Note: Cooldown is now a pure-Bevy component on shadow entities.
     // Ants without Cooldown are eligible for food interaction.
 
@@ -262,9 +265,9 @@ fn food_drop(ctx: &TestCtx) {
     // Run simulation — ant carrying food encounters loose food[1], should drop
     ctx.step(0.016, 20);
 
-    let carry = ctx.read::<Carrying>("ants", 0).unwrap();
-    assert_eq!(carry.food_index, -1,
-        "ant should have dropped food: food_index={}", carry.food_index);
+    let carry = ctx.bevy_get::<Carrying>("ants", 0).unwrap();
+    assert!(!carry.is_carrying(),
+        "ant should have dropped food: carry={:?}", carry.entity());
 
     ctx.reset();
 }
@@ -291,12 +294,13 @@ fn cooldown_recovery(ctx: &TestCtx) {
     // Cooldown is ~0.5s, so ants should complete multiple pickup/drop cycles.
     ctx.step(0.016, 200);
 
-    // Count how many ants have interacted with food (food_index != -1 means carrying,
-    // but we also want to detect ants that picked up AND dropped — check carrying state)
+    // Count how many ants have interacted with food (Carrying.0 == Some(_) means
+    // carrying; we also want to detect ants that picked up AND dropped — check
+    // carrying state).
     let mut carrying_count = 0;
     for i in 0..10u32 {
-        let carry = ctx.read::<Carrying>("ants", i).unwrap();
-        if carry.food_index >= 0 {
+        let carry = ctx.bevy_get::<Carrying>("ants", i).unwrap();
+        if carry.is_carrying() {
             carrying_count += 1;
         }
     }
@@ -343,7 +347,7 @@ fn cooldown_recovery(ctx: &TestCtx) {
         let (_, food_pos) = loose_food[ant_idx];
         ctx.write("ants", ant_idx as u32, &Transform::from_translation(food_pos));
         ctx.write("ants", ant_idx as u32, &PreviousTranslation { value: food_pos - DVec3::new(1.0, 0.0, 0.0) });
-        ctx.write("ants", ant_idx as u32, &Carrying { food_index: -1 });
+        ctx.bevy_insert("ants", ant_idx as u32, Carrying::default());
     }
 
     // Run enough steps for cooldown to expire and pickup to occur
@@ -354,8 +358,8 @@ fn cooldown_recovery(ctx: &TestCtx) {
     let mut picked_up = 0;
     let mut failed_ants: Vec<String> = Vec::new();
     for ant_idx in 0..place_count {
-        let carry = ctx.read::<Carrying>("ants", ant_idx as u32).unwrap();
-        if carry.food_index >= 0 {
+        let carry = ctx.bevy_get::<Carrying>("ants", ant_idx as u32).unwrap();
+        if carry.is_carrying() {
             picked_up += 1;
         } else {
             let t = ctx.read::<Transform>("ants", ant_idx as u32).unwrap();
@@ -405,15 +409,15 @@ fn cooldown_cycle(ctx: &TestCtx) {
     ctx.write("ants", 0, &Transform::from_translation(food0_pos));
     ctx.write("ants", 0, &PreviousTranslation { value: food0_pos - DVec3::new(5.0, 0.0, 0.0) });
     ctx.write("ants", 0, &DesiredMovement::new(DVec3::X, 100.0));
-    ctx.write("ants", 0, &Carrying { food_index: -1 });
+    ctx.bevy_insert("ants", 0, Carrying::default());
 
     // Step 1: pickup should happen within a few frames
     ctx.step(0.016, 10);
 
-    let carry1 = ctx.read::<Carrying>("ants", 0).unwrap();
-    assert!(carry1.food_index >= 0,
-        "Phase 1: ant should pick up food after 10 steps: food_index={}",
-        carry1.food_index);
+    let carry1 = ctx.bevy_get::<Carrying>("ants", 0).unwrap();
+    assert!(carry1.is_carrying(),
+        "Phase 1: ant should pick up food after 10 steps: carry={:?}",
+        carry1.entity());
 
     // Step 2: let cooldown expire (~0.5s = ~31 frames)
     ctx.step(0.016, 50);
@@ -428,10 +432,10 @@ fn cooldown_cycle(ctx: &TestCtx) {
         // Ant is carrying food[0], encounters food[1] → should DROP
         ctx.step(0.016, 10);
 
-        let carry2 = ctx.read::<Carrying>("ants", 0).unwrap();
-        assert_eq!(carry2.food_index, -1,
-            "Phase 2: carrying ant encountering loose food should drop: food_index={}",
-            carry2.food_index);
+        let carry2 = ctx.bevy_get::<Carrying>("ants", 0).unwrap();
+        assert!(!carry2.is_carrying(),
+            "Phase 2: carrying ant encountering loose food should drop: carry={:?}",
+            carry2.entity());
 
         // Step 3: let cooldown expire again
         ctx.step(0.016, 50);
@@ -442,15 +446,15 @@ fn cooldown_cycle(ctx: &TestCtx) {
             let food2_tf = ctx.read::<Transform>("food", 2).unwrap();
             ctx.write("ants", 0, &Transform::from_translation(food2_tf.translation));
             ctx.write("ants", 0, &PreviousTranslation { value: food2_tf.translation - DVec3::new(5.0, 0.0, 0.0) });
-            ctx.write("ants", 0, &Carrying { food_index: -1 });
+            ctx.bevy_insert("ants", 0, Carrying::default());
 
             ctx.step(0.016, 10);
 
-            let carry3 = ctx.read::<Carrying>("ants", 0).unwrap();
-            assert!(carry3.food_index >= 0,
-                "Phase 3: ant should pick up food again after cooldown: food_index={} \
-                 (if -1, cooldown may be stuck)",
-                carry3.food_index);
+            let carry3 = ctx.bevy_get::<Carrying>("ants", 0).unwrap();
+            assert!(carry3.is_carrying(),
+                "Phase 3: ant should pick up food again after cooldown: carry={:?} \
+                 (if None, cooldown may be stuck)",
+                carry3.entity());
         }
     }
 
@@ -529,4 +533,51 @@ fn integration(ctx: &TestCtx) {
     assert!(!ctx.has_managed_sim(), "sim should be inactive after reset");
     assert_eq!(ctx.entity_count("ants"), 0, "ant count should be 0 after reset");
     assert_eq!(ctx.entity_count("food"), 0, "food count should be 0 after reset");
+}
+
+// ---------------------------------------------------------------------------
+// BevyShadowAccess — smoke-test TestCtx's shadow-world accessors against
+// Cooldown (already a shadow component), so later shadow-only components
+// (like the new Carrying) can rely on the same API.
+// ---------------------------------------------------------------------------
+
+inventory::submit!(MassTestRegistration {
+    name: "BevyShadowAccess",
+    test_fn: bevy_shadow_access,
+});
+
+fn bevy_shadow_access(ctx: &TestCtx) {
+    ctx.init_sim(
+        &[("ants", 3), ("food", 1)],
+        [-100.0, -100.0, 0.0],
+        [100.0, 100.0, 100.0],
+        1,
+    );
+
+    // Fresh ants have no Cooldown — `bevy_get` must return None.
+    assert!(
+        ctx.bevy_get::<Cooldown>("ants", 0).is_none(),
+        "ant 0 should have no Cooldown at spawn"
+    );
+
+    // Insert a Cooldown on ant 1 via the shadow API.
+    ctx.bevy_insert("ants", 1, Cooldown { remaining_seconds: 1.25 });
+
+    // Read it back — must round-trip.
+    let cd = ctx.bevy_get::<Cooldown>("ants", 1).expect("ant 1 should have Cooldown after insert");
+    assert!(
+        (cd.remaining_seconds - 1.25).abs() < 1e-6,
+        "round-trip failed: expected 1.25, got {}",
+        cd.remaining_seconds
+    );
+
+    // Other ants are unaffected.
+    assert!(ctx.bevy_get::<Cooldown>("ants", 0).is_none(), "ant 0 should still have no Cooldown");
+    assert!(ctx.bevy_get::<Cooldown>("ants", 2).is_none(), "ant 2 should still have no Cooldown");
+
+    // `bevy_entity` resolves group+index to a real Entity.
+    let e = ctx.bevy_entity("ants", 0);
+    assert!(e != bevy_ecs::entity::Entity::PLACEHOLDER, "bevy_entity must resolve a real Entity");
+
+    ctx.reset();
 }

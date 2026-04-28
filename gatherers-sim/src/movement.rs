@@ -2,10 +2,13 @@ use crate::components::{Cooldown, DesiredMovement, Transform};
 use bevy_mass::prelude::*;
 
 // ---------------------------------------------------------------------------
-// System ordering convention:
-//   order = 10, 20, 30, ... with gaps for future insertion.
-//   In Unreal mode, order determines C++ processor execution order.
-//   In standalone Bevy mode, order is ignored — use .chain() instead.
+// System ordering:
+//   Plugin-level — game crates submit a `MassScheduleOrder` listing the
+//   `#[mass_system]` names in execution order (see
+//   `gatherers-bevy-mass/src/lib.rs`). The framework maps the list to
+//   numeric `order` values so both the Bevy schedule and the C++
+//   processor pipeline agree. In standalone Bevy mode, ordering comes
+//   from `.chain()` on `app.add_systems(...)`.
 // ---------------------------------------------------------------------------
 
 /// Default simulation bounds — Rust owns this, no C++ round-trip needed.
@@ -26,7 +29,7 @@ pub const SIM_BOUNDS_MAX: [f64; 3] = [500.0, 500.0, 100.0];
 // this via QueryBackend::IS_CHUNK and dispatches to Bevy storage.
 // ---------------------------------------------------------------------------
 
-#[mass_system(order = 40)]
+#[mass_system]
 pub fn entity_cooldown(
     mut cooldowns: Query<(Entity, &mut Cooldown)>,
     time: Res<Time>,
@@ -49,7 +52,7 @@ pub fn entity_cooldown(
 /// Reflect desired movement at simulation boundaries. Reads position to detect
 /// boundary contact and reflects the desired velocity. No position writes —
 /// movement application is handled by framework infrastructure.
-#[mass_system(order = 50)]
+#[mass_system]
 pub fn entity_boundary_reflect(
     mut entities: Query<(&Transform, &mut DesiredMovement)>,
 ) {

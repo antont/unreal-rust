@@ -11,7 +11,7 @@
 //! ```ignore
 //! use bevy_mass::prelude::*;
 //!
-//! #[mass_system(order = 35)]
+//! #[mass_system]
 //! fn apply_food_mutations(
 //!     foods: QueryAll<&mut FoodState, With<Food>>,
 //! ) {

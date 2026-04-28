@@ -283,13 +283,55 @@ impl MassSchedule {
 // Shadow Bevy entity map
 // ---------------------------------------------------------------------------
 
+// ---------------------------------------------------------------------------
+// Shadow-world accessor hooks (set by `unreal-module` at init time).
+//
+// `TestCtx::bevy_get` / `bevy_insert` / `bevy_entity` need to reach the global
+// `MASS_SCHEDULE` that lives in `unreal-module`. Rather than pull that
+// dependency up the graph, `unreal-module` registers function pointers here
+// and `TestCtx` dispatches through them. Pure Rust — no FFI.
+// ---------------------------------------------------------------------------
+
+/// Visit the shadow Bevy world read-only. Returns `true` if the world is
+/// available, else `false`. Set by `unreal-module::init_global_schedule`.
+pub type ShadowWorldReadFn = fn(
+    &mut dyn FnMut(&bevy_ecs::world::World, &MassEntityMap),
+) -> bool;
+
+/// Visit the shadow Bevy world mutably. Returns `true` if the world is
+/// available, else `false`. Set by `unreal-module::init_global_schedule`.
+pub type ShadowWorldWriteFn = fn(
+    &mut dyn FnMut(&mut bevy_ecs::world::World, &MassEntityMap),
+) -> bool;
+
+static SHADOW_WORLD_READ: std::sync::OnceLock<ShadowWorldReadFn> = std::sync::OnceLock::new();
+static SHADOW_WORLD_WRITE: std::sync::OnceLock<ShadowWorldWriteFn> = std::sync::OnceLock::new();
+
+/// Register shadow-world accessors. Called once by `unreal-module` at init.
+/// Subsequent calls are no-ops (OnceLock).
+pub fn register_shadow_world_accessors(
+    read_fn: ShadowWorldReadFn,
+    write_fn: ShadowWorldWriteFn,
+) {
+    let _ = SHADOW_WORLD_READ.set(read_fn);
+    let _ = SHADOW_WORLD_WRITE.set(write_fn);
+}
+
+pub(crate) fn shadow_world_read_fn() -> Option<ShadowWorldReadFn> {
+    SHADOW_WORLD_READ.get().copied()
+}
+
+pub(crate) fn shadow_world_write_fn() -> Option<ShadowWorldWriteFn> {
+    SHADOW_WORLD_WRITE.get().copied()
+}
+
 /// Maps Mass Entity groups to shadow Bevy entities.
 ///
 /// Each named group (e.g., "ants", "food") has a `Vec<Entity>` indexed by
 /// spawn order. Shadow entities live in the Bevy World alongside the
 /// MassFragment chunk data, allowing pure-Bevy components (like Cooldown)
 /// to be attached to entities that also have zero-copy chunk fragments.
-#[derive(bevy_ecs::prelude::Resource, Default)]
+#[derive(bevy_ecs::prelude::Resource, Default, Clone)]
 pub struct MassEntityMap {
     groups: std::collections::HashMap<String, Vec<bevy_ecs::entity::Entity>>,
 }
@@ -1673,6 +1715,72 @@ pub fn registered_bevy_mass_systems() -> inventory::iter<MassBevySystemRegistrat
     inventory::iter::<MassBevySystemRegistration>
 }
 
+/// Plugin-declared system execution order.
+///
+/// Game code submits one of these per pipeline via `inventory::submit!`,
+/// listing `#[mass_system]` function names in the order they should run.
+/// The framework maps each name to a numeric `order` value with a fixed
+/// stride so both the Bevy schedule and the C++ processor pipeline agree
+/// on the sequence.
+///
+/// This is the Bevy-idiomatic replacement for sprinkling `order = N` on
+/// every `#[mass_system]` attribute. Systems whose name is not listed
+/// keep whatever `order` value they were declared with (defaulting to
+/// `u32::MAX` sentinel, i.e. "run last").
+pub struct MassScheduleOrder {
+    /// Ordered list of `#[mass_system]` function names, first runs first.
+    pub systems: &'static [&'static str],
+}
+
+inventory::collect!(MassScheduleOrder);
+
+/// Returns all registered schedule-order declarations.
+pub fn registered_schedule_orders() -> inventory::iter<MassScheduleOrder> {
+    inventory::iter::<MassScheduleOrder>
+}
+
+/// Stride between consecutive schedule entries. Gaps let late-added
+/// systems slot in without renumbering everything.
+const MASS_SCHEDULE_STRIDE: u32 = 10;
+
+/// Build `name → order` overrides from every registered `MassScheduleOrder`.
+///
+/// Multiple declarations are merged by appending — each declaration's
+/// internal sequence is preserved, and names from later declarations
+/// continue numbering past the tail of earlier ones. If the same name
+/// appears more than once, the first occurrence wins.
+pub fn resolved_schedule_orders() -> std::collections::HashMap<&'static str, u32> {
+    let mut map = std::collections::HashMap::new();
+    let mut next: u32 = MASS_SCHEDULE_STRIDE;
+    for decl in registered_schedule_orders() {
+        for name in decl.systems {
+            if !map.contains_key(*name) {
+                map.insert(*name, next);
+                next = next.saturating_add(MASS_SCHEDULE_STRIDE);
+            }
+        }
+    }
+    map
+}
+
+/// Resolve the effective execution order for a system.
+///
+/// Explicit `order = N` on `#[mass_system]` still wins (for backward
+/// compatibility and any edge cases). If the system was declared without
+/// an order (sentinel `u32::MAX`), we consult the schedule override map.
+/// Systems that appear in neither retain `u32::MAX`, which sorts them to
+/// the end of the pipeline and makes the omission visible.
+pub fn effective_order(
+    name: &str,
+    declared: u32,
+    overrides: &std::collections::HashMap<&'static str, u32>,
+) -> u32 {
+    if declared != u32::MAX {
+        return declared;
+    }
+    overrides.get(name).copied().unwrap_or(u32::MAX)
+}
+
 /// Pre/post-dispatch hooks for game-specific logic around `sched.run()`.
 ///
 /// `pre_dispatch` runs inside `catch_unwind`, before `sched.run()`.
@@ -1689,6 +1797,44 @@ inventory::collect!(MassDispatchHook);
 
 pub fn registered_dispatch_hooks() -> inventory::iter<MassDispatchHook> {
     inventory::iter::<MassDispatchHook>
+}
+
+/// Registration that lets `mass_init_simulation` populate an
+/// `EntityIndex<Tag>` resource from a `MassEntityMap` group.
+///
+/// Emitted by `#[derive(MassFragment)]` when `#[mass(group = "...")]`
+/// is present. One entry per tag type; the `populate_fn` is generated
+/// to insert `EntityIndex::<Tag>` into the world with the supplied
+/// entity slice.
+pub struct MassEntityIndexRegistration {
+    pub entity_group: &'static str,
+    pub populate_fn: fn(&mut bevy_ecs::world::World, &[bevy_ecs::entity::Entity]),
+}
+
+inventory::collect!(MassEntityIndexRegistration);
+
+pub fn registered_entity_index_populations()
+    -> inventory::iter<MassEntityIndexRegistration> {
+    inventory::iter::<MassEntityIndexRegistration>
+}
+
+/// Registration for spawn-time insertion of pure-Rust shadow components
+/// onto every shadow `Entity` in an `entity_group`. Used for components
+/// that don't live in chunk memory but need a default value per entity
+/// (e.g. `Carrying`, `Cooldown`).
+///
+/// Game crates submit these via `inventory::submit!`. `mass_init_simulation`
+/// iterates and calls `insert_fn` for each shadow Entity in the group.
+pub struct MassShadowComponentDefault {
+    pub entity_group: &'static str,
+    pub insert_fn: fn(&mut bevy_ecs::world::World, bevy_ecs::entity::Entity),
+}
+
+inventory::collect!(MassShadowComponentDefault);
+
+pub fn registered_shadow_component_defaults()
+    -> inventory::iter<MassShadowComponentDefault> {
+    inventory::iter::<MassShadowComponentDefault>
 }
 
 // ---------------------------------------------------------------------------
@@ -1997,6 +2143,91 @@ impl TestCtx {
         };
         assert_eq!(ok, 1, "Failed to write fragment {} for {}/{}", T::CPP_TYPE_NAME, group, index);
     }
+
+    // ---- Shadow-world (pure-Bevy component) accessors ---------------------
+    //
+    // These route through `register_shadow_world_accessors`, which
+    // `unreal-module` sets at init. The shadow world is the Bevy `World`
+    // inside `MASS_SCHEDULE` — same world the mass systems run against, so
+    // insertions here are visible to the next dispatch.
+
+    /// Resolve a shadow Bevy `Entity` for an entity in a group. Returns
+    /// `Entity::PLACEHOLDER` if the group or index is unknown.
+    pub fn bevy_entity(&self, group: &str, index: u32) -> bevy_ecs::entity::Entity {
+        let Some(read) = shadow_world_read_fn() else {
+            return bevy_ecs::entity::Entity::PLACEHOLDER;
+        };
+        let mut out = bevy_ecs::entity::Entity::PLACEHOLDER;
+        let mut visit = |_world: &bevy_ecs::world::World, map: &MassEntityMap| {
+            out = map
+                .get(group, index as usize)
+                .unwrap_or(bevy_ecs::entity::Entity::PLACEHOLDER);
+        };
+        read(&mut visit);
+        out
+    }
+
+    /// Read a pure-Bevy component from the shadow entity at `(group, index)`.
+    /// Returns `None` if the entity or component is missing.
+    pub fn bevy_get<T: bevy_ecs::component::Component + Clone>(
+        &self,
+        group: &str,
+        index: u32,
+    ) -> Option<T> {
+        let read = shadow_world_read_fn()?;
+        let mut out: Option<T> = None;
+        let mut visit = |world: &bevy_ecs::world::World, map: &MassEntityMap| {
+            if let Some(entity) = map.get(group, index as usize) {
+                out = world.get::<T>(entity).cloned();
+            }
+        };
+        read(&mut visit);
+        out
+    }
+
+    /// Insert or overwrite a pure-Bevy component on the shadow entity at
+    /// `(group, index)`. Panics if the shadow world is unavailable or the
+    /// entity index is out of range — a missing entity in a test is a bug,
+    /// not a silent pass.
+    pub fn bevy_insert<T: bevy_ecs::component::Component>(
+        &self,
+        group: &str,
+        index: u32,
+        value: T,
+    ) {
+        let write = shadow_world_write_fn()
+            .expect("bevy_insert: shadow-world accessor not registered (unreal-module must init)");
+        let mut value_opt: Option<T> = Some(value);
+        let mut visit = |world: &mut bevy_ecs::world::World, map: &MassEntityMap| {
+            let Some(entity) = map.get(group, index as usize) else {
+                return;
+            };
+            if let Some(v) = value_opt.take() {
+                world.entity_mut(entity).insert(v);
+            }
+        };
+        let ok = write(&mut visit);
+        assert!(ok, "bevy_insert: shadow world unavailable");
+        assert!(
+            value_opt.is_none(),
+            "bevy_insert: shadow entity {}/{} not found",
+            group, index
+        );
+    }
+
+    /// Remove a pure-Bevy component from the shadow entity at `(group, index)`.
+    /// No-op if the entity or component is missing.
+    pub fn bevy_remove<T: bevy_ecs::component::Component>(&self, group: &str, index: u32) {
+        let Some(write) = shadow_world_write_fn() else {
+            return;
+        };
+        let mut visit = |world: &mut bevy_ecs::world::World, map: &MassEntityMap| {
+            if let Some(entity) = map.get(group, index as usize) {
+                world.entity_mut(entity).remove::<T>();
+            }
+        };
+        let _ = write(&mut visit);
+    }
 }
 
 #[cfg(test)]
@@ -2012,6 +2243,29 @@ mod tests {
 
     impl MassFragment for TestFragment {
         const CPP_TYPE_NAME: &'static str = "FTestFragment";
+    }
+
+    #[test]
+    fn effective_order_prefers_explicit_order() {
+        let mut map = std::collections::HashMap::new();
+        map.insert("foo", 99);
+        // Explicit `order = 42` on attr — not overridden by the schedule list.
+        assert_eq!(effective_order("foo", 42, &map), 42);
+    }
+
+    #[test]
+    fn effective_order_uses_override_when_sentinel() {
+        let mut map = std::collections::HashMap::new();
+        map.insert("foo", 20);
+        // Declared as `u32::MAX` (no explicit order) — resolved via the map.
+        assert_eq!(effective_order("foo", u32::MAX, &map), 20);
+    }
+
+    #[test]
+    fn effective_order_unknown_name_stays_sentinel() {
+        let map = std::collections::HashMap::new();
+        // Neither explicit nor in the schedule: stays at the end.
+        assert_eq!(effective_order("bar", u32::MAX, &map), u32::MAX);
     }
 
     #[test]
