@@ -46,7 +46,7 @@ fn next_sample(seed: &mut u32) -> f64 {
     ((*seed & 0x7fffff) as f64 / 8388607.0) * 2.0 - 1.0
 }
 
-#[cfg(test)]
+#[cfg(all(test, not(feature = "unreal")))]
 mod tests {
     use super::*;
     use crate::components::{PreviousTranslation, Transform};

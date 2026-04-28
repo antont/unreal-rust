@@ -47,7 +47,7 @@ fn compute_steer(pos: DVec3, bounds: &SimBounds) -> DVec3 {
     steer
 }
 
-#[cfg(test)]
+#[cfg(all(test, not(feature = "unreal")))]
 mod tests {
     use super::*;
     use crate::components::{BrownianMotion, Insect, PreviousTranslation};
