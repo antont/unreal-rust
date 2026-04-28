@@ -52,10 +52,10 @@ pub mod prelude {
     pub use glam::DVec3;
 
     // Engine-provided component types (like bevy::prelude::Transform)
-    pub use crate::components::{Transform, Velocity, DesiredMovement, CodeDrivenMovementTag};
+    pub use crate::components::{Transform, Velocity, SimpleMovementTag};
 
     // Movement infrastructure
-    pub use crate::movement::{TransformLike, PrevTranslationLike, DesiredMovementLike, MovementPlugin};
+    pub use crate::movement::{TransformLike, PrevTranslationLike, VelocityLike, MovementPlugin};
 
     // QueryAll facade — index-based global access
     pub use crate::query_all::EntityIndex;
@@ -99,8 +99,8 @@ pub mod prelude {
 pub use time::Time;
 pub use query::Query;
 pub use query::BevyQuery;
-pub use components::{Transform, Velocity, DesiredMovement, CodeDrivenMovementTag};
-pub use movement::{TransformLike, PrevTranslationLike, DesiredMovementLike, MovementPlugin};
+pub use components::{Transform, Velocity, SimpleMovementTag};
+pub use movement::{TransformLike, PrevTranslationLike, VelocityLike, MovementPlugin};
 pub use query_all::EntityIndex;
 pub use spatial_query::{SpatialQueries, SpatialQuery, SpatialHit};
 

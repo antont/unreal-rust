@@ -1,8 +1,8 @@
 // Re-export component types from gatherers-sim (the single source of truth).
 // In unreal mode, these have both Component and MassFragment derives.
 pub use gatherers_sim::components::{
-    Food, Ant, CodeDrivenMovementTag,
-    Transform, PreviousTranslation, Velocity, DesiredMovement, Cooldown, Carrying, Behavior,
+    Food, Ant, SimpleMovementTag,
+    Transform, PreviousTranslation, Velocity, Cooldown, Carrying, Behavior,
     FoodState,
     SimBounds, FoodEncounter,
     AntFoodHit, FoodMutation,

@@ -4,7 +4,7 @@ use bevy_ecs::message::Message;
 use std::marker::PhantomData;
 
 // Re-export engine types from framework so downstream code can import from here
-pub use bevy_mass::components::{Transform, Velocity, DesiredMovement, CodeDrivenMovementTag};
+pub use bevy_mass::components::{Transform, Velocity, SimpleMovementTag};
 
 // ---------------------------------------------------------------------------
 // Tags
@@ -95,10 +95,24 @@ impl Default for FoodState {
 }
 
 /// Simulation bounds (min/max corners).
-#[derive(Clone, Copy, Debug)]
+///
+/// Read by `entity_boundary_reflect` to clamp entity motion. The default
+/// matches the standalone pixel-regression scale (±500 on XY); `unreal-module`
+/// overwrites it from `MassInitSimulationParams` at UE startup so the PIE
+/// scale (±5000) stays honored.
+#[derive(Resource, Clone, Copy, Debug)]
 pub struct SimBounds {
     pub min: DVec3,
     pub max: DVec3,
+}
+
+impl Default for SimBounds {
+    fn default() -> Self {
+        Self {
+            min: DVec3::new(-500.0, -500.0, -100.0),
+            max: DVec3::new(500.0, 500.0, 100.0),
+        }
+    }
 }
 
 /// Result of a food encounter query — used by food_decision and FFI.

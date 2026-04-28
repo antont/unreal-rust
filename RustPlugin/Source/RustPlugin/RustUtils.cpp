@@ -98,6 +98,18 @@ namespace RustMassSpawn
 
 			const FMassEntityHandle Handle = CachedEntityManager->CreateEntity(Fragments);
 
+			// Re-write fragment data after spawn to undo any observer mutation.
+			// UE's UMassRandomVelocityInitializer auto-registers as an Add observer
+			// on FMassVelocityFragment and reinterprets Value.X/Y/Z as (MinSpeed,
+			// MaxSpeed, bSetZComponent). Our spawn-time velocities are real
+			// direction*speed vectors, so letting the observer run corrupts them.
+			// SetEntityFragmentValues writes directly to chunk memory without
+			// firing observers, restoring our authored values.
+			if (Fragments.Num() > 0)
+			{
+				CachedEntityManager->SetEntityFragmentValues(Handle, Fragments);
+			}
+
 			// Add tags
 			for (const UScriptStruct* TagStruct : TagStructs)
 			{

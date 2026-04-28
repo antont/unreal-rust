@@ -40,11 +40,10 @@ fn spawn_entities(
     let ant_handles = EntityArchetype::new("ant")
         .fragment::<Transform>()
         .fragment::<PreviousTranslation>()
-        .fragment::<DesiredMovement>()
-        .fragment::<Velocity>()          // Internal — UE's UMassApplyMovementProcessor needs it
+        .fragment::<Velocity>()
         .fragment::<Behavior>()
         .tag::<Ant>()
-        .tag::<CodeDrivenMovementTag>()  // Required by UE's UMassApplyMovementProcessor
+        .tag::<SimpleMovementTag>()  // Required by UE's UMassSimpleMovementProcessor
         .spawn(ant_count as u32, |i, writer| {
             let angle = rng() * std::f64::consts::TAU;
             let spawn_pos = DVec3::new(
@@ -54,7 +53,7 @@ fn spawn_entities(
             );
             writer.set(&Transform::from_translation(spawn_pos));
             writer.set(&PreviousTranslation { value: spawn_pos });
-            writer.set(&DesiredMovement::new(DVec3::new(angle.cos(), angle.sin(), 0.0), 100.0));
+            writer.set(&Velocity::new(DVec3::new(angle.cos(), angle.sin(), 0.0), 100.0));
             writer.set(&Behavior {
                 turn_jitter_radians: 0.0,
                 random_seed: random_seed + i as i32,

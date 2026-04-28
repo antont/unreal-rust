@@ -1,8 +1,9 @@
 //! Framework-provided movement infrastructure.
 //!
-//! Game systems write desired velocity (`DesiredMovementLike::velocity()`).
-//! The framework applies it to position — in Bevy mode via `apply_movement`,
-//! in Unreal mode via C++ `UMassApplyMovementProcessor`.
+//! Game systems write a velocity (`Velocity.value`). The framework
+//! integrates it into position each frame — in Bevy mode via
+//! `apply_movement`, in Unreal mode via UE's
+//! `UMassSimpleMovementProcessor`.
 //!
 //! Game authors never see `#[cfg]` gates. The backend switch is internal.
 
@@ -26,8 +27,8 @@ pub trait PrevTranslationLike: Component<Mutability = Mutable> {
     fn set_prev(&mut self, v: DVec3);
 }
 
-/// A component expressing desired velocity (maps to UE's FMassDesiredMovementFragment).
-pub trait DesiredMovementLike: Component<Mutability = Mutable> {
+/// A component expressing velocity (maps to UE's FMassVelocityFragment).
+pub trait VelocityLike: Component<Mutability = Mutable> {
     fn velocity(&self) -> DVec3;
 }
 
@@ -35,28 +36,27 @@ pub trait DesiredMovementLike: Component<Mutability = Mutable> {
 // apply_movement system — Bevy mode only
 // ---------------------------------------------------------------------------
 
-/// Apply desired velocity to position and save previous translation.
+/// Apply velocity to position and save previous translation.
 ///
-/// This is the Bevy-mode equivalent of UE's `UMassApplyMovementProcessor` +
-/// `URustMassPostMovementProcessor`. In Unreal mode, those C++ processors
-/// handle the same work.
+/// Bevy-mode equivalent of UE's `UMassSimpleMovementProcessor` +
+/// `URustMassPostMovementProcessor`. In Unreal mode those C++ processors
+/// do the same work.
 ///
 /// Use this directly in a system chain, or via `MovementPlugin`.
 #[cfg(not(feature = "unreal"))]
-pub fn apply_movement<T, P, D>(
-    mut entities: Query<(&mut T, &mut P, &D)>,
+pub fn apply_movement<T, P, V>(
+    mut entities: Query<(&mut T, &mut P, &V)>,
     time: Res<Time>,
 ) where
     T: TransformLike,
     P: PrevTranslationLike,
-    D: DesiredMovementLike,
+    V: VelocityLike,
 {
     let dt = time.delta_secs() as f64;
-    for (mut transform, mut prev, movement) in &mut entities {
-        // Save previous position for spatial sweep queries
+    for (mut transform, mut prev, velocity) in &mut entities {
         prev.set_prev(transform.translation());
 
-        let vel = movement.velocity();
+        let vel = velocity.velocity();
         let speed = vel.length();
         if speed < 1e-8 {
             continue;
@@ -79,13 +79,13 @@ pub fn apply_movement<T, P, D>(
 /// In Unreal mode, this is a no-op — C++ processors handle movement.
 ///
 /// ```ignore
-/// app.add_plugins(MovementPlugin::<Transform, PreviousTranslation, DesiredMovement>::default());
+/// app.add_plugins(MovementPlugin::<Transform, PreviousTranslation, Velocity>::default());
 /// ```
-pub struct MovementPlugin<T, P, D> {
-    _marker: PhantomData<fn(T, P, D)>,
+pub struct MovementPlugin<T, P, V> {
+    _marker: PhantomData<fn(T, P, V)>,
 }
 
-impl<T, P, D> Default for MovementPlugin<T, P, D> {
+impl<T, P, V> Default for MovementPlugin<T, P, V> {
     fn default() -> Self {
         Self {
             _marker: PhantomData,
@@ -93,35 +93,35 @@ impl<T, P, D> Default for MovementPlugin<T, P, D> {
     }
 }
 
-impl<T, P, D> Clone for MovementPlugin<T, P, D> {
+impl<T, P, V> Clone for MovementPlugin<T, P, V> {
     fn clone(&self) -> Self {
         *self
     }
 }
 
-impl<T, P, D> Copy for MovementPlugin<T, P, D> {}
+impl<T, P, V> Copy for MovementPlugin<T, P, V> {}
 
 #[cfg(not(feature = "unreal"))]
-impl<T, P, D> bevy_app::Plugin for MovementPlugin<T, P, D>
+impl<T, P, V> bevy_app::Plugin for MovementPlugin<T, P, V>
 where
     T: TransformLike,
     P: PrevTranslationLike,
-    D: DesiredMovementLike,
+    V: VelocityLike,
 {
     fn build(&self, app: &mut bevy_app::App) {
-        app.add_systems(bevy_app::Update, apply_movement::<T, P, D>);
+        app.add_systems(bevy_app::Update, apply_movement::<T, P, V>);
     }
 }
 
 #[cfg(feature = "unreal")]
-impl<T, P, D> bevy_app::Plugin for MovementPlugin<T, P, D>
+impl<T, P, V> bevy_app::Plugin for MovementPlugin<T, P, V>
 where
     T: TransformLike + Send + Sync + 'static,
     P: PrevTranslationLike + Send + Sync + 'static,
-    D: DesiredMovementLike + Send + Sync + 'static,
+    V: VelocityLike + Send + Sync + 'static,
 {
     fn build(&self, _app: &mut bevy_app::App) {
-        // UE's UMassApplyMovementProcessor + URustMassPostMovementProcessor
+        // UE's UMassSimpleMovementProcessor + URustMassPostMovementProcessor
         // handle movement application and PreviousTranslation in C++.
     }
 }
@@ -155,10 +155,10 @@ mod tests {
     }
 
     #[derive(Component, Clone, Copy, Debug)]
-    struct TestMovement {
+    struct TestVelocity {
         vel: DVec3,
     }
-    impl DesiredMovementLike for TestMovement {
+    impl VelocityLike for TestVelocity {
         fn velocity(&self) -> DVec3 { self.vel }
     }
 
@@ -181,10 +181,10 @@ mod tests {
         world.spawn((
             TestTransform { pos: DVec3::ZERO },
             TestPrev { value: DVec3::ZERO },
-            TestMovement { vel: DVec3::new(100.0, 0.0, 0.0) },
+            TestVelocity { vel: DVec3::new(100.0, 0.0, 0.0) },
         ));
 
-        run(&mut world, apply_movement::<TestTransform, TestPrev, TestMovement>);
+        run(&mut world, apply_movement::<TestTransform, TestPrev, TestVelocity>);
 
         let mut q = world.query::<&TestTransform>();
         let t = q.single(&world).unwrap();
@@ -199,10 +199,10 @@ mod tests {
         world.spawn((
             TestTransform { pos: DVec3::new(50.0, 100.0, 0.0) },
             TestPrev { value: DVec3::ZERO },
-            TestMovement { vel: DVec3::new(0.0, 200.0, 0.0) },
+            TestVelocity { vel: DVec3::new(0.0, 200.0, 0.0) },
         ));
 
-        run(&mut world, apply_movement::<TestTransform, TestPrev, TestMovement>);
+        run(&mut world, apply_movement::<TestTransform, TestPrev, TestVelocity>);
 
         let mut q = world.query::<&TestPrev>();
         let prev = q.single(&world).unwrap();
@@ -216,10 +216,10 @@ mod tests {
         world.spawn((
             TestTransform { pos: DVec3::new(5.0, 5.0, 0.0) },
             TestPrev { value: DVec3::ZERO },
-            TestMovement { vel: DVec3::ZERO },
+            TestVelocity { vel: DVec3::ZERO },
         ));
 
-        run(&mut world, apply_movement::<TestTransform, TestPrev, TestMovement>);
+        run(&mut world, apply_movement::<TestTransform, TestPrev, TestVelocity>);
 
         let mut q = world.query::<&TestTransform>();
         let t = q.single(&world).unwrap();
@@ -233,15 +233,15 @@ mod tests {
         world.spawn((
             TestTransform { pos: DVec3::ZERO },
             TestPrev { value: DVec3::ZERO },
-            TestMovement { vel: DVec3::new(200.0, 0.0, 0.0) },
+            TestVelocity { vel: DVec3::new(200.0, 0.0, 0.0) },
         ));
         world.spawn((
             TestTransform { pos: DVec3::ZERO },
             TestPrev { value: DVec3::ZERO },
-            TestMovement { vel: DVec3::new(0.0, 50.0, 0.0) },
+            TestVelocity { vel: DVec3::new(0.0, 50.0, 0.0) },
         ));
 
-        run(&mut world, apply_movement::<TestTransform, TestPrev, TestMovement>);
+        run(&mut world, apply_movement::<TestTransform, TestPrev, TestVelocity>);
 
         let mut q = world.query::<&TestTransform>();
         let transforms: Vec<_> = q.iter(&world).collect();

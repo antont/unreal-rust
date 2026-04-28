@@ -1837,6 +1837,23 @@ pub fn registered_shadow_component_defaults()
     inventory::iter::<MassShadowComponentDefault>
 }
 
+/// Registration for per-simulation-init world setup. Called from
+/// `mass_init_simulation` with a mutable `World` and the raw
+/// `MassInitSimulationParams`. Game crates use this to populate resources
+/// whose value depends on init params (e.g. `SimBounds` reading
+/// `params.bounds_min/max`). Runs after entity groups are built but before
+/// any system runs.
+pub struct MassSimInitHook {
+    pub name: &'static str,
+    pub hook_fn: fn(&mut bevy_ecs::world::World, &unreal_ffi::MassInitSimulationParams),
+}
+
+inventory::collect!(MassSimInitHook);
+
+pub fn registered_sim_init_hooks() -> inventory::iter<MassSimInitHook> {
+    inventory::iter::<MassSimInitHook>
+}
+
 // ---------------------------------------------------------------------------
 // Per-system timing (opt-in)
 // ---------------------------------------------------------------------------

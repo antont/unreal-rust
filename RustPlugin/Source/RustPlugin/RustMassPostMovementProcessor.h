@@ -8,7 +8,7 @@
 
 /**
  * Pre-movement processor: saves PreviousTranslation for spatial sweep queries.
- * Runs BEFORE UE's UMassApplyMovementProcessor so PreviousTranslation captures
+ * Runs BEFORE UE's UMassSimpleMovementProcessor so PreviousTranslation captures
  * the position before this frame's movement.
  */
 UCLASS()

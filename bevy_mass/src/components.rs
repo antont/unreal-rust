@@ -4,7 +4,7 @@
 //! Game code imports these from `bevy_mass::prelude::*` — just like vanilla Bevy's
 //! `Transform` comes from `bevy::prelude`.
 
-use crate::movement::{TransformLike, DesiredMovementLike};
+use crate::movement::{TransformLike, VelocityLike};
 use glam::DVec3;
 
 // ---------------------------------------------------------------------------
@@ -56,9 +56,13 @@ impl TransformLike for Transform {
 // ---------------------------------------------------------------------------
 
 crate::mass_fragment!(cpp_type = "FMassVelocityFragment", existing, include = "MassMovementFragments.h",
-    /// UE's native velocity fragment (internal — written by UE's movement processor).
-    /// Game code should use DesiredMovement instead.
-    /// In Development builds: 48 bytes (Value + DebugPreviousValue).
+    /// Velocity authored by game systems and integrated into Transform each
+    /// frame — in Bevy mode by `apply_movement`, in Unreal mode by
+    /// `UMassSimpleMovementProcessor`. Magnitude is units per second.
+    ///
+    /// Maps to UE's `FMassVelocityFragment`. In Development builds the engine
+    /// struct is 48 bytes (`Value` + `DebugPreviousValue`); game code only
+    /// interacts with `value`.
     pub struct Velocity {
         pub value: DVec3,          // direction * speed (24 bytes)
         _debug_prev: DVec3,        // DebugPreviousValue padding (24 bytes, Development only)
@@ -74,71 +78,43 @@ impl Default for Velocity {
     }
 }
 
-// ---------------------------------------------------------------------------
-// DesiredMovement
-// ---------------------------------------------------------------------------
-
-crate::mass_fragment!(cpp_type = "FMassDesiredMovementFragment", existing, include = "MassMovementFragments.h",
-    /// Desired movement output. Game systems write velocity here;
-    /// the engine applies it to position each frame.
-    /// Maps to UE's FMassDesiredMovementFragment (80 bytes, align 16).
-    /// Layout: FVector(24) + pad(8) + FQuat(32) + f32(4) + pad(12)
-    #[repr(align(16))]
-    pub struct DesiredMovement {
-        pub velocity: DVec3,                    // FVector DesiredVelocity (24 bytes)
-        _pad0: f64,                             // alignment padding to 16 for FQuat (8 bytes)
-        pub facing: [f64; 4],                   // FQuat DesiredFacing XYZW (32 bytes)
-        pub max_speed_override: f32,            // DesiredMaxSpeedOverride (4 bytes)
-        _pad1: [u8; 12],                        // struct tail padding to 80 (12 bytes)
-    }
-);
-
-impl Default for DesiredMovement {
-    fn default() -> Self {
-        Self {
-            velocity: DVec3::new(100.0, 0.0, 0.0), // direction X * speed 100
-            _pad0: 0.0,
-            facing: [0.0, 0.0, 0.0, 1.0],           // identity quaternion
-            max_speed_override: f32::MAX,
-            _pad1: [0; 12],
-        }
-    }
-}
-
-impl DesiredMovement {
-    /// Create a desired movement from direction and speed.
+impl Velocity {
+    /// Create a velocity from a direction vector and a speed in units/s.
+    /// Normalizes the direction; returns zero if the input is near-zero.
     pub fn new(direction: DVec3, speed: f32) -> Self {
-        let v = if direction.length() > 1e-8 {
+        let value = if direction.length() > 1e-8 {
             direction.normalize() * speed as f64
         } else {
             DVec3::ZERO
         };
-        Self { velocity: v, ..Self::default() }
+        Self { value, _debug_prev: DVec3::ZERO }
     }
 
-    /// Get the speed (magnitude of velocity vector).
+    /// Speed (magnitude of velocity vector).
     pub fn speed(&self) -> f32 {
-        self.velocity.length() as f32
+        self.value.length() as f32
     }
 
-    /// Get the normalized direction.
+    /// Normalized direction, or zero for a near-zero velocity.
     pub fn direction(&self) -> DVec3 {
-        let len = self.velocity.length();
-        if len > 1e-8 { self.velocity / len } else { DVec3::ZERO }
+        let len = self.value.length();
+        if len > 1e-8 { self.value / len } else { DVec3::ZERO }
     }
 }
 
-impl DesiredMovementLike for DesiredMovement {
-    fn velocity(&self) -> DVec3 { self.velocity }
+impl VelocityLike for Velocity {
+    fn velocity(&self) -> DVec3 { self.value }
 }
 
 // ---------------------------------------------------------------------------
-// CodeDrivenMovementTag
+// SimpleMovementTag
 // ---------------------------------------------------------------------------
 
-crate::mass_tag!(cpp_type = "FMassCodeDrivenMovementTag", existing, include = "MassMovementFragments.h",
-    /// Tag indicating entity uses code-driven movement (required by UE's UMassApplyMovementProcessor).
-    pub struct CodeDrivenMovementTag;
+crate::mass_tag!(cpp_type = "FMassSimpleMovementTag", existing, include = "Example/MassSimpleMovementTrait.h",
+    /// Tag indicating entity uses code-driven movement integration via
+    /// `UMassSimpleMovementProcessor` in Unreal mode. No LOD gating — the
+    /// processor integrates Velocity into Transform regardless of visual LOD.
+    pub struct SimpleMovementTag;
 );
 
 // ---------------------------------------------------------------------------
@@ -167,15 +143,6 @@ mod tests {
     }
 
     #[test]
-    fn desired_movement_layout() {
-        assert_eq!(mem::size_of::<DesiredMovement>(), 80);
-        assert_eq!(mem::align_of::<DesiredMovement>(), 16);
-        assert_eq!(mem::offset_of!(DesiredMovement, velocity), 0);
-        assert_eq!(mem::offset_of!(DesiredMovement, facing), 32);
-        assert_eq!(mem::offset_of!(DesiredMovement, max_speed_override), 64);
-    }
-
-    #[test]
     fn transform_default() {
         let t = Transform::default();
         assert_eq!(t.rotation, [0.0, 0.0, 0.0, 1.0]);
@@ -195,23 +162,20 @@ mod tests {
     fn velocity_default() {
         let v = Velocity::default();
         assert_eq!(v.value, DVec3::ZERO);
+        assert!((v.speed() - 0.0).abs() < 1e-6);
     }
 
     #[test]
-    fn desired_movement_default() {
-        let dm = DesiredMovement::default();
-        assert_eq!(dm.velocity, DVec3::new(100.0, 0.0, 0.0));
-        assert!((dm.speed() - 100.0).abs() < 1e-4);
-        assert!((dm.direction() - DVec3::X).length() < 1e-8);
-        assert_eq!(dm.facing, [0.0, 0.0, 0.0, 1.0]);
-        assert_eq!(dm.max_speed_override, f32::MAX);
+    fn velocity_new() {
+        let v = Velocity::new(DVec3::new(0.0, 1.0, 0.0), 50.0);
+        assert!((v.speed() - 50.0).abs() < 1e-4);
+        assert!((v.direction() - DVec3::Y).length() < 1e-8);
+        assert!((v.value - DVec3::new(0.0, 50.0, 0.0)).length() < 1e-6);
     }
 
     #[test]
-    fn desired_movement_new() {
-        let dm = DesiredMovement::new(DVec3::new(0.0, 1.0, 0.0), 50.0);
-        assert!((dm.speed() - 50.0).abs() < 1e-4);
-        assert!((dm.direction() - DVec3::Y).length() < 1e-8);
-        assert!((dm.velocity - DVec3::new(0.0, 50.0, 0.0)).length() < 1e-6);
+    fn velocity_new_zero_direction_is_zero() {
+        let v = Velocity::new(DVec3::ZERO, 100.0);
+        assert_eq!(v.value, DVec3::ZERO);
     }
 }

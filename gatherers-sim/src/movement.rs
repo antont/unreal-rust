@@ -1,4 +1,4 @@
-use crate::components::{Cooldown, DesiredMovement, Transform};
+use crate::components::{Cooldown, SimBounds, Transform, Velocity};
 use bevy_mass::prelude::*;
 
 // ---------------------------------------------------------------------------
@@ -11,15 +11,17 @@ use bevy_mass::prelude::*;
 //   from `.chain()` on `app.add_systems(...)`.
 // ---------------------------------------------------------------------------
 
-/// Default simulation bounds — Rust owns this, no C++ round-trip needed.
+/// Default simulation bounds — matches `SimBounds::default()`. Kept as
+/// `const` for the standalone spawn path, which needs compile-time constants.
+/// Runtime reflection reads `Res<SimBounds>` instead.
 pub const SIM_BOUNDS_MIN: [f64; 3] = [-500.0, -500.0, -100.0];
 pub const SIM_BOUNDS_MAX: [f64; 3] = [500.0, 500.0, 100.0];
 
 // ---------------------------------------------------------------------------
 // Movement application (pos += vel * dt) is framework infrastructure,
 // provided by bevy_mass::MovementPlugin in standalone mode and by
-// UE's UMassApplyMovementProcessor in Unreal mode.
-// Game code only sets desired_movement.velocity — it never applies position.
+// UE's UMassSimpleMovementProcessor in Unreal mode.
+// Game code only sets velocity.value — it never applies position.
 // ---------------------------------------------------------------------------
 
 // ---------------------------------------------------------------------------
@@ -49,32 +51,37 @@ pub fn entity_cooldown(
 // Generic: works for any entity with Position + Movement.
 // ---------------------------------------------------------------------------
 
-/// Reflect desired movement at simulation boundaries. Reads position to detect
-/// boundary contact and reflects the desired velocity. No position writes —
+/// Reflect velocity at simulation boundaries. Reads position to detect
+/// boundary contact and reflects the velocity vector. No position writes —
 /// movement application is handled by framework infrastructure.
 #[mass_system]
 pub fn entity_boundary_reflect(
-    mut entities: Query<(&Transform, &mut DesiredMovement)>,
+    mut entities: Query<(&Transform, &mut Velocity)>,
+    bounds: Res<SimBounds>,
 ) {
-    for (transform, mut movement) in &mut entities {
-        let inward_normal = compute_boundary_normal(transform.translation);
-        if inward_normal.length() > 1e-8 {
-            movement.velocity = reflect_velocity(movement.velocity, inward_normal);
+    for (transform, mut velocity) in &mut entities {
+        let inward_normal = compute_boundary_normal(transform.translation, &bounds);
+        // Only reflect when the entity is outside bounds AND moving further out.
+        // Reflecting every frame while outside causes ping-pong — after one
+        // reflection velocity already points inward, so leave it alone until
+        // the position crosses back in.
+        if inward_normal.length() > 1e-8 && velocity.value.dot(inward_normal) < 0.0 {
+            velocity.value = reflect_velocity(velocity.value, inward_normal);
         }
     }
 }
 
 /// Compute inward normal for boundary contact. Returns zero vector if not at boundary.
-fn compute_boundary_normal(position: DVec3) -> DVec3 {
+fn compute_boundary_normal(position: DVec3, bounds: &SimBounds) -> DVec3 {
     let mut inward_normal = DVec3::ZERO;
-    if position.x <= SIM_BOUNDS_MIN[0] {
+    if position.x <= bounds.min.x {
         inward_normal.x += 1.0;
-    } else if position.x >= SIM_BOUNDS_MAX[0] {
+    } else if position.x >= bounds.max.x {
         inward_normal.x -= 1.0;
     }
-    if position.y <= SIM_BOUNDS_MIN[1] {
+    if position.y <= bounds.min.y {
         inward_normal.y += 1.0;
-    } else if position.y >= SIM_BOUNDS_MAX[1] {
+    } else if position.y >= bounds.max.y {
         inward_normal.y -= 1.0;
     }
     inward_normal
@@ -102,7 +109,7 @@ pub fn reflect_velocity(vel: DVec3, normal: DVec3) -> DVec3 {
 #[cfg(all(test, not(feature = "unreal")))]
 mod tests {
     use super::*;
-    use crate::components::{Cooldown, DesiredMovement, PreviousTranslation, Transform};
+    use crate::components::{Cooldown, PreviousTranslation, Transform, Velocity};
     use bevy_ecs::prelude::*;
     use bevy_mass::movement::apply_movement;
     use core::time::Duration;
@@ -111,6 +118,10 @@ mod tests {
         let mut time = Time::<()>::default();
         time.advance_by(Duration::from_secs_f32(dt_secs));
         world.insert_resource(time);
+    }
+
+    fn insert_test_bounds(world: &mut World) {
+        world.insert_resource(SimBounds::default());
     }
 
     fn run_system<M>(world: &mut World, system: impl IntoSystem<(), (), M>) {
@@ -157,44 +168,47 @@ mod tests {
     #[test]
     fn boundary_reflect_reverses_velocity() {
         let mut world = World::new();
+        insert_test_bounds(&mut world);
         world.spawn((
             Transform::from_translation(DVec3::new(6000.0, 0.0, 0.0)),
-            DesiredMovement::new(DVec3::X, 100.0),
+            Velocity::new(DVec3::X, 100.0),
         ));
 
         run_system(&mut world, entity_boundary_reflect);
 
-        let mut q = world.query::<(&Transform, &DesiredMovement)>();
-        let (t, dm) = q.single(&world).unwrap();
+        let mut q = world.query::<(&Transform, &Velocity)>();
+        let (t, v) = q.single(&world).unwrap();
         // Position unchanged — boundary_reflect only affects velocity
         assert!((t.translation.x - 6000.0).abs() < 1e-6, "position unchanged: {}", t.translation.x);
-        assert!(dm.direction().x < 0.0, "velocity reflected: {}", dm.direction().x);
-        assert!((dm.speed() - 100.0).abs() < 1e-4, "speed preserved: {}", dm.speed());
+        assert!(v.direction().x < 0.0, "velocity reflected: {}", v.direction().x);
+        assert!((v.speed() - 100.0).abs() < 1e-4, "speed preserved: {}", v.speed());
     }
 
     #[test]
     fn boundary_reflect_no_effect_inside_bounds() {
         let mut world = World::new();
+        insert_test_bounds(&mut world);
         world.spawn((
             Transform::from_translation(DVec3::new(100.0, 200.0, 0.0)),
-            DesiredMovement::new(DVec3::X, 100.0),
+            Velocity::new(DVec3::X, 100.0),
         ));
 
         run_system(&mut world, entity_boundary_reflect);
 
-        let mut q = world.query::<&DesiredMovement>();
-        let dm = q.single(&world).unwrap();
-        assert!(dm.direction().x > 0.0, "velocity unchanged inside bounds");
+        let mut q = world.query::<&Velocity>();
+        let v = q.single(&world).unwrap();
+        assert!(v.direction().x > 0.0, "velocity unchanged inside bounds");
     }
 
     #[test]
     fn combined_movement_boundary_cooldown() {
         let mut world = World::new();
         insert_test_time(&mut world, 0.5);
+        insert_test_bounds(&mut world);
         let entity = world.spawn((
             Transform::from_translation(DVec3::new(4999.0, 0.0, 0.0)),
             PreviousTranslation::default(),
-            DesiredMovement::new(DVec3::X, 100.0),
+            Velocity::new(DVec3::X, 100.0),
             Cooldown {
                 remaining_seconds: 1.0,
             },
@@ -203,15 +217,15 @@ mod tests {
         let mut schedule = bevy_ecs::schedule::Schedule::default();
         use bevy_ecs::schedule::IntoScheduleConfigs;
         schedule.add_systems((
-            apply_movement::<Transform, PreviousTranslation, DesiredMovement>,
+            apply_movement::<Transform, PreviousTranslation, Velocity>,
             entity_boundary_reflect,
             entity_cooldown,
         ).chain());
         schedule.run(&mut world);
 
-        let mut q = world.query::<&DesiredMovement>();
-        let dm = q.single(&world).unwrap();
-        assert!(dm.direction().x < 0.0, "reflected: {}", dm.direction().x);
+        let mut q = world.query::<&Velocity>();
+        let v = q.single(&world).unwrap();
+        assert!(v.direction().x < 0.0, "reflected: {}", v.direction().x);
         let cd = world.get::<Cooldown>(entity).expect("Cooldown should still exist");
         assert!((cd.remaining_seconds - 0.5).abs() < 1e-5, "cooldown: {}", cd.remaining_seconds);
     }

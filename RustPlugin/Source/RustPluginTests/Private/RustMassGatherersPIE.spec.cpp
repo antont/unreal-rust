@@ -22,6 +22,10 @@
 #include "Editor.h"
 #include "EngineUtils.h"
 #include "HAL/PlatformTime.h"
+#include "MassEntityManager.h"
+#include "MassEntitySubsystem.h"
+#include "MassEntityView.h"
+#include "MassCommonFragments.h"
 #include "Misc/AutomationTest.h"
 #include "ProfilingDebugging/MiscTrace.h"
 #include "Tests/AutomationCommon.h"
@@ -180,6 +184,163 @@ static bool RunPIEPerfScenario(FAutomationTestBase* Test, int32 Ants, const TCHA
 	ADD_LATENT_AUTOMATION_COMMAND(FRustPIEMeasureCommand(Test, Scenario, kMeasuredFrames));
 	ADD_LATENT_AUTOMATION_COMMAND(FEndPlayMapCommand());
 	return true;
+}
+
+// ---------------------------------------------------------------------------
+
+// ---------------------------------------------------------------------------
+// Uniform-speed regression (PIE variant): after a brief warmup, every ant
+// should be moving at close to the nominal spawn speed (100 units/s). In PIE,
+// a ~1% tail of ants has been visually observed moving at 1/10 or 1/2 speed.
+// Direct Subsystem->Tick() tests don't reproduce it, so the bug lies in the
+// full engine-phase pipeline (other Mass processors, avoidance, steering,
+// ISMC sync).
+//
+// Measurement: sample per-frame displacement across N frames and average per
+// ant. If some frames slow down *all* ants (e.g., boundary reflect or food
+// encounter), averaging hides it — but the question we care about here is
+// per-ant, not per-frame. An ant that consistently moves ~10 units/s will
+// show an average displacement far below the expected ~1.6 units/tick.
+//
+// Tolerance is lenient (70% of nominal) so an ant that legitimately
+// reflects off a boundary or snaps to a food encounter on the same tick
+// isn't flagged. The bug produces outliers at 10-50% of nominal.
+// ---------------------------------------------------------------------------
+
+namespace
+{
+	constexpr int32 kSlowSampleFrames = 20;
+	constexpr double kNominalSpeed = 100.0;
+	constexpr double kSlowTolerance = 0.7;
+}
+
+class FRustPIESlowAntSamplerCommand : public IAutomationLatentCommand
+{
+public:
+	FRustPIESlowAntSamplerCommand(FAutomationTestBase* InTest) : Test(InTest) {}
+
+	virtual bool Update() override
+	{
+		UWorld* World = GEditor ? GEditor->PlayWorld : nullptr;
+		if (World == nullptr) { return true; }
+		UMassEntitySubsystem* MassSub = World->GetSubsystem<UMassEntitySubsystem>();
+		URustMassBevySubsystem* RustSub = World->GetSubsystem<URustMassBevySubsystem>();
+		if (MassSub == nullptr || RustSub == nullptr) { return true; }
+
+		const TArray<FMassEntityHandle>* AntEntities = RustSub->GetGroupEntities(TEXT("ants"));
+		if (AntEntities == nullptr) { return true; }
+		FMassEntityManager& EntityManager = MassSub->GetMutableEntityManager();
+
+		if (!bInitialized)
+		{
+			PrevPositions.Reserve(AntEntities->Num());
+			TotalDistances.SetNumZeroed(AntEntities->Num());
+			SampleCount.SetNumZeroed(AntEntities->Num());
+			for (int32 i = 0; i < AntEntities->Num(); ++i)
+			{
+				if (EntityManager.IsEntityValid((*AntEntities)[i]))
+				{
+					FMassEntityView View(EntityManager, (*AntEntities)[i]);
+					PrevPositions.Add(View.GetFragmentData<FTransformFragment>().GetTransform().GetTranslation());
+				}
+				else
+				{
+					PrevPositions.Add(FVector::ZeroVector);
+				}
+			}
+			bInitialized = true;
+			return false;
+		}
+
+		const double LastDt = FApp::GetDeltaTime();
+		LastDeltaTimes.Add(LastDt);
+		for (int32 i = 0; i < AntEntities->Num() && i < PrevPositions.Num(); ++i)
+		{
+			if (!EntityManager.IsEntityValid((*AntEntities)[i])) continue;
+			FMassEntityView View(EntityManager, (*AntEntities)[i]);
+			const FVector CurPos = View.GetFragmentData<FTransformFragment>().GetTransform().GetTranslation();
+			TotalDistances[i] += FVector::Dist(CurPos, PrevPositions[i]);
+			++SampleCount[i];
+			PrevPositions[i] = CurPos;
+		}
+
+		if (++FrameIdx < kSlowSampleFrames) { return false; }
+
+		// Accumulated wall-clock time across the sampled frames.
+		double TotalTime = 0.0;
+		for (double Dt : LastDeltaTimes) { TotalTime += Dt; }
+		const double ExpectedDist = kNominalSpeed * TotalTime;
+		const double MinAccepted = ExpectedDist * kSlowTolerance;
+
+		int32 SlowCount = 0;
+		int32 StationaryCount = 0;
+		double MinObserved = TNumericLimits<double>::Max();
+		int32 SlowestIdx = -1;
+		for (int32 i = 0; i < TotalDistances.Num(); ++i)
+		{
+			if (SampleCount[i] == 0) continue;
+			const double Dist = TotalDistances[i];
+			if (Dist < MinObserved) { MinObserved = Dist; SlowestIdx = i; }
+			if (Dist < 1e-3) { ++StationaryCount; }
+			else if (Dist < MinAccepted) { ++SlowCount; }
+		}
+
+		Test->AddInfo(FString::Printf(
+			TEXT("[slow-ants] ants=%d frames=%d total_time=%.4fs expected_dist=%.3f min_accepted=%.3f min_observed=%.4f (ant[%d]) slow=%d stationary=%d"),
+			AntEntities->Num(), kSlowSampleFrames, TotalTime, ExpectedDist, MinAccepted,
+			MinObserved, SlowestIdx, SlowCount, StationaryCount));
+
+		if (SlowestIdx >= 0 && EntityManager.IsEntityValid((*AntEntities)[SlowestIdx]))
+		{
+			FMassEntityView View(EntityManager, (*AntEntities)[SlowestIdx]);
+			const FMassVelocityFragment& V = View.GetFragmentData<FMassVelocityFragment>();
+			const FVector Post = View.GetFragmentData<FTransformFragment>().GetTransform().GetTranslation();
+			Test->AddInfo(FString::Printf(
+				TEXT("[slow-ants] slowest post=(%.2f,%.2f,%.2f) vel=(%.2f,%.2f,%.2f) speed=%.2f avg_speed=%.2f"),
+				Post.X, Post.Y, Post.Z,
+				V.Value.X, V.Value.Y, V.Value.Z, V.Value.Size(),
+				MinObserved / FMath::Max(TotalTime, 1e-6)));
+		}
+
+		Test->TestEqual(TEXT("No ants should be stationary"), StationaryCount, 0);
+		Test->TestEqual(TEXT("No ants should move slower than 70% of nominal speed"), SlowCount, 0);
+		return true;
+	}
+
+private:
+	FAutomationTestBase* Test;
+	TArray<FVector> PrevPositions;
+	TArray<double> TotalDistances;
+	TArray<int32> SampleCount;
+	TArray<double> LastDeltaTimes;
+	int32 FrameIdx = 0;
+	bool bInitialized = false;
+};
+
+static bool RunPIESlowAntScenario(FAutomationTestBase* Test, int32 Ants)
+{
+	Test->AddExpectedError(TEXT("Template actor type .* is not referring to a valid type"),
+		EAutomationExpectedErrorFlags::Contains, -1);
+
+	const bool bOpenedMap = AutomationOpenMap(TEXT("/Game/Gatherers/GatherersBevyMass"));
+	Test->TestTrue(TEXT("should open GatherersBevyMass map"), bOpenedMap);
+	if (!bOpenedMap) return false;
+
+	ADD_LATENT_AUTOMATION_COMMAND(FRustPIEReinitAndWarmupCommand(Test, Ants, kWarmupFrames));
+	ADD_LATENT_AUTOMATION_COMMAND(FRustPIESlowAntSamplerCommand(Test));
+	ADD_LATENT_AUTOMATION_COMMAND(FEndPlayMapCommand());
+	return true;
+}
+
+IMPLEMENT_SIMPLE_AUTOMATION_TEST(
+	FRustPIESlowAntsTest,
+	"supplemental.RustPlugin.Gatherers.PIE.AllAntsMoveAtUniformSpeed",
+	EAutomationTestFlags::EditorContext | EAutomationTestFlags::EngineFilter)
+
+bool FRustPIESlowAntsTest::RunTest(const FString& Parameters)
+{
+	// 1000 ants — matches PIE.FrameCost1k scale; 1% bug → ~10 slow ants.
+	return RunPIESlowAntScenario(this, 1000);
 }
 
 // ---------------------------------------------------------------------------

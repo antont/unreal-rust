@@ -13,7 +13,7 @@
 class UMassEntitySubsystem;
 class UMassProcessor;
 class URustMassVisualizationSetup;
-class UMassApplyMovementProcessor;
+class UMassSimpleMovementProcessor;
 class URustMassPostMovementProcessor;
 class URustMassScheduleCoordinator;
 
@@ -230,7 +230,7 @@ private:
 	TObjectPtr<URustMassScheduleCoordinator> ScheduleCoordinator = nullptr;
 
 	UPROPERTY(Transient)
-	TObjectPtr<UMassApplyMovementProcessor> NativeMovementProcessor = nullptr;
+	TObjectPtr<UMassSimpleMovementProcessor> NativeMovementProcessor = nullptr;
 
 	UPROPERTY(Transient)
 	TObjectPtr<URustMassPostMovementProcessor> PostMovementProcessor = nullptr;
