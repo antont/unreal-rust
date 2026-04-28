@@ -52,10 +52,29 @@ cargo test -p gatherers-sim
 Unreal loads the **release** build. Debug builds are not used.
 
 ```bash
+# Gatherers (default host)
 cargo build --release -p unreal-rust-host
+
+# Vivarium (separate host dylib)
+cargo build --release -p vivarium-rust-host
 ```
 
-The dylib lands at `target/release/libunreal_rust_host.dylib`. Unreal hot-reloads it via the loader chain (`unreal_rust_loader.dylib` -> `libunreal_rust_host.dylib`).
+Each sim is built as its own cdylib (one dylib per sim). The loader
+selects which one to load at runtime via the `UNREAL_RUST_HOST_NAME`
+environment variable — default is `unreal_rust_host` (gatherers). To
+point UE at vivarium:
+
+```bash
+export UNREAL_RUST_HOST_NAME=vivarium_rust_host
+```
+
+The dylibs land at `target/release/libunreal_rust_host.dylib` and
+`target/release/libvivarium_rust_host.dylib`. Unreal hot-reloads via the
+loader chain (`unreal_rust_loader.dylib` → selected host dylib).
+
+A future phase will surface the host-selection as a UE project setting so
+per-map / per-blueprint instantiation becomes possible; for now the env
+var is the only knob.
 
 ## Unreal C++ automation tests
 

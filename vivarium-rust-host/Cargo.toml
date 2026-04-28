@@ -1,0 +1,21 @@
+[package]
+name = "vivarium-rust-host"
+version = "0.1.0"
+license = "MIT OR Apache-2.0"
+edition.workspace = true
+
+# Per-sim host cdylib. Mirrors unreal-rust-host (which hosts gatherers) but
+# links vivarium-sim with the `unreal` feature so its inventory
+# registrations are included. Select at load time via
+# UNREAL_RUST_HOST_NAME=vivarium_rust_host.
+
+[dependencies]
+unreal-module = { path = "../unreal-module" }
+unreal-api = { path = "../unreal-api" }
+vivarium-sim = { path = "../vivarium-sim", features = ["unreal"] }
+bevy_app = "0.18"
+bevy_ecs = "0.18"
+log = "0.4"
+
+[lib]
+crate-type = ["cdylib"]

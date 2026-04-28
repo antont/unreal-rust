@@ -14,6 +14,7 @@ members = [
     "gatherers-standalone",
     "vivarium-sim",
     "vivarium-standalone",
+    "vivarium-rust-host",
 ]
 #[profile.release]
 #debug = true
