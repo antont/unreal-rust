@@ -1,8 +1,9 @@
 //! Standalone Bevy harness for the vivarium simulation.
 //!
-//! Phase 1a: 200 insects spawned with random velocities, integrated by
-//! `bevy_mass::MovementPlugin`. No brownian motion or boundary force yet —
-//! insects fly off in straight lines. 3D scene, fixed camera.
+//! Phase 1b: 200 insects spawned with random velocities, integrated by
+//! `bevy_mass::MovementPlugin`, with per-entity brownian motion wander.
+//! No boundary force yet — insects still fly off, just non-linearly.
+//! 3D scene, fixed camera.
 //!
 //! CLI (mirrors `gatherers-standalone`):
 //!   --deterministic-clock          fixed 1/60 s dt (pixel-reproducible runs)
@@ -14,10 +15,13 @@ use bevy::prelude::*;
 use bevy::render::view::screenshot::{save_to_disk, Screenshot};
 use bevy_mass::MovementPlugin;
 use glam::DVec3;
+use vivarium_sim::brownian::brownian_motion_system;
 use vivarium_sim::components::{
-    Insect, PreviousTranslation, Transform as SimTransform, Velocity,
+    BrownianMotion, Insect, PreviousTranslation, Transform as SimTransform, Velocity,
 };
-use vivarium_sim::config::{INSECT_COUNT, INSECT_RADIUS, INSECT_SPEED, WORLD_HALF_SIZE};
+use vivarium_sim::config::{
+    INSECT_COUNT, INSECT_RADIUS, INSECT_SPEED, INSECT_WANDER_STRENGTH, WORLD_HALF_SIZE,
+};
 
 const INSECT_COLOR: Color = Color::srgb(0.2, 0.8, 0.2);
 
@@ -75,7 +79,14 @@ fn main() {
         .insert_resource(capture)
         .init_resource::<FrameCounter>()
         .add_systems(Startup, (setup_scene, spawn_insects).chain())
-        .add_systems(Update, (sync_render_transforms, capture_scheduled_screenshots));
+        .add_systems(
+            Update,
+            (
+                brownian_motion_system,
+                sync_render_transforms,
+                capture_scheduled_screenshots,
+            ),
+        );
 
     if deterministic {
         app.insert_resource(bevy::time::TimeUpdateStrategy::ManualDuration(
@@ -135,7 +146,7 @@ fn spawn_insects(
         (seed >> 33) as f64 / (1u64 << 31) as f64
     };
 
-    for _ in 0..INSECT_COUNT {
+    for i in 0..INSECT_COUNT {
         let pos = DVec3::new(
             (rng() * 2.0 - 1.0) * WORLD_HALF_SIZE,
             (rng() * 2.0 - 1.0) * WORLD_HALF_SIZE,
@@ -153,6 +164,10 @@ fn spawn_insects(
             SimTransform::from_translation(pos),
             PreviousTranslation { value: pos },
             Velocity::new(dir, INSECT_SPEED),
+            BrownianMotion {
+                wander_strength: INSECT_WANDER_STRENGTH,
+                random_seed: 0x9E3779B1u32.wrapping_add(i as u32),
+            },
             Mesh3d(mesh.0.clone()),
             MeshMaterial3d(material.0.clone()),
             Transform::from_translation(Vec3::new(

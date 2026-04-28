@@ -7,6 +7,22 @@ pub use bevy_mass::components::{Transform, Velocity, SimpleMovementTag};
 #[cfg_attr(feature = "unreal", mass(group = "insects"))]
 pub struct Insect;
 
+/// Per-entity brownian-motion state. `random_seed` advances each frame via
+/// a simple LCG — keeping RNG state in the component lets the system run
+/// `par_iter_mut` / archetype-parallel in UE without shared RNG state.
+#[repr(C)]
+#[derive(Component, MassFragment, Clone, Copy, Debug)]
+pub struct BrownianMotion {
+    pub wander_strength: f32,
+    pub random_seed: u32,
+}
+
+impl Default for BrownianMotion {
+    fn default() -> Self {
+        Self { wander_strength: 0.0, random_seed: 0 }
+    }
+}
+
 /// Previous-frame translation. Required by `bevy_mass::MovementPlugin` in
 /// standalone mode; UE mode integrates via `UMassSimpleMovementProcessor`.
 #[repr(C)]
