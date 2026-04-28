@@ -1,3 +1,4 @@
+pub mod boundary;
 pub mod brownian;
 pub mod components;
 pub mod config;

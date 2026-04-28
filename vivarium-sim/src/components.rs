@@ -23,6 +23,12 @@ impl Default for BrownianMotion {
     }
 }
 
+/// Tag marking entities subject to boundary-force repulsion at the edges
+/// of `SimBounds`. Name preserved from vivarium's earlier teleport-wrap
+/// implementation; the behaviour is now a quadratic repulsion force.
+#[derive(Component, MassFragment, Clone, Copy, Debug)]
+pub struct BoundaryWrap;
+
 /// Previous-frame translation. Required by `bevy_mass::MovementPlugin` in
 /// standalone mode; UE mode integrates via `UMassSimpleMovementProcessor`.
 #[repr(C)]

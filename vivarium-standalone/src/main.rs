@@ -1,8 +1,8 @@
 //! Standalone Bevy harness for the vivarium simulation.
 //!
-//! Phase 1b: 200 insects spawned with random velocities, integrated by
-//! `bevy_mass::MovementPlugin`, with per-entity brownian motion wander.
-//! No boundary force yet — insects still fly off, just non-linearly.
+//! Phase 1c: 200 insects spawned with random velocities, integrated by
+//! `bevy_mass::MovementPlugin`, with per-entity brownian motion wander
+//! and boundary force field repelling them from world edges.
 //! 3D scene, fixed camera.
 //!
 //! CLI (mirrors `gatherers-standalone`):
@@ -15,9 +15,11 @@ use bevy::prelude::*;
 use bevy::render::view::screenshot::{save_to_disk, Screenshot};
 use bevy_mass::MovementPlugin;
 use glam::DVec3;
+use vivarium_sim::boundary::boundary_force_system;
 use vivarium_sim::brownian::brownian_motion_system;
 use vivarium_sim::components::{
-    BrownianMotion, Insect, PreviousTranslation, Transform as SimTransform, Velocity,
+    BoundaryWrap, BrownianMotion, Insect, PreviousTranslation, SimBounds,
+    Transform as SimTransform, Velocity,
 };
 use vivarium_sim::config::{
     INSECT_COUNT, INSECT_RADIUS, INSECT_SPEED, INSECT_WANDER_STRENGTH, WORLD_HALF_SIZE,
@@ -77,15 +79,18 @@ fn main() {
     app.add_plugins(DefaultPlugins)
         .add_plugins(MovementPlugin::<SimTransform, PreviousTranslation, Velocity>::default())
         .insert_resource(capture)
+        .insert_resource(SimBounds::default())
         .init_resource::<FrameCounter>()
         .add_systems(Startup, (setup_scene, spawn_insects).chain())
         .add_systems(
             Update,
             (
                 brownian_motion_system,
+                boundary_force_system,
                 sync_render_transforms,
                 capture_scheduled_screenshots,
-            ),
+            )
+                .chain(),
         );
 
     if deterministic {
@@ -161,6 +166,7 @@ fn spawn_insects(
         );
         commands.spawn((
             Insect,
+            BoundaryWrap,
             SimTransform::from_translation(pos),
             PreviousTranslation { value: pos },
             Velocity::new(dir, INSECT_SPEED),
