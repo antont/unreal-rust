@@ -12,6 +12,8 @@ members = [
     "gatherers-bevy-mass",
     "bevy_mass",
     "gatherers-standalone",
+    "vivarium-sim",
+    "vivarium-standalone",
 ]
 #[profile.release]
 #debug = true

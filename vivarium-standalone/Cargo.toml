@@ -1,0 +1,15 @@
+[package]
+name = "vivarium-standalone"
+version = "0.1.0"
+edition.workspace = true
+
+[[bin]]
+name = "vivarium-standalone"
+path = "src/main.rs"
+
+[dependencies]
+vivarium-sim = { path = "../vivarium-sim", default-features = true }
+bevy_mass = { path = "../bevy_mass", default-features = true }
+glam = "0.29"
+
+bevy = "0.18"
