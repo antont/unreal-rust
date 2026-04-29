@@ -122,7 +122,8 @@ Plugins need a parallel hook. The framework gains one new inventory type
 plus a single install_plugins fn per sim crate:
 
 ```rust
-// bevy_mass (or unreal-api/mass) — new type
+// unreal-api/src/mass.rs — lives alongside the existing inventory
+// registrations (MassBevySystemRegistration, MassScheduleOrder, etc.)
 pub struct MassAppPluginRegistration {
     pub build_fn: fn(&mut bevy_app::App),
 }
@@ -167,30 +168,37 @@ the `MassSchedule` world, but the FFI handlers
 `get_spatial_query_config_count` / `get_spatial_query_config_desc` in
 `unreal-module` are plain fns that don't have direct access to the world.
 
-Solution: module-level cache, built once after MassSchedule has run all its
-`MassAppPluginRegistration` build hooks. The sequence:
+Solution: module-level cache, written each time `mass_init_simulation` runs
+plugin builds against the existing MassSchedule app. The sequence:
 
-1. `mass_init_simulation` runs → calls every `MassAppPluginRegistration.build_fn`
-   on the MassSchedule app → `SpatialGroupPlugin::build` pushes entries into
-   `SpatialGroupRegistry`.
-2. Immediately after plugin builds, `mass_init_simulation` copies
-   `SpatialGroupRegistry` entries into a module-level
-   `OnceLock<Vec<SpatialGroupEntry>>` in `unreal-module`. This is the same
-   pattern `register_shadow_world_accessors` uses today.
-3. `get_spatial_query_config_count/desc` FFI handlers read from *two* sources
+1. **Dylib load (existing):** `unreal-module` constructs `MassSchedule`. The
+   App exists at this point but plugin builds have not yet run.
+2. **`mass_init_simulation` runs (entry point for each sim start):**
+   - Iterate `inventory::iter::<MassAppPluginRegistration>()` and call each
+     `build_fn(app)` on the existing MassSchedule app — this is the hook
+     the spec adds. Idempotent per sim start; subsequent starts overwrite.
+     `SpatialGroupPlugin::build` pushes entries into `SpatialGroupRegistry`.
+   - Copy the finished `SpatialGroupRegistry` contents into a module-level
+     `OnceLock<Mutex<Vec<SpatialGroupEntry>>>` in `unreal-module`. The
+     `Mutex` allows replacement on re-init (test harness `reset_sim` path +
+     future hot-reload); the `OnceLock` initialises it lazily on first
+     write. Same spirit as `register_shadow_world_accessors`, upgraded for
+     re-populatable cache.
+3. **C++ `SetupSpatialQueriesFromRust` (existing, runs strictly after
+   `mass_init_simulation` returns):** calls
+   `get_spatial_query_config_count/desc`, which now read from *two* sources
    and concatenate:
    - Legacy: `inventory::iter::<MassSpatialQueryConfigRegistration>()` —
      gatherers' sweep configs, unchanged.
-   - New: the module-level `SpatialGroupEntry` cache, synthesising one
+   - New: the module-level cache, synthesising one
      `MassSpatialQueryConfigDesc` per entry with `query_type =
      GridHashEnumerate` (new enum value).
-4. C++ `SetupSpatialQueriesFromRust` recognises the new `GridHashEnumerate`
-   value and installs a per-group enumerate callback into a new per-frame
-   slot (see "FFI — enumerate slot" below).
+4. C++ recognises the new `GridHashEnumerate` value and installs a per-group
+   enumerate callback into a new per-frame slot (see "FFI — enumerate slot"
+   below).
 
-C++ already calls `SetupSpatialQueriesFromRust` strictly after
-`mass_init_simulation`, so the ordering is already correct — no
-construction-order shuffling needed.
+Ordering is already correct — no construction-order shuffling needed. The
+new step is strictly additive inside `mass_init_simulation`.
 
 ### FFI — enumerate slot (direction matches existing sweep)
 
@@ -363,8 +371,11 @@ unchanged.
   SystemParam field in UE mode; replace `neighbors_within` body with an FFI
   call; in Bevy mode it still reads `SpatialGrids` but via the plugin.
 - `unreal-ffi/src/lib.rs` — add `MassSpatialNeighbor`,
-  `MassSpatialEnumerateFn`, `mass_spatial_enumerate: Option<...>` on
-  `RustBindings`; update `uninit()` stub.
+  `MassSpatialEnumerateFn`, `MassSpatialEnumerateSlot`; add
+  `num_spatial_enumerates: u32` + `spatial_enumerates: *const
+  MassSpatialEnumerateSlot` fields to `MassFrameDispatchData`. (No new
+  `RustBindings` entry — enumerate slots flow C++→Rust per frame, not as
+  Rust exports.)
 - `unreal-api/src/mass.rs` — expose `MassSpatialQueries::enumerate(name,
   center, radius) -> Vec<SpatialNeighbor>` alongside the existing `call`;
   wire the new FFI pointer into per-frame dispatch (or to a subsystem-level
@@ -459,11 +470,11 @@ Each slice is independently mergeable.
   keyed) or a closure capture. Type-pair keyed is one more resource per
   group but avoids indirect capture. Plan picks one after a small
   prototype.
-- **MassSchedule wiring for `MassAppPluginRegistration`.** Which lifecycle
-  point in `unreal-module` iterates the collection and calls each
-  `build_fn` on the shared App. Candidates: inside `mass_init_simulation`,
-  or a new one-shot init called from the dylib's first load. Plan phase
-  reads `unreal-module/src/lib.rs` and picks the obvious seam.
+- **Exact seam inside `mass_init_simulation`** where plugin builds run and
+  the registry snapshot is taken. The design commits to `mass_init_simulation`
+  (MassSchedule is created earlier during dylib load, but plugins are re-run
+  here so re-init/hot-reload refreshes registry state). Plan phase reads
+  `unreal-module/src/lib.rs` and picks the exact line.
 - **Cap size for enumerate returns.** The FFI contract says "return
   uncapped count, caller retries with bigger buffer." Initial
   `SmallVec<[_; 64]>` stack buffer, grow to `Vec` on first truncation.
