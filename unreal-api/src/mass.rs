@@ -1762,6 +1762,21 @@ pub fn registered_bevy_mass_systems() -> inventory::iter<MassBevySystemRegistrat
     inventory::iter::<MassBevySystemRegistration>
 }
 
+/// Registration for an App-level Bevy plugin that should be built into the
+/// `MassSchedule` app when a simulation starts. Submitted by sim crates via
+/// `inventory::submit!` and iterated by `unreal-module::mass_init_simulation`.
+pub struct MassAppPluginRegistration {
+    /// Called with the shadow `MassSchedule` app; should do exactly
+    /// `app.add_plugins(...)`. Runs once per `init_sim` call.
+    pub build_fn: fn(&mut bevy_app::App),
+}
+
+inventory::collect!(MassAppPluginRegistration);
+
+pub fn registered_app_plugins() -> inventory::iter<MassAppPluginRegistration> {
+    inventory::iter::<MassAppPluginRegistration>
+}
+
 /// Plugin-declared system execution order.
 ///
 /// Game code submits one of these per pipeline via `inventory::submit!`,
@@ -3015,5 +3030,21 @@ mod mass_spatial_queries_enumerate_tests {
         let queries = MassSpatialQueries::default();
         let hits = queries.enumerate("absent", &[0.0, 0.0, 0.0], 10.0, 32);
         assert!(hits.is_empty());
+    }
+}
+
+#[cfg(test)]
+mod app_plugin_registration_test {
+    use super::*;
+
+    fn noop_build(_app: &mut bevy_app::App) {}
+    inventory::submit!(MassAppPluginRegistration { build_fn: noop_build });
+
+    #[test]
+    fn at_least_one_registered() {
+        assert!(registered_app_plugins().into_iter().any(|r| {
+            // Compare function pointers by cast to raw pointer.
+            r.build_fn as *const () == noop_build as *const ()
+        }));
     }
 }
