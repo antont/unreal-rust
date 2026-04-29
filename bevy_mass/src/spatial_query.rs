@@ -401,17 +401,23 @@ mod unreal_impl {
         }
     }
 
-    /// `query_name -> query_group` cache, built once from the static
-    /// `MassSpatialQueryConfigRegistration` inventory.
-    fn name_to_group() -> &'static HashMap<&'static str, &'static str> {
-        static CACHE: OnceLock<HashMap<&'static str, &'static str>> = OnceLock::new();
-        CACHE.get_or_init(|| {
-            let mut m = HashMap::new();
-            for cfg in registered_spatial_query_configs() {
-                m.insert(cfg.query_name, cfg.query_group);
-            }
-            m
-        })
+    /// `query_name -> query_group` for both inventory (sweep) configs and
+    /// plugin-registered spatial groups. Rebuilt eagerly — cheap O(N) where
+    /// N = total registered queries. Called infrequently (only on first
+    /// lookup), so no incremental caching needed.
+    fn name_to_group() -> HashMap<String, String> {
+        let mut m = HashMap::new();
+        for cfg in registered_spatial_query_configs() {
+            m.insert(cfg.query_name.to_string(), cfg.query_group.to_string());
+        }
+        if let Some(f) = unreal_api::mass::spatial_group_cache_fn() {
+            f(&mut |entries: &[(String, f64)]| {
+                for (name, _radius) in entries {
+                    m.insert(name.clone(), name.clone());
+                }
+            });
+        }
+        m
     }
 
     fn resolve_hit_entity(
@@ -419,7 +425,8 @@ mod unreal_impl {
         index: i32,
         map: &MassEntityMap,
     ) -> bevy_ecs::entity::Entity {
-        let Some(group) = name_to_group().get(name) else {
+        let groups = name_to_group();
+        let Some(group) = groups.get(name) else {
             log_missing_config(name);
             return bevy_ecs::entity::Entity::PLACEHOLDER;
         };
@@ -442,28 +449,24 @@ mod unreal_impl {
 
     /// Idiomatic `SystemParam` facade that bundles `Res<SpatialQuery>` +
     /// `Res<MassEntityMap>` behind a single `spatial: SpatialQueries`
-    /// parameter. Game systems never have to name `MassEntityMap` —
-    /// `call()` stitches the borrow in internally and returns a
-    /// fully-resolved `SpatialHit`.
+    /// parameter.
     #[derive(bevy_ecs::system::SystemParam)]
     pub struct SpatialQueries<'w> {
         spatial: bevy_ecs::system::Res<'w, SpatialQuery>,
         map: bevy_ecs::system::Res<'w, MassEntityMap>,
-        grids: Option<bevy_ecs::system::Res<'w, super::SpatialGrids>>,
     }
 
     impl<'w> SpatialQueries<'w> {
-        /// Perform the named spatial query. See
-        /// [`SpatialQueryWithMap::call`] for the full contract.
+        /// Perform the named sweep query. See `SpatialQueryWithMap::call`.
         pub fn call(&self, name: &str, prev: &DVec3, curr: &DVec3) -> Option<SpatialHit> {
             self.spatial.with_map(&self.map).call(name, prev, curr)
         }
 
         /// Enumerate neighbours in group `name` within `radius` of `center`.
-        /// Backed by [`super::SpatialGrids`] — a Rust-side cell grid the sim
-        /// rebuilds per frame. UE-side hash-grid enumeration through the
-        /// FFI is a Phase-2a follow-up; until then UE-mode flocking works
-        /// by rebuilding the Rust grid from shadow-entity reads.
+        /// Calls the per-frame enumerate callback installed by C++ for this
+        /// group. Empty `Vec` if no callback is registered (treat same as
+        /// "no neighbours"). `exclude` is filtered in Rust after the FFI
+        /// call.
         pub fn neighbors_within(
             &self,
             name: &str,
@@ -471,13 +474,31 @@ mod unreal_impl {
             radius: f64,
             exclude: Option<bevy_ecs::entity::Entity>,
         ) -> Vec<super::SpatialNeighbor> {
-            let Some(grids) = self.grids.as_ref() else {
-                return Vec::new();
-            };
-            let Some(grid) = grids.get(name) else {
-                return Vec::new();
-            };
-            grid.neighbors_within(*center, radius, exclude)
+            let center_arr: [f64; 3] = [center.x, center.y, center.z];
+            // 64 is a comfortable default for vivarium flocking (radius 40,
+            // expected <10 neighbours); the `enumerate` impl grows to `Vec`
+            // on first truncation.
+            let raw = self.spatial.inner.enumerate(name, &center_arr, radius as f32, 64);
+            let groups = name_to_group();
+            let group_name = groups.get(name).map(|s| s.as_str()).unwrap_or("");
+            let mut out: Vec<super::SpatialNeighbor> = Vec::with_capacity(raw.len());
+            for n in raw {
+                let entity = if group_name.is_empty() {
+                    bevy_ecs::entity::Entity::PLACEHOLDER
+                } else {
+                    self.map
+                        .get(group_name, n.entity_index as usize)
+                        .unwrap_or(bevy_ecs::entity::Entity::PLACEHOLDER)
+                };
+                if Some(entity) == exclude {
+                    continue;
+                }
+                out.push(super::SpatialNeighbor {
+                    entity,
+                    position: DVec3::new(n.position[0], n.position[1], n.position[2]),
+                });
+            }
+            out
         }
     }
 }

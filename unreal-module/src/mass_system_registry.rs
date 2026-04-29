@@ -59,6 +59,18 @@ fn refresh_spatial_group_cache(world: &unreal_api::ecs::world::World) {
     cache.0 = entries;
 }
 
+/// Read-only accessor for the spatial group cache, exposed to
+/// `bevy_mass::spatial_query` so the UE-mode `name_to_group` cache can
+/// include plugin-registered groups in addition to legacy inventory
+/// configs.
+pub fn visit_spatial_group_cache<F>(visit: F)
+where
+    F: FnOnce(&[bevy_mass::spatial_group::SpatialGroupEntry]),
+{
+    let cache = spatial_group_cache().lock().unwrap();
+    visit(&cache.0);
+}
+
 /// Clear the descriptor cache. Called on hot-reload so stale pointers aren't reused.
 pub fn reset_descriptor_cache() {
     let mut cache = DESCRIPTOR_CACHE.lock().unwrap();
@@ -213,6 +225,11 @@ pub fn init_global_schedule() {
         shadow_world_read,
         shadow_world_write,
     );
+
+    // Bridge the spatial-group cache into unreal-api so bevy_mass can
+    // resolve plugin-registered group names without a direct dep on
+    // unreal-module.
+    unreal_api::mass::register_spatial_group_cache_accessor(bevy_visit_spatial_group_cache);
 }
 
 fn shadow_world_read(
@@ -246,6 +263,18 @@ fn shadow_world_write(
     let map = world.resource::<MassEntityMap>().clone();
     visit(world, &map);
     true
+}
+
+fn bevy_visit_spatial_group_cache(
+    visit: unreal_api::mass::SpatialGroupCacheVisitor,
+) {
+    let cache = spatial_group_cache().lock().unwrap();
+    let pairs: Vec<(String, f64)> = cache
+        .0
+        .iter()
+        .map(|e| (e.name.to_string(), e.radius))
+        .collect();
+    visit(&pairs);
 }
 
 /// Reset the global Bevy schedule, allowing it to be rebuilt on next init.

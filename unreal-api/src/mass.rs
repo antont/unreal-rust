@@ -325,6 +325,26 @@ pub(crate) fn shadow_world_write_fn() -> Option<ShadowWorldWriteFn> {
     SHADOW_WORLD_WRITE.get().copied()
 }
 
+/// Visitor passed to the module-level spatial-group cache accessor.
+pub type SpatialGroupCacheVisitor<'a> = &'a mut dyn FnMut(&[(String, f64)]);
+
+/// Function registered by `unreal-module` that lets `bevy_mass` peek at
+/// plugin-registered spatial groups without a direct crate dependency.
+/// Delivers `(name, radius)` pairs copied into owned `String`s so the
+/// callback doesn't borrow the cache mutex beyond its own scope.
+pub type SpatialGroupCacheFn = fn(SpatialGroupCacheVisitor);
+
+static SPATIAL_GROUP_CACHE_FN: std::sync::OnceLock<SpatialGroupCacheFn> =
+    std::sync::OnceLock::new();
+
+pub fn register_spatial_group_cache_accessor(f: SpatialGroupCacheFn) {
+    let _ = SPATIAL_GROUP_CACHE_FN.set(f);
+}
+
+pub fn spatial_group_cache_fn() -> Option<SpatialGroupCacheFn> {
+    SPATIAL_GROUP_CACHE_FN.get().copied()
+}
+
 /// Maps Mass Entity groups to shadow Bevy entities.
 ///
 /// Each named group (e.g., "ants", "food") has a `Vec<Entity>` indexed by
