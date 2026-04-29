@@ -2018,8 +2018,11 @@ pub enum MassSpatialQueryType {
     IsmcOverlap = 0,
     /// UE physics sweep (World->SweepMultiByChannel).
     PhysicsSweep = 1,
-    /// UMassNavigationSubsystem hash grid (FNavigationObstacleHashGrid2D).
+    /// UMassNavigationSubsystem hash grid — single-hit sweep.
     GridHash = 2,
+    /// UMassNavigationSubsystem hash grid — enumerate-in-radius.
+    /// Used by `SpatialGroupPlugin`.
+    GridHashEnumerate = 3,
 }
 
 /// Game crates register spatial query configurations via inventory.
