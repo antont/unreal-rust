@@ -3,11 +3,11 @@
 //! `wander_system` mirrors `brownian_motion_system` but uses the `Wander`
 //! component so birds and insects can be tuned independently.
 //!
-//! `flocking_system` runs after `rebuild_bird_grid_system` has populated
-//! the `"birds"` `SpatialGrid`. For each bird it enumerates neighbours via
-//! `SpatialQueries::neighbors_within` and accumulates standard Reynolds
-//! separation / alignment / cohesion steering, then renormalises to
-//! `BIRD_SPEED`.
+//! `flocking_system` runs in `SpatialGroupSet::Query` — the framework's
+//! `SpatialGroupPlugin::<Bird, Transform>` installs the rebuild side, so
+//! `SpatialQueries::neighbors_within("birds", ...)` is already populated
+//! by the time flocking runs (Bevy mode) or resolved via UE's hash grid
+//! (UE mode).
 //!
 //! Ported from vivarium commit 1b6d1f5 (`src/systems/{flocking,brownian}.rs`
 //! + `src/spatial.rs`).
@@ -19,7 +19,6 @@ use crate::config::{
 };
 use bevy_ecs::entity::EntityHashMap;
 use bevy_mass::prelude::*;
-use bevy_mass::spatial_query::SpatialGrids;
 
 #[mass_system]
 pub fn wander_system(
@@ -39,24 +38,6 @@ pub fn wander_system(
         } else {
             DVec3::ZERO
         };
-    }
-}
-
-/// Rebuilds the `"birds"` cell grid each frame. Must run before
-/// `flocking_system`; the Bevy-mode `SpatialQueries::neighbors_within`
-/// reads directly from this resource (UE-mode falls back to it until the
-/// enumerate-in-radius FFI lands).
-#[mass_system]
-pub fn rebuild_bird_grid_system(
-    mut grids: ResMut<SpatialGrids>,
-    mut birds: Query<(Entity, &Transform), With<Bird>>,
-) {
-    let grid = grids.grid_mut("birds", FLOCK_NEIGHBOR_RADIUS);
-    grid.clear();
-    // `&mut birds` is the IntoIterator form that works in both Bevy mode and
-    // `#[mass_system]`-generated UE mode; `&birds` only exists in Bevy.
-    for (entity, transform) in &mut birds {
-        grid.insert(entity, transform.translation);
     }
 }
 
@@ -162,6 +143,25 @@ mod tests {
         schedule.run(world);
     }
 
+    fn run_with_plugin<M, F>(setup: F, system: impl IntoSystem<(), (), M>) -> World
+    where
+        F: FnOnce(&mut World),
+    {
+        use bevy_app::App;
+        let mut app = App::new();
+        app.add_plugins(SpatialGroupPlugin::<Bird, Transform>::new(
+            "birds",
+            FLOCK_NEIGHBOR_RADIUS,
+        ));
+        app.add_systems(bevy_app::Update, system.in_set(SpatialGroupSet::Query));
+        setup(app.world_mut());
+        app.update();
+        // Extract world for assertions
+        let mut temp_world = World::new();
+        std::mem::swap(app.world_mut(), &mut temp_world);
+        temp_world
+    }
+
     #[test]
     fn wander_preserves_speed() {
         let mut world = World::new();
@@ -192,38 +192,38 @@ mod tests {
     /// toward B — its velocity gains a +X cohesion pull.
     #[test]
     fn flocking_cohesion_pulls_toward_centroid() {
-        let mut world = World::new();
-        world.insert_resource(SpatialGrids::default());
-
         let zero_sep_flocking = Flocking {
             separation_weight: 0.0,
             alignment_weight: 0.0,
             cohesion_weight: 1.0,
         };
 
-        // Distance 20 > SEPARATION_DISTANCE (10) so no separation kicks in.
-        let a = world
-            .spawn((
-                Bird,
-                Transform::from_translation(DVec3::ZERO),
-                PreviousTranslation::default(),
-                Velocity::new(DVec3::X, BIRD_SPEED),
-                zero_sep_flocking,
-            ))
-            .id();
-        world.spawn((
-            Bird,
-            Transform::from_translation(DVec3::new(20.0, 0.0, 0.0)),
-            PreviousTranslation::default(),
-            Velocity::new(DVec3::X, BIRD_SPEED),
-            zero_sep_flocking,
-        ));
+        let mut entity_a = None;
+        let world = run_with_plugin(
+            |w| {
+                // Distance 20 > SEPARATION_DISTANCE (10) so no separation kicks in.
+                let a = w
+                    .spawn((
+                        Bird,
+                        Transform::from_translation(DVec3::ZERO),
+                        PreviousTranslation::default(),
+                        Velocity::new(DVec3::X, BIRD_SPEED),
+                        zero_sep_flocking,
+                    ))
+                    .id();
+                w.spawn((
+                    Bird,
+                    Transform::from_translation(DVec3::new(20.0, 0.0, 0.0)),
+                    PreviousTranslation::default(),
+                    Velocity::new(DVec3::X, BIRD_SPEED),
+                    zero_sep_flocking,
+                ));
+                entity_a = Some(a);
+            },
+            flocking_system,
+        );
 
-        let mut schedule = bevy_ecs::schedule::Schedule::default();
-        schedule.add_systems((rebuild_bird_grid_system, flocking_system).chain());
-        schedule.run(&mut world);
-
-        let a_vel = world.entity(a).get::<Velocity>().unwrap().value;
+        let a_vel = world.entity(entity_a.unwrap()).get::<Velocity>().unwrap().value;
         // Speed preserved
         assert!((a_vel.length() - BIRD_SPEED as f64).abs() < 1e-4);
         // Y and Z components remain zero (pure +X setup)
@@ -236,40 +236,40 @@ mod tests {
     /// origin, B at (5, 0, 0) — A's velocity should gain a −X component.
     #[test]
     fn flocking_separation_pushes_apart() {
-        let mut world = World::new();
-        world.insert_resource(SpatialGrids::default());
-
         let sep_only = Flocking {
             separation_weight: 1.0,
             alignment_weight: 0.0,
             cohesion_weight: 0.0,
         };
 
-        let a = world
-            .spawn((
-                Bird,
-                Transform::from_translation(DVec3::ZERO),
-                PreviousTranslation::default(),
-                // Give A a small +Y velocity so separation along −X can be
-                // detected as a change in X direction.
-                Velocity::new(DVec3::Y, BIRD_SPEED),
-                sep_only,
-            ))
-            .id();
-        // Distance 5 < SEPARATION_DISTANCE (10).
-        world.spawn((
-            Bird,
-            Transform::from_translation(DVec3::new(5.0, 0.0, 0.0)),
-            PreviousTranslation::default(),
-            Velocity::new(DVec3::Y, BIRD_SPEED),
-            sep_only,
-        ));
+        let mut entity_a = None;
+        let world = run_with_plugin(
+            |w| {
+                let a = w
+                    .spawn((
+                        Bird,
+                        Transform::from_translation(DVec3::ZERO),
+                        PreviousTranslation::default(),
+                        // Give A a small +Y velocity so separation along −X can be
+                        // detected as a change in X direction.
+                        Velocity::new(DVec3::Y, BIRD_SPEED),
+                        sep_only,
+                    ))
+                    .id();
+                // Distance 5 < SEPARATION_DISTANCE (10).
+                w.spawn((
+                    Bird,
+                    Transform::from_translation(DVec3::new(5.0, 0.0, 0.0)),
+                    PreviousTranslation::default(),
+                    Velocity::new(DVec3::Y, BIRD_SPEED),
+                    sep_only,
+                ));
+                entity_a = Some(a);
+            },
+            flocking_system,
+        );
 
-        let mut schedule = bevy_ecs::schedule::Schedule::default();
-        schedule.add_systems((rebuild_bird_grid_system, flocking_system).chain());
-        schedule.run(&mut world);
-
-        let a_vel = world.entity(a).get::<Velocity>().unwrap().value;
+        let a_vel = world.entity(entity_a.unwrap()).get::<Velocity>().unwrap().value;
         assert!(
             a_vel.x < 0.0,
             "A should be pushed in −X away from B at (5,0,0), got vx={}",
@@ -281,38 +281,38 @@ mod tests {
     /// A's new direction should tilt toward +Y.
     #[test]
     fn flocking_alignment_averages_headings() {
-        let mut world = World::new();
-        world.insert_resource(SpatialGrids::default());
-
         let align_only = Flocking {
             separation_weight: 0.0,
             alignment_weight: 1.0,
             cohesion_weight: 0.0,
         };
 
-        let a = world
-            .spawn((
-                Bird,
-                Transform::from_translation(DVec3::ZERO),
-                PreviousTranslation::default(),
-                Velocity::new(DVec3::X, BIRD_SPEED),
-                align_only,
-            ))
-            .id();
-        // Distance 20 > SEPARATION_DISTANCE so no separation interferes.
-        world.spawn((
-            Bird,
-            Transform::from_translation(DVec3::new(20.0, 0.0, 0.0)),
-            PreviousTranslation::default(),
-            Velocity::new(DVec3::Y, BIRD_SPEED),
-            align_only,
-        ));
+        let mut entity_a = None;
+        let world = run_with_plugin(
+            |w| {
+                let a = w
+                    .spawn((
+                        Bird,
+                        Transform::from_translation(DVec3::ZERO),
+                        PreviousTranslation::default(),
+                        Velocity::new(DVec3::X, BIRD_SPEED),
+                        align_only,
+                    ))
+                    .id();
+                // Distance 20 > SEPARATION_DISTANCE so no separation interferes.
+                w.spawn((
+                    Bird,
+                    Transform::from_translation(DVec3::new(20.0, 0.0, 0.0)),
+                    PreviousTranslation::default(),
+                    Velocity::new(DVec3::Y, BIRD_SPEED),
+                    align_only,
+                ));
+                entity_a = Some(a);
+            },
+            flocking_system,
+        );
 
-        let mut schedule = bevy_ecs::schedule::Schedule::default();
-        schedule.add_systems((rebuild_bird_grid_system, flocking_system).chain());
-        schedule.run(&mut world);
-
-        let a_vel = world.entity(a).get::<Velocity>().unwrap().value;
+        let a_vel = world.entity(entity_a.unwrap()).get::<Velocity>().unwrap().value;
         assert!(
             a_vel.y > 0.0,
             "A should tilt toward B's +Y heading, got vy={}",
@@ -324,9 +324,6 @@ mod tests {
 
     #[test]
     fn flocking_no_neighbors_no_change() {
-        let mut world = World::new();
-        world.insert_resource(SpatialGrids::default());
-
         let flocking = Flocking {
             separation_weight: 1.0,
             alignment_weight: 1.0,
@@ -334,21 +331,24 @@ mod tests {
         };
 
         let initial = DVec3::new(1.0, 0.0, 0.0) * BIRD_SPEED as f64;
-        let a = world
-            .spawn((
-                Bird,
-                Transform::from_translation(DVec3::ZERO),
-                PreviousTranslation::default(),
-                Velocity::new(DVec3::X, BIRD_SPEED),
-                flocking,
-            ))
-            .id();
+        let mut entity_a = None;
+        let world = run_with_plugin(
+            |w| {
+                let a = w
+                    .spawn((
+                        Bird,
+                        Transform::from_translation(DVec3::ZERO),
+                        PreviousTranslation::default(),
+                        Velocity::new(DVec3::X, BIRD_SPEED),
+                        flocking,
+                    ))
+                    .id();
+                entity_a = Some(a);
+            },
+            flocking_system,
+        );
 
-        let mut schedule = bevy_ecs::schedule::Schedule::default();
-        schedule.add_systems((rebuild_bird_grid_system, flocking_system).chain());
-        schedule.run(&mut world);
-
-        let a_vel = world.entity(a).get::<Velocity>().unwrap().value;
+        let a_vel = world.entity(entity_a.unwrap()).get::<Velocity>().unwrap().value;
         assert!(
             (a_vel - initial).length() < 1e-6,
             "lone bird should not be steered: {:?}",
