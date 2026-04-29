@@ -740,8 +740,9 @@ mod tests {
             num_systems: 0,
             systems: std::ptr::null(),
             num_spatial_queries: 0,
-            _pad: 0,
+            num_spatial_enumerates: 0,
             spatial_queries: std::ptr::null(),
+            spatial_enumerates: std::ptr::null(),
         };
         unsafe {
             mass_frame_dispatch(&data as *const _);

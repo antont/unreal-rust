@@ -273,7 +273,7 @@ pub struct MassSpatialEnumerateSlot {
     pub _pad: u32,
 }
 
-/// Per-frame dispatch data: dt + all system chunk batches + named spatial queries.
+/// Per-frame dispatch data: dt + system chunk batches + named spatial queries + named enumerate slots.
 #[repr(C)]
 pub struct MassFrameDispatchData {
     /// Delta time for this frame.
@@ -282,11 +282,14 @@ pub struct MassFrameDispatchData {
     pub num_systems: u32,
     /// Pointer to array of MassSystemChunkBatch.
     pub systems: *const MassSystemChunkBatch,
-    /// Number of spatial query slots available this frame.
+    /// Number of spatial query (sweep) slots available this frame.
     pub num_spatial_queries: u32,
-    pub _pad: u32,
+    /// Number of spatial enumerate slots available this frame.
+    pub num_spatial_enumerates: u32,
     /// Pointer to array of MassSpatialQuerySlot.
     pub spatial_queries: *const MassSpatialQuerySlot,
+    /// Pointer to array of MassSpatialEnumerateSlot.
+    pub spatial_enumerates: *const MassSpatialEnumerateSlot,
 }
 
 /// Function signature for per-frame Bevy-scheduled dispatch.
@@ -1177,9 +1180,16 @@ mod tests {
 
     #[test]
     fn mass_frame_dispatch_data_layout() {
-        // f32(4) + u32(4) + ptr(8) + u32(4) + u32(4) + ptr(8) = 32
-        assert_eq!(std::mem::size_of::<MassFrameDispatchData>(), 32);
+        // f32(4) + u32(4) + ptr(8) + u32(4) + u32(4) + ptr(8) + ptr(8) = 40
+        assert_eq!(std::mem::size_of::<MassFrameDispatchData>(), 40);
         assert_eq!(std::mem::align_of::<MassFrameDispatchData>(), 8);
+        assert_eq!(std::mem::offset_of!(MassFrameDispatchData, dt), 0);
+        assert_eq!(std::mem::offset_of!(MassFrameDispatchData, num_systems), 4);
+        assert_eq!(std::mem::offset_of!(MassFrameDispatchData, systems), 8);
+        assert_eq!(std::mem::offset_of!(MassFrameDispatchData, num_spatial_queries), 16);
+        assert_eq!(std::mem::offset_of!(MassFrameDispatchData, num_spatial_enumerates), 20);
+        assert_eq!(std::mem::offset_of!(MassFrameDispatchData, spatial_queries), 24);
+        assert_eq!(std::mem::offset_of!(MassFrameDispatchData, spatial_enumerates), 32);
     }
 
     #[test]
