@@ -16,7 +16,9 @@
 //! app.add_systems(Update, flocking_system.in_set(SpatialGroupSet::Query));
 //! ```
 
-use bevy_app::{App, Plugin, Update};
+use bevy_app::{App, Plugin};
+#[cfg(not(feature = "unreal"))]
+use bevy_app::Update;
 use bevy_ecs::prelude::*;
 use std::marker::PhantomData;
 
@@ -62,6 +64,7 @@ impl<M, P> PerGroupMeta<M, P> {
 }
 
 use crate::movement::TransformLike;
+#[cfg(not(feature = "unreal"))]
 use crate::spatial_query::SpatialGrids;
 
 /// Registers one enumerable spatial group. One instance per `(Marker, Pos)`
@@ -120,6 +123,39 @@ where
             Update,
             rebuild_grid_system::<M, P>.in_set(SpatialGroupSet::Rebuild),
         );
+    }
+}
+
+/// UE-mode plugin impl: does not install a rebuild system (UE owns the hash
+/// grid). Only pushes the group metadata into `SpatialGroupRegistry` so
+/// `unreal-module` can synthesise a `GridHashEnumerate` query config.
+///
+/// Stronger bound than Bevy mode — `M` must be a `MassFragment` so we can
+/// read `M::CPP_TYPE_NAME` for the UE-side tag lookup, and `P` must also be
+/// a `MassFragment` for the position-fragment name.
+#[cfg(feature = "unreal")]
+impl<M, P> Plugin for SpatialGroupPlugin<M, P>
+where
+    M: Component + unreal_api::mass::MassFragment + Send + Sync + 'static,
+    P: TransformLike + unreal_api::mass::MassFragment,
+{
+    fn build(&self, app: &mut App) {
+        if !app.world().contains_resource::<SpatialGroupRegistry>() {
+            app.insert_resource(SpatialGroupRegistry::default());
+        }
+
+        let mut registry = app.world_mut().resource_mut::<SpatialGroupRegistry>();
+        assert!(
+            !registry.entries.iter().any(|e| e.name == self.name),
+            "SpatialGroupPlugin: group '{}' already registered",
+            self.name,
+        );
+        registry.entries.push(SpatialGroupEntry {
+            name: self.name,
+            radius: self.radius,
+            marker_tag_cpp_name: <M as unreal_api::mass::MassFragment>::CPP_TYPE_NAME,
+            position_fragment_cpp_name: <P as unreal_api::mass::MassFragment>::CPP_TYPE_NAME,
+        });
     }
 }
 
