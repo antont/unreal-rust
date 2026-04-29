@@ -50,6 +50,21 @@ impl Default for Flocking {
     }
 }
 
+/// Per-bird hunting parameters. `sight_range` is the max distance a
+/// bird detects insects within its `sight_half_angle` (radians) forward cone.
+#[repr(C)]
+#[derive(Component, MassFragment, Clone, Copy, Debug)]
+pub struct Predator {
+    pub sight_range: f64,
+    pub sight_half_angle: f64,
+}
+
+impl Default for Predator {
+    fn default() -> Self {
+        Self { sight_range: 0.0, sight_half_angle: 0.0 }
+    }
+}
+
 /// Per-entity brownian-motion state. `random_seed` advances each frame via
 /// a simple LCG — keeping RNG state in the component lets the system run
 /// `par_iter_mut` / archetype-parallel in UE without shared RNG state.

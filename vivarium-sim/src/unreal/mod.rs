@@ -9,7 +9,7 @@
 pub mod init;
 pub mod ue_tests;
 
-use crate::config::WORLD_HALF_SIZE;
+use crate::config::{BIRD_SIGHT_RANGE, FLOCK_NEIGHBOR_RADIUS, WORLD_HALF_SIZE};
 
 // Plugin discovery entry: the framework finds this by name and calls
 // `init::init_simulation` when UE's `URustMassBevySubsystem` spins up the
@@ -55,6 +55,32 @@ inventory::submit!(unreal_api::mass::MassVisualizerGroupRegistration {
     position_fragment_type: "FTransformFragment",
     position_offset: std::mem::offset_of!(crate::components::Transform, translation),
     scale: 1.0,
+});
+
+// Spatial query configs — tell C++ how to resolve `neighbors_within(...)`
+// calls from Rust systems. Both groups use the UMassNavigationSubsystem
+// hash grid's enumerate-in-radius path (the variant `SpatialGroupPlugin`
+// issues). `query_name` matches the group name so `SpatialQueries` can
+// look up the registration by group in UE mode.
+inventory::submit!(unreal_api::mass::MassSpatialQueryConfigRegistration {
+    query_name: "birds",
+    query_group: "birds",
+    radius: FLOCK_NEIGHBOR_RADIUS as f32,
+    query_type: unreal_api::mass::MassSpatialQueryType::GridHashEnumerate,
+    collision_channel_index: 0,
+    filter_fragment_type: "",
+    filter_bool_offset: 0,
+    filter_bool_must_be: false,
+});
+inventory::submit!(unreal_api::mass::MassSpatialQueryConfigRegistration {
+    query_name: "insects",
+    query_group: "insects",
+    radius: BIRD_SIGHT_RANGE as f32,
+    query_type: unreal_api::mass::MassSpatialQueryType::GridHashEnumerate,
+    collision_channel_index: 0,
+    filter_fragment_type: "",
+    filter_bool_offset: 0,
+    filter_bool_must_be: false,
 });
 
 // Defaults for PIE spawning — editable on the level actor UPROPERTY.

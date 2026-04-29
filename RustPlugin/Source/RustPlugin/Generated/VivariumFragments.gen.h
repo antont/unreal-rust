@@ -65,6 +65,19 @@ static_assert(offsetof(FVivariumFlockingFragment, CohesionWeight) == 8, "Cohesio
 static_assert(sizeof(FVivariumFlockingFragment) == 12, "FVivariumFlockingFragment size must be 12");
 
 USTRUCT()
+struct FVivariumPredatorFragment : public FMassFragment
+{
+	GENERATED_BODY()
+
+	double SightRange = 0.0;
+	double SightHalfAngle = 0.0;
+};
+
+static_assert(offsetof(FVivariumPredatorFragment, SightRange) == 0, "SightRange at offset 0");
+static_assert(offsetof(FVivariumPredatorFragment, SightHalfAngle) == 8, "SightHalfAngle at offset 8");
+static_assert(sizeof(FVivariumPredatorFragment) == 16, "FVivariumPredatorFragment size must be 16");
+
+USTRUCT()
 struct FVivariumPreviousTranslationFragment : public FMassFragment
 {
 	GENERATED_BODY()

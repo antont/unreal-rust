@@ -28,3 +28,12 @@ pub const SEPARATION_DISTANCE: f64 = 10.0;
 pub const SEPARATION_WEIGHT: f64 = 2.0;
 pub const ALIGNMENT_WEIGHT: f64 = 1.0;
 pub const COHESION_WEIGHT: f64 = 1.0;
+
+// Hunt + eat — Phase 2b. Values lifted from vivarium's src/config.rs.
+pub const BIRD_SIGHT_RANGE: f64 = 80.0;
+/// Forward-cone half-angle in radians (~40 degrees).
+pub const BIRD_SIGHT_HALF_ANGLE: f64 = 0.7;
+pub const BIRD_EATING_DISTANCE: f64 = 3.0;
+pub const HUNT_CIRCLE_DURATION: f64 = 1.5;
+pub const HUNT_CIRCLE_RADIUS: f64 = 25.0;
+pub const HUNT_DIVE_SPEED_MULT: f64 = 1.8;
