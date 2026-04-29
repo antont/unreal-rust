@@ -863,6 +863,17 @@ static_assert(offsetof(MassSpatialQuerySlot, name) == 0, "MassSpatialQuerySlot.n
 static_assert(offsetof(MassSpatialQuerySlot, query_fn) == 16, "MassSpatialQuerySlot.query_fn offset");
 static_assert(offsetof(MassSpatialQuerySlot, radius) == 24, "MassSpatialQuerySlot.radius offset");
 
+// --- Spatial enumerate (SpatialGroupPlugin) ---
+static_assert(sizeof(MassSpatialNeighbor) == 32, "MassSpatialNeighbor");
+static_assert(alignof(MassSpatialNeighbor) == 8, "MassSpatialNeighbor alignment");
+static_assert(offsetof(MassSpatialNeighbor, position) == 8, "MassSpatialNeighbor.position offset");
+
+static_assert(sizeof(MassSpatialEnumerateSlot) == 32, "MassSpatialEnumerateSlot");
+static_assert(alignof(MassSpatialEnumerateSlot) == 8, "MassSpatialEnumerateSlot alignment");
+static_assert(offsetof(MassSpatialEnumerateSlot, name) == 0, "MassSpatialEnumerateSlot.name offset");
+static_assert(offsetof(MassSpatialEnumerateSlot, enumerate_fn) == 16, "MassSpatialEnumerateSlot.enumerate_fn offset");
+static_assert(offsetof(MassSpatialEnumerateSlot, radius) == 24, "MassSpatialEnumerateSlot.radius offset");
+
 // --- Frame dispatch ---
 static_assert(sizeof(MassFrameDispatchData) == 40, "MassFrameDispatchData");
 static_assert(alignof(MassFrameDispatchData) == 8, "MassFrameDispatchData alignment");

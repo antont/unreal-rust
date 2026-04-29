@@ -167,6 +167,12 @@ unsafe impl Sync for SyncMassSchedule {}
 
 static MASS_SCHEDULE: Mutex<Option<SyncMassSchedule>> = Mutex::new(None);
 
+/// Has `mass_init_simulation` already built app plugins into `MASS_SCHEDULE`?
+/// Bevy's `App` panics if the same plugin type is added twice, so we must
+/// only call `registered_app_plugins` once per schedule lifetime. Reset when
+/// the schedule is reset (hot-reload / tests).
+static APP_PLUGINS_BUILT: Mutex<bool> = Mutex::new(false);
+
 /// Build a MassSchedule from all Bevy-registered mass systems.
 ///
 /// All systems (including collision pre-pass) are auto-discovered via inventory.
@@ -283,6 +289,7 @@ fn bevy_visit_spatial_group_cache(
 fn reset_mass_schedule() {
     let mut guard = MASS_SCHEDULE.lock().unwrap();
     *guard = None;
+    *APP_PLUGINS_BUILT.lock().unwrap() = false;
 }
 
 /// Per-frame dispatch: update chunk resources and run the Bevy schedule.
@@ -500,24 +507,19 @@ pub unsafe extern "C" fn mass_init_simulation(
         if let Ok(mut sched_guard) = MASS_SCHEDULE.lock() {
             if let Some(sched) = sched_guard.as_mut().map(|w| &mut w.0) {
                 // Build app plugins (e.g. SpatialGroupPlugin) into the shadow
-                // Mass schedule. Bevy's `App` internally tracks added plugin
-                // types, so adding the same plugin twice on the same App
-                // normally panics. Production only reaches this branch once
-                // per `MassSchedule` lifetime (`init_sim` is called once per
-                // simulation start; hot reload drops the whole module). For
-                // test-only re-init, `reset_mass_schedule` rebuilds the App
-                // from scratch. Clearing `SpatialGroupRegistry.entries`
-                // before iterating is belt-and-braces for tests that bypass
-                // the reset path.
-                if let Some(mut registry) = sched
-                    .world_mut()
-                    .get_resource_mut::<bevy_mass::spatial_group::SpatialGroupRegistry>()
-                {
-                    registry.entries.clear();
+                // Mass schedule exactly once per schedule lifetime. Bevy's
+                // `App` panics on duplicate plugin type, but UE automation
+                // calls `mass_init_simulation` once per test against the same
+                // `MASS_SCHEDULE`. Gate on `APP_PLUGINS_BUILT`, cleared only
+                // when the schedule is rebuilt.
+                let mut built = APP_PLUGINS_BUILT.lock().unwrap();
+                if !*built {
+                    for reg in registered_app_plugins() {
+                        (reg.build_fn)(sched.app_mut());
+                    }
+                    *built = true;
                 }
-                for reg in registered_app_plugins() {
-                    (reg.build_fn)(sched.app_mut());
-                }
+                drop(built);
 
                 let mut entity_map = MassEntityMap::default();
                 for (name_bytes, handles) in stored.iter() {
