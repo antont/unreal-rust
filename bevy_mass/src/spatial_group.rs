@@ -145,6 +145,8 @@ pub fn rebuild_grid_system<M, P>(
 mod tests {
     use super::*;
     use crate::Transform;
+    use crate::prelude::SpatialQueries;
+    use glam::DVec3;
 
     #[derive(Component, Clone, Copy)]
     struct Bird;
@@ -158,5 +160,36 @@ mod tests {
         assert_eq!(registry.entries.len(), 1);
         assert_eq!(registry.entries[0].name, "birds");
         assert_eq!(registry.entries[0].radius, 40.0);
+    }
+
+    #[test]
+    fn query_system_sees_rebuilt_grid() {
+        #[derive(Resource, Default)]
+        struct HitCount(usize);
+
+        let mut app = App::new();
+        app.add_plugins(SpatialGroupPlugin::<Bird, Transform>::new("birds", 10.0));
+
+        app.init_resource::<HitCount>();
+
+        app.world_mut().spawn((Bird, Transform::from_translation(DVec3::ZERO)));
+        app.world_mut().spawn((Bird, Transform::from_translation(DVec3::new(3.0, 0.0, 0.0))));
+
+        fn record_neighbors(
+            spatial: SpatialQueries,
+            mut hits: ResMut<HitCount>,
+        ) {
+            let n = spatial.neighbors_within("birds", &DVec3::ZERO, 10.0, None);
+            hits.0 = n.len();
+        }
+
+        // The plugin's `configure_sets(Update, Query.after(Rebuild))` call
+        // enforces the ordering this test relies on.
+        app.add_systems(Update, record_neighbors.in_set(SpatialGroupSet::Query));
+
+        app.update();
+
+        let count = app.world().resource::<HitCount>().0;
+        assert_eq!(count, 2, "query system must see both birds inserted by rebuild");
     }
 }
