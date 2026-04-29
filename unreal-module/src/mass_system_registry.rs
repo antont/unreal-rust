@@ -259,7 +259,7 @@ pub unsafe extern "C" fn mass_frame_dispatch(
     let result = std::panic::catch_unwind(std::panic::AssertUnwindSafe(|| {
         sched.set_dt(data.dt);
 
-        // Update spatial queries from dispatch data
+        // Update spatial queries (sweep) + enumerates from dispatch data
         {
             let mut queries = sched.world_mut().resource_mut::<SpatialQuery>();
             queries.clear();
@@ -270,6 +270,18 @@ pub unsafe extern "C" fn mass_frame_dispatch(
                 for slot in slots {
                     let name = slot.name.as_str().to_string();
                     queries.insert(name, slot.query_fn, slot.radius);
+                }
+            }
+            if data.num_spatial_enumerates > 0 && !data.spatial_enumerates.is_null() {
+                let slots = unsafe {
+                    std::slice::from_raw_parts(
+                        data.spatial_enumerates,
+                        data.num_spatial_enumerates as usize,
+                    )
+                };
+                for slot in slots {
+                    let name = slot.name.as_str().to_string();
+                    queries.insert_enumerate(name, slot.enumerate_fn, slot.radius);
                 }
             }
         }
