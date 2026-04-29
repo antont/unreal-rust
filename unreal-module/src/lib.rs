@@ -118,6 +118,9 @@ fn create_rust_bindings() -> RustBindings {
         reset_decision_counters: unreal_api::mass::registered_extern_bindings()
             .into_iter()
             .find_map(|b| b.reset_decision_counters),
+        get_despawned_shadows: unreal_api::mass::registered_extern_bindings()
+            .into_iter()
+            .find_map(|b| b.get_despawned_shadows),
     }
 }
 fn debug_break() {

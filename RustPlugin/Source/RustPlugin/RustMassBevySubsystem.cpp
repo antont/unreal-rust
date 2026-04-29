@@ -328,46 +328,32 @@ bool URustMassBevySubsystem::RepopulateGridHashForGroupForTesting(const FString&
 	return false;
 }
 
-bool URustMassBevySubsystem::TryMarkGridHashOwner(const FString& GroupName, const TCHAR* LogPrefix)
+bool URustMassBevySubsystem::TryMarkGridHashOwner(const FString& GroupName, const TCHAR* /*LogPrefix*/)
 {
-	// Enforce at-most-one GridHash owner across all CollisionGroups.
-	// FoodPickupEvents/FoodDropEvents carry a bare instance index with no group
-	// identifier — the index space is implicitly scoped to a single GridHash
-	// owner. A second owner would cause ApplyFoodEvents to apply each pickup/drop
-	// to every GridHash-owned group using the same index, corrupting whichever
-	// group didn't originate the event. Extending to multi-group requires an
-	// FFI change (add group identifier to the event payload) — see docs comments
-	// on FoodDropEvents / FoodPickupEvents in gatherers-sim/src/components.rs.
-	const FCollisionGroupEntry* ExistingOwner = nullptr;
+	// Multiple groups may co-participate in the nav hash grid: each group's
+	// EntityToIndex map keeps QuerySmall results scoped to its own instance
+	// index space (see ExecuteGridHashSpatialQuery / ExecuteGridHashEnumerate).
+	//
+	// However, FoodPickupEvents/FoodDropEvents carry a bare instance index with
+	// no group identifier, so only one group can be the authoritative food-event
+	// index-space owner. We grant that role to the first group registered here
+	// and leave subsequent groups as grid-only participants.
+	bool bAnyFoodEventOwner = false;
 	FCollisionGroupEntry* Target = nullptr;
 	for (FCollisionGroupEntry& CG : CollisionGroups)
 	{
-		if (CG.bOwnedByGridHash && !ExistingOwner)
-		{
-			ExistingOwner = &CG;
-		}
-		if (CG.Name == GroupName && !Target)
-		{
-			Target = &CG;
-		}
+		if (CG.bIsFoodEventIndexOwner) bAnyFoodEventOwner = true;
+		if (CG.Name == GroupName && !Target) Target = &CG;
 	}
 
 	if (!Target) return false;
-	if (Target->bOwnedByGridHash) return true; // already the owner — idempotent
-
-	if (ExistingOwner && ExistingOwner->Name != GroupName)
-	{
-		UE_LOG(LogTemp, Error,
-			TEXT("RustMassBevySubsystem: %s refused GridHash ownership for group '%s' — '%s' is already the GridHash owner. "
-			     "Food pickup/drop events carry a bare instance index that is implicitly scoped to one group; a second owner "
-			     "would corrupt the non-originating group. Extending to multi-group requires an FFI change."),
-			LogPrefix ? LogPrefix : TEXT("TryMarkGridHashOwner"),
-			*GroupName,
-			*ExistingOwner->Name);
-		return false;
-	}
+	if (Target->bOwnedByGridHash) return true; // already participating — idempotent
 
 	Target->bOwnedByGridHash = true;
+	if (!bAnyFoodEventOwner)
+	{
+		Target->bIsFoodEventIndexOwner = true;
+	}
 	PopulateGridHashForGroup(*Target);
 	return true;
 }
@@ -382,13 +368,30 @@ void URustMassBevySubsystem::ApplyFoodDropEventForTesting(int32 FoodIdx, const F
 	UWorld* World = GetWorld();
 	UMassNavigationSubsystem* NavSubsystem = World ? World->GetSubsystem<UMassNavigationSubsystem>() : nullptr;
 	FNavigationObstacleHashGrid2D* Grid = NavSubsystem ? &NavSubsystem->GetObstacleGridMutable() : nullptr;
-	ApplyOneFoodDropEvent(FoodIdx, NewPos, Grid);
+	UMassEntitySubsystem* MassSubsystem = World ? World->GetSubsystem<UMassEntitySubsystem>() : nullptr;
+	if (!MassSubsystem) return;
+	ApplyOneFoodDropEvent(FoodIdx, NewPos, Grid, MassSubsystem->GetMutableEntityManager());
 }
 
 int32 URustMassBevySubsystem::GetGroupEntityCount(const FString& GroupName) const
 {
 	const TArray<FMassEntityHandle>* Arr = EntityGroups.Find(GroupName);
-	return Arr ? Arr->Num() : 0;
+	if (!Arr) return 0;
+
+	// Count only live entities. Sims like vivarium despawn insects via
+	// `commands.entity(e).despawn()` inside a #[mass_system], which flows
+	// through the Bevy→Mass bridge and invalidates the handle in the Mass
+	// EntityManager — but the handle stays in EntityGroups until reset.
+	// Returning the raw Num() would mask predator/prey dynamics from tests.
+	UMassEntitySubsystem* MassSys = UWorld::GetSubsystem<UMassEntitySubsystem>(GetWorld());
+	if (!MassSys) return Arr->Num();
+	const FMassEntityManager& EM = MassSys->GetEntityManager();
+	int32 Live = 0;
+	for (const FMassEntityHandle& E : *Arr)
+	{
+		if (EM.IsEntityValid(E)) ++Live;
+	}
+	return Live;
 }
 
 bool URustMassBevySubsystem::HasManagedSimulation() const
@@ -993,6 +996,12 @@ void URustMassBevySubsystem::RunSimulationProcessorStep(float SimulatedDeltaTime
 			RustMassSpatialQuery::GridHashEncountersReturned = 0;
 		}
 	}
+
+	// Drain shadow-entity despawns inside the substep so the next substep sees
+	// a consistent view of Bevy and Mass state. Deferring until after all
+	// substeps would leave just-despawned entities Mass-valid (and spatial-query
+	// visible) for any remaining substeps in the same tick.
+	ApplyDespawnEvents();
 }
 
 // ---------------------------------------------------------------------------
@@ -1263,6 +1272,62 @@ void URustMassBevySubsystem::ClearGridHashForGroup(FCollisionGroupEntry& Group)
 	Group.EntityToIndex.Reset();
 }
 
+void URustMassBevySubsystem::ApplyDespawnEvents()
+{
+	TRACE_CPUPROFILER_EVENT_SCOPE(RustMass_ApplyDespawnEvents);
+
+	FRustPluginModule& Module = FModuleManager::GetModuleChecked<FRustPluginModule>("RustPlugin");
+	if (!Module.Plugin.Rust.get_despawned_shadows.IsSome()) return;
+
+	UWorld* World = GetWorld();
+	UMassEntitySubsystem* MassSys = World ? World->GetSubsystem<UMassEntitySubsystem>() : nullptr;
+	if (!MassSys) return;
+	FMassEntityManager& EntityManager = MassSys->GetMutableEntityManager();
+
+	UMassNavigationSubsystem* NavSubsystem = World->GetSubsystem<UMassNavigationSubsystem>();
+	FNavigationObstacleHashGrid2D* Grid = NavSubsystem ? &NavSubsystem->GetObstacleGridMutable() : nullptr;
+
+	constexpr uint32_t BatchSize = 64;
+	MassDespawnedShadow Events[BatchSize];
+	for (;;)
+	{
+		uint32_t Count = Module.Plugin.Rust.get_despawned_shadows.Unwrap()(Events, BatchSize);
+		for (uint32_t i = 0; i < Count; ++i)
+		{
+			// Length-aware: `group.ptr` comes from Rust's interned-string table
+			// (Box::leak of a boxed str), which is NOT null-terminated. Walking
+			// past `len` would read past the allocation.
+			FUTF8ToTCHAR GroupConverter(Events[i].group.ptr, static_cast<int32>(Events[i].group.len));
+			const FString GroupName(GroupConverter.Length(), GroupConverter.Get());
+			const int32 Idx = int32(Events[i].index);
+
+			TArray<FMassEntityHandle>* Handles = EntityGroups.Find(GroupName);
+			if (!Handles || !Handles->IsValidIndex(Idx)) continue;
+			const FMassEntityHandle Handle = (*Handles)[Idx];
+
+			for (FCollisionGroupEntry& CG : CollisionGroups)
+			{
+				if (CG.Name != GroupName || !CG.bOwnedByGridHash) continue;
+				if (Grid && CG.InGrid.IsValidIndex(Idx) && CG.InGrid[Idx]
+					&& CG.GridCellLocations.IsValidIndex(Idx))
+				{
+					FMassNavigationObstacleItem Item;
+					Item.Entity = Handle;
+					Grid->Remove(Item, CG.GridCellLocations[Idx]);
+					CG.InGrid[Idx] = false;
+				}
+				CG.EntityToIndex.Remove(Handle);
+			}
+
+			if (EntityManager.IsEntityValid(Handle))
+			{
+				EntityManager.DestroyEntity(Handle);
+			}
+		}
+		if (Count < BatchSize) break;
+	}
+}
+
 void URustMassBevySubsystem::ApplyFoodEvents()
 {
 	TRACE_CPUPROFILER_EVENT_SCOPE(RustMass_ApplyFoodEvents);
@@ -1276,6 +1341,9 @@ void URustMassBevySubsystem::ApplyFoodEvents()
 	UWorld* World = GetWorld();
 	UMassNavigationSubsystem* NavSubsystem = World ? World->GetSubsystem<UMassNavigationSubsystem>() : nullptr;
 	FNavigationObstacleHashGrid2D* Grid = NavSubsystem ? &NavSubsystem->GetObstacleGridMutable() : nullptr;
+	UMassEntitySubsystem* MassSubsystem = World ? World->GetSubsystem<UMassEntitySubsystem>() : nullptr;
+	if (!MassSubsystem) return;
+	FMassEntityManager& EntityManager = MassSubsystem->GetMutableEntityManager();
 
 	constexpr uint32_t BatchSize = 64;
 
@@ -1292,7 +1360,8 @@ void URustMassBevySubsystem::ApplyFoodEvents()
 				const int32 FoodIdx = PickupIndices[i];
 				for (auto& Group : CollisionGroups)
 				{
-					if (!Group.bOwnedByGridHash || !Grid) continue;
+					// Food-event indices are scoped to the single food-event index owner.
+					if (!Group.bIsFoodEventIndexOwner || !Grid) continue;
 					if (!Group.InGrid.IsValidIndex(FoodIdx) || !Group.InGrid[FoodIdx]) continue;
 					if (!Group.GridCellLocations.IsValidIndex(FoodIdx)) continue;
 
@@ -1320,25 +1389,35 @@ void URustMassBevySubsystem::ApplyFoodEvents()
 			{
 				const FoodDropEvent& Evt = DropEvents[i];
 				const FVector NewPos(Evt.position[0], Evt.position[1], Evt.position[2]);
-				ApplyOneFoodDropEvent(Evt.food_index, NewPos, Grid);
+				ApplyOneFoodDropEvent(Evt.food_index, NewPos, Grid, EntityManager);
 			}
 			if (Count < BatchSize) break;
 		}
 	}
 }
 
-void URustMassBevySubsystem::ApplyOneFoodDropEvent(int32 FoodIdx, const FVector& NewPos, FNavigationObstacleHashGrid2D* Grid)
+void URustMassBevySubsystem::ApplyOneFoodDropEvent(int32 FoodIdx, const FVector& NewPos,
+	FNavigationObstacleHashGrid2D* Grid, FMassEntityManager& EntityManager)
 {
 	for (auto& Group : CollisionGroups)
 	{
 		if (!Group.ISMC) continue;
 
 		// `FoodDropEvent::food_index` is an instance index scoped to the single
-		// GridHash-owned group (enforced by TryMarkGridHashOwner; see FFI doc
-		// comments on GetFoodDropEventsFn / GetFoodPickupEventsFn). Applying the
-		// drop to any other collision-enabled group would teleport same-indexed
-		// instances in unrelated groups — scope strictly to the owner.
-		if (!Group.bOwnedByGridHash) continue;
+		// food-event index owner (see FFI doc comments on GetFoodDropEventsFn /
+		// GetFoodPickupEventsFn). Applying the drop to any other nav-grid group
+		// would teleport same-indexed instances in unrelated groups — scope
+		// strictly to the food-event owner.
+		if (!Group.bIsFoodEventIndexOwner) continue;
+
+		const TArray<FMassEntityHandle>* Entities = EntityGroups.Find(Group.Name);
+		if (!Entities || !Entities->IsValidIndex(FoodIdx)) continue;
+
+		// Skip drops targeting a tombstoned (despawned) slot — otherwise we'd
+		// push an ISMC transform and re-add a dead entity to the nav grid,
+		// making a just-despawned shadow visible to spatial queries again.
+		const FMassEntityHandle Handle = (*Entities)[FoodIdx];
+		if (!EntityManager.IsEntityValid(Handle)) continue;
 
 		// Keep ISMC transforms current — callback reads position from the ISMC.
 		FTransform T(FQuat::Identity, NewPos, Group.Scale);
@@ -1349,12 +1428,10 @@ void URustMassBevySubsystem::ApplyOneFoodDropEvent(int32 FoodIdx, const FVector&
 
 		if (Grid == nullptr) continue;
 
-		const TArray<FMassEntityHandle>* Entities = EntityGroups.Find(Group.Name);
-		if (!Entities || !Entities->IsValidIndex(FoodIdx)) continue;
 		if (!Group.GridCellLocations.IsValidIndex(FoodIdx)) continue;
 
 		FMassNavigationObstacleItem Item;
-		Item.Entity = (*Entities)[FoodIdx];
+		Item.Entity = Handle;
 		const FBox NewBounds = MakeGridItemBounds(NewPos);
 
 		if (Group.InGrid.IsValidIndex(FoodIdx) && Group.InGrid[FoodIdx])

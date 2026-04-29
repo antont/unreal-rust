@@ -183,8 +183,17 @@ private:
 		FVector Scale = FVector::OneVector;
 		UInstancedStaticMeshComponent* ISMC = nullptr;
 		/** When true, this group's entities are tracked in the navigation hash grid
-		 *  (populated at init, updated on food-drop events & pickup events). */
+		 *  (populated at init, updated on food-drop events & pickup events).
+		 *  Multiple groups may be nav-grid participants simultaneously — the per-group
+		 *  EntityToIndex map keeps query results scoped correctly. */
 		bool bOwnedByGridHash = false;
+		/** When true, this group owns the food-event instance-index space — pickups
+		 *  and drops from the Rust FFI (`get_food_pickup_events` / `get_food_drop_events`)
+		 *  carry a bare `food_index` with no group identifier, so only one group can
+		 *  be the authoritative owner. Set on the first group registered via
+		 *  TryMarkGridHashOwner; later groups participate in the grid but don't
+		 *  receive food events. */
+		bool bIsFoodEventIndexOwner = false;
 		/** Cached grid cell locations per instance, for incremental Move/Remove. */
 		TArray<FNavigationObstacleHashGrid2D::FCellLocation> GridCellLocations;
 		/** Per-instance: whether this entity currently has a grid cell location.
@@ -197,10 +206,11 @@ private:
 	/** Populate the navigation hash grid from the current instance transforms for a GridHash-owned group. */
 	void PopulateGridHashForGroup(FCollisionGroupEntry& Group);
 
-	/** Try to mark a group as the (single) GridHash owner and populate its grid entries.
-	 *  Returns false if the group doesn't exist or a *different* group is already the owner
-	 *  (see FoodPickupEvents/FoodDropEvents single-group constraint). Idempotent for the
-	 *  existing owner. LogPrefix labels the error message if a claim is refused. */
+	/** Mark a group as a nav-grid participant and populate its grid entries.
+	 *  Multiple groups may participate simultaneously — the first group registered
+	 *  also claims `bIsFoodEventIndexOwner` to retain the food-event FFI's single
+	 *  index-space guarantee. Returns false only if the group doesn't exist.
+	 *  Idempotent. LogPrefix is reserved for future diagnostics. */
 	bool TryMarkGridHashOwner(const FString& GroupName, const TCHAR* LogPrefix);
 
 	/** Remove the group's entries from the navigation hash grid (called on reset). */
@@ -209,9 +219,21 @@ private:
 	/** Drain Rust's food pickup + drop event queues and apply ISM-transform + grid-location updates. */
 	void ApplyFoodEvents();
 
+	/** Drain Rust's shadow-entity despawn queue: destroy the corresponding Mass entities
+	 *  and clean up nav hash grid entries. Leaves spawn-index slots in place as tombstones
+	 *  so downstream indexing (food events, nav cell arrays, ISMC transforms) stays stable.
+	 *  Called at the end of each RunSimulationProcessorStep so the next substep in the
+	 *  same tick sees a consistent Bevy/Mass view — deferring until after all substeps
+	 *  would leave just-despawned entities Mass-valid and spatial-query visible. */
+	void ApplyDespawnEvents();
+
 	/** Apply a single food-drop event across all collision groups. Shared body between
-	 *  the production FFI drain and the test-only `ApplyFoodDropEventForTesting` hook. */
-	void ApplyOneFoodDropEvent(int32 FoodIdx, const FVector& NewPos, FNavigationObstacleHashGrid2D* Grid);
+	 *  the production FFI drain and the test-only `ApplyFoodDropEventForTesting` hook.
+	 *  Validates the target entity handle against `EntityManager` before mutating ISMC
+	 *  transforms or the nav grid — a just-despawned shadow entity could otherwise be
+	 *  "revived" as a grid hit. */
+	void ApplyOneFoodDropEvent(int32 FoodIdx, const FVector& NewPos,
+		FNavigationObstacleHashGrid2D* Grid, FMassEntityManager& EntityManager);
 
 private:
 	UPROPERTY(Transient)

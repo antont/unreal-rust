@@ -3,10 +3,12 @@ use std::sync::Mutex;
 use unreal_api::ffi::{MassFragmentRequirement, MassSystemDescriptor, Utf8Str};
 use unreal_api::mass::{
     MassBevySystemRegistration, MassEntityMap, MassSchedule,
-    MassSystemRegistration, MassSystemStage,
-    effective_order, registered_bevy_mass_systems, registered_dispatch_hooks,
-    registered_entity_index_populations, registered_shadow_component_defaults,
-    registered_mass_systems, registered_sim_init_hooks, registered_sim_inits,
+    MassSystemRegistration, MassSystemStage, ShadowMember,
+    clear_despawn_cache, effective_order, intern_group_name,
+    register_shadow_despawn_observer, registered_bevy_mass_systems,
+    registered_dispatch_hooks, registered_entity_index_populations,
+    registered_shadow_component_defaults, registered_mass_systems,
+    registered_sim_init_hooks, registered_sim_inits,
     registered_visualizer_groups, registered_spatial_query_configs,
     registered_sim_defaults, resolved_schedule_orders, registered_app_plugins,
 };
@@ -290,6 +292,7 @@ fn reset_mass_schedule() {
     let mut guard = MASS_SCHEDULE.lock().unwrap();
     *guard = None;
     *APP_PLUGINS_BUILT.lock().unwrap() = false;
+    clear_despawn_cache();
 }
 
 /// Per-frame dispatch: update chunk resources and run the Bevy schedule.
@@ -517,18 +520,38 @@ pub unsafe extern "C" fn mass_init_simulation(
                     for reg in registered_app_plugins() {
                         (reg.build_fn)(sched.app_mut());
                     }
+                    // Framework-owned despawn bridge: watch `Remove` on the
+                    // `ShadowMember` marker inserted below, and push
+                    // `(group, index)` into `DESPAWN_CACHE` so C++ can mirror
+                    // the despawn into `FMassEntityManager` on the next tick.
+                    register_shadow_despawn_observer(sched.app_mut());
                     *built = true;
                 }
                 drop(built);
+
+                // Clear any stale despawn events from the prior simulation
+                // (hot-reload / test re-init). Spawn indices are group-scoped
+                // so we must not leak indices from an earlier group layout.
+                clear_despawn_cache();
 
                 let mut entity_map = MassEntityMap::default();
                 for (name_bytes, handles) in stored.iter() {
                     let name = std::str::from_utf8(&name_bytes[..name_bytes.len() - 1])
                         .unwrap_or("")
                         .to_string();
+                    let group_static = intern_group_name(&name);
                     let entities: Vec<unreal_api::ecs::entity::Entity> = handles
                         .iter()
-                        .map(|_| sched.world_mut().spawn_empty().id())
+                        .enumerate()
+                        .map(|(idx, _)| {
+                            sched
+                                .world_mut()
+                                .spawn(ShadowMember {
+                                    group: group_static,
+                                    index: idx as u32,
+                                })
+                                .id()
+                        })
                         .collect();
                     entity_map.insert_group(name, entities);
                 }

@@ -515,23 +515,23 @@ bool FGatherersBevyMassGridHashTwoQueriesOneGroupTest::RunTest(const FString& Pa
 }
 
 // ---------------------------------------------------------------------------
-// Regression: at most ONE group may be the GridHash owner.
+// Regression: multiple groups MAY be nav-grid participants, but only ONE may
+// be the food-event index-space owner.
 //
-// FoodPickupEvents / FoodDropEvents carry a bare instance index with no group
-// identifier — the index space is implicitly scoped to the single GridHash
-// owner. If two groups ever get marked bOwnedByGridHash, ApplyFoodEvents
-// applies each pickup/drop to *every* GridHash-owned group using the same
-// index, corrupting whichever group didn't originate the event. This test
-// simulates a second Rust spatial-query config trying to claim a second
-// group as GridHash-owned — the framework must refuse it.
+// Per-group EntityToIndex maps scope QuerySmall results correctly, so multiple
+// groups can co-participate in the hash grid (vivarium uses both birds and
+// insects). FoodPickupEvents / FoodDropEvents, however, still carry a bare
+// instance index with no group identifier — the index space is implicitly
+// scoped to a single group. The first group registered becomes the food-event
+// index owner; subsequent groups are grid-only participants.
 // ---------------------------------------------------------------------------
 
 IMPLEMENT_SIMPLE_AUTOMATION_TEST(
-	FGatherersBevyMassGridHashRefusesSecondOwnerTest,
-	"supplemental.RustPlugin.Gatherers.BevyMassGridHashRefusesSecondOwner",
+	FGatherersBevyMassGridHashMultiGroupTest,
+	"supplemental.RustPlugin.Gatherers.BevyMassGridHashMultiGroup",
 	EAutomationTestFlags::EditorContext | EAutomationTestFlags::EngineFilter)
 
-bool FGatherersBevyMassGridHashRefusesSecondOwnerTest::RunTest(const FString& Parameters)
+bool FGatherersBevyMassGridHashMultiGroupTest::RunTest(const FString& Parameters)
 {
 	UWorld* World = GEditor->GetEditorWorldContext().World();
 	if (!TestNotNull(TEXT("World must exist"), World)) return false;
@@ -539,23 +539,17 @@ bool FGatherersBevyMassGridHashRefusesSecondOwnerTest::RunTest(const FString& Pa
 	URustMassBevySubsystem* Subsystem = World->GetSubsystem<URustMassBevySubsystem>();
 	if (!TestNotNull(TEXT("RustMassBevySubsystem must exist"), Subsystem)) return false;
 
-	// The refused-claim path emits a Log.Error (intentionally loud; this is a
-	// framework-violation from Rust config). Tell the automation framework
-	// to expect it so the log message doesn't fail the test on its own.
-	AddExpectedError(TEXT("refused GridHash ownership for group 'ants'"),
-		EAutomationExpectedErrorFlags::Contains, 1);
-
 	// After InitializeSimulation the "food" group is already the sole GridHash
-	// owner (registered by the default gatherers sim). Try to mark "ants" as
-	// a *second* GridHash owner — must be refused.
+	// owner + food-event index owner. Mark "ants" as a second grid participant —
+	// must be accepted, but food-event index ownership stays with "food".
 	const FBox Bounds(FVector(-500.0, -500.0, 0.0), FVector(500.0, 500.0, 100.0));
 	Subsystem->InitializeSimulation({{TEXT("ants"), 3}, {TEXT("food"), 5}}, Bounds, 42);
 
 	const bool bAcceptedSecond = Subsystem->TryMarkGridHashOwnerForTesting(TEXT("ants"));
-	AddInfo(FString::Printf(TEXT("[SecondOwner] TryMarkGridHashOwner('ants') returned %s (expected false)"),
+	AddInfo(FString::Printf(TEXT("[MultiGroup] TryMarkGridHashOwner('ants') returned %s (expected true)"),
 		bAcceptedSecond ? TEXT("true") : TEXT("false")));
 
-	TestFalse(TEXT("Framework must refuse a second GridHash-owned group"), bAcceptedSecond);
+	TestTrue(TEXT("Framework must accept a second GridHash grid participant"), bAcceptedSecond);
 
 	Subsystem->ResetSimulation();
 	return true;

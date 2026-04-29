@@ -650,6 +650,26 @@ using GetDecisionCountersFn = void(*)(DecisionCounters *out);
 
 using ResetDecisionCountersFn = void(*)();
 
+/// A shadow despawn event: one shadow Bevy entity was removed by
+/// `commands.entity(e).despawn()` inside a `#[mass_system]`. C++ drains
+/// these at the end of each `RunSimulationProcessorStep()` — inside the
+/// substep loop so later substeps in the same tick don't see a
+/// just-despawned entity as Mass-valid — to destroy the matching
+/// `FMassEntityHandle` and remove the instance from nav-hash-grid-owned
+/// groups.
+///
+/// `group` borrows a `'static` interned string owned by the Rust dylib —
+/// valid until drained. `index` is the spawn-order index used by
+/// `EntityGroups[GroupName]`.
+struct MassDespawnedShadow {
+  Utf8Str group;
+  uint32_t index;
+  uint32_t _pad;
+};
+
+/// Framework-owned despawn bridge. See `unreal-api::mass::ShadowMember`.
+using GetDespawnedShadowsFn = uint32_t(*)(MassDespawnedShadow *out, uint32_t max);
+
 struct RustBindings {
   TickFn tick;
   BeginPlayFn begin_play;
@@ -671,6 +691,7 @@ struct RustBindings {
   Option<GetFoodPickupEventsFn> get_food_pickup_events;
   Option<GetDecisionCountersFn> get_decision_counters;
   Option<ResetDecisionCountersFn> reset_decision_counters;
+  Option<GetDespawnedShadowsFn> get_despawned_shadows;
 };
 
 using EntryUnrealBindingsFn = uint32_t(*)(UnrealBindings bindings);
@@ -806,7 +827,7 @@ static_assert(sizeof(FScriptArrayFns) == 104, "FScriptArrayFns: 13 fn ptrs");
 // --- Binding structs ---
 static_assert(sizeof(UnrealBindings) == 216,
     "UnrealBindings: LogFn(8) + CoreFns(72) + FStringFns(24) + FScriptArrayFns(104) + Option<SpawnEntitiesFn>(8)");
-static_assert(sizeof(RustBindings) == 160, "RustBindings: 7 fn ptrs + 13 Option<fn ptr> = 20 pointers");
+static_assert(sizeof(RustBindings) == 168, "RustBindings: 7 fn ptrs + 14 Option<fn ptr> = 21 pointers");
 static_assert(sizeof(PluginBindings) == 32, "PluginBindings: 4 fn ptrs");
 
 // --- Mass Entity types ---
@@ -928,4 +949,12 @@ static_assert(sizeof(Option<ResetDecisionCountersFn>) == sizeof(void*),
 // --- Sim defaults ---
 static_assert(sizeof(MassSimDefaultsDesc) == 72, "MassSimDefaultsDesc");
 static_assert(alignof(MassSimDefaultsDesc) == 8, "MassSimDefaultsDesc alignment");
+
+// --- Despawn bridge ---
+static_assert(sizeof(MassDespawnedShadow) == 24, "MassDespawnedShadow: Utf8Str(16) + u32 + u32");
+static_assert(alignof(MassDespawnedShadow) == 8, "MassDespawnedShadow alignment");
+static_assert(offsetof(MassDespawnedShadow, group) == 0, "MassDespawnedShadow.group offset");
+static_assert(offsetof(MassDespawnedShadow, index) == 16, "MassDespawnedShadow.index offset");
+static_assert(sizeof(Option<GetDespawnedShadowsFn>) == sizeof(void*),
+    "Option<fn ptr> must be pointer-sized (Rust niche optimization)");
 

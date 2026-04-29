@@ -31,6 +31,8 @@ fn main() {
         .include_item("DecisionCounters")
         .include_item("GetDecisionCountersFn")
         .include_item("ResetDecisionCountersFn")
+        .include_item("MassDespawnedShadow")
+        .include_item("GetDespawnedShadowsFn")
         .with_pragma_once(true)
         .generate()
         .expect("Unable to generate bindings")
@@ -115,7 +117,7 @@ static_assert(sizeof(FScriptArrayFns) == 104, "FScriptArrayFns: 13 fn ptrs");
 // --- Binding structs ---
 static_assert(sizeof(UnrealBindings) == 216,
     "UnrealBindings: LogFn(8) + CoreFns(72) + FStringFns(24) + FScriptArrayFns(104) + Option<SpawnEntitiesFn>(8)");
-static_assert(sizeof(RustBindings) == 160, "RustBindings: 7 fn ptrs + 13 Option<fn ptr> = 20 pointers");
+static_assert(sizeof(RustBindings) == 168, "RustBindings: 7 fn ptrs + 14 Option<fn ptr> = 21 pointers");
 static_assert(sizeof(PluginBindings) == 32, "PluginBindings: 4 fn ptrs");
 
 // --- Mass Entity types ---
@@ -237,5 +239,13 @@ static_assert(sizeof(Option<ResetDecisionCountersFn>) == sizeof(void*),
 // --- Sim defaults ---
 static_assert(sizeof(MassSimDefaultsDesc) == 72, "MassSimDefaultsDesc");
 static_assert(alignof(MassSimDefaultsDesc) == 8, "MassSimDefaultsDesc alignment");
+
+// --- Despawn bridge ---
+static_assert(sizeof(MassDespawnedShadow) == 24, "MassDespawnedShadow: Utf8Str(16) + u32 + u32");
+static_assert(alignof(MassDespawnedShadow) == 8, "MassDespawnedShadow alignment");
+static_assert(offsetof(MassDespawnedShadow, group) == 0, "MassDespawnedShadow.group offset");
+static_assert(offsetof(MassDespawnedShadow, index) == 16, "MassDespawnedShadow.index offset");
+static_assert(sizeof(Option<GetDespawnedShadowsFn>) == sizeof(void*),
+    "Option<fn ptr> must be pointer-sized (Rust niche optimization)");
 "#).expect("Failed to write static_asserts to Bindings.h");
 }

@@ -164,6 +164,7 @@ inventory::submit!(unreal_api::mass::MassExternBinding {
     get_food_pickup_events: Some(get_food_pickup_events),
     get_decision_counters: Some(get_decision_counters),
     reset_decision_counters: Some(reset_decision_counters),
+    get_despawned_shadows: None,
 });
 
 // ---------------------------------------------------------------------------

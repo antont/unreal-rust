@@ -2011,12 +2011,16 @@ pub fn prepare_mass_frame() {
 /// Framework folds over these to fill `Option` fields in `RustBindings`.
 ///
 /// Add new game FFI functions as additional `Option<Fn>` fields here.
-/// If this grows past ~3 fields, consider generalizing to an inventory-keyed dispatch map.
 pub struct MassExternBinding {
     pub get_food_drop_events: Option<unreal_ffi::GetFoodDropEventsFn>,
     pub get_food_pickup_events: Option<unreal_ffi::GetFoodPickupEventsFn>,
     pub get_decision_counters: Option<unreal_ffi::GetDecisionCountersFn>,
     pub reset_decision_counters: Option<unreal_ffi::ResetDecisionCountersFn>,
+    /// Framework-owned despawn bridge — registered unconditionally from
+    /// `unreal-api::mass` so any `#[mass_system]` that calls
+    /// `commands.entity(e).despawn()` on a shadow entity is mirrored into
+    /// the UE `FMassEntityManager` side. C++ drains via `ApplyDespawnEvents`.
+    pub get_despawned_shadows: Option<unreal_ffi::GetDespawnedShadowsFn>,
 }
 
 inventory::collect!(MassExternBinding);
@@ -2024,6 +2028,128 @@ inventory::collect!(MassExternBinding);
 pub fn registered_extern_bindings() -> inventory::iter<MassExternBinding> {
     inventory::iter::<MassExternBinding>
 }
+
+// ---------------------------------------------------------------------------
+// Bevy→Mass despawn bridge
+// ---------------------------------------------------------------------------
+//
+// Problem: a `#[mass_system]` that runs `commands.entity(e).despawn()` tears
+// the entity out of the Bevy shadow world, but the parallel UE
+// `FMassEntityManager` never learns of it. Without this bridge the chunk-side
+// handle stays "live", nav-grid queries keep returning the ghost, and the
+// same despawn command replays every tick.
+//
+// Each shadow entity carries a `ShadowMember { group, index }` component
+// (inserted at init in `mass_system_registry::mass_init_simulation`). A Bevy
+// `On<Remove, ShadowMember>` observer fires the moment a despawn command
+// flushes, pushing `(group, index)` into `DESPAWN_CACHE`. C++ drains the
+// cache via `get_despawned_shadows` at the end of each
+// `RunSimulationProcessorStep()` — inside the substep loop so later substeps
+// in the same tick don't see a just-despawned entity as Mass-valid — and
+// calls `FMassEntityManager::DestroyEntity` + nav-grid removal.
+//
+// O(1) per despawn. Zero cost for sims that never despawn.
+
+/// Marker component on every shadow Bevy entity that mirrors a Mass entity.
+/// Inserted at `mass_init_simulation` with the group name (interned to a
+/// `'static str`) and the spawn-order index.
+#[derive(bevy_ecs::prelude::Component, Clone, Copy, Debug)]
+pub struct ShadowMember {
+    pub group: &'static str,
+    pub index: u32,
+}
+
+#[derive(Clone, Copy, Debug)]
+pub struct DespawnedShadow {
+    pub group: &'static str,
+    pub index: u32,
+}
+
+static DESPAWN_CACHE: std::sync::Mutex<Vec<DespawnedShadow>> =
+    std::sync::Mutex::new(Vec::new());
+
+/// Group-name interner. Shadow entities live across hot-reload cycles so
+/// their `group` field must be `'static`. We intern on first encounter to
+/// keep allocation bounded — group names are plan-time constants like
+/// `"insects"`, `"birds"`, `"ants"`, so this set stays tiny.
+static INTERNED_GROUP_NAMES: std::sync::Mutex<Vec<&'static str>> =
+    std::sync::Mutex::new(Vec::new());
+
+pub fn intern_group_name(name: &str) -> &'static str {
+    let mut table = INTERNED_GROUP_NAMES.lock().unwrap();
+    if let Some(&existing) = table.iter().find(|s| **s == name) {
+        return existing;
+    }
+    let leaked: &'static str = Box::leak(name.to_string().into_boxed_str());
+    table.push(leaked);
+    leaked
+}
+
+/// Register the `Remove` observer on the shadow App. Called once per schedule
+/// lifetime alongside `registered_app_plugins` (same gate).
+pub fn register_shadow_despawn_observer(app: &mut bevy_app::App) {
+    use bevy_ecs::lifecycle::Remove;
+    use bevy_ecs::observer::On;
+    app.add_observer(
+        |event: On<Remove, ShadowMember>,
+         query: bevy_ecs::prelude::Query<&ShadowMember>| {
+            if let Ok(s) = query.get(event.entity) {
+                DESPAWN_CACHE.lock().unwrap().push(DespawnedShadow {
+                    group: s.group,
+                    index: s.index,
+                });
+            }
+        },
+    );
+}
+
+/// Clear pending despawn events. Called when the global schedule is reset
+/// (hot-reload / tests) so stale `(group, index)` pairs don't leak across
+/// simulations that may have different spawn counts.
+pub fn clear_despawn_cache() {
+    DESPAWN_CACHE.lock().unwrap().clear();
+}
+
+/// FFI drain: C++ calls this at the end of each `RunSimulationProcessorStep()`
+/// to learn about shadow despawns that flushed during the just-completed
+/// substep, so the next substep in the same tick sees a consistent Bevy/Mass
+/// view. Same batched-loop contract as `get_food_drop_events`.
+pub unsafe extern "C" fn get_despawned_shadows(
+    out: *mut unreal_ffi::MassDespawnedShadow,
+    max: u32,
+) -> u32 {
+    if out.is_null() || max == 0 {
+        return 0;
+    }
+    let mut cache = DESPAWN_CACHE.lock().unwrap();
+    let count = cache.len().min(max as usize);
+    for (i, ev) in cache.iter().take(count).enumerate() {
+        let group_bytes = ev.group.as_bytes();
+        unsafe {
+            std::ptr::write(
+                out.add(i),
+                unreal_ffi::MassDespawnedShadow {
+                    group: unreal_ffi::Utf8Str {
+                        ptr: group_bytes.as_ptr() as *const std::os::raw::c_char,
+                        len: group_bytes.len(),
+                    },
+                    index: ev.index,
+                    _pad: 0,
+                },
+            );
+        }
+    }
+    cache.drain(..count);
+    count as u32
+}
+
+inventory::submit!(MassExternBinding {
+    get_food_drop_events: None,
+    get_food_pickup_events: None,
+    get_decision_counters: None,
+    reset_decision_counters: None,
+    get_despawned_shadows: Some(get_despawned_shadows),
+});
 
 // ---------------------------------------------------------------------------
 // Spatial query config registration

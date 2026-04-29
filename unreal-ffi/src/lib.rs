@@ -32,6 +32,7 @@ impl FRustString {
 }
 
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct Utf8Str {
     pub ptr: *const c_char,
     pub len: usize,
@@ -329,6 +330,29 @@ pub type GetFoodDropEventsFn = unsafe extern "C" fn(out: *mut FoodDropEvent, max
 /// Same single-group constraint as `GetFoodDropEventsFn` above — `out` entries
 /// are bare instance indices into the sole GridHash-owned group.
 pub type GetFoodPickupEventsFn = unsafe extern "C" fn(out: *mut i32, max: u32) -> u32;
+
+/// A shadow despawn event: one shadow Bevy entity was removed by
+/// `commands.entity(e).despawn()` inside a `#[mass_system]`. C++ drains
+/// these at the end of each `RunSimulationProcessorStep()` — inside the
+/// substep loop so later substeps in the same tick don't see a
+/// just-despawned entity as Mass-valid — to destroy the matching
+/// `FMassEntityHandle` and remove the instance from nav-hash-grid-owned
+/// groups.
+///
+/// `group` borrows a `'static` interned string owned by the Rust dylib —
+/// valid until drained. `index` is the spawn-order index used by
+/// `EntityGroups[GroupName]`.
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct MassDespawnedShadow {
+    pub group: Utf8Str,
+    pub index: u32,
+    pub _pad: u32,
+}
+
+/// Framework-owned despawn bridge. See `unreal-api::mass::ShadowMember`.
+pub type GetDespawnedShadowsFn =
+    unsafe extern "C" fn(out: *mut MassDespawnedShadow, max: u32) -> u32;
 
 /// Diagnostic counters for the `ant_food_decision` system. Populated each frame
 /// inside the Rust sim; tests read these via the loader's `RustBindings` to
@@ -690,6 +714,7 @@ pub struct RustBindings {
     pub get_food_pickup_events: Option<GetFoodPickupEventsFn>,
     pub get_decision_counters: Option<GetDecisionCountersFn>,
     pub reset_decision_counters: Option<ResetDecisionCountersFn>,
+    pub get_despawned_shadows: Option<GetDespawnedShadowsFn>,
 }
 
 impl RustBindings {
@@ -750,6 +775,7 @@ impl RustBindings {
             get_food_pickup_events: None,
             get_decision_counters: None,
             reset_decision_counters: None,
+            get_despawned_shadows: None,
         }
     }
 }
@@ -1066,11 +1092,11 @@ mod tests {
 
     #[test]
     fn rust_bindings_has_mass_bob_process_field() {
-        // RustBindings: 7 non-optional fn ptrs + 13 Option<fn ptr> = 20 pointers.
+        // RustBindings: 7 non-optional fn ptrs + 14 Option<fn ptr> = 21 pointers.
         // Must match the C++ static_assert in unreal-ffi/build.rs.
         let size = std::mem::size_of::<RustBindings>();
-        assert_eq!(size, 20 * std::mem::size_of::<usize>(),
-            "actual size = {}, expected = {}", size, 20 * std::mem::size_of::<usize>());
+        assert_eq!(size, 21 * std::mem::size_of::<usize>(),
+            "actual size = {}, expected = {}", size, 21 * std::mem::size_of::<usize>());
     }
 
     #[test]
@@ -1298,6 +1324,23 @@ mod tests {
         assert_eq!(std::mem::align_of::<FoodDropEvent>(), 8);
         assert_eq!(std::mem::offset_of!(FoodDropEvent, food_index), 0);
         assert_eq!(std::mem::offset_of!(FoodDropEvent, position), 8);
+    }
+
+    #[test]
+    fn mass_despawned_shadow_layout() {
+        // Utf8Str(16) + u32(4) + u32(4) = 24
+        assert_eq!(std::mem::size_of::<MassDespawnedShadow>(), 24);
+        assert_eq!(std::mem::align_of::<MassDespawnedShadow>(), 8);
+        assert_eq!(std::mem::offset_of!(MassDespawnedShadow, group), 0);
+        assert_eq!(std::mem::offset_of!(MassDespawnedShadow, index), 16);
+    }
+
+    #[test]
+    fn get_despawned_shadows_fn_is_option_safe() {
+        assert_eq!(
+            std::mem::size_of::<Option<GetDespawnedShadowsFn>>(),
+            std::mem::size_of::<*const ()>(),
+        );
     }
 
     #[test]
