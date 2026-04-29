@@ -74,6 +74,11 @@ pub mod prelude {
         SpatialGrids, SpatialHit, SpatialNeighbor, SpatialQueries, SpatialQuery,
     };
 
+    // Spatial group plugin for entity grouping by spatial locality
+    pub use crate::spatial_group::{
+        SpatialGroupEntry, SpatialGroupPlugin, SpatialGroupRegistry, SpatialGroupSet,
+    };
+
     // mass_system attribute macro — available unconditionally.
     // In Bevy mode it's a no-op (passes through the original function).
     // In Unreal mode it generates chunk-based dispatch + C++ wrappers.
@@ -108,6 +113,7 @@ pub use components::{Transform, Velocity, SimpleMovementTag};
 pub use movement::{TransformLike, PrevTranslationLike, VelocityLike, MovementPlugin};
 pub use query_all::EntityIndex;
 pub use spatial_query::{SpatialGrids, SpatialHit, SpatialNeighbor, SpatialQueries, SpatialQuery};
+pub use spatial_group::{SpatialGroupEntry, SpatialGroupPlugin, SpatialGroupRegistry, SpatialGroupSet};
 
 /// Define a MassFragment struct with correct attributes for both Bevy and Unreal modes.
 ///
