@@ -33,11 +33,18 @@ inventory::submit!(unreal_api::mass::MassAppPluginRegistration {
 // Bevy schedule dispatch, so no Rust movement system is listed here.
 // `flocking_system` runs in `SpatialGroupSet::Query` after the framework
 // rebuilds the grid (Bevy mode) or consults UE's hash grid (UE mode).
+// `hunt_system` runs before eating so a diving bird's velocity decision
+// is reflected this tick; `eating_system` runs after hunt so a bird that
+// just entered dive-range of a target can eat it same tick. Both run
+// before `boundary_force_system` so despawned insects don't integrate a
+// final position at the bounds.
 inventory::submit!(unreal_api::mass::MassScheduleOrder {
     systems: &[
         "brownian_motion_system",
         "wander_system",
         "flocking_system",
+        "hunt_system",
+        "eating_system",
         "boundary_force_system",
     ],
 });

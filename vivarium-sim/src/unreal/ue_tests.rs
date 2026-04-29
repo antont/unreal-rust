@@ -72,6 +72,58 @@ fn birds_flock_and_stay_bounded(ctx: &TestCtx) {
 }
 
 // ---------------------------------------------------------------------------
+// BirdsHuntAndEat — end-to-end check that `hunt_system` + `eating_system`
+// run in UE mode: 20 birds amongst 200 insects over 5 sim-seconds should
+// result in at least one insect eaten, and no bird should die (birds
+// don't die in Phase 2b). Guards against the Predator fragment not
+// being spawned, hunt/eating not being in the schedule, or
+// `BirdHuntStates` / `SpatialQueries` not being wired in UE mode.
+// ---------------------------------------------------------------------------
+
+inventory::submit!(MassTestRegistration {
+    name: "VivariumBirdsHuntAndEat",
+    test_fn: birds_hunt_and_eat,
+});
+
+fn birds_hunt_and_eat(ctx: &TestCtx) {
+    const BIRDS: i32 = 20;
+    const INSECTS: i32 = 200;
+    let bounds_min = [-200.0, -200.0, -200.0];
+    let bounds_max = [200.0, 200.0, 200.0];
+    ctx.init_sim(
+        &[("insects", INSECTS), ("birds", BIRDS)],
+        bounds_min,
+        bounds_max,
+        123,
+    );
+
+    let initial_insects = ctx.entity_count("insects");
+    assert_eq!(
+        initial_insects, INSECTS,
+        "expected {INSECTS} insects spawned, got {initial_insects}",
+    );
+    assert_eq!(ctx.entity_count("birds"), BIRDS);
+
+    // 5 sim-seconds @ 1/60s. With 20 birds hunting 200 insects in a small
+    // 400-unit cube, at least one dive-to-eat should resolve.
+    ctx.step(1.0 / 60.0, 300);
+
+    let after_insects = ctx.entity_count("insects");
+    assert!(
+        after_insects < initial_insects,
+        "expected at least one insect eaten over 5 sim-seconds: \
+         before={initial_insects}, after={after_insects}",
+    );
+    assert_eq!(
+        ctx.entity_count("birds"),
+        BIRDS,
+        "birds should not die in Phase 2b",
+    );
+
+    ctx.reset();
+}
+
+// ---------------------------------------------------------------------------
 // SpawnAndSimulate — basic lifecycle: init, step, observe motion, reset.
 // ---------------------------------------------------------------------------
 

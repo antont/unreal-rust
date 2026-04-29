@@ -9,8 +9,8 @@
 
 use crate::components::*;
 use crate::config::{
-    ALIGNMENT_WEIGHT, BIRD_SPEED, BIRD_WANDER_STRENGTH, COHESION_WEIGHT, INSECT_SPEED,
-    INSECT_WANDER_STRENGTH, SEPARATION_WEIGHT,
+    ALIGNMENT_WEIGHT, BIRD_SIGHT_HALF_ANGLE, BIRD_SIGHT_RANGE, BIRD_SPEED, BIRD_WANDER_STRENGTH,
+    COHESION_WEIGHT, INSECT_SPEED, INSECT_WANDER_STRENGTH, SEPARATION_WEIGHT,
 };
 use bevy_mass::prelude::DVec3;
 use unreal_api::mass::EntityArchetype;
@@ -108,6 +108,7 @@ fn spawn_birds(
         .fragment::<Velocity>()
         .fragment::<Wander>()
         .fragment::<Flocking>()
+        .fragment::<Predator>()
         .tag::<Bird>()
         .tag::<BoundaryWrap>()
         .tag::<SimpleMovementTag>() // Required by UMassSimpleMovementProcessor.
@@ -136,6 +137,10 @@ fn spawn_birds(
                 separation_weight: SEPARATION_WEIGHT as f32,
                 alignment_weight: ALIGNMENT_WEIGHT as f32,
                 cohesion_weight: COHESION_WEIGHT as f32,
+            });
+            writer.set(&Predator {
+                sight_range: BIRD_SIGHT_RANGE,
+                sight_half_angle: BIRD_SIGHT_HALF_ANGLE,
             });
         })
 }
