@@ -40,6 +40,19 @@ void URustMassScheduleCoordinator::SetSpatialQuerySlots(
 	}
 }
 
+void URustMassScheduleCoordinator::SetSpatialEnumerateSlots(
+	TArray<MassSpatialEnumerateSlot> InSlots,
+	TArray<TArray<char>> InNameBuffers)
+{
+	SpatialEnumerateNameBuffers = MoveTemp(InNameBuffers);
+	SpatialEnumerateSlots = MoveTemp(InSlots);
+	// Fix up name pointers to point into our owned buffers
+	for (int32 i = 0; i < SpatialEnumerateSlots.Num(); ++i)
+	{
+		SpatialEnumerateSlots[i].name.ptr = SpatialEnumerateNameBuffers[i].GetData();
+	}
+}
+
 void URustMassScheduleCoordinator::ConfigureQueries(const TSharedRef<FMassEntityManager>& EntityManager)
 {
 	// No queries of our own — the dynamic processors own the queries.
@@ -92,9 +105,9 @@ void URustMassScheduleCoordinator::Execute(FMassEntityManager& EntityManager, FM
 	Data.num_systems = static_cast<uint32>(Batches.Num());
 	Data.systems = Batches.GetData();
 	Data.num_spatial_queries = static_cast<uint32>(SpatialQuerySlots.Num());
-	Data.num_spatial_enumerates = 0; // TODO Task 3.3: populate from SpatialEnumerates
+	Data.num_spatial_enumerates = static_cast<uint32>(SpatialEnumerateSlots.Num());
 	Data.spatial_queries = SpatialQuerySlots.GetData();
-	Data.spatial_enumerates = nullptr;
+	Data.spatial_enumerates = SpatialEnumerateSlots.GetData();
 
 	LastDispatchFlags = DispatchFn(&Data);
 }

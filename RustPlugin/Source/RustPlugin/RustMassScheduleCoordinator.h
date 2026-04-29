@@ -30,6 +30,9 @@ public:
 	/// Set the spatial query slots for collision detection.
 	void SetSpatialQuerySlots(TArray<MassSpatialQuerySlot> InSlots, TArray<TArray<char>> InNameBuffers);
 
+	/// Set the spatial enumerate slots for GridHashEnumerate queries.
+	void SetSpatialEnumerateSlots(TArray<MassSpatialEnumerateSlot> InSlots, TArray<TArray<char>> InNameBuffers);
+
 
 protected:
 	virtual void ConfigureQueries(const TSharedRef<FMassEntityManager>& EntityManager) override;
@@ -44,5 +47,7 @@ private:
 	uint32 LastDispatchFlags = 0;
 	TArray<MassSpatialQuerySlot> SpatialQuerySlots;
 	TArray<TArray<char>> SpatialQueryNameBuffers; // Owns name string data for SpatialQuerySlots
+	TArray<MassSpatialEnumerateSlot> SpatialEnumerateSlots;
+	TArray<TArray<char>> SpatialEnumerateNameBuffers; // Owns name string data for SpatialEnumerateSlots
 	TArray<URustMassDynamicProcessor*> ManagedProcessors;
 };

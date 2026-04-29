@@ -835,6 +835,45 @@ bool URustMassBevySubsystem::EnsureProcessorPipelines(UMassEntitySubsystem& Mass
 			}
 			ScheduleCoordinator->SetSpatialQuerySlots(MoveTemp(Slots), MoveTemp(NameBuffers));
 		}
+
+		// Build spatial enumerate slots from registered enumerates (SpatialGroupPlugin).
+		if (SpatialEnumerates.Num() > 0)
+		{
+			TArray<MassSpatialEnumerateSlot> Slots;
+			TArray<TArray<char>> NameBuffers;
+			int32 SlotIdx = 0;
+			for (auto& Pair : SpatialEnumerates)
+			{
+				if (SlotIdx >= RustMassSpatialEnumerate::MaxEnumerates)
+				{
+					UE_LOG(LogTemp, Error, TEXT("RustMassBevySubsystem: Too many spatial enumerates (%d), max is %d. Excess enumerates will be silently ignored — increase MaxEnumerates."),
+						SpatialEnumerates.Num(), RustMassSpatialEnumerate::MaxEnumerates);
+					ensureMsgf(false, TEXT("Spatial enumerate count %d exceeds MaxEnumerates %d"), SpatialEnumerates.Num(), RustMassSpatialEnumerate::MaxEnumerates);
+					break;
+				}
+
+				// Store the trampoline index in the entry for stable callback mapping
+				// (bound at tick time in RunSimulationProcessorStep — sweep pattern).
+				Pair.Value.TrampolineIndex = SlotIdx;
+
+				// Convert name to UTF-8 and store in a persistent buffer
+				FTCHARToUTF8 Converter(*Pair.Key);
+				TArray<char> NameBuf;
+				NameBuf.Append(Converter.Get(), Converter.Length());
+				NameBuf.Add(0); // null-terminate
+
+				MassSpatialEnumerateSlot Slot = {};
+				Slot.name.ptr = nullptr; // fixed up by coordinator after move
+				Slot.name.len = Converter.Length();
+				Slot.enumerate_fn = RustMassSpatialEnumerate::TrampolineFns[SlotIdx];
+				Slot.radius = Pair.Value.Radius;
+				Slots.Add(Slot);
+				NameBuffers.Add(MoveTemp(NameBuf));
+				++SlotIdx;
+			}
+			ScheduleCoordinator->SetSpatialEnumerateSlots(MoveTemp(Slots), MoveTemp(NameBuffers));
+		}
+
 		SimProcessors.Add(ScheduleCoordinator);
 	}
 
@@ -894,6 +933,16 @@ void URustMassBevySubsystem::RunSimulationProcessorStep(float SimulatedDeltaTime
 		}
 	}
 
+	// Set spatial enumerate trampoline contexts using stored indices
+	for (auto& Pair : SpatialEnumerates)
+	{
+		const int32 Idx = Pair.Value.TrampolineIndex;
+		if (Idx >= 0 && Idx < RustMassSpatialEnumerate::MaxEnumerates)
+		{
+			RustMassSpatialEnumerate::ActiveCallbacks[Idx] = &Pair.Value.Callback;
+		}
+	}
+
 	FMassEntityManager& EntityManager = MassEntitySubsystem->GetMutableEntityManager();
 	FMassProcessingContext SimulationContext(EntityManager, SimulatedDeltaTime);
 	{
@@ -905,6 +954,10 @@ void URustMassBevySubsystem::RunSimulationProcessorStep(float SimulatedDeltaTime
 	for (int32 i = 0; i < RustMassSpatialQuery::MaxQueries; ++i)
 	{
 		RustMassSpatialQuery::ActiveCallbacks[i] = nullptr;
+	}
+	for (int32 i = 0; i < RustMassSpatialEnumerate::MaxEnumerates; ++i)
+	{
+		RustMassSpatialEnumerate::ActiveCallbacks[i] = nullptr;
 	}
 
 	// Per-step GridHash callback stats (opt-in via UNREAL_RUST_MASS_TIMING=1, same gate
