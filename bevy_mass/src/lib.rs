@@ -36,6 +36,7 @@ pub mod components;
 pub mod movement;
 pub mod query_all;
 pub mod spatial_query;
+pub mod spatial_group;
 
 pub mod prelude {
     pub use crate::time::Time;
