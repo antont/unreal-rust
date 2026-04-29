@@ -3,6 +3,7 @@ pub mod boundary;
 pub mod brownian;
 pub mod components;
 pub mod config;
+pub mod eating;
 pub mod hunt;
 
 #[cfg(feature = "unreal")]
