@@ -14,6 +14,7 @@ path = "src/bin/gen_fragments.rs"
 required-features = ["unreal"]
 
 [dependencies]
+bevy_app = "0.18"
 bevy_mass = { path = "../bevy_mass", default-features = false }
 bevy_ecs = "0.18"
 glam = "0.29"
