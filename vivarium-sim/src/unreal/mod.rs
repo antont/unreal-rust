@@ -19,17 +19,24 @@ inventory::submit!(unreal_api::mass::MassSimInitRegistration {
     init_fn: init::init_simulation,
 });
 
+// App-level Bevy plugins installed into the shadow MassSchedule before
+// entities are spawned. Same function the standalone `main.rs` calls
+// directly, so standalone and UE register the same plugin set from a
+// single source of truth.
+inventory::submit!(unreal_api::mass::MassAppPluginRegistration {
+    build_fn: crate::install_plugins,
+});
+
 // Explicit pipeline order. Insect brownian + bird wander / flocking run
 // before the boundary force field clamps/repels near the bounds. Position
 // integration is performed by C++ `UMassSimpleMovementProcessor` after the
 // Bevy schedule dispatch, so no Rust movement system is listed here.
-// `rebuild_bird_grid_system` must run before `flocking_system` so
-// `SpatialQueries::neighbors_within("birds", ...)` sees the current frame.
+// `flocking_system` runs in `SpatialGroupSet::Query` after the framework
+// rebuilds the grid (Bevy mode) or consults UE's hash grid (UE mode).
 inventory::submit!(unreal_api::mass::MassScheduleOrder {
     systems: &[
         "brownian_motion_system",
         "wander_system",
-        "rebuild_bird_grid_system",
         "flocking_system",
         "boundary_force_system",
     ],
@@ -48,22 +55,6 @@ inventory::submit!(unreal_api::mass::MassVisualizerGroupRegistration {
     position_fragment_type: "FTransformFragment",
     position_offset: std::mem::offset_of!(crate::components::Transform, translation),
     scale: 1.0,
-});
-
-// Spatial-query config for the `"birds"` group. Lets the UE navigation hash
-// grid track bird positions so a future `enumerate_in_radius` FFI can serve
-// `SpatialQueries::neighbors_within("birds", ...)` from the C++ side. Until
-// that FFI lands, `flocking_system` falls back to the Rust-side
-// `SpatialGrids` resource populated by `rebuild_bird_grid_system`.
-inventory::submit!(unreal_api::mass::MassSpatialQueryConfigRegistration {
-    query_name: "birds",
-    query_group: "birds",
-    radius: crate::config::FLOCK_NEIGHBOR_RADIUS as f32,
-    query_type: unreal_api::mass::MassSpatialQueryType::GridHash,
-    collision_channel_index: 0,
-    filter_fragment_type: "",
-    filter_bool_offset: 0,
-    filter_bool_must_be: false,
 });
 
 // Defaults for PIE spawning — editable on the level actor UPROPERTY.
@@ -125,19 +116,6 @@ mod tests {
             .expect("visualizer group 'birds' must be registered");
         assert_eq!(birds.position_fragment_type, "FTransformFragment");
         assert_eq!(birds.scale, 1.0);
-    }
-
-    #[test]
-    fn bird_spatial_query_config_registered() {
-        let configs: Vec<_> = unreal_api::mass::registered_spatial_query_configs()
-            .into_iter()
-            .collect();
-        let c = configs
-            .iter()
-            .find(|c| c.query_group == "birds")
-            .expect("MassSpatialQueryConfigRegistration 'birds' must be registered");
-        assert_eq!(c.query_name, "birds");
-        assert_eq!(c.radius, crate::config::FLOCK_NEIGHBOR_RADIUS as f32);
     }
 
     #[test]
