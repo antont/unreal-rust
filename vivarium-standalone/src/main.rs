@@ -14,9 +14,8 @@
 use bevy::prelude::*;
 use bevy::render::view::screenshot::{save_to_disk, Screenshot};
 use bevy_mass::MovementPlugin;
-use bevy_mass::spatial_query::SpatialGrids;
 use glam::DVec3;
-use vivarium_sim::bird::{flocking_system, rebuild_bird_grid_system, wander_system};
+use vivarium_sim::bird::{flocking_system, wander_system};
 use vivarium_sim::boundary::boundary_force_system;
 use vivarium_sim::brownian::brownian_motion_system;
 use vivarium_sim::components::{
@@ -85,9 +84,14 @@ fn main() {
         .add_plugins(MovementPlugin::<SimTransform, PreviousTranslation, Velocity>::default())
         .insert_resource(capture)
         .insert_resource(SimBounds::default())
-        .insert_resource(SpatialGrids::default())
-        .init_resource::<FrameCounter>()
-        .add_systems(
+        .init_resource::<FrameCounter>();
+
+    // Install sim-owned plugins (SpatialGroupPlugin::<Bird, Transform>::new("birds", ...), etc.)
+    // through the same entry point the UE-mode `MassAppPluginRegistration` uses.
+    vivarium_sim::install_plugins(&mut app);
+
+    use bevy_mass::prelude::SpatialGroupSet;
+    app.add_systems(
             Startup,
             (setup_scene, spawn_insects, spawn_birds).chain(),
         )
@@ -96,8 +100,7 @@ fn main() {
             (
                 brownian_motion_system,
                 wander_system,
-                rebuild_bird_grid_system,
-                flocking_system,
+                flocking_system.in_set(SpatialGroupSet::Query),
                 boundary_force_system,
                 sync_render_transforms,
                 capture_scheduled_screenshots,
