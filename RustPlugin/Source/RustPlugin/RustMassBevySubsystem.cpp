@@ -353,10 +353,17 @@ void URustMassBevySubsystem::SetupSpatialQueriesFromRust()
 			continue;
 		}
 
-		// Extract config values into captured variables
-		FString QueryName = FString(Config.query_name.len, UTF8_TO_TCHAR(Config.query_name.ptr));
-		FString QueryGroup = FString(Config.query_group.len, UTF8_TO_TCHAR(Config.query_group.ptr));
-		FString FilterFragmentType = FString(Config.filter_fragment_type.len, UTF8_TO_TCHAR(Config.filter_fragment_type.ptr));
+		// Extract config values into captured variables. Utf8Str carries
+		// (ptr, len); for empty strings Rust's ptr is a valid-but-dangling
+		// placeholder, so skip UTF8_TO_TCHAR entirely when len == 0
+		// (strlen on a dangling pointer segfaults).
+		auto Utf8ToFString = [](const Utf8Str& S) -> FString {
+			if (S.len == 0 || S.ptr == nullptr) return FString();
+			return FString(S.len, UTF8_TO_TCHAR(S.ptr));
+		};
+		FString QueryName = Utf8ToFString(Config.query_name);
+		FString QueryGroup = Utf8ToFString(Config.query_group);
+		FString FilterFragmentType = Utf8ToFString(Config.filter_fragment_type);
 		float Radius = Config.radius;
 		uint32 FilterBoolOffset = Config.filter_bool_offset;
 		bool FilterBoolMustBe = Config.filter_bool_must_be;
