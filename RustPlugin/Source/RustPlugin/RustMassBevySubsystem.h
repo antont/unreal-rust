@@ -72,6 +72,20 @@ public:
 	/** Register a named spatial query callback. */
 	void RegisterSpatialQuery(const FString& QueryName, FSpatialQueryCallback InCallback, float InRadius);
 
+	using FSpatialEnumerateCallback = TFunction<uint32(
+		const double* Center, float Radius, MassSpatialNeighbor* Out, uint32 Max)>;
+
+	struct FSpatialEnumerateEntry
+	{
+		FString Name;
+		FSpatialEnumerateCallback Callback;
+		float Radius = 0.0f;
+		int32 TrampolineIndex = -1;
+	};
+
+	/** Register a named spatial enumerate callback. */
+	void RegisterSpatialEnumerate(const FString& Name, FSpatialEnumerateCallback InCallback, float InRadius);
+
 	/** Check if a named spatial query is registered. */
 	bool HasSpatialQuery(const FString& QueryName) const { return SpatialQueries.Contains(QueryName); }
 
@@ -238,6 +252,9 @@ private:
 	/** Named spatial queries: key = query name, value = callback + radius. */
 	TMap<FString, FSpatialQueryEntry> SpatialQueries;
 
+	/** Named spatial enumerates: key = enumerate name, value = callback + radius. */
+	TMap<FString, FSpatialEnumerateEntry> SpatialEnumerates;
+
 	/** Saved init params for hot-reload re-initialization. */
 	TArray<TPair<FString, int32>> SavedGroupCounts;
 	FBox SavedBounds = FBox(EForceInit::ForceInit);
@@ -271,6 +288,23 @@ RUSTPLUGIN_API uint32 ExecuteGridHashSpatialQuery(
 	const double* CurrentPos,
 	float PickupRadius,
 	MassSpatialQueryResult* Out);
+
+/**
+ * Execute the GridHash enumerate callback body against a prebuilt grid/group.
+ *
+ * Returns all entities within radius of Center (up to Max results in Out).
+ * Return value is the uncapped count — callers test `returned > Max` to detect
+ * truncation and retry with a larger buffer.
+ */
+RUSTPLUGIN_API uint32 ExecuteGridHashEnumerate(
+	FMassEntityManager& EntityManager,
+	const FNavigationObstacleHashGrid2D& Grid,
+	const TMap<FMassEntityHandle, int32>& EntityToIndex,
+	const UInstancedStaticMeshComponent& ISMC,
+	const double* Center,
+	float Radius,
+	MassSpatialNeighbor* Out,
+	uint32 Max);
 
 template<>
 struct TMassExternalSubsystemTraits<URustMassBevySubsystem>

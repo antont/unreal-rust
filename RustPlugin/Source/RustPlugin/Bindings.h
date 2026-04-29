@@ -382,7 +382,43 @@ struct MassSpatialQuerySlot {
   uint32_t _pad;
 };
 
-/// Per-frame dispatch data: dt + all system chunk batches + named spatial queries.
+/// One neighbour returned by a spatial-group enumerate callback.
+struct MassSpatialNeighbor {
+  /// Group-local instance index (matches `MassEntityMap` index).
+  int32_t entity_index;
+  int32_t _pad;
+  /// World-space position [x, y, z].
+  double position[3];
+};
+
+/// C++ callback: enumerate all members of a named spatial group within
+/// `radius` of `center`. Writes up to `max` `(entity_index, position)` pairs
+/// into `out` and returns the total count that would have been written if
+/// `max` were infinite, so Rust can detect truncation by testing
+/// `returned > max` and retry with a larger buffer.
+///
+/// # Safety
+/// `center` must point to `[f64; 3]`. `out` must point to an array of at
+/// least `max` `MassSpatialNeighbor` entries (may be null iff `max == 0`).
+using MassSpatialEnumerateFn = uint32_t(*)(const double *center,
+                                           float radius,
+                                           MassSpatialNeighbor *out,
+                                           uint32_t max);
+
+/// One named enumerate slot in the per-frame dispatch. Parallel structure
+/// to `MassSpatialQuerySlot` (sweep) — C++ populates one per registered
+/// `SpatialGroupEntry` each frame.
+struct MassSpatialEnumerateSlot {
+  /// Group name (e.g. "birds"). Borrowed from C++ — valid this frame.
+  Utf8Str name;
+  /// Callback that enumerates this group.
+  MassSpatialEnumerateFn enumerate_fn;
+  /// Group radius (for informational use; per-call radius may be smaller).
+  float radius;
+  uint32_t _pad;
+};
+
+/// Per-frame dispatch data: dt + system chunk batches + named spatial queries + named enumerate slots.
 struct MassFrameDispatchData {
   /// Delta time for this frame.
   float dt;
@@ -390,11 +426,14 @@ struct MassFrameDispatchData {
   uint32_t num_systems;
   /// Pointer to array of MassSystemChunkBatch.
   const MassSystemChunkBatch *systems;
-  /// Number of spatial query slots available this frame.
+  /// Number of spatial query (sweep) slots available this frame.
   uint32_t num_spatial_queries;
-  uint32_t _pad;
+  /// Number of spatial enumerate slots available this frame.
+  uint32_t num_spatial_enumerates;
   /// Pointer to array of MassSpatialQuerySlot.
   const MassSpatialQuerySlot *spatial_queries;
+  /// Pointer to array of MassSpatialEnumerateSlot.
+  const MassSpatialEnumerateSlot *spatial_enumerates;
 };
 
 /// Function signature for per-frame Bevy-scheduled dispatch.
@@ -825,10 +864,12 @@ static_assert(offsetof(MassSpatialQuerySlot, query_fn) == 16, "MassSpatialQueryS
 static_assert(offsetof(MassSpatialQuerySlot, radius) == 24, "MassSpatialQuerySlot.radius offset");
 
 // --- Frame dispatch ---
-static_assert(sizeof(MassFrameDispatchData) == 32, "MassFrameDispatchData");
+static_assert(sizeof(MassFrameDispatchData) == 40, "MassFrameDispatchData");
 static_assert(alignof(MassFrameDispatchData) == 8, "MassFrameDispatchData alignment");
 static_assert(offsetof(MassFrameDispatchData, num_spatial_queries) == 16, "MassFrameDispatchData.num_spatial_queries offset");
+static_assert(offsetof(MassFrameDispatchData, num_spatial_enumerates) == 20, "MassFrameDispatchData.num_spatial_enumerates offset");
 static_assert(offsetof(MassFrameDispatchData, spatial_queries) == 24, "MassFrameDispatchData.spatial_queries offset");
+static_assert(offsetof(MassFrameDispatchData, spatial_enumerates) == 32, "MassFrameDispatchData.spatial_enumerates offset");
 
 // --- Visualizer ---
 static_assert(sizeof(MassVisualizerGroupDesc) == 40, "MassVisualizerGroupDesc");

@@ -92,8 +92,9 @@ void URustMassScheduleCoordinator::Execute(FMassEntityManager& EntityManager, FM
 	Data.num_systems = static_cast<uint32>(Batches.Num());
 	Data.systems = Batches.GetData();
 	Data.num_spatial_queries = static_cast<uint32>(SpatialQuerySlots.Num());
-	Data._pad = 0;
+	Data.num_spatial_enumerates = 0; // TODO Task 3.3: populate from SpatialEnumerates
 	Data.spatial_queries = SpatialQuerySlots.GetData();
+	Data.spatial_enumerates = nullptr;
 
 	LastDispatchFlags = DispatchFn(&Data);
 }

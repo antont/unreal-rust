@@ -74,6 +74,27 @@ namespace RustMassSpatialQuery
 	};
 } // namespace RustMassSpatialQuery
 
+namespace RustMassSpatialEnumerate
+{
+	static constexpr int32 MaxEnumerates = 8;
+	static URustMassBevySubsystem::FSpatialEnumerateCallback* ActiveCallbacks[MaxEnumerates] = {};
+
+	template<int32 N>
+	static uint32 Trampoline(const double* Center, float Radius, MassSpatialNeighbor* Out, uint32 Max)
+	{
+		if (ActiveCallbacks[N] && *ActiveCallbacks[N])
+		{
+			return (*ActiveCallbacks[N])(Center, Radius, Out, Max);
+		}
+		return 0;
+	}
+
+	static MassSpatialEnumerateFn TrampolineFns[MaxEnumerates] = {
+		&Trampoline<0>, &Trampoline<1>, &Trampoline<2>, &Trampoline<3>,
+		&Trampoline<4>, &Trampoline<5>, &Trampoline<6>, &Trampoline<7>,
+	};
+} // namespace RustMassSpatialEnumerate
+
 URustMassBevySubsystem::FGridHashCounters URustMassBevySubsystem::GetGridHashCounters()
 {
 	FGridHashCounters Out;
@@ -178,6 +199,69 @@ uint32 ExecuteGridHashSpatialQuery(
 	}
 
 	return 1;
+}
+
+// ---------------------------------------------------------------------------
+// Enumerate-in-radius for SpatialGroupPlugin. Mirrors ExecuteGridHashSpatialQuery
+// but returns every in-radius entity (not just the closest) and has no
+// closest-point-on-segment arithmetic — inputs are (center, radius) only.
+//
+// Writes up to `Max` (entity_index, position) pairs into `Out`. Return value
+// is the uncapped count — callers test `returned > Max` to detect truncation
+// and retry with a larger buffer.
+// ---------------------------------------------------------------------------
+
+uint32 ExecuteGridHashEnumerate(
+	FMassEntityManager& EntityManager,
+	const FNavigationObstacleHashGrid2D& Grid,
+	const TMap<FMassEntityHandle, int32>& EntityToIndex,
+	const UInstancedStaticMeshComponent& ISMC,
+	const double* Center,
+	float Radius,
+	MassSpatialNeighbor* Out,
+	uint32 Max)
+{
+	const FVector C(Center[0], Center[1], Center[2]);
+	const float RadiusSq = Radius * Radius;
+
+	// 2D grid bucketing — XY bounds only; Z is filtered by the RadiusSq test.
+	FBox QueryBounds(ForceInit);
+	QueryBounds += C;
+	QueryBounds = QueryBounds.ExpandBy(Radius);
+
+	TArray<FMassNavigationObstacleItem, TInlineAllocator<64>> Candidates;
+	Grid.QuerySmall(QueryBounds, Candidates);
+
+	uint32 Written = 0;
+	uint32 Total = 0;
+	for (const FMassNavigationObstacleItem& Item : Candidates)
+	{
+		const FMassEntityHandle Entity = Item.Entity;
+		if (!EntityManager.IsEntityValid(Entity)) continue;
+
+		const int32* FoundIdx = EntityToIndex.Find(Entity);
+		if (!FoundIdx) continue;
+		const int32 Idx = *FoundIdx;
+
+		FTransform InstanceTransform;
+		ISMC.GetInstanceTransform(Idx, InstanceTransform, true);
+		const FVector EntityPos = InstanceTransform.GetLocation();
+
+		const float DistSq = static_cast<float>(FVector::DistSquared(EntityPos, C));
+		if (DistSq > RadiusSq) continue;
+
+		++Total;
+		if (Out && Written < Max)
+		{
+			Out[Written].entity_index = Idx;
+			Out[Written]._pad = 0;
+			Out[Written].position[0] = EntityPos.X;
+			Out[Written].position[1] = EntityPos.Y;
+			Out[Written].position[2] = EntityPos.Z;
+			++Written;
+		}
+	}
+	return Total;
 }
 
 // ---------------------------------------------------------------------------
@@ -331,6 +415,22 @@ void URustMassBevySubsystem::RegisterSpatialQuery(const FString& QueryName, FSpa
 	Entry.Radius = InRadius;
 	Entry.TrampolineIndex = ExistingTrampolineIndex;
 	SpatialQueries.Add(QueryName, MoveTemp(Entry));
+}
+
+void URustMassBevySubsystem::RegisterSpatialEnumerate(const FString& Name, FSpatialEnumerateCallback InCallback, float InRadius)
+{
+	int32 ExistingTrampolineIndex = -1;
+	if (FSpatialEnumerateEntry* Existing = SpatialEnumerates.Find(Name))
+	{
+		ExistingTrampolineIndex = Existing->TrampolineIndex;
+	}
+
+	FSpatialEnumerateEntry Entry;
+	Entry.Name = Name;
+	Entry.Callback = MoveTemp(InCallback);
+	Entry.Radius = InRadius;
+	Entry.TrampolineIndex = ExistingTrampolineIndex;
+	SpatialEnumerates.Add(Name, MoveTemp(Entry));
 }
 
 void URustMassBevySubsystem::SetupSpatialQueriesFromRust()
