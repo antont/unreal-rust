@@ -161,8 +161,8 @@ bool FGatherersBevyMassSpatialQueryLayoutTest::RunTest(const FString& Parameters
 	TestEqual(TEXT("MassSpatialQueryResult has_encounter offset"),
 		(int32)offsetof(MassSpatialQueryResult, has_encounter), 32);
 
-	// MassFrameDispatchData: f32(4) + u32(4) + ptr(8) + u32(4) + u32(4) + ptr(8) = 32
-	TestEqual(TEXT("MassFrameDispatchData size"), (int32)sizeof(MassFrameDispatchData), 32);
+	// MassFrameDispatchData: f32(4) + u32(4) + ptr(8) + u32(4) + u32(4) + ptr(8) + ptr(8) = 40
+	TestEqual(TEXT("MassFrameDispatchData size"), (int32)sizeof(MassFrameDispatchData), 40);
 	TestEqual(TEXT("MassFrameDispatchData alignment"), (int32)alignof(MassFrameDispatchData), 8);
 	TestEqual(TEXT("MassFrameDispatchData dt offset"),
 		(int32)offsetof(MassFrameDispatchData, dt), 0);
@@ -172,8 +172,12 @@ bool FGatherersBevyMassSpatialQueryLayoutTest::RunTest(const FString& Parameters
 		(int32)offsetof(MassFrameDispatchData, systems), 8);
 	TestEqual(TEXT("MassFrameDispatchData num_spatial_queries offset"),
 		(int32)offsetof(MassFrameDispatchData, num_spatial_queries), 16);
+	TestEqual(TEXT("MassFrameDispatchData num_spatial_enumerates offset"),
+		(int32)offsetof(MassFrameDispatchData, num_spatial_enumerates), 20);
 	TestEqual(TEXT("MassFrameDispatchData spatial_queries offset"),
 		(int32)offsetof(MassFrameDispatchData, spatial_queries), 24);
+	TestEqual(TEXT("MassFrameDispatchData spatial_enumerates offset"),
+		(int32)offsetof(MassFrameDispatchData, spatial_enumerates), 32);
 
 	return true;
 }

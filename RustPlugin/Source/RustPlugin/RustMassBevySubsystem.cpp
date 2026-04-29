@@ -529,6 +529,38 @@ void URustMassBevySubsystem::SetupSpatialQueriesFromRust()
 				},
 				Radius);
 		}
+		else if (QueryType == 3) // GridHashEnumerate (SpatialGroupPlugin)
+		{
+			// Same owner handshake as GridHash — UE needs to know this
+			// group is hash-grid-managed so init/reset paths populate it.
+			TryMarkGridHashOwner(QueryGroup, /*LogPrefix=*/TEXT("SetupSpatialQueriesFromRust/Enumerate"));
+
+			(void)FilterBoolOffset; (void)FilterBoolMustBe; (void)FilterStruct;
+
+			RegisterSpatialEnumerate(QueryName,
+				[Self, QueryGroup](
+					const double* Center, float Radius,
+					MassSpatialNeighbor* Out, uint32 Max) -> uint32
+				{
+					UInstancedStaticMeshComponent* TargetISMC = Self->GetGroupISMC(QueryGroup);
+					UWorld* W = Self->GetWorld();
+					UMassEntitySubsystem* MES = W ? W->GetSubsystem<UMassEntitySubsystem>() : nullptr;
+					UMassNavigationSubsystem* NavSubsystem = W ? W->GetSubsystem<UMassNavigationSubsystem>() : nullptr;
+					const TMap<FMassEntityHandle, int32>* EntityToIndex = Self->GetGroupEntityToIndex(QueryGroup);
+					if (!TargetISMC || !MES || !NavSubsystem || !EntityToIndex)
+					{
+						return 0;
+					}
+
+					FMassEntityManager& EntityManager = MES->GetMutableEntityManager();
+					const FNavigationObstacleHashGrid2D& Grid = NavSubsystem->GetObstacleGrid();
+
+					return ExecuteGridHashEnumerate(
+						EntityManager, Grid, *EntityToIndex, *TargetISMC,
+						Center, Radius, Out, Max);
+				},
+				Radius);
+		}
 		else if (QueryType == 1) // PhysicsSweep
 		{
 			if (CollisionChannelIndex > 17)
