@@ -19,18 +19,23 @@ inventory::submit!(unreal_api::mass::MassSimInitRegistration {
     init_fn: init::init_simulation,
 });
 
-// Explicit pipeline order. `brownian_motion_system` perturbs velocity, then
-// `boundary_force_system` clamps/repels near the bounds. Position
+// Explicit pipeline order. Insect brownian + bird wander / flocking run
+// before the boundary force field clamps/repels near the bounds. Position
 // integration is performed by C++ `UMassSimpleMovementProcessor` after the
 // Bevy schedule dispatch, so no Rust movement system is listed here.
+// `rebuild_bird_grid_system` must run before `flocking_system` so
+// `SpatialQueries::neighbors_within("birds", ...)` sees the current frame.
 inventory::submit!(unreal_api::mass::MassScheduleOrder {
     systems: &[
         "brownian_motion_system",
+        "wander_system",
+        "rebuild_bird_grid_system",
+        "flocking_system",
         "boundary_force_system",
     ],
 });
 
-// Visualizer group: tells C++ where to find each insect's position so the
+// Visualizer groups — tell C++ where to find each entity's position so the
 // native MassRepresentation draws them.
 inventory::submit!(unreal_api::mass::MassVisualizerGroupRegistration {
     name: "insects",
@@ -38,11 +43,36 @@ inventory::submit!(unreal_api::mass::MassVisualizerGroupRegistration {
     position_offset: std::mem::offset_of!(crate::components::Transform, translation),
     scale: 0.3,
 });
+inventory::submit!(unreal_api::mass::MassVisualizerGroupRegistration {
+    name: "birds",
+    position_fragment_type: "FTransformFragment",
+    position_offset: std::mem::offset_of!(crate::components::Transform, translation),
+    scale: 1.0,
+});
+
+// Spatial-query config for the `"birds"` group. Lets the UE navigation hash
+// grid track bird positions so a future `enumerate_in_radius` FFI can serve
+// `SpatialQueries::neighbors_within("birds", ...)` from the C++ side. Until
+// that FFI lands, `flocking_system` falls back to the Rust-side
+// `SpatialGrids` resource populated by `rebuild_bird_grid_system`.
+inventory::submit!(unreal_api::mass::MassSpatialQueryConfigRegistration {
+    query_name: "birds",
+    query_group: "birds",
+    radius: crate::config::FLOCK_NEIGHBOR_RADIUS as f32,
+    query_type: unreal_api::mass::MassSpatialQueryType::GridHash,
+    collision_channel_index: 0,
+    filter_fragment_type: "",
+    filter_bool_offset: 0,
+    filter_bool_must_be: false,
+});
 
 // Defaults for PIE spawning — editable on the level actor UPROPERTY.
 inventory::submit!(unreal_api::mass::MassSimDefaultsRegistration {
     name: "vivarium",
-    groups: &[("insects", crate::config::INSECT_COUNT as i32)],
+    groups: &[
+        ("insects", crate::config::INSECT_COUNT as i32),
+        ("birds", crate::config::BIRD_COUNT as i32),
+    ],
     bounds_min: [-WORLD_HALF_SIZE, -WORLD_HALF_SIZE, -WORLD_HALF_SIZE],
     bounds_max: [WORLD_HALF_SIZE, WORLD_HALF_SIZE, WORLD_HALF_SIZE],
     random_seed: 42,
@@ -69,8 +99,9 @@ mod tests {
             .iter()
             .find(|d| d.name == "vivarium")
             .expect("MassSimDefaultsRegistration 'vivarium' must be registered");
-        assert_eq!(d.groups.len(), 1);
+        assert_eq!(d.groups.len(), 2);
         assert_eq!(d.groups[0], ("insects", crate::config::INSECT_COUNT as i32));
+        assert_eq!(d.groups[1], ("birds", crate::config::BIRD_COUNT as i32));
         assert_eq!(d.bounds_min, [-WORLD_HALF_SIZE, -WORLD_HALF_SIZE, -WORLD_HALF_SIZE]);
         assert_eq!(d.bounds_max, [WORLD_HALF_SIZE, WORLD_HALF_SIZE, WORLD_HALF_SIZE]);
         assert_eq!(d.random_seed, 42);
@@ -81,12 +112,32 @@ mod tests {
         let groups: Vec<_> = unreal_api::mass::registered_visualizer_groups()
             .into_iter()
             .collect();
-        let g = groups
+        let insects = groups
             .iter()
             .find(|g| g.name == "insects")
             .expect("visualizer group 'insects' must be registered");
-        assert_eq!(g.position_fragment_type, "FTransformFragment");
-        assert_eq!(g.scale, 0.3);
+        assert_eq!(insects.position_fragment_type, "FTransformFragment");
+        assert_eq!(insects.scale, 0.3);
+
+        let birds = groups
+            .iter()
+            .find(|g| g.name == "birds")
+            .expect("visualizer group 'birds' must be registered");
+        assert_eq!(birds.position_fragment_type, "FTransformFragment");
+        assert_eq!(birds.scale, 1.0);
+    }
+
+    #[test]
+    fn bird_spatial_query_config_registered() {
+        let configs: Vec<_> = unreal_api::mass::registered_spatial_query_configs()
+            .into_iter()
+            .collect();
+        let c = configs
+            .iter()
+            .find(|c| c.query_group == "birds")
+            .expect("MassSpatialQueryConfigRegistration 'birds' must be registered");
+        assert_eq!(c.query_name, "birds");
+        assert_eq!(c.radius, crate::config::FLOCK_NEIGHBOR_RADIUS as f32);
     }
 
     #[test]
@@ -133,9 +184,12 @@ mod tests {
         }
 
         // `boundary_force_system` reads `Res<SimBounds>`; the UE path inserts
-        // it via `populate_sim_bounds`. For the smoke test we insert the
-        // default so param resolution can complete and access analysis runs.
+        // it via `populate_sim_bounds`. `flocking_system` reads
+        // `SpatialQueries`, which in UE mode needs `SpatialQuery` as a
+        // resource (the frame dispatcher installs this at runtime). Insert
+        // both so param resolution can complete and access analysis runs.
         sched.world_mut().insert_resource(crate::components::SimBounds::default());
+        sched.world_mut().insert_resource(bevy_mass::SpatialQuery::default());
 
         sched.run();
 

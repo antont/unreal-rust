@@ -7,6 +7,49 @@ pub use bevy_mass::components::{Transform, Velocity, SimpleMovementTag};
 #[cfg_attr(feature = "unreal", mass(group = "insects"))]
 pub struct Insect;
 
+/// Marker for bird entities.
+#[derive(Component, MassFragment, Clone, Copy, Debug)]
+#[cfg_attr(feature = "unreal", mass(group = "birds"))]
+pub struct Bird;
+
+/// Per-bird wander strength — gentle random rotation added to `Velocity`
+/// each frame. Mirrors `BrownianMotion` but uses a distinct component so
+/// bird and insect wander can evolve independently.
+#[repr(C)]
+#[derive(Component, MassFragment, Clone, Copy, Debug)]
+pub struct Wander {
+    pub strength: f32,
+    pub random_seed: u32,
+}
+
+impl Default for Wander {
+    fn default() -> Self {
+        Self { strength: 0.0, random_seed: 0 }
+    }
+}
+
+/// Boids flocking parameters. Weights are per-bird so tuning / variance
+/// per individual is possible without touching the systems. Neighbour
+/// radius + separation distance stay as sim-global `Config` constants
+/// for now (vivarium's shape).
+#[repr(C)]
+#[derive(Component, MassFragment, Clone, Copy, Debug)]
+pub struct Flocking {
+    pub separation_weight: f32,
+    pub alignment_weight: f32,
+    pub cohesion_weight: f32,
+}
+
+impl Default for Flocking {
+    fn default() -> Self {
+        Self {
+            separation_weight: 0.0,
+            alignment_weight: 0.0,
+            cohesion_weight: 0.0,
+        }
+    }
+}
+
 /// Per-entity brownian-motion state. `random_seed` advances each frame via
 /// a simple LCG — keeping RNG state in the component lets the system run
 /// `par_iter_mut` / archetype-parallel in UE without shared RNG state.

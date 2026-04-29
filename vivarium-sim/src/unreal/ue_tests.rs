@@ -10,6 +10,68 @@ use bevy_mass::prelude::DVec3;
 use unreal_api::mass::{MassTestRegistration, TestCtx};
 
 // ---------------------------------------------------------------------------
+// BirdsFlockAndStayBounded — the bird pipeline (wander + flocking +
+// boundary force) must produce measurable motion without letting birds
+// escape the sim bounds. Also a smoke check that the new `"birds"`
+// visualizer group + spawn loop work end-to-end in UE.
+// ---------------------------------------------------------------------------
+
+inventory::submit!(MassTestRegistration {
+    name: "VivariumBirdsFlockAndStayBounded",
+    test_fn: birds_flock_and_stay_bounded,
+});
+
+fn birds_flock_and_stay_bounded(ctx: &TestCtx) {
+    const COUNT: i32 = 20;
+    let bounds_min = [-200.0, -200.0, -200.0];
+    let bounds_max = [200.0, 200.0, 200.0];
+    ctx.init_sim(
+        &[("insects", 0), ("birds", COUNT)],
+        bounds_min,
+        bounds_max,
+        99,
+    );
+
+    assert_eq!(ctx.entity_count("birds"), COUNT);
+
+    let initial: Vec<DVec3> = (0..COUNT as u32)
+        .map(|i| {
+            ctx.read::<Transform>("birds", i)
+                .expect("bird transform")
+                .translation
+        })
+        .collect();
+
+    // 3 sim-seconds at 1/60s. BIRD_SPEED=60 → ~180 units travelled per bird
+    // if uninterrupted; easily above the 5-unit motion threshold.
+    ctx.step(1.0 / 60.0, 180);
+
+    let mut any_moved = false;
+    for i in 0..COUNT as u32 {
+        let t = ctx
+            .read::<Transform>("birds", i)
+            .expect("bird transform after step");
+        // In bounds.
+        assert!(
+            t.translation.x >= bounds_min[0] - 1e-6
+                && t.translation.x <= bounds_max[0] + 1e-6
+                && t.translation.y >= bounds_min[1] - 1e-6
+                && t.translation.y <= bounds_max[1] + 1e-6
+                && t.translation.z >= bounds_min[2] - 1e-6
+                && t.translation.z <= bounds_max[2] + 1e-6,
+            "bird {i} escaped bounds: {:?}",
+            t.translation,
+        );
+        if t.translation.distance(initial[i as usize]) > 5.0 {
+            any_moved = true;
+        }
+    }
+    assert!(any_moved, "at least one bird should have moved >5 units");
+
+    ctx.reset();
+}
+
+// ---------------------------------------------------------------------------
 // SpawnAndSimulate — basic lifecycle: init, step, observe motion, reset.
 // ---------------------------------------------------------------------------
 

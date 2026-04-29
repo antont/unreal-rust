@@ -13,3 +13,18 @@ pub const INSECT_RADIUS: f32 = 0.3;
 
 pub const BOUNDARY_MARGIN: f64 = 40.0;
 pub const BOUNDARY_FORCE: f64 = 5.0;
+
+// Birds — Phase 2a (wander + flocking, no hunt yet).
+pub const BIRD_COUNT: u32 = 20;
+pub const BIRD_SPEED: f32 = 60.0;
+pub const BIRD_RADIUS: f32 = 1.0;
+/// Per-frame wander perturbation magnitude (same shape as
+/// `INSECT_WANDER_STRENGTH` — bird wander reuses brownian-style rotation).
+pub const BIRD_WANDER_STRENGTH: f32 = 15.0;
+
+// Flocking tunables (values lifted from vivarium commit 1b6d1f5).
+pub const FLOCK_NEIGHBOR_RADIUS: f64 = 40.0;
+pub const SEPARATION_DISTANCE: f64 = 10.0;
+pub const SEPARATION_WEIGHT: f64 = 2.0;
+pub const ALIGNMENT_WEIGHT: f64 = 1.0;
+pub const COHESION_WEIGHT: f64 = 1.0;

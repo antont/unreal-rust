@@ -14,18 +14,23 @@
 use bevy::prelude::*;
 use bevy::render::view::screenshot::{save_to_disk, Screenshot};
 use bevy_mass::MovementPlugin;
+use bevy_mass::spatial_query::SpatialGrids;
 use glam::DVec3;
+use vivarium_sim::bird::{flocking_system, rebuild_bird_grid_system, wander_system};
 use vivarium_sim::boundary::boundary_force_system;
 use vivarium_sim::brownian::brownian_motion_system;
 use vivarium_sim::components::{
-    BoundaryWrap, BrownianMotion, Insect, PreviousTranslation, SimBounds,
-    Transform as SimTransform, Velocity,
+    Bird, BoundaryWrap, BrownianMotion, Flocking, Insect, PreviousTranslation, SimBounds,
+    Transform as SimTransform, Velocity, Wander,
 };
 use vivarium_sim::config::{
-    INSECT_COUNT, INSECT_RADIUS, INSECT_SPEED, INSECT_WANDER_STRENGTH, WORLD_HALF_SIZE,
+    ALIGNMENT_WEIGHT, BIRD_COUNT, BIRD_RADIUS, BIRD_SPEED, BIRD_WANDER_STRENGTH, COHESION_WEIGHT,
+    INSECT_COUNT, INSECT_RADIUS, INSECT_SPEED, INSECT_WANDER_STRENGTH, SEPARATION_WEIGHT,
+    WORLD_HALF_SIZE,
 };
 
 const INSECT_COLOR: Color = Color::srgb(0.2, 0.8, 0.2);
+const BIRD_COLOR: Color = Color::srgb(0.9, 0.6, 0.2);
 
 #[derive(Resource, Default)]
 struct CaptureSchedule {
@@ -80,12 +85,19 @@ fn main() {
         .add_plugins(MovementPlugin::<SimTransform, PreviousTranslation, Velocity>::default())
         .insert_resource(capture)
         .insert_resource(SimBounds::default())
+        .insert_resource(SpatialGrids::default())
         .init_resource::<FrameCounter>()
-        .add_systems(Startup, (setup_scene, spawn_insects).chain())
+        .add_systems(
+            Startup,
+            (setup_scene, spawn_insects, spawn_birds).chain(),
+        )
         .add_systems(
             Update,
             (
                 brownian_motion_system,
+                wander_system,
+                rebuild_bird_grid_system,
+                flocking_system,
                 boundary_force_system,
                 sync_render_transforms,
                 capture_scheduled_screenshots,
@@ -121,14 +133,23 @@ fn setup_scene(
         Transform::from_rotation(Quat::from_euler(EulerRot::XYZ, -0.5, 0.5, 0.0)),
     ));
 
-    let mesh = meshes.add(Sphere::new(INSECT_RADIUS));
-    let material = materials.add(StandardMaterial {
+    let insect_mesh = meshes.add(Sphere::new(INSECT_RADIUS));
+    let insect_material = materials.add(StandardMaterial {
         base_color: INSECT_COLOR,
         unlit: true,
         ..default()
     });
-    commands.insert_resource(InsectMesh(mesh));
-    commands.insert_resource(InsectMaterial(material));
+    commands.insert_resource(InsectMesh(insect_mesh));
+    commands.insert_resource(InsectMaterial(insect_material));
+
+    let bird_mesh = meshes.add(Sphere::new(BIRD_RADIUS));
+    let bird_material = materials.add(StandardMaterial {
+        base_color: BIRD_COLOR,
+        unlit: true,
+        ..default()
+    });
+    commands.insert_resource(BirdMesh(bird_mesh));
+    commands.insert_resource(BirdMaterial(bird_material));
 }
 
 #[derive(Resource)]
@@ -136,6 +157,12 @@ struct InsectMesh(Handle<Mesh>);
 
 #[derive(Resource)]
 struct InsectMaterial(Handle<StandardMaterial>);
+
+#[derive(Resource)]
+struct BirdMesh(Handle<Mesh>);
+
+#[derive(Resource)]
+struct BirdMaterial(Handle<StandardMaterial>);
 
 fn spawn_insects(
     mut commands: Commands,
@@ -185,8 +212,60 @@ fn spawn_insects(
     }
 }
 
+fn spawn_birds(
+    mut commands: Commands,
+    mesh: Res<BirdMesh>,
+    material: Res<BirdMaterial>,
+) {
+    let mut seed: u64 = 1337;
+    let mut rng = || -> f64 {
+        seed = seed
+            .wrapping_mul(6364136223846793005)
+            .wrapping_add(1442695040888963407);
+        (seed >> 33) as f64 / (1u64 << 31) as f64
+    };
+
+    for i in 0..BIRD_COUNT {
+        let pos = DVec3::new(
+            (rng() * 2.0 - 1.0) * WORLD_HALF_SIZE,
+            (rng() * 2.0 - 1.0) * WORLD_HALF_SIZE,
+            (rng() * 2.0 - 1.0) * WORLD_HALF_SIZE,
+        );
+        let theta = rng() * std::f64::consts::TAU;
+        let phi = (rng() * 2.0 - 1.0).acos();
+        let dir = DVec3::new(
+            phi.sin() * theta.cos(),
+            phi.sin() * theta.sin(),
+            phi.cos(),
+        );
+        commands.spawn((
+            Bird,
+            BoundaryWrap,
+            SimTransform::from_translation(pos),
+            PreviousTranslation { value: pos },
+            Velocity::new(dir, BIRD_SPEED),
+            Wander {
+                strength: BIRD_WANDER_STRENGTH,
+                random_seed: 0xB5297A4Du32.wrapping_add(i),
+            },
+            Flocking {
+                separation_weight: SEPARATION_WEIGHT as f32,
+                alignment_weight: ALIGNMENT_WEIGHT as f32,
+                cohesion_weight: COHESION_WEIGHT as f32,
+            },
+            Mesh3d(mesh.0.clone()),
+            MeshMaterial3d(material.0.clone()),
+            Transform::from_translation(Vec3::new(
+                pos.x as f32,
+                pos.y as f32,
+                pos.z as f32,
+            )),
+        ));
+    }
+}
+
 fn sync_render_transforms(
-    mut q: Query<(&SimTransform, &mut Transform), With<Insect>>,
+    mut q: Query<(&SimTransform, &mut Transform), Or<(With<Insect>, With<Bird>)>>,
 ) {
     for (sim_t, mut render_t) in &mut q {
         render_t.translation = Vec3::new(
