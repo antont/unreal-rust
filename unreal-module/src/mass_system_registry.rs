@@ -8,7 +8,7 @@ use unreal_api::mass::{
     registered_entity_index_populations, registered_shadow_component_defaults,
     registered_mass_systems, registered_sim_init_hooks, registered_sim_inits,
     registered_visualizer_groups, registered_spatial_query_configs,
-    registered_sim_defaults, resolved_schedule_orders,
+    registered_sim_defaults, resolved_schedule_orders, registered_app_plugins,
 };
 use bevy_mass::SpatialQuery;
 
@@ -29,6 +29,35 @@ unsafe impl Send for SyncDescriptorCache {}
 unsafe impl Sync for SyncDescriptorCache {}
 
 static DESCRIPTOR_CACHE: Mutex<SyncDescriptorCache> = Mutex::new(SyncDescriptorCache(Vec::new()));
+
+/// Snapshot of the spatial-group registry taken during `mass_init_simulation`,
+/// readable from FFI handlers (`get_spatial_query_config_count/desc`) that
+/// don't have direct access to the shadow Bevy world.
+///
+/// Mutex allows re-population on re-init (hot-reload / test reset); OnceLock
+/// initialises it lazily on first write.
+#[derive(Default)]
+struct SyncGroupCache(Vec<bevy_mass::spatial_group::SpatialGroupEntry>);
+unsafe impl Send for SyncGroupCache {}
+unsafe impl Sync for SyncGroupCache {}
+
+static SPATIAL_GROUP_CACHE: std::sync::OnceLock<std::sync::Mutex<SyncGroupCache>> =
+    std::sync::OnceLock::new();
+
+fn spatial_group_cache() -> &'static std::sync::Mutex<SyncGroupCache> {
+    SPATIAL_GROUP_CACHE.get_or_init(|| std::sync::Mutex::new(SyncGroupCache::default()))
+}
+
+/// Replace the cache contents with the current shadow-world registry.
+/// Called from `mass_init_simulation` after App plugin builds run.
+fn refresh_spatial_group_cache(world: &unreal_api::ecs::world::World) {
+    let entries = match world.get_resource::<bevy_mass::spatial_group::SpatialGroupRegistry>() {
+        Some(r) => r.entries.clone(),
+        None => Vec::new(),
+    };
+    let mut cache = spatial_group_cache().lock().unwrap();
+    cache.0 = entries;
+}
 
 /// Clear the descriptor cache. Called on hot-reload so stale pointers aren't reused.
 pub fn reset_descriptor_cache() {
@@ -441,6 +470,26 @@ pub unsafe extern "C" fn mass_init_simulation(
         // have zero-copy MassFragment data in chunks.
         if let Ok(mut sched_guard) = MASS_SCHEDULE.lock() {
             if let Some(sched) = sched_guard.as_mut().map(|w| &mut w.0) {
+                // Build app plugins (e.g. SpatialGroupPlugin) into the shadow
+                // Mass schedule. Bevy's `App` internally tracks added plugin
+                // types, so adding the same plugin twice on the same App
+                // normally panics. Production only reaches this branch once
+                // per `MassSchedule` lifetime (`init_sim` is called once per
+                // simulation start; hot reload drops the whole module). For
+                // test-only re-init, `reset_mass_schedule` rebuilds the App
+                // from scratch. Clearing `SpatialGroupRegistry.entries`
+                // before iterating is belt-and-braces for tests that bypass
+                // the reset path.
+                if let Some(mut registry) = sched
+                    .world_mut()
+                    .get_resource_mut::<bevy_mass::spatial_group::SpatialGroupRegistry>()
+                {
+                    registry.entries.clear();
+                }
+                for reg in registered_app_plugins() {
+                    (reg.build_fn)(sched.app_mut());
+                }
+
                 let mut entity_map = MassEntityMap::default();
                 for (name_bytes, handles) in stored.iter() {
                     let name = std::str::from_utf8(&name_bytes[..name_bytes.len() - 1])
@@ -493,6 +542,11 @@ pub unsafe extern "C" fn mass_init_simulation(
                 for reg in registered_sim_init_hooks() {
                     (reg.hook_fn)(world, params);
                 }
+
+                // Snapshot the group registry into module-level cache so
+                // FFI handlers `get_spatial_query_config_count/desc` can
+                // emit synthesised `GridHashEnumerate` configs.
+                refresh_spatial_group_cache(world);
             }
         }
     }));
@@ -544,7 +598,9 @@ pub unsafe extern "C" fn get_visualizer_group_desc(
 // ---------------------------------------------------------------------------
 
 pub unsafe extern "C" fn get_spatial_query_config_count() -> u32 {
-    registered_spatial_query_configs().into_iter().count() as u32
+    let inventory_count = registered_spatial_query_configs().into_iter().count() as u32;
+    let cache_count = spatial_group_cache().lock().unwrap().0.len() as u32;
+    inventory_count + cache_count
 }
 
 pub unsafe extern "C" fn get_spatial_query_config_desc(
@@ -554,20 +610,45 @@ pub unsafe extern "C" fn get_spatial_query_config_desc(
     if out.is_null() {
         return 0;
     }
-    let Some(reg) = registered_spatial_query_configs().into_iter().nth(index as usize) else {
+    let inventory_count = registered_spatial_query_configs().into_iter().count() as u32;
+    if index < inventory_count {
+        // Legacy: hand-authored sweep/GridHash configs (gatherers).
+        let Some(reg) = registered_spatial_query_configs().into_iter().nth(index as usize) else {
+            return 0;
+        };
+        unsafe {
+            (*out) = unreal_ffi::MassSpatialQueryConfigDesc {
+                query_name: unreal_ffi::Utf8Str::from(reg.query_name),
+                query_group: unreal_ffi::Utf8Str::from(reg.query_group),
+                radius: reg.radius,
+                _pad0: 0,
+                filter_fragment_type: unreal_ffi::Utf8Str::from(reg.filter_fragment_type),
+                filter_bool_offset: reg.filter_bool_offset as u32,
+                filter_bool_must_be: reg.filter_bool_must_be,
+                query_type: reg.query_type as u8,
+                collision_channel_index: reg.collision_channel_index,
+                _pad1: 0,
+            };
+        }
+        return 1;
+    }
+    // New: enumerate-via-plugin groups synthesised as GridHashEnumerate.
+    let cache_index = (index - inventory_count) as usize;
+    let cache = spatial_group_cache().lock().unwrap();
+    let Some(entry) = cache.0.get(cache_index) else {
         return 0;
     };
     unsafe {
         (*out) = unreal_ffi::MassSpatialQueryConfigDesc {
-            query_name: unreal_ffi::Utf8Str::from(reg.query_name),
-            query_group: unreal_ffi::Utf8Str::from(reg.query_group),
-            radius: reg.radius,
+            query_name: unreal_ffi::Utf8Str::from(entry.name),
+            query_group: unreal_ffi::Utf8Str::from(entry.name),
+            radius: entry.radius as f32,
             _pad0: 0,
-            filter_fragment_type: unreal_ffi::Utf8Str::from(reg.filter_fragment_type),
-            filter_bool_offset: reg.filter_bool_offset as u32,
-            filter_bool_must_be: reg.filter_bool_must_be,
-            query_type: reg.query_type as u8,
-            collision_channel_index: reg.collision_channel_index,
+            filter_fragment_type: unreal_ffi::Utf8Str::from(""),
+            filter_bool_offset: 0,
+            filter_bool_must_be: false,
+            query_type: unreal_api::mass::MassSpatialQueryType::GridHashEnumerate as u8,
+            collision_channel_index: 0,
             _pad1: 0,
         };
     }
