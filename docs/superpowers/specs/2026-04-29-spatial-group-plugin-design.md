@@ -45,21 +45,54 @@ app.add_plugins(SpatialGroupPlugin::<Bird, Transform>::new(
 - `radius: f64` — both the default cell size in Bevy mode and the hash-grid
   registration radius in UE mode.
 
+### Shared registry
+
+One name-keyed registry serves both modes. Lives in a framework resource:
+
+```rust
+#[derive(Resource, Default)]
+pub struct SpatialGroupRegistry {
+    entries: Vec<SpatialGroupEntry>,
+}
+
+pub struct SpatialGroupEntry {
+    pub name: &'static str,
+    pub radius: f64,
+    pub marker_tag_cpp_name: &'static str,   // M::CPP_TYPE_NAME
+    pub position_fragment_cpp_name: &'static str, // P::CPP_TYPE_NAME
+}
+```
+
+Plugin `build()` pushes one entry with `name` as the primary key. Re-installing
+the same name is a panic (authoring error — a single sim can't register two
+meanings for one group name).
+
+Using name as the key (not a type pair) means multiple `<Marker, Pos>` shapes
+can register into the same registry structure, and lookups from FFI handlers
+are a simple `.find(|e| e.name == n)` instead of a type-erased resource dance.
+
 ### Bevy mode
 
 `Plugin::build`:
 
 1. Inserts `SpatialGrids` resource if absent (idempotent).
-2. Defines a framework-internal `SpatialGroupSet` enum with two variants:
+2. Inserts `SpatialGroupRegistry` resource if absent; pushes one entry.
+3. Defines a framework-internal `SpatialGroupSet` enum with two variants:
    `Rebuild`, `Query`. Configures `Query` to run `.after(Rebuild)`.
-3. Registers a monomorphised `rebuild_grid_system::<Marker, Pos>` in
-   `SpatialGroupSet::Rebuild` during `Update`. The system:
+4. Registers a monomorphised `rebuild_grid_system::<Marker, Pos>` in
+   `SpatialGroupSet::Rebuild` during `Update`. The system reads its group
+   name from a `const GROUP: &'static str` baked into the plugin struct —
+   the plugin constructor stores `name` into a generated
+   `PhantomData`-keyed newtype resource, or passes it via closure capture,
+   to avoid a runtime name lookup per frame. (Exact mechanism: plan phase;
+   the constraint is zero-alloc per-frame name resolution.)
+
    ```rust
-   fn rebuild_grid_system<M: Component, P: Component + TransformLike>(
+   fn rebuild_grid_system<M, P>(
        mut grids: ResMut<SpatialGrids>,
        entities: Query<(Entity, &P), With<M>>,
-       group: Res<SpatialGroupMeta<M, P>>, // holds name + radius
-   ) {
+       group: Res<PerGroupMeta<(M, P)>>,  // holds name + radius for this (M, P) pair
+   ) where M: Component, P: Component + TransformLike {
        let grid = grids.grid_mut(group.name, group.radius);
        grid.clear();
        for (e, p) in &entities {
@@ -67,11 +100,16 @@ app.add_plugins(SpatialGroupPlugin::<Bird, Transform>::new(
        }
    }
    ```
-4. Inserts `SpatialGroupMeta<M, P> { name, radius, _pd: … }` as a typed
-   resource so many groups of distinct types coexist.
 
 Sim authors add their flocking/etc. system with
 `.in_set(SpatialGroupSet::Query)` and the ordering constraint is automatic.
+
+Caveat: `PerGroupMeta<(M, P)>` is keyed by type pair — one plugin instance per
+`(M, P)`. This is fine for vivarium (`Bird + Transform` is a unique pair). Sims
+wanting to register two separate groups with the same component types (e.g.
+two different insect factions using the same `Transform`) need distinct marker
+types. This is a deliberate trade for type-safe zero-cost name resolution;
+we'll revisit if a real use case demands it.
 
 ### UE mode — plugin installation path
 
@@ -115,83 +153,128 @@ added to `install_plugins`.
 In UE mode, `SpatialGroupPlugin::<M, P>::build(app)` does *not* install a
 rebuild system. It:
 
-1. Inserts a framework `SpatialGroupRegistry` resource if absent.
-2. Pushes `SpatialGroupEntry { name, radius, marker_tag: "BirdTag",
-   position_fragment: "FTransformFragment" }` into the registry.
-   - `marker_tag` is the C++-side USTRUCT name of the group's tag fragment
-     (discoverable at compile time from `M`'s `MassFragment` metadata, same
-     mechanism `MassVisualizerGroupRegistration` uses).
-   - `position_fragment` is `P`'s C++ USTRUCT name, used by the C++ side to
-     read positions during enumerate. For vivarium both birds and insects
-     use `FTransformFragment`.
+1. Inserts `SpatialGroupRegistry` resource if absent.
+2. Pushes `SpatialGroupEntry` with `marker_tag_cpp_name = M::CPP_TYPE_NAME`
+   and `position_fragment_cpp_name = P::CPP_TYPE_NAME`. This requires the
+   UE-mode plugin impl to constrain `M: MassFragment` and
+   `P: MassFragment + TransformLike` — stronger than the Bevy-mode bound,
+   enforced by `#[cfg(feature = "unreal")]` on a second `Plugin` impl.
 
 ### UE mode — how C++ sees the registry
 
-C++ calls `get_spatial_query_config_count` / `get_spatial_query_config_desc`
-at sim init to discover spatial queries (see `SetupSpatialQueriesFromRust`).
-Two sources contribute into that FFI return:
+This is the piece that needs an explicit path: `SpatialGroupRegistry` lives in
+the `MassSchedule` world, but the FFI handlers
+`get_spatial_query_config_count` / `get_spatial_query_config_desc` in
+`unreal-module` are plain fns that don't have direct access to the world.
 
-- Legacy: `inventory::iter::<MassSpatialQueryConfigRegistration>()` — gatherers'
-  sweep configs, unchanged.
-- New: `SpatialGroupRegistry` entries from plugin `build()`.
+Solution: module-level cache, built once after MassSchedule has run all its
+`MassAppPluginRegistration` build hooks. The sequence:
 
-This means MassSchedule's app must be built *before* the C++ side reads
-configs. Today's sequence is: C++ loads dylib → `mass_init_simulation` →
-`SetupSpatialQueriesFromRust`. unreal-module builds MassSchedule during
-`mass_init_simulation`. The plan phase verifies this ordering and — if it's
-wrong — moves MassSchedule construction earlier (e.g. into the first call
-after dylib load).
+1. `mass_init_simulation` runs → calls every `MassAppPluginRegistration.build_fn`
+   on the MassSchedule app → `SpatialGroupPlugin::build` pushes entries into
+   `SpatialGroupRegistry`.
+2. Immediately after plugin builds, `mass_init_simulation` copies
+   `SpatialGroupRegistry` entries into a module-level
+   `OnceLock<Vec<SpatialGroupEntry>>` in `unreal-module`. This is the same
+   pattern `register_shadow_world_accessors` uses today.
+3. `get_spatial_query_config_count/desc` FFI handlers read from *two* sources
+   and concatenate:
+   - Legacy: `inventory::iter::<MassSpatialQueryConfigRegistration>()` —
+     gatherers' sweep configs, unchanged.
+   - New: the module-level `SpatialGroupEntry` cache, synthesising one
+     `MassSpatialQueryConfigDesc` per entry with `query_type =
+     GridHashEnumerate` (new enum value).
+4. C++ `SetupSpatialQueriesFromRust` recognises the new `GridHashEnumerate`
+   value and installs a per-group enumerate callback into a new per-frame
+   slot (see "FFI — enumerate slot" below).
 
-`SpatialGroupRegistry` entries are converted into `MassSpatialQueryConfigDesc`
-values on the fly in the `get_spatial_query_config_desc` FFI handler,
-synthesising a `query_type: GridHashEnumerate` (new value, alongside the
-existing `GridHash` sweep). C++ recognises the new value and installs the
-enumerate callback (see below) instead of the sweep callback.
+C++ already calls `SetupSpatialQueriesFromRust` strictly after
+`mass_init_simulation`, so the ordering is already correct — no
+construction-order shuffling needed.
 
-### UE mode — `SpatialQueries::neighbors_within`
+### FFI — enumerate slot (direction matches existing sweep)
 
-Calls the new FFI entry `enumerate_in_radius(name, center, radius, out_buf,
-max) -> u32`, resolves each returned `entity_index` via `MassEntityMap`, and
-returns the list. Drops the `grids: Option<Res<SpatialGrids>>` field from the
-UE-mode `SystemParam`. `SpatialGrids` stays defined but is only used in Bevy
-mode.
+The existing sweep FFI is a C++ callback passed *into* Rust each frame via
+`MassSystemChunkBatch.spatial_queries` (an array of `MassSpatialQuerySlot`).
+Enumerate follows the same direction: C++ populates a parallel enumerate
+callback slot that Rust calls during system execution.
 
-### New FFI entry
+New FFI structs in `unreal-ffi/src/lib.rs`:
 
 ```rust
-// in unreal-ffi/src/lib.rs
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct MassSpatialNeighbor {
     pub entity_index: i32,
     pub _pad: i32,
     pub position: [f64; 3],
 }
 
+/// Enumerate all members of a named spatial group within `radius` of `center`.
+/// C++ writes `(entity_index, position)` pairs into `out[0..min(count, max)]`
+/// and returns the total count that would have been written if max were
+/// infinite — so Rust can detect truncation by testing `returned > max`.
 pub type MassSpatialEnumerateFn = unsafe extern "C" fn(
-    name: Utf8Str,
-    center: *const f64,    // [f64; 3]
+    center: *const f64,     // [f64; 3]
     radius: f32,
     out: *mut MassSpatialNeighbor,
     max: u32,
-) -> u32;  // returns count written (≤ max). If actual hit count > max,
-           // returns max; caller may have lost some. C++ logs once per name.
+) -> u32;
+
+/// One enumerate slot (parallel to the existing sweep `MassSpatialQuerySlot`).
+#[repr(C)]
+pub struct MassSpatialEnumerateSlot {
+    pub name: Utf8Str,
+    pub enumerate_fn: MassSpatialEnumerateFn,
+    pub radius: f32,
+    pub _pad: u32,
+}
 ```
 
-Exposed to Rust as an additional per-frame slot alongside the existing sweep
-trampoline array, or as a single subsystem-level extern pointer (decided
-during implementation). Adds one field on `RustBindings`:
-`pub mass_spatial_enumerate: Option<MassSpatialEnumerateFn>`.
+`MassFrameDispatchData` gains two new fields: `num_spatial_enumerates` and
+`spatial_enumerates: *const MassSpatialEnumerateSlot`. C++ populates the
+slot array in `URustMassBevySubsystem::RunSimulationProcessorStep` alongside
+the sweep slots. One enumerate callback per registered group (bound by
+group name via closure capture, same mechanism as the sweep path).
 
-### C++ enumerate callback
+Per-frame dispatch in Rust stashes the enumerate slots into
+`MassSpatialQueries` (the existing Bevy resource) under a new `enumerates:
+HashMap<String, (MassSpatialEnumerateFn, f32)>` field, alongside the
+existing `queries` (sweep) map.
+
+### UE mode — `SpatialQueries::neighbors_within`
+
+Calls `MassSpatialQueries::enumerate(name, center)`, which:
+1. Looks up the per-frame callback by name.
+2. Calls it into a `SmallVec<[MassSpatialNeighbor; 64]>` buffer, resizing
+   and retrying once if truncated.
+3. Resolves each `entity_index` via `MassEntityMap`.
+4. Returns `Vec<SpatialNeighbor>`.
+
+Drops the `grids: Option<Res<SpatialGrids>>` field from the UE-mode
+`SystemParam`. `SpatialGrids` stays defined but is only used in Bevy mode.
+
+`name_to_group()` cache in `spatial_query.rs unreal_impl` currently reads
+only `registered_spatial_query_configs()` (inventory). It needs to also
+read the module-level `SpatialGroupEntry` cache so
+`resolve_hit_entity(name, ...)` works for enumerate-registered groups too
+— relevant only if we ever call sweep against an enumerate-only group,
+but trivial to fix and prevents a silent `Entity::PLACEHOLDER` footgun.
+Cleanest: add a single unified accessor
+`unreal_module::spatial_name_to_group(name) -> Option<&'static str>` that
+both cache-populates from.
+
+### C++ enumerate callback (implementation)
 
 Mirrors `ExecuteGridHashSpatialQuery` in
 `RustPlugin/Source/RustPlugin/RustMassBevySubsystem.cpp`:
 
 1. Look up the group's ISMC + `EntityToIndex` + `FNavigationObstacleHashGrid2D`.
-2. `Grid.QuerySmall(BoundsAroundCenter(radius), Candidates)`.
+2. `Grid.QuerySmall(BoundsAroundCenter(center, radius), Candidates)`.
 3. For each candidate: validate entity → reverse-map → read transform →
-   `DistSquared <= r*r` filter (no closest-point-on-segment).
-4. Write `{entity_index, position}` into `out` until `max` reached.
+   `DistSquared(pos, center) <= r*r` filter (no closest-point-on-segment).
+4. Write `{entity_index, position}` into `out[0..min(count, max)]`; return
+   the uncapped count.
 
 ### Migration — vivarium
 
@@ -342,19 +425,52 @@ unchanged.
    EXIT CODE 0.
 7. `./scripts/pie.sh vivarium` — PIE visual smoke: birds flock.
 
+## Implementation order
+
+Reviewer-validated slice order, narrowest→widest:
+
+1. **Plugin + Bevy-mode tests.** `SpatialGroupPlugin`, `SpatialGroupRegistry`,
+   `SpatialGroupSet`, generic `rebuild_grid_system`. Vivarium unchanged.
+   Ships with unit tests proving rebuild runs, ordering works, two plugins
+   coexist. No FFI, no C++.
+2. **UE enumerate slots — FFI plumbing only.** Add
+   `MassSpatialNeighbor`, `MassSpatialEnumerateFn`,
+   `MassSpatialEnumerateSlot`, the new `MassFrameDispatchData` fields, and
+   the `MassSpatialQueries::enumerate` resource path. C++ side: an empty
+   slot array (enumerate_fn pointers exist but return 0 hits). No behaviour
+   change anywhere.
+3. **C++ enumerate callback + `GridHashEnumerate` config type.** C++
+   recognises the new `query_type`, registers a callback, implements
+   `ExecuteGridHashEnumerate`. At this point UE-mode
+   `SpatialQueries::neighbors_within` has two backends: the old Rust-side
+   mirror (still wired) and the new FFI path (wired for registered
+   enumerate groups). Test with a synthetic group before touching vivarium.
+4. **Vivarium migration.** Swap vivarium to `SpatialGroupPlugin`, delete
+   `rebuild_bird_grid_system`, drop the manual
+   `MassSpatialQueryConfigRegistration` submit, verify
+   `VivariumBirdsFlockAndStayBounded` still passes end-to-end.
+
+Each slice is independently mergeable.
+
 ## Open questions to resolve during planning
 
-- **Ordering of MassSchedule build vs `SetupSpatialQueriesFromRust`.** The
-  design assumes `MassSchedule` (and therefore all plugin `build()` calls)
-  run before C++ reads spatial configs. Plan phase verifies the actual
-  dylib-init sequence and, if needed, moves MassSchedule construction
-  earlier.
-- **Marker-tag and position-fragment name discovery.** The design assumes
-  `M` and `P` expose their C++ USTRUCT name via some trait already
-  implemented by `#[derive(MassFragment)]`. Plan phase confirms that
-  mechanism (and adds it if it's actually missing — e.g. a `MassFragment`
-  associated const `CPP_TYPE_NAME`). `MassVisualizerGroupRegistration`
-  takes these as string literals today, which suggests the derive does
-  not yet emit them automatically.
+- **Exact mechanism for passing `name + radius` from plugin constructor to
+  rebuild system.** Either a `PerGroupMeta<(M, P)>` resource (type-pair
+  keyed) or a closure capture. Type-pair keyed is one more resource per
+  group but avoids indirect capture. Plan picks one after a small
+  prototype.
+- **MassSchedule wiring for `MassAppPluginRegistration`.** Which lifecycle
+  point in `unreal-module` iterates the collection and calls each
+  `build_fn` on the shared App. Candidates: inside `mass_init_simulation`,
+  or a new one-shot init called from the dylib's first load. Plan phase
+  reads `unreal-module/src/lib.rs` and picks the obvious seam.
+- **Cap size for enumerate returns.** The FFI contract says "return
+  uncapped count, caller retries with bigger buffer." Initial
+  `SmallVec<[_; 64]>` stack buffer, grow to `Vec` on first truncation.
+  Plan phase verifies 64 is a reasonable default for vivarium's flocking
+  neighbour counts (radius 40, ~20 birds, expected <10 neighbours per
+  call).
 - **`TransformLike` import source.** Reuse the existing trait from
-  `bevy_mass::movement`. No new trait.
+  `bevy_mass::movement`. Resolved — no new trait needed.
+- **`MassFragment::CPP_TYPE_NAME`.** Confirmed already emitted by
+  `#[derive(MassFragment)]`. Resolved.
