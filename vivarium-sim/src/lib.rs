@@ -3,6 +3,7 @@ pub mod boundary;
 pub mod brownian;
 pub mod components;
 pub mod config;
+pub mod hunt;
 
 #[cfg(feature = "unreal")]
 pub mod unreal;
@@ -10,6 +11,12 @@ pub mod unreal;
 /// Install this sim's Bevy plugins into `app`. Called from both the
 /// standalone binary (directly from `main`) and the UE app (via
 /// `MassAppPluginRegistration` in `vivarium-sim/src/unreal/mod.rs`).
+///
+/// Note: this only installs `SpatialGroupPlugin`s — sim systems (wander,
+/// flocking, hunt, etc.) are added per-harness (standalone in
+/// `vivarium-standalone/src/main.rs`, UE via `MassScheduleOrder` in
+/// `unreal/mod.rs`). `BirdHuntStates` lives in the same tier — Task 4
+/// wires it into both harnesses. Tests in `hunt.rs` build their own app.
 pub fn install_plugins(app: &mut bevy_app::App) {
     use bevy_mass::prelude::*;
     use components::{Bird, Insect, Transform};
