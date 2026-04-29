@@ -19,14 +19,16 @@ use vivarium_sim::bird::{flocking_system, wander_system};
 use vivarium_sim::boundary::boundary_force_system;
 use vivarium_sim::brownian::brownian_motion_system;
 use vivarium_sim::components::{
-    Bird, BoundaryWrap, BrownianMotion, Flocking, Insect, PreviousTranslation, SimBounds,
-    Transform as SimTransform, Velocity, Wander,
+    Bird, BoundaryWrap, BrownianMotion, Flocking, Insect, Predator, PreviousTranslation,
+    SimBounds, Transform as SimTransform, Velocity, Wander,
 };
 use vivarium_sim::config::{
-    ALIGNMENT_WEIGHT, BIRD_COUNT, BIRD_RADIUS, BIRD_SPEED, BIRD_WANDER_STRENGTH, COHESION_WEIGHT,
-    INSECT_COUNT, INSECT_RADIUS, INSECT_SPEED, INSECT_WANDER_STRENGTH, SEPARATION_WEIGHT,
-    WORLD_HALF_SIZE,
+    ALIGNMENT_WEIGHT, BIRD_COUNT, BIRD_RADIUS, BIRD_SIGHT_HALF_ANGLE, BIRD_SIGHT_RANGE,
+    BIRD_SPEED, BIRD_WANDER_STRENGTH, COHESION_WEIGHT, INSECT_COUNT, INSECT_RADIUS,
+    INSECT_SPEED, INSECT_WANDER_STRENGTH, SEPARATION_WEIGHT, WORLD_HALF_SIZE,
 };
+use vivarium_sim::eating::{eating_system, InsectEaten};
+use vivarium_sim::hunt::{hunt_system, BirdHuntStates};
 
 const INSECT_COLOR: Color = Color::srgb(0.2, 0.8, 0.2);
 const BIRD_COLOR: Color = Color::srgb(0.9, 0.6, 0.2);
@@ -84,6 +86,8 @@ fn main() {
         .add_plugins(MovementPlugin::<SimTransform, PreviousTranslation, Velocity>::default())
         .insert_resource(capture)
         .insert_resource(SimBounds::default())
+        .insert_resource(BirdHuntStates::default())
+        .add_message::<InsectEaten>()
         .init_resource::<FrameCounter>();
 
     // Install sim-owned plugins (SpatialGroupPlugin::<Bird, Transform>::new("birds", ...), etc.)
@@ -101,6 +105,8 @@ fn main() {
                 brownian_motion_system,
                 wander_system,
                 flocking_system.in_set(SpatialGroupSet::Query),
+                hunt_system.in_set(SpatialGroupSet::Query),
+                eating_system.in_set(SpatialGroupSet::Query),
                 boundary_force_system,
                 sync_render_transforms,
                 capture_scheduled_screenshots,
@@ -255,6 +261,10 @@ fn spawn_birds(
                 separation_weight: SEPARATION_WEIGHT as f32,
                 alignment_weight: ALIGNMENT_WEIGHT as f32,
                 cohesion_weight: COHESION_WEIGHT as f32,
+            },
+            Predator {
+                sight_range: BIRD_SIGHT_RANGE,
+                sight_half_angle: BIRD_SIGHT_HALF_ANGLE,
             },
             Mesh3d(mesh.0.clone()),
             MeshMaterial3d(material.0.clone()),
