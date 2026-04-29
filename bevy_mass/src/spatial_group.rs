@@ -151,6 +151,9 @@ mod tests {
     #[derive(Component, Clone, Copy)]
     struct Bird;
 
+    #[derive(Component, Clone, Copy)]
+    struct Fish;
+
     #[test]
     fn plugin_registers_group_entry() {
         let mut app = App::new();
@@ -191,5 +194,35 @@ mod tests {
 
         let count = app.world().resource::<HitCount>().0;
         assert_eq!(count, 2, "query system must see both birds inserted by rebuild");
+    }
+
+    #[test]
+    fn two_plugins_coexist_with_different_markers() {
+        let mut app = App::new();
+        app.add_plugins(SpatialGroupPlugin::<Bird, Transform>::new("birds", 10.0));
+        app.add_plugins(SpatialGroupPlugin::<Fish, Transform>::new("fish", 5.0));
+
+        app.world_mut().spawn((Bird, Transform::from_translation(DVec3::ZERO)));
+        app.world_mut().spawn((Bird, Transform::from_translation(DVec3::new(3.0, 0.0, 0.0))));
+        app.world_mut().spawn((Fish, Transform::from_translation(DVec3::ZERO)));
+
+        app.update();
+
+        let grids = app.world().resource::<crate::spatial_query::SpatialGrids>();
+        let birds = grids.get("birds").expect("birds grid");
+        let fish = grids.get("fish").expect("fish grid");
+        assert_eq!(birds.neighbors_within(DVec3::ZERO, 10.0, None).len(), 2);
+        assert_eq!(fish.neighbors_within(DVec3::ZERO, 10.0, None).len(), 1);
+
+        let registry = app.world().resource::<SpatialGroupRegistry>();
+        assert_eq!(registry.entries.len(), 2);
+    }
+
+    #[test]
+    #[should_panic(expected = "already registered")]
+    fn duplicate_group_name_panics() {
+        let mut app = App::new();
+        app.add_plugins(SpatialGroupPlugin::<Bird, Transform>::new("birds", 10.0));
+        app.add_plugins(SpatialGroupPlugin::<Fish, Transform>::new("birds", 20.0));
     }
 }
