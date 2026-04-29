@@ -363,9 +363,12 @@ impl MassEntityMap {
 // ---------------------------------------------------------------------------
 
 /// Bevy resource holding all named spatial query callbacks for the current frame.
-/// Game systems access queries by name: `spatial.call("food_pickup", &prev, &cur)`.
+/// Game systems access queries by name:
+///   - `spatial.call("food_pickup", &prev, &cur)` — sweep
+///   - `spatial.enumerate("birds", &center, radius, max)` — hash-grid
 pub struct MassSpatialQueries {
     queries: std::collections::HashMap<String, (unreal_ffi::MassSpatialQueryFn, f32)>,
+    enumerates: std::collections::HashMap<String, (unreal_ffi::MassSpatialEnumerateFn, f32)>,
 }
 
 impl bevy_ecs::prelude::Resource for MassSpatialQueries {}
@@ -376,22 +379,34 @@ impl Default for MassSpatialQueries {
     fn default() -> Self {
         Self {
             queries: std::collections::HashMap::new(),
+            enumerates: std::collections::HashMap::new(),
         }
     }
 }
 
 impl MassSpatialQueries {
-    /// Clear all queries (called at start of each frame before population).
+    /// Clear all queries and enumerates (start of each frame).
     pub fn clear(&mut self) {
         self.queries.clear();
+        self.enumerates.clear();
     }
 
-    /// Insert a named query callback + radius.
+    /// Insert a named sweep query callback + radius.
     pub fn insert(&mut self, name: String, query_fn: unreal_ffi::MassSpatialQueryFn, radius: f32) {
         self.queries.insert(name, (query_fn, radius));
     }
 
-    /// Call a named spatial query. Returns None if query not registered this frame.
+    /// Insert a named enumerate callback + radius.
+    pub fn insert_enumerate(
+        &mut self,
+        name: String,
+        enumerate_fn: unreal_ffi::MassSpatialEnumerateFn,
+        radius: f32,
+    ) {
+        self.enumerates.insert(name, (enumerate_fn, radius));
+    }
+
+    /// Call a named sweep query. Returns None if not registered this frame.
     pub fn call(
         &self,
         name: &str,
@@ -414,11 +429,43 @@ impl MassSpatialQueries {
                 &mut result,
             )
         };
-        if ok != 0 {
-            Some(result)
-        } else {
-            None
+        if ok != 0 { Some(result) } else { None }
+    }
+
+    /// Enumerate neighbours in the named group within `radius` of `center`.
+    /// Allocates a `Vec` with initial capacity `initial_max` and retries with
+    /// a larger one if C++ reports truncation. Empty `Vec` if the name is
+    /// not registered for this frame (no silent panic — caller treats
+    /// missing enumerate the same as "no neighbours").
+    pub fn enumerate(
+        &self,
+        name: &str,
+        center: &[f64; 3],
+        radius: f32,
+        initial_max: u32,
+    ) -> Vec<unreal_ffi::MassSpatialNeighbor> {
+        let Some((enumerate_fn, _registered_radius)) = self.enumerates.get(name) else {
+            return Vec::new();
+        };
+        // Reserve `initial_max` slots; grow once if truncated.
+        let mut buf: Vec<unreal_ffi::MassSpatialNeighbor> =
+            Vec::with_capacity(initial_max as usize);
+        let returned = unsafe {
+            enumerate_fn(center.as_ptr(), radius, buf.as_mut_ptr(), initial_max)
+        };
+        if returned <= initial_max {
+            unsafe { buf.set_len(returned as usize) };
+            return buf;
         }
+        // Truncation: C++ said it had `returned` hits; retry with a big enough buffer.
+        let mut grown: Vec<unreal_ffi::MassSpatialNeighbor> =
+            Vec::with_capacity(returned as usize);
+        let actual = unsafe {
+            enumerate_fn(center.as_ptr(), radius, grown.as_mut_ptr(), returned)
+        };
+        let len = core::cmp::min(actual, returned) as usize;
+        unsafe { grown.set_len(len) };
+        grown
     }
 }
 
@@ -2956,5 +3003,17 @@ mod tests {
             vec!["system_from_fresh_frame"],
             "fresh-frame drain should contain only the samples recorded after prepare_mass_frame"
         );
+    }
+}
+
+#[cfg(test)]
+mod mass_spatial_queries_enumerate_tests {
+    use super::*;
+
+    #[test]
+    fn enumerate_returns_none_when_unregistered() {
+        let queries = MassSpatialQueries::default();
+        let hits = queries.enumerate("absent", &[0.0, 0.0, 0.0], 10.0, 32);
+        assert!(hits.is_empty());
     }
 }
