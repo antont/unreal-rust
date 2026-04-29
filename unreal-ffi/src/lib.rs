@@ -232,6 +232,47 @@ pub struct MassSpatialQuerySlot {
     pub _pad: u32,
 }
 
+/// One neighbour returned by a spatial-group enumerate callback.
+#[repr(C)]
+#[derive(Clone, Copy, Debug)]
+pub struct MassSpatialNeighbor {
+    /// Group-local instance index (matches `MassEntityMap` index).
+    pub entity_index: i32,
+    pub _pad: i32,
+    /// World-space position [x, y, z].
+    pub position: [f64; 3],
+}
+
+/// C++ callback: enumerate all members of a named spatial group within
+/// `radius` of `center`. Writes up to `max` `(entity_index, position)` pairs
+/// into `out` and returns the total count that would have been written if
+/// `max` were infinite, so Rust can detect truncation by testing
+/// `returned > max` and retry with a larger buffer.
+///
+/// # Safety
+/// `center` must point to `[f64; 3]`. `out` must point to an array of at
+/// least `max` `MassSpatialNeighbor` entries (may be null iff `max == 0`).
+pub type MassSpatialEnumerateFn = unsafe extern "C" fn(
+    center: *const f64,
+    radius: f32,
+    out: *mut MassSpatialNeighbor,
+    max: u32,
+) -> u32;
+
+/// One named enumerate slot in the per-frame dispatch. Parallel structure
+/// to `MassSpatialQuerySlot` (sweep) — C++ populates one per registered
+/// `SpatialGroupEntry` each frame.
+#[repr(C)]
+pub struct MassSpatialEnumerateSlot {
+    /// Group name (e.g. "birds"). Borrowed from C++ — valid this frame.
+    pub name: Utf8Str,
+    /// Callback that enumerates this group.
+    pub enumerate_fn: MassSpatialEnumerateFn,
+    /// Group radius (for informational use; per-call radius may be smaller).
+    pub radius: f32,
+    pub _pad: u32,
+}
+
 /// Per-frame dispatch data: dt + all system chunk batches + named spatial queries.
 #[repr(C)]
 pub struct MassFrameDispatchData {
@@ -1113,6 +1154,25 @@ mod tests {
         assert_eq!(std::mem::offset_of!(MassSpatialQuerySlot, name), 0);
         assert_eq!(std::mem::offset_of!(MassSpatialQuerySlot, query_fn), 16);
         assert_eq!(std::mem::offset_of!(MassSpatialQuerySlot, radius), 24);
+    }
+
+    #[test]
+    fn mass_spatial_neighbor_layout() {
+        // i32(4) + i32(4) + [f64;3](24) = 32
+        assert_eq!(std::mem::size_of::<MassSpatialNeighbor>(), 32);
+        assert_eq!(std::mem::align_of::<MassSpatialNeighbor>(), 8);
+        assert_eq!(std::mem::offset_of!(MassSpatialNeighbor, entity_index), 0);
+        assert_eq!(std::mem::offset_of!(MassSpatialNeighbor, position), 8);
+    }
+
+    #[test]
+    fn mass_spatial_enumerate_slot_layout() {
+        // Utf8Str(16) + fn_ptr(8) + f32(4) + u32(4) = 32
+        assert_eq!(std::mem::size_of::<MassSpatialEnumerateSlot>(), 32);
+        assert_eq!(std::mem::align_of::<MassSpatialEnumerateSlot>(), 8);
+        assert_eq!(std::mem::offset_of!(MassSpatialEnumerateSlot, name), 0);
+        assert_eq!(std::mem::offset_of!(MassSpatialEnumerateSlot, enumerate_fn), 16);
+        assert_eq!(std::mem::offset_of!(MassSpatialEnumerateSlot, radius), 24);
     }
 
     #[test]
