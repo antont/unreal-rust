@@ -67,7 +67,11 @@ pub mod prelude {
     // Spatial query facade. `SpatialQueries` is the game-facing
     // `SystemParam` that hides the `MassEntityMap` borrow; `SpatialQuery`
     // is the underlying resource used by the frame dispatcher.
-    pub use crate::spatial_query::{SpatialQueries, SpatialQuery, SpatialHit};
+    // `SpatialGrids` + `SpatialNeighbor` are the owned cell-grid backing
+    // for `neighbors_within` (enumeration queries used by flocking etc).
+    pub use crate::spatial_query::{
+        SpatialGrids, SpatialHit, SpatialNeighbor, SpatialQueries, SpatialQuery,
+    };
 
     // mass_system attribute macro — available unconditionally.
     // In Bevy mode it's a no-op (passes through the original function).
@@ -102,7 +106,7 @@ pub use query::BevyQuery;
 pub use components::{Transform, Velocity, SimpleMovementTag};
 pub use movement::{TransformLike, PrevTranslationLike, VelocityLike, MovementPlugin};
 pub use query_all::EntityIndex;
-pub use spatial_query::{SpatialQueries, SpatialQuery, SpatialHit};
+pub use spatial_query::{SpatialGrids, SpatialHit, SpatialNeighbor, SpatialQueries, SpatialQuery};
 
 /// Define a MassFragment struct with correct attributes for both Bevy and Unreal modes.
 ///

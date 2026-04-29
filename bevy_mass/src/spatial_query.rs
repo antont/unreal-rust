@@ -22,11 +22,25 @@
 //! public so the frame-dispatch code in `unreal-module` can install
 //! per-frame sweep callbacks.
 //!
-//! In Bevy mode, `SpatialQuery` / `SpatialQueries` are stubs — collision
-//! detection uses direct Bevy queries instead. The types exist so code
-//! referencing them compiles in both modes.
+//! Two query shapes are exposed:
+//!
+//! - [`SpatialQueries::call`] — single-hit sweep (UE physics / nav-hash
+//!   grid). Returns the closest encounter along a prev → curr segment.
+//! - [`SpatialQueries::neighbors_within`] — enumerate all members of a
+//!   group within `radius` of a center point. Backed by an owned cell
+//!   grid in Bevy mode and (future) UE hash-grid enumeration in Unreal
+//!   mode. Used by behaviours like flocking that need the full
+//!   neighbourhood rather than just the nearest.
+//!
+//! In Bevy mode, `SpatialQueries::call` stays a stub (collision uses
+//! direct Bevy queries), but `neighbors_within` is backed by a real
+//! [`SpatialGrids`] resource — rebuilt per frame by the sim — so Bevy
+//! harnesses can do flocking without UE.
 
+use bevy_ecs::entity::Entity;
 use glam::DVec3;
+
+pub use grids::{SpatialGrids, SpatialNeighbor};
 
 /// Result of a spatial query sweep.
 #[derive(Debug, Clone, Copy)]
@@ -41,6 +55,199 @@ pub struct SpatialHit {
     pub entity: bevy_ecs::entity::Entity,
     /// Position where the encounter occurred.
     pub position: DVec3,
+}
+
+// ---------------------------------------------------------------------------
+// SpatialGrids — owned cell-grid resource, shared by both backends.
+//
+// Backend-independent: UE has its own hash grid (FNavigationObstacleHashGrid2D)
+// but the `neighbors_within` enumeration surface needs a Rust-side structure
+// the facade can query. The same resource doubles as the Bevy-mode backing
+// store. In UE mode it remains empty until the enumerate-in-radius FFI
+// wrapper is added (Phase 2a follow-up).
+// ---------------------------------------------------------------------------
+mod grids {
+    use super::*;
+    use bevy_ecs::prelude::Resource;
+    use std::collections::HashMap;
+
+    /// One neighbour returned by `SpatialQueries::neighbors_within`.
+    #[derive(Debug, Clone, Copy)]
+    pub struct SpatialNeighbor {
+        /// Other entity's Bevy `Entity`.
+        pub entity: Entity,
+        /// Other entity's current translation.
+        pub position: DVec3,
+    }
+
+    /// 3D cell grid backing a single named group (e.g. "birds").
+    ///
+    /// Caller rebuilds per frame via `clear` + `insert` before the first
+    /// `neighbors_within` call, typical pattern:
+    ///
+    /// ```ignore
+    /// fn rebuild_bird_grid(
+    ///     mut grids: ResMut<SpatialGrids>,
+    ///     birds: Query<(Entity, &Transform), With<Bird>>,
+    /// ) {
+    ///     let grid = grids.grid_mut("birds", FLOCK_NEIGHBOR_RADIUS);
+    ///     grid.clear();
+    ///     for (e, t) in &birds {
+    ///         grid.insert(e, t.translation);
+    ///     }
+    /// }
+    /// ```
+    #[derive(Default)]
+    pub struct SpatialGrid {
+        cell_size: f64,
+        map: HashMap<(i32, i32, i32), Vec<SpatialNeighbor>>,
+    }
+
+    impl SpatialGrid {
+        pub fn new(cell_size: f64) -> Self {
+            Self {
+                cell_size: cell_size.max(1e-6),
+                map: HashMap::new(),
+            }
+        }
+
+        /// Cell size used when bucketing positions. Setting this rebuilds
+        /// the bucket index on next `insert`; callers should `clear` first.
+        pub fn set_cell_size(&mut self, cell_size: f64) {
+            self.cell_size = cell_size.max(1e-6);
+        }
+
+        pub fn clear(&mut self) {
+            for bucket in self.map.values_mut() {
+                bucket.clear();
+            }
+        }
+
+        pub fn insert(&mut self, entity: Entity, position: DVec3) {
+            let key = self.cell_key(position);
+            self.map
+                .entry(key)
+                .or_default()
+                .push(SpatialNeighbor { entity, position });
+        }
+
+        fn cell_key(&self, pos: DVec3) -> (i32, i32, i32) {
+            (
+                (pos.x / self.cell_size).floor() as i32,
+                (pos.y / self.cell_size).floor() as i32,
+                (pos.z / self.cell_size).floor() as i32,
+            )
+        }
+
+        /// Enumerate all entries within `radius` of `center`, excluding any
+        /// entry matching `exclude` (typically the querying entity itself).
+        /// Scans the 3×3×3 cell neighbourhood — correct iff `cell_size >=
+        /// radius`, which `grid_mut` enforces.
+        pub fn neighbors_within(
+            &self,
+            center: DVec3,
+            radius: f64,
+            exclude: Option<Entity>,
+        ) -> Vec<SpatialNeighbor> {
+            let r2 = radius * radius;
+            let c = self.cell_key(center);
+            let mut out = Vec::new();
+            for dx in -1..=1 {
+                for dy in -1..=1 {
+                    for dz in -1..=1 {
+                        let key = (c.0 + dx, c.1 + dy, c.2 + dz);
+                        let Some(bucket) = self.map.get(&key) else {
+                            continue;
+                        };
+                        for entry in bucket {
+                            if Some(entry.entity) == exclude {
+                                continue;
+                            }
+                            let d = entry.position - center;
+                            if d.length_squared() <= r2 {
+                                out.push(*entry);
+                            }
+                        }
+                    }
+                }
+            }
+            out
+        }
+    }
+
+    /// Collection of named per-group `SpatialGrid`s. One resource covers
+    /// every group the sim does `neighbors_within` on.
+    #[derive(Resource, Default)]
+    pub struct SpatialGrids {
+        grids: HashMap<String, SpatialGrid>,
+    }
+
+    impl SpatialGrids {
+        /// Get-or-create the grid for `name`. If the stored cell_size is
+        /// smaller than `min_cell_size`, it's grown — a 3×3×3 scan is
+        /// correct only when `cell_size >= radius`.
+        pub fn grid_mut(&mut self, name: &str, min_cell_size: f64) -> &mut SpatialGrid {
+            let grid = self
+                .grids
+                .entry(name.to_string())
+                .or_insert_with(|| SpatialGrid::new(min_cell_size));
+            if grid.cell_size < min_cell_size {
+                grid.set_cell_size(min_cell_size);
+            }
+            grid
+        }
+
+        pub fn get(&self, name: &str) -> Option<&SpatialGrid> {
+            self.grids.get(name)
+        }
+    }
+
+    #[cfg(test)]
+    mod tests {
+        use super::*;
+
+        fn e(n: u32) -> Entity {
+            Entity::from_raw_u32(n.saturating_add(1)).expect("valid entity index")
+        }
+
+        #[test]
+        fn within_radius_returns_hits_outside_excluded() {
+            let mut g = SpatialGrid::new(10.0);
+            g.insert(e(0), DVec3::new(0.0, 0.0, 0.0));
+            g.insert(e(1), DVec3::new(2.0, 0.0, 0.0));
+            g.insert(e(2), DVec3::new(9.0, 0.0, 0.0));
+            let hits = g.neighbors_within(DVec3::ZERO, 5.0, Some(e(0)));
+            let ids: Vec<_> = hits.iter().map(|h| h.entity).collect();
+            assert_eq!(ids, vec![e(1)]);
+        }
+
+        #[test]
+        fn beyond_neighbor_cells_is_not_found() {
+            // Cell size = 5, radius = 5 → 3×3×3 scan covers ±15 units. An
+            // entity at x=30 must fall outside the scan and be missed. This
+            // is a *desired* behaviour — cell_size must be >= radius.
+            let mut g = SpatialGrid::new(5.0);
+            g.insert(e(0), DVec3::new(30.0, 0.0, 0.0));
+            let hits = g.neighbors_within(DVec3::ZERO, 5.0, None);
+            assert!(hits.is_empty());
+        }
+
+        #[test]
+        fn grid_mut_grows_cell_size_when_smaller() {
+            let mut gs = SpatialGrids::default();
+            gs.grid_mut("birds", 10.0);
+            gs.grid_mut("birds", 20.0); // grows
+            assert!(gs.get("birds").unwrap().cell_size >= 20.0);
+        }
+
+        #[test]
+        fn boundary_entity_at_exact_radius_included() {
+            let mut g = SpatialGrid::new(10.0);
+            g.insert(e(0), DVec3::new(5.0, 0.0, 0.0));
+            let hits = g.neighbors_within(DVec3::ZERO, 5.0, None);
+            assert_eq!(hits.len(), 1, "entity exactly at radius should be inclusive");
+        }
+    }
 }
 
 // ---------------------------------------------------------------------------
@@ -80,18 +287,37 @@ mod bevy_impl {
         }
     }
 
-    /// Stub `SystemParam` — mirrors the Unreal-mode signature so systems
-    /// using `SpatialQueries` compile cleanly in Bevy mode. Always yields
-    /// `None` from `call`. The `Local` anchor gives the derive a real
-    /// param to work with (empty SystemParam structs aren't supported).
+    /// Bevy-mode `SystemParam`. `call` is a stub (collision uses direct
+    /// Bevy queries); `neighbors_within` is backed by [`SpatialGrids`]
+    /// and returns real results as long as the sim rebuilds the matching
+    /// grid before this system runs.
     #[derive(bevy_ecs::system::SystemParam)]
-    pub struct SpatialQueries<'s> {
-        _anchor: bevy_ecs::system::Local<'s, ()>,
+    pub struct SpatialQueries<'w> {
+        grids: Option<bevy_ecs::system::Res<'w, super::SpatialGrids>>,
     }
 
-    impl<'s> SpatialQueries<'s> {
+    impl<'w> SpatialQueries<'w> {
         pub fn call(&self, _name: &str, _prev: &DVec3, _curr: &DVec3) -> Option<SpatialHit> {
             None
+        }
+
+        /// Enumerate neighbours in group `name` within `radius` of `center`,
+        /// excluding the optional querying entity. Empty `Vec` if the grid
+        /// has not been populated this frame.
+        pub fn neighbors_within(
+            &self,
+            name: &str,
+            center: &DVec3,
+            radius: f64,
+            exclude: Option<bevy_ecs::entity::Entity>,
+        ) -> Vec<super::SpatialNeighbor> {
+            let Some(grids) = self.grids.as_ref() else {
+                return Vec::new();
+            };
+            let Some(grid) = grids.get(name) else {
+                return Vec::new();
+            };
+            grid.neighbors_within(*center, radius, exclude)
         }
     }
 }
@@ -223,6 +449,7 @@ mod unreal_impl {
     pub struct SpatialQueries<'w> {
         spatial: bevy_ecs::system::Res<'w, SpatialQuery>,
         map: bevy_ecs::system::Res<'w, MassEntityMap>,
+        grids: Option<bevy_ecs::system::Res<'w, super::SpatialGrids>>,
     }
 
     impl<'w> SpatialQueries<'w> {
@@ -230,6 +457,27 @@ mod unreal_impl {
         /// [`SpatialQueryWithMap::call`] for the full contract.
         pub fn call(&self, name: &str, prev: &DVec3, curr: &DVec3) -> Option<SpatialHit> {
             self.spatial.with_map(&self.map).call(name, prev, curr)
+        }
+
+        /// Enumerate neighbours in group `name` within `radius` of `center`.
+        /// Backed by [`super::SpatialGrids`] — a Rust-side cell grid the sim
+        /// rebuilds per frame. UE-side hash-grid enumeration through the
+        /// FFI is a Phase-2a follow-up; until then UE-mode flocking works
+        /// by rebuilding the Rust grid from shadow-entity reads.
+        pub fn neighbors_within(
+            &self,
+            name: &str,
+            center: &DVec3,
+            radius: f64,
+            exclude: Option<bevy_ecs::entity::Entity>,
+        ) -> Vec<super::SpatialNeighbor> {
+            let Some(grids) = self.grids.as_ref() else {
+                return Vec::new();
+            };
+            let Some(grid) = grids.get(name) else {
+                return Vec::new();
+            };
+            grid.neighbors_within(*center, radius, exclude)
         }
     }
 }
