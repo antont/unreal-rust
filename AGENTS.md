@@ -2,7 +2,7 @@
 
 ## Project overview
 
-Fork of [MaikKlein/unreal-rust](https://github.com/MaikKlein/unreal-rust) adding zero-copy Mass Entity integration for UE 5.7 on macOS. Game developers write simulation logic, entity setup, and tests entirely in Rust — no C++ per-game code.
+Fork of [MaikKlein/unreal-rust](https://github.com/MaikKlein/unreal-rust) adding zero-copy Mass Entity integration for UE 5.7 (macOS and Windows). Game developers write simulation logic, entity setup, and tests entirely in Rust — no C++ per-game code.
 
 Example: ant colony simulation (gatherers) with ~5000 entities across two crates: `gatherers-sim` (pure logic) and `gatherers-bevy-mass` (UE integration, fragments, tests).
 
@@ -21,16 +21,7 @@ Key patterns: `inventory::submit!` for registration, `#[mass_system]` macro (han
 **Always run tests after code changes.** See `docs/testing.md` for full details and flags.
 
 - **Rust tests**: `cargo test` (or `-p <crate>`). Fast, no UE needed.
-- **UE automation tests**: Run after ANY change that affects Unreal-mode codegen or runtime behavior (proc macros, `#[cfg(feature = "unreal")]` code, FFI types). Rust-only tests cannot catch UE dispatch issues.
-  ```bash
-  cargo build --release -p unreal-rust-host
-  "/Users/Shared/Epic Games/UE_5.7/Engine/Binaries/Mac/UnrealEditor" \
-    "/Users/tonialatalo/src/unreal-rust/example/RustExample/RustExample.uproject" \
-    -ExecCmds="Automation RunTests supplemental.RustPlugin.Gatherers;Quit" \
-    -stdout -FullStdOutLogOutput
-  # Check results (shell exit code is unreliable):
-  grep "TEST COMPLETE. EXIT CODE" "/Users/tonialatalo/Library/Logs/Unreal Engine/RustExampleEditor/RustExample.log"
-  ```
+- **UE automation tests**: Run after ANY change that affects Unreal-mode codegen or runtime behavior (proc macros, `#[cfg(feature = "unreal")]` code, FFI types). Rust-only tests cannot catch UE dispatch issues. See `docs/testing.md` for the full command (macOS + Windows variants) and log-path details. Shell exit code is unreliable — grep the log for `TEST COMPLETE. EXIT CODE`.
 - **C++ build**: Only when C++ files change. See `docs/testing.md`.
 
 Prefer **Rust-authored UE tests** for game logic — write in `gatherers-bevy-mass/src/ue_tests.rs` using `inventory::submit!(MassTestRegistration { ... })`. No C++ needed. See existing tests for the pattern.

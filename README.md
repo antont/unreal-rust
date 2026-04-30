@@ -45,7 +45,7 @@ I am releasing `unreal-rust` on github to develop it in the open.
 ## 🖥️ Supported Platforms
 
 * 🐧 Linux
-* 🪟 Windows
+* 🪟 Windows (this fork)
 * 🍎 macOS (this fork)
 
 Potential future platforms: iOS, Android, html5/browser(possibly)
@@ -89,25 +89,20 @@ git submodule update --init
 
 Next we need to setup the example
 
-- - Linux `sh setup.sh`
-- - Windows `setup.bat`
+- - Linux / macOS: `sh setup.sh`
+- - Windows: `Setup.bat`
 
-This will symlink the `RustPlugin` into the unreal `example/RustExample/Plugin` folder.
+This will symlink the `RustPlugin` into the unreal `example/RustExample/Plugins` folder, build the loader, and deploy it to `example/RustExample/Binaries/`.
 
-Now we need to build the actual Rust code:
+On Windows, `mklink /D` requires either **Developer Mode** (Settings → For developers → Developer Mode) or an elevated Command Prompt. `Setup.bat` prints a hint if the symlink step fails.
 
-Simply run
+Now build the host library:
 
 ```
-cargo build --release
+cargo build --release -p unreal-rust-host
 ```
 
-This will build the whole project. This also produces our dll that we are going to load into Unreal.
-
-Copy the dll/so file into the project 
-
-* Linux: `cp target/release/libunreal_rust_example.so example/RustExample/Binaries/rustplugin.so`
-* Windows: `copy .\target\release\unreal_rust_example.dll .\example\RustExample\Binaries\rustplugin.dll`
+This produces the dylib/dll/so that Unreal loads via the loader chain. Artifacts land in `target/release/` and are resolved automatically — no manual copy needed (the build-time target dir is baked into the loader).
 
 Now we need to build the unreal example
 

@@ -55,16 +55,30 @@ Unreal loads the **release** build. Debug builds are not used.
 cargo build --release -p unreal-rust-host
 ```
 
-The dylib lands at `target/release/libunreal_rust_host.dylib`. Unreal hot-reloads it via the loader chain (`unreal_rust_loader.dylib` -> `libunreal_rust_host.dylib`).
+The artifact lands in `target/release/`:
+- macOS: `libunreal_rust_host.dylib`
+- Linux: `libunreal_rust_host.so`
+- Windows: `unreal_rust_host.dll`
+
+Unreal hot-reloads it via the loader chain (`unreal_rust_loader.{dylib,so,dll}` -> host lib).
 
 ## Unreal C++ automation tests
 
 Run from CLI — no need to open the full editor GUI. A black window with log output will appear briefly.
 
+**macOS:**
 ```bash
 "/Users/Shared/Epic Games/UE_5.7/Engine/Binaries/Mac/UnrealEditor" \
-  "/Users/tonialatalo/src/unreal-rust/example/RustExample/RustExample.uproject" \
+  "$(pwd)/example/RustExample/RustExample.uproject" \
   -ExecCmds="Automation RunTests supplemental.RustPlugin.Gatherers;Quit" \
+  -stdout -FullStdOutLogOutput
+```
+
+**Windows** (adjust engine path to match your install):
+```cmd
+"C:\Program Files\Epic Games\UE_5.7\Engine\Binaries\Win64\UnrealEditor.exe" ^
+  "%CD%\example\RustExample\RustExample.uproject" ^
+  -ExecCmds="Automation RunTests supplemental.RustPlugin.Gatherers;Quit" ^
   -stdout -FullStdOutLogOutput
 ```
 
@@ -73,11 +87,15 @@ Run from CLI — no need to open the full editor GUI. A black window with log ou
 - `-Unattended`
 - `-game`
 
-The shell exit code is always non-zero (editor shutdown quirk). Check actual results in the UE log:
+The shell exit code is always non-zero (editor shutdown quirk). Check actual results in the UE log.
+
+**macOS log path:** `~/Library/Logs/Unreal Engine/RustExampleEditor/RustExample.log`
+**Windows log path:** `example\RustExample\Saved\Logs\RustExample.log` (under the project dir)
 
 ```bash
-grep "Test Completed" "/Users/tonialatalo/Library/Logs/Unreal Engine/RustExampleEditor/RustExample.log"
-grep "TEST COMPLETE. EXIT CODE" "/Users/tonialatalo/Library/Logs/Unreal Engine/RustExampleEditor/RustExample.log"
+# macOS
+grep "Test Completed" "$HOME/Library/Logs/Unreal Engine/RustExampleEditor/RustExample.log"
+grep "TEST COMPLETE. EXIT CODE" "$HOME/Library/Logs/Unreal Engine/RustExampleEditor/RustExample.log"
 ```
 
 `EXIT CODE: 0` = all tests passed, `EXIT CODE: -1` = failures.
@@ -129,16 +147,25 @@ Unlike the other `[perf]` / `[scale-sweep]` tests — which call `Subsystem->Tic
 Diagnostic-only: no pass/fail on frame times. Results land in the UE log as `[pie-perf]` lines and in the utrace bracketed by `PIEPerf: Begin/End <scenario>` bookmarks.
 
 ```bash
-# Run both PIE scenarios (1k and 10k ants) with trace capture
+# macOS — run both PIE scenarios (1k and 10k ants) with trace capture
 "/Users/Shared/Epic Games/UE_5.7/Engine/Binaries/Mac/UnrealEditor" \
-  "/Users/tonialatalo/src/unreal-rust/example/RustExample/RustExample.uproject" \
+  "$(pwd)/example/RustExample/RustExample.uproject" \
   -trace=cpu,frame,bookmark \
   -ExecCmds="Automation RunTests supplemental.RustPlugin.Gatherers.PIE;Quit" \
   -stdout -FullStdOutLogOutput
 
 # Read the per-scenario summary lines
 grep "\[pie-perf\]" \
-  "/Users/tonialatalo/Library/Logs/Unreal Engine/RustExampleEditor/RustExample.log"
+  "$HOME/Library/Logs/Unreal Engine/RustExampleEditor/RustExample.log"
+```
+
+```cmd
+REM Windows equivalent
+"C:\Program Files\Epic Games\UE_5.7\Engine\Binaries\Win64\UnrealEditor.exe" ^
+  "%CD%\example\RustExample\RustExample.uproject" ^
+  -trace=cpu,frame,bookmark ^
+  -ExecCmds="Automation RunTests supplemental.RustPlugin.Gatherers.PIE;Quit" ^
+  -stdout -FullStdOutLogOutput
 ```
 
 Traces captured with `-trace` are written to the UnrealTraceServer store at `~/UnrealEngine/UnrealTrace/Store/001/*.utrace`. Open the newest one in `UnrealInsights.app` to see `PIEPerf: Begin/End` bookmarks alongside RenderThread / GameThread / MassSimulation scopes and the five `RustMass_*` CPU scopes inside the subsystem.
@@ -281,8 +308,16 @@ The determinism comes from `bevy::time::TimeUpdateStrategy::ManualDuration(1/60s
 
 ## Unreal C++ build (CLI)
 
+**macOS:**
 ```bash
 "/Users/Shared/Epic Games/UE_5.7/Engine/Build/BatchFiles/Mac/Build.sh" \
   RustExampleEditor Mac Development \
-  "/Users/tonialatalo/src/unreal-rust/example/RustExample/RustExample.uproject"
+  "$(pwd)/example/RustExample/RustExample.uproject"
+```
+
+**Windows** (adjust engine path to match your install):
+```cmd
+"C:\Program Files\Epic Games\UE_5.7\Engine\Build\BatchFiles\Build.bat" ^
+  RustExampleEditor Win64 Development ^
+  "%CD%\example\RustExample\RustExample.uproject"
 ```
